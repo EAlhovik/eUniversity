@@ -39,7 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEUniversityUow.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
+      <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
+      <Name>eUniversity.Business.Domain.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

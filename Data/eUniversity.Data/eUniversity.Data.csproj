@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,7 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\RoleConfiguration.cs" />
+    <Compile Include="Configuration\UserConfiguration.cs" />
+    <Compile Include="EUniversityDataBaseInitializer.cs" />
+    <Compile Include="EUniversityDbContext.cs" />
+    <Compile Include="EUniversityUow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EFRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
+      <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
+      <Name>eUniversity.Business.Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eUniversity.Data.Contracts\eUniversity.Data.Contracts.csproj">
+      <Project>{A8BD361F-A76F-47BD-8855-28EAE94853DF}</Project>
+      <Name>eUniversity.Data.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

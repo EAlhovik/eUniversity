@@ -44,6 +44,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.3.2.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.Mvc5.3.1.0\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\DotNetOpenAuth.AspNet.4.0.4.12182\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
@@ -170,6 +178,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Dependencies\DataAccessModule.cs" />
+    <Compile Include="Dependencies\DomainServicesModule.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,7 +260,9 @@
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
     <Content Include="Scripts\modernizr-2.7.1.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -295,6 +307,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
+      <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
+      <Name>eUniversity.Business.Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\eUniversity.Data.Contracts\eUniversity.Data.Contracts.csproj">
+      <Project>{A8BD361F-A76F-47BD-8855-28EAE94853DF}</Project>
+      <Name>eUniversity.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\eUniversity.Data\eUniversity.Data.csproj">
+      <Project>{979B9289-21A8-4F3D-AA0C-0D92093ADF4C}</Project>
+      <Name>eUniversity.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
