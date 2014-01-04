@@ -1,14 +1,14 @@
 ﻿using Autofac;
-using Autofac.Integration.Mvc;
+using eUniversity.Business.Services.Auth;
 
 namespace eUniversity.Web.Dependencies
 {
-    //public class DomainServicesModule : Module
-    //{
-    //    protected override void Load(ContainerBuilder builder)
-    //    {
-    //        //builder.RegisterAssemblyTypes(typeof(MembershipService).Assembly)
-    //        //    .Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
+    public class DomainServicesModule : Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterAssemblyTypes(typeof(UserService).Assembly)
+                .Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
             
     //        //builder.RegisterType(typeof(FormsAuthProvider)).AsImplementedInterfaces();
 
@@ -16,6 +16,6 @@ namespace eUniversity.Web.Dependencies
     //        //builder.RegisterType(typeof(AutomapperConfigurator)).AsSelf().InstancePerHttpRequest();
 
     //        base.Load(builder);
-    //    }
-    //}
+        }
+    }
 }

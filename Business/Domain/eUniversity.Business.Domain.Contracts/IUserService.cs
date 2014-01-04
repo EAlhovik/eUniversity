@@ -12,5 +12,18 @@
         /// <param name="password">The password.</param>
         /// <returns> true if the supplied user name and password are valid; otherwise, false.  </returns>
         bool ValidateUser(string userName, string password);
+
+        /// <summary>
+        /// Logs the in.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        /// <returns> true if the supplied user name and password are valid; otherwise, false. </returns>
+        bool LogIn(string userName, string password);
+
+        /// <summary>
+        /// Logs the out.
+        /// </summary>
+        void LogOut();
     }
 }

@@ -11,10 +11,12 @@ namespace eUniversity.Business.Services.Auth
     public class UserService : IUserService
     {
         private readonly IRepository<User> userRepository;
+        private readonly IFormsAuthenticationService formsAuthenticationService;
 
-        public UserService(IRepository<User> userRepository)
+        public UserService(IRepository<User> userRepository, IFormsAuthenticationService formsAuthenticationService)
         {
             this.userRepository = userRepository;
+            this.formsAuthenticationService = formsAuthenticationService;
         }
 
         /// <summary>
@@ -27,7 +29,34 @@ namespace eUniversity.Business.Services.Auth
         /// </returns>
         public bool ValidateUser(string userName, string password)
         {
-            return userRepository.All().Any(user => user.UserName == userName && user.Password == password);
+            var hashedPassword = formsAuthenticationService.CreatePasswordHash(password);
+            return userRepository.All().Any(user => user.UserName == userName && user.Password == hashedPassword);
+        }
+
+        /// <summary>
+        /// Logs in to site.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        /// <returns>
+        /// true if the supplied user name and password are valid; otherwise, false.
+        /// </returns>
+        public bool LogIn(string userName, string password)
+        {
+            if (!ValidateUser(userName, password))
+            {
+                return false;
+            }
+            formsAuthenticationService.SetAuthCookie(userName, false);
+            return true;
+        }
+
+        /// <summary>
+        /// log out user from the browser.
+        /// </summary>
+        public void LogOut()
+        {
+            formsAuthenticationService.LogOut();
         }
     }
 }

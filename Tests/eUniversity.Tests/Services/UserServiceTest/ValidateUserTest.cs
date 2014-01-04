@@ -20,14 +20,17 @@ namespace eUniversity.Tests.Services.UserServiceTest
             var repository = new Mock<IRepository<User>>();
             var data = new List<User>
             {
-                new User {UserName = "John", Password = "Doe"},
+                new User {UserName = "John", Password = "wdasd"},
                 new User {UserName = "Jane", Password = "Doe"},
                 new User {UserName = "John", Password = "Smith"},
                 new User {UserName = "Matthew", Password = "MacDonald"},
                 new User {UserName = "Andrew", Password = "MacDonald"}
             };
             repository.Setup(r => r.All()).Returns(data.AsQueryable());
-            userService = new UserService(repository.Object);
+
+            var formsAuthentication = new Mock<IFormsAuthenticationService>();
+            formsAuthentication.Setup(f => f.CreatePasswordHash("Doe", "SHA1")).Returns("wdasd");
+            userService = new UserService(repository.Object, formsAuthentication.Object);
         }
 
         [Test]
@@ -53,7 +56,5 @@ namespace eUniversity.Tests.Services.UserServiceTest
              // Verify the result
             Assert.IsFalse(isValidated);
         }
-
-
     }
 }
