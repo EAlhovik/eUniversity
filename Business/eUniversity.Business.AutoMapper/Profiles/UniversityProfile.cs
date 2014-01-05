@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.ViewModels.Auth;
 
 namespace eUniversity.Business.AutoMapper.Profiles
 {
@@ -9,7 +11,11 @@ namespace eUniversity.Business.AutoMapper.Profiles
     {
         protected override void Configure()
         {
-            base.Configure();
+            Mapper.CreateMap<RegisterViewModel, User>()
+               .ForMember(m => m.Id, opt => opt.Ignore())
+               .ForMember(m => m.UserName, opt => opt.MapFrom(vm => vm.UserName))
+               .ForMember(m => m.Password, opt => opt.MapFrom(vm => vm.Password))
+               ;
         }
     }
 }

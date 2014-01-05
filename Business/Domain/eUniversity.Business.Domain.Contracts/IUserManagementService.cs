@@ -14,5 +14,7 @@ namespace eUniversity.Business.Domain.Contracts
         bool LogIn(LoginViewModel loginViewModel);
 
         void LogOut();
+
+        void RegisterUser(RegisterViewModel registerViewModel);
     }
 }

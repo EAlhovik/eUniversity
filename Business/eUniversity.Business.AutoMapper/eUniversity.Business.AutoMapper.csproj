@@ -52,6 +52,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
+      <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
+      <Name>eUniversity.Business.Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
+      <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
+      <Name>eUniversity.Business.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

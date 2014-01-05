@@ -1,4 +1,6 @@
-﻿namespace eUniversity.Business.Domain.Contracts
+﻿using eUniversity.Business.Domain.Entities.eUniversity;
+
+namespace eUniversity.Business.Domain.Contracts
 {
     /// <summary>
     /// Interface for User service
@@ -12,5 +14,7 @@
         /// <param name="password">The password.</param>
         /// <returns> true if the supplied user name and password are valid; otherwise, false.  </returns>
         bool ValidateUser(string userName, string password);
+
+        void RegisterUser(User user);
     }
 }

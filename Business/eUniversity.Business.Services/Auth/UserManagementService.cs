@@ -1,6 +1,9 @@
 ﻿using System;
+using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Auth;
+using eUniversity.Data.Contracts;
 
 namespace eUniversity.Business.Services.Auth
 {
@@ -11,11 +14,13 @@ namespace eUniversity.Business.Services.Auth
     {
         private readonly IUserService userService;
         private readonly IFormsAuthenticationService formsAuthenticationService;
+        private readonly IEUniversityUow eUniversityUow;
 
-        public UserManagementService(IUserService userService, IFormsAuthenticationService formsAuthenticationService)
+        public UserManagementService(IUserService userService, IFormsAuthenticationService formsAuthenticationService, IEUniversityUow eUniversityUow)
         {
             this.userService = userService;
             this.formsAuthenticationService = formsAuthenticationService;
+            this.eUniversityUow = eUniversityUow;
         }
 
         #region IUserManagementService Members
@@ -41,6 +46,17 @@ namespace eUniversity.Business.Services.Auth
         public void LogOut()
         {
             formsAuthenticationService.LogOut();
+        }
+
+        /// <summary>
+        /// Registers the user.
+        /// </summary>
+        /// <param name="registerViewModel">The register view model.</param>
+        public void RegisterUser(RegisterViewModel registerViewModel)
+        {
+            var user = Mapper.Map<RegisterViewModel, User>(registerViewModel); //todo: inject formsAuthenticationService for password
+            userService.RegisterUser(user);
+            eUniversityUow.Commit();
         }
 
         #endregion
