@@ -46,7 +46,7 @@ namespace eUniversity.Tests.Services.UserServiceTest
         }
 
         [Test]
-        public void NotExistUserNameAndPasword_UserNotValidated()
+        public void IncorectPasword_UserNotValidated()
         {
             // Setup
       
@@ -54,6 +54,14 @@ namespace eUniversity.Tests.Services.UserServiceTest
             var isValidated = userService.ValidateUser("John", "Do123e");
 
              // Verify the result
+            Assert.IsFalse(isValidated);
+        }
+
+        [Test]
+        public void NotExistUserName_UserNotValidated()
+        {
+            var isValidated = userService.ValidateUser("Matthew", "Doe");
+
             Assert.IsFalse(isValidated);
         }
     }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{36511853-F05B-43A6-A269-E87B245E6348}</ProjectGuid>
+    <ProjectGuid>{66B745CF-920D-49E0-83A6-45E2D34095A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eUniversity.Business.Domain.Contracts</RootNamespace>
-    <AssemblyName>eUniversity.Business.Domain.Contracts</AssemblyName>
+    <RootNamespace>eUniversity.Business.AutoMapper</RootNamespace>
+    <AssemblyName>eUniversity.Business.AutoMapper</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,16 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IFormsAuthenticationService.cs" />
-    <Compile Include="IUserManagementService.cs" />
-    <Compile Include="IUserService.cs" />
+    <Compile Include="AutomapperConfigurator.cs" />
+    <Compile Include="Profiles\UniversityProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
-      <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
-      <Name>eUniversity.Business.ViewModels</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

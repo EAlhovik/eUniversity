@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using eUniversity.Business.Domain.Contracts;
-using eUniversity.Data.Contracts;
+using eUniversity.Business.ViewModels.Auth;
 using Microsoft.Web.WebPages.OAuth;
 using eUniversity.Web.Models;
 
@@ -11,13 +11,11 @@ namespace eUniversity.Web.Controllers
 //    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-        private readonly IUserService userService;
-        private readonly IEUniversityUow eUniversityUow;
+        private readonly IUserManagementService userManagementService;
 
-        public AccountController(IUserService userService, IEUniversityUow eUniversityUow)
+        public AccountController(IUserManagementService userManagementService)
         {
-            this.userService = userService;
-            this.eUniversityUow = eUniversityUow;
+            this.userManagementService = userManagementService;
         }
 
         [AllowAnonymous]
@@ -32,7 +30,8 @@ namespace eUniversity.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (userService.LogIn(model.UserName, model.Password))
+            if (userManagementService.LogIn(new LoginViewModel{Password = model.Password, UserName = model.UserName, RememberMe = model.RememberMe}))
+//            if (userManagementService.LogIn(model.UserName, model.Password))
             {
                 return RedirectToLocal(returnUrl);
             }
@@ -46,7 +45,7 @@ namespace eUniversity.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            userService.LogOut();
+            userManagementService.LogOut();
 
             return RedirectToAction("Index", "Home");
         }

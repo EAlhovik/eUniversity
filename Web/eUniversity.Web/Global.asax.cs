@@ -5,6 +5,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using eUniversity.Business.AutoMapper;
 
 namespace eUniversity.Web
 {
@@ -14,22 +15,23 @@ namespace eUniversity.Web
     public class MvcApplication : System.Web.HttpApplication
     {
         private static IContainer container;
+        private AutomapperConfigurator automapperConfigurator;
 
         protected void Application_Start()
         {
 
             BootstrapContainer();
 
-            AreaRegistration.RegisterAllAreas();
-            /*
-             automapperConfigurator = DependencyResolver.Current.GetService<AutomapperConfigurator>();
+//            AreaRegistration.RegisterAllAreas();
+
+            automapperConfigurator = DependencyResolver.Current.GetService<AutomapperConfigurator>();
             automapperConfigurator.Configure();
-             */
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AuthConfig.RegisterAuth();
+//            AuthConfig.RegisterAuth();
         }
 
         private static void BootstrapContainer()

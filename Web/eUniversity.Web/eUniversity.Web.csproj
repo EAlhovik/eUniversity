@@ -52,6 +52,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Autofac.Mvc5.3.1.0\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\DotNetOpenAuth.AspNet.4.0.4.12182\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
@@ -195,6 +201,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll">
+      <Link>AutoMapper.Net4.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -324,9 +334,17 @@
       <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
       <Name>eUniversity.Business.Domain.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Business\eUniversity.Business.AutoMapper\eUniversity.Business.AutoMapper.csproj">
+      <Project>{66B745CF-920D-49E0-83A6-45E2D34095A7}</Project>
+      <Name>eUniversity.Business.AutoMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Business\eUniversity.Business.Services\eUniversity.Business.Services.csproj">
       <Project>{3BAEAB86-3751-4270-9235-C4664D5DE755}</Project>
       <Name>eUniversity.Business.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
+      <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
+      <Name>eUniversity.Business.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\eUniversity.Data.Contracts\eUniversity.Data.Contracts.csproj">
       <Project>{A8BD361F-A76F-47BD-8855-28EAE94853DF}</Project>
