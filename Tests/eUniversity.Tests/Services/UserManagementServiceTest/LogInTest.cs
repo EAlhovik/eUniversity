@@ -1,6 +1,7 @@
 ﻿using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Services.Auth;
 using eUniversity.Business.ViewModels.Auth;
+using eUniversity.Data.Contracts;
 using Moq;
 using NUnit.Framework;
 
@@ -19,7 +20,7 @@ namespace eUniversity.Tests.Services.UserServiceTest
             var userService = new Mock<IUserService>();
             userService.Setup(f => f.ValidateUser(user.UserName, user.Password)).Returns(true);
 
-            IUserManagementService userManagementService = new UserManagementService(userService.Object, formsAuthentication.Object);
+            IUserManagementService userManagementService = new UserManagementService(userService.Object, formsAuthentication.Object, new Mock<IEUniversityUow>().Object);
             // Action
             var isLogIn = userManagementService.LogIn(user);
             // Verify the result
@@ -37,7 +38,7 @@ namespace eUniversity.Tests.Services.UserServiceTest
             var userService = new Mock<IUserService>();
             userService.Setup(f => f.ValidateUser(It.IsAny<string>(), It.IsAny<string>())).Returns(false);
 
-            IUserManagementService userManagementService = new UserManagementService(userService.Object, formsAuthentication.Object);
+            IUserManagementService userManagementService = new UserManagementService(userService.Object, formsAuthentication.Object, new Mock<IEUniversityUow>().Object);
             // Action
             var isLogIn = userManagementService.LogIn(user);
             // Verify the result

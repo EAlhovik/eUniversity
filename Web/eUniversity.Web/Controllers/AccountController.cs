@@ -28,7 +28,7 @@ namespace eUniversity.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (userManagementService.LogIn(new LoginViewModel{Password = model.Password, UserName = model.UserName, RememberMe = model.RememberMe}))
 //            if (userManagementService.LogIn(model.UserName, model.Password))
@@ -62,7 +62,7 @@ namespace eUniversity.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
