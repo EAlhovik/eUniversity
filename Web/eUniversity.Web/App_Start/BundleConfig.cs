@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace eUniversity.Web
 {
@@ -38,6 +37,11 @@ namespace eUniversity.Web
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+
+            bundles.Add(new StyleBundle("~/bootstrap/css").Include(
+                "~/Content/bootstrap/bootstrap.css"));
+
         }
     }
 }
