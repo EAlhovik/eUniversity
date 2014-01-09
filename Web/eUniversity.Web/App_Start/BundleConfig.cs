@@ -38,9 +38,11 @@ namespace eUniversity.Web
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
-
             bundles.Add(new StyleBundle("~/bootstrap/css").Include(
                 "~/Content/bootstrap/bootstrap.css"));
+
+            bundles.Add(new StyleBundle("~/ace/css").Include(
+                "~/Content/ace.min.css"));
 
         }
     }
