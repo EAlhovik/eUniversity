@@ -3,7 +3,6 @@ using System.Web.Security;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels.Auth;
 using Microsoft.Web.WebPages.OAuth;
-using eUniversity.Web.Models;
 
 namespace eUniversity.Web.Controllers
 {
@@ -30,8 +29,7 @@ namespace eUniversity.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-            if (userManagementService.LogIn(new LoginViewModel{Password = model.Password, UserName = model.UserName, RememberMe = model.RememberMe}))
-//            if (userManagementService.LogIn(model.UserName, model.Password))
+            if (userManagementService.LogIn(model))
             {
                 return RedirectToLocal(returnUrl);
             }
@@ -69,7 +67,7 @@ namespace eUniversity.Web.Controllers
                 // Attempt to register the user
                 try
                 {
-                    userManagementService.RegisterUser(new RegisterViewModel(){UserName = "asd",Password = "123", ConfirmPassword = "123"});
+                    userManagementService.RegisterUser(model);
 //                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
 //                    WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");

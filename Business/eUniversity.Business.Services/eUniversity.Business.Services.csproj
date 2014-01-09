@@ -56,6 +56,10 @@
       <Project>{A8BD361F-A76F-47BD-8855-28EAE94853DF}</Project>
       <Name>eUniversity.Data.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
+      <Project>{47546296-321D-4C04-8B15-1F14A1023D92}</Project>
+      <Name>eUniversity.Business.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\eUniversity.Business.Domain.Contracts\eUniversity.Business.Domain.Contracts.csproj">
       <Project>{36511853-F05B-43A6-A269-E87B245E6348}</Project>
       <Name>eUniversity.Business.Domain.Contracts</Name>
@@ -68,15 +72,6 @@
       <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
       <Name>eUniversity.Business.ViewModels</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll">
-      <Link>AutoMapper.Net4.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -30,7 +30,7 @@ namespace eUniversity.Tests.Services.UserServiceTest
 
             var formsAuthentication = new Mock<IFormsAuthenticationService>();
             formsAuthentication.Setup(f => f.CreatePasswordHash("Doe", "SHA1")).Returns("wdasd");
-            userService = new UserService(repository.Object, formsAuthentication.Object);
+            userService = new UserService(repository.Object, formsAuthentication.Object, new Mock<IRepository<Role>>().Object );
         }
 
         [Test]

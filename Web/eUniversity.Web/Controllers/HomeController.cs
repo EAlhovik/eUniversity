@@ -11,6 +11,7 @@ namespace eUniversity.Web.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Student")]
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";

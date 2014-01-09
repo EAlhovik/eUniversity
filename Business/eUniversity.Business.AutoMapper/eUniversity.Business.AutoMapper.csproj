@@ -50,9 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
       <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
       <Name>eUniversity.Business.Domain.Entities</Name>

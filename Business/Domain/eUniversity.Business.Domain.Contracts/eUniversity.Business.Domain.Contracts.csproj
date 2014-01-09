@@ -40,11 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IFormsAuthenticationService.cs" />
+    <Compile Include="IRoleService.cs" />
     <Compile Include="IUserManagementService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
+      <Project>{47546296-321D-4C04-8B15-1F14A1023D92}</Project>
+      <Name>eUniversity.Business.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
       <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
       <Name>eUniversity.Business.ViewModels</Name>

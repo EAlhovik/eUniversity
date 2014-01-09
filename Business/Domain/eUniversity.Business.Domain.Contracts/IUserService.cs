@@ -16,5 +16,7 @@ namespace eUniversity.Business.Domain.Contracts
         bool ValidateUser(string userName, string password);
 
         void RegisterUser(User user);
+
+        User GetUserByName(string userName);
     }
 }
