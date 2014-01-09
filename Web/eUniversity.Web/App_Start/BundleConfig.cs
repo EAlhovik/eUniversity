@@ -42,7 +42,13 @@ namespace eUniversity.Web
                 "~/Content/bootstrap/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/ace/css").Include(
-                "~/Content/ace.min.css"));
+                "~/Content/ace.min.css"
+//                ,"~/Content/font-awesome.min.css"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/ace").Include(
+                        "~/Scripts/ace/ace-elements.min.js",
+                        "~/Scripts/ace/ace.min.js"));
 
         }
     }
