@@ -328,6 +328,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Account\NewLogin.cshtml" />
+    <Content Include="Views\Account\Forgot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

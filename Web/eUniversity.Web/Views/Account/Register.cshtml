@@ -1,36 +1,82 @@
 ﻿@model eUniversity.Business.ViewModels.Auth.RegisterViewModel
 @{
     ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
-</hgroup>
+<div id="signup-box" class="signup-box widget-box no-border visible">
+    <div class="widget-body">
+        <div class="widget-main">
+            <h4 class="header green lighter bigger">
+                <i class="icon-group blue"></i>
+                New User Registration
+            </h4>
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
+            <div class="space-6"></div>
+            <p>Enter your details to begin: </p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <fieldset>
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
-            </li>
-        </ol>
-        <input type="submit" value="Register" />
-    </fieldset>
-}
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Username" })
+                            <i class="icon-user"></i>
+                        </span>
+                    </label>
+
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                            <i class="icon-lock"></i>
+                        </span>
+                    </label>
+
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Repeat password" })
+                            <i class="icon-retweet"></i>
+                        </span>
+                    </label>
+                    <label class="block">
+                        <input type="checkbox" class="ace">
+                        <span class="lbl">
+                            I accept the
+                            <a href="#">User Agreement</a>
+                        </span>
+                    </label>
+                    <div class="col-xs-3">
+                        <label>
+                            <input name="switch-field-1" class="ace ace-switch" type="checkbox">
+                            <span class="lbl"></span>
+                        </label>                    </div>
+                    <div class="space-24"></div>
+
+                    <div class="clearfix">
+                        <button type="reset" class="width-30 pull-left btn btn-sm">
+                            <i class="icon-refresh"></i>
+                            Reset
+                        </button>
+
+                        <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+                            Register
+                            <i class="icon-arrow-right icon-on-right"></i>
+                        </button>
+                    </div>
+                </fieldset>
+            }
+        </div>
+
+        <div class="toolbar center">
+            
+            <a href="@Url.Action("Login","Account")" class="back-to-login-link">
+                <i class="icon-arrow-left"></i>
+                Back to login
+            </a>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

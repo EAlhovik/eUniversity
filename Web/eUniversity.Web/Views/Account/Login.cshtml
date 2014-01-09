@@ -1,48 +1,74 @@
 ﻿@model eUniversity.Business.ViewModels.Auth.LoginViewModel
 @{
     ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
+<div id="login-box" class="login-box visible widget-box no-border">
+    <div class="widget-body">
+        <div class="widget-main">
+            <h4 class="header blue lighter bigger">
+                <i class="icon-coffee green"></i>
+                Please Enter Your Information
+            </h4>
 
-<section id="loginForm">
-<h2>Use a local account to log in.</h2>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+            <div class="space-6"></div>
+            @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+            {
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Username" })
+                            <i class="icon-user"></i>
+                        </span>
+                    </label>
 
-    <fieldset>
-        <legend>Log in Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
-        </ol>
-        <input type="submit" value="Log in" />
-    </fieldset>
-    <p>
-        @Html.ActionLink("Register", "Register") if you don't have an account.
-    </p>
-}
-</section>
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                            <i class="icon-lock"></i>
+                        </span>
+                    </label>
 
-<section class="social" id="socialLoginForm">
-    <h2>Use another service to log in.</h2>
-@*    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })*@
-</section>
+                    <div class="space"></div>
+
+                    <div class="clearfix">
+                        <label class="inline">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "ace" })
+                            <span class="lbl">Remember Me</span>
+                        </label>
+
+                        <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                            <i class="icon-key"></i>
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="space-4"></div>
+                </fieldset>
+            }
+
+        </div>
+
+        <div class="toolbar clearfix">
+            <div>
+                <a href="@Url.Action("Forgot","Account")" class="forgot-password-link">
+                    <i class="icon-arrow-left"></i>
+                    I forgot my password
+                </a>
+            </div>
+
+            <div>
+                <a href="@Url.Action("Register","Account")" class="user-signup-link">
+                    I want to register
+                    <i class="icon-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

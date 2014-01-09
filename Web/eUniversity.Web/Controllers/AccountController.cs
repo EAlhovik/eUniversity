@@ -7,7 +7,6 @@ using Microsoft.Web.WebPages.OAuth;
 namespace eUniversity.Web.Controllers
 {
     [Authorize]
-//    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         private readonly IUserManagementService userManagementService;
@@ -21,7 +20,7 @@ namespace eUniversity.Web.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View("NewLogin");
+            return View();
         }
 
         [HttpPost]
@@ -80,6 +79,12 @@ namespace eUniversity.Web.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Forgot()
+        {
+            return View();
         }
         /*
                 #region to remove
