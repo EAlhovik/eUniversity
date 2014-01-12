@@ -5,8 +5,13 @@
     self.RememberMe = ko.observable();
 
     ko.mapping.fromJS(serverModel, {}, self);
-
-    self.ValidateForm = function () {
-//        alert(self.UserName)
+    
+    self.login = function () {
+        if (self.validate()) {
+            return true;
+        }
+        return false;
     };
+
+    addValidation(self);
 }

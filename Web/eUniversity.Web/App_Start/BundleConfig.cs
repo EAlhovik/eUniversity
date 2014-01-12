@@ -38,8 +38,10 @@ namespace eUniversity.Web
 
             bundles.Add(new ScriptBundle("~/bundles/ko").Include(
                         "~/Scripts/ko/knockout-{version}.js",
-                        "~/Scripts/ko/knockout.mapping-latest.debug.js"
-//                        ,"~/Scripts/ko/knockout.validation.debug.js"
+                        "~/Scripts/ko/knockout.mapping-latest.debug.js",
+                        "~/Scripts/ko/knockout.validation.debug.js",
+                        "~/Scripts/ko/knockout.bindings.js",
+                        "~/Scripts/ko/knockout.mixins.js"
                         ));
 
         }

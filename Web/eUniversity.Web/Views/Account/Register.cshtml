@@ -14,30 +14,38 @@
 
             <div class="space-6"></div>
             <p>Enter your details to begin: </p>
-            @using (Html.BeginForm())
+            @using (Html.BeginForm(null, null, null, FormMethod.Post, new { id = "registerForm", Data_Bind = "deferredSubmit: validate" }))
             {
                 @Html.AntiForgeryToken()
+                @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
                 <fieldset>
+                    <div class="form-group" data-bind="validationElement: UserName">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Username", Data_Bind = "value: UserName" })
+                                <i class="icon-user"></i>
+                            </span>
+                        </label>
+                    </div>
 
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Username" })
-                            <i class="icon-user"></i>
-                        </span>
-                    </label>
+                    <div class="form-group" data-bind="validationElement: Password">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", Data_Bind = "value: Password" })
+                                <i class="icon-lock"></i>
+                            </span>
+                        </label>
+                    </div>
 
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
-                            <i class="icon-lock"></i>
-                        </span>
-                    </label>
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Repeat password" })
-                            <i class="icon-retweet"></i>
-                        </span>
-                    </label>
+                    <div class="form-group" data-bind="validationElement: ConfirmPassword">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Repeat password", Data_Bind = "value: ConfirmPassword" })
+                                <i class="icon-retweet"></i>
+                            </span>
+                        </label>
+                    </div>
+
                     <label class="block">
                         <input type="checkbox" class="ace">
                         <span class="lbl">
@@ -63,7 +71,7 @@
         </div>
 
         <div class="toolbar center">
-            
+
             <a href="@Url.Action("Login","Account")" class="back-to-login-link">
                 <i class="icon-arrow-left"></i>
                 Back to login
@@ -73,5 +81,9 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/viewModels/account/registerViewModel.js"></script>
+    <script type="text/javascript">
+        ko.applyBindings(new RegisterViewModel(@Html.Raw(Json.Encode(Model))), $("#registerForm").get(0));
+    </script>
+    @*    @Scripts.Render("~/bundles/jqueryval")*@
 }

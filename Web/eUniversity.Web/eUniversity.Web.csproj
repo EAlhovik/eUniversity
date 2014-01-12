@@ -287,12 +287,15 @@
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\ko\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\ko\knockout-3.0.0.js" />
+    <Content Include="Scripts\ko\knockout.bindings.js" />
     <Content Include="Scripts\ko\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\ko\knockout.mapping-latest.js" />
+    <Content Include="Scripts\ko\knockout.mixins.js" />
     <Content Include="Scripts\ko\knockout.validation.debug.js" />
     <Content Include="Scripts\ko\knockout.validation.js" />
     <Content Include="Scripts\modernizr-2.7.1.js" />
     <Content Include="Scripts\viewModels\account\loginViewModel.js" />
+    <Content Include="Scripts\viewModels\account\registerViewModel.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
