@@ -1,333 +1,388 @@
-﻿            <div class="sidebar" id="sidebar">
+﻿@using eUniversity.Web.Extensions
+<div class="sidebar" id="sidebar">
 
-                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-                    <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                        <button class="btn btn-success">
-                            <i class="icon-signal"></i>
-                        </button>
+    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+            <button class="btn btn-success">
+                <i class="icon-signal"></i>
+            </button>
 
-                        <button class="btn btn-info">
-                            <i class="icon-pencil"></i>
-                        </button>
+            <button class="btn btn-info">
+                <i class="icon-pencil"></i>
+            </button>
 
-                        <button class="btn btn-warning">
-                            <i class="icon-group"></i>
-                        </button>
+            <button class="btn btn-warning">
+                <i class="icon-group"></i>
+            </button>
 
-                        <button class="btn btn-danger">
-                            <i class="icon-cogs"></i>
-                        </button>
-                    </div>
+            <button class="btn btn-danger">
+                <i class="icon-cogs"></i>
+            </button>
+        </div>
 
-                    <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                        <span class="btn btn-success"></span>
+        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+            <span class="btn btn-success"></span>
 
-                        <span class="btn btn-info"></span>
+            <span class="btn btn-info"></span>
 
-                        <span class="btn btn-warning"></span>
+            <span class="btn btn-warning"></span>
 
-                        <span class="btn btn-danger"></span>
-                    </div>
-                </div>
+            <span class="btn btn-danger"></span>
+        </div>
+    </div>
 
-                <ul class="nav nav-list">
-                    <li class="active">
-                        <a href="http://192.69.216.111/themes/preview/ace/index.html">
-                            <i class="icon-dashboard"></i>
-                            <span class="menu-text">Dashboard </span>
-                        </a>
-                    </li>
+    <ul class="nav nav-list">
+        <li class="active">
+            <a href="http://192.69.216.111/themes/preview/ace/index.html">
+                <i class="icon-dashboard"></i>
+                <span class="menu-text">Dashboard </span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-desktop"></i>
+                <span class="menu-text">Факультет </span>
+                <b class="arrow icon-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-pencil"></i>
+                        Специальность<b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            @{
+                                var ajaxOptions = new AjaxOptions()
+                                    {
+                                        HttpMethod = "GET",
+                                        InsertionMode = InsertionMode.Replace,
+                                        LoadingElementId = "loading",
+                                        UpdateTargetId = "pageContent"
+                                    };
+                            }
+                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую","New", "Speciality", ajaxOptions)
+                        </li>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/typography.html">
-                            <i class="icon-text-width"></i>
-                            <span class="menu-text">Typography </span>
-                        </a>
-                    </li>
+                        <li>
+                              @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специальностей","Index", "Speciality", ajaxOptions)
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                        <i class="icon-pencil"></i>
+                        Специализация<b class="arrow icon-angle-down"></b>
+                    </a>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
-                            <i class="icon-desktop"></i>
-                            <span class="menu-text">UI Elements </span>
+                    <ul class="submenu">
+                        <li>
+                            <a href="http://192.69.216.111/themes/preview/ace/#">
+                                <i class="icon-plus"></i>Добовить Новую
+                            </a>
+                        </li>
 
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
+                        <li>
+                            <a href="http://192.69.216.111/themes/preview/ace/#">
+                                <i class="icon-eye-open"></i>Список Специализаций
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/elements.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Elements
-                                </a>
-                            </li>
+        </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/buttons.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Buttons &amp; Icons
-                                </a>
-                            </li>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/typography.html">
+                <i class="icon-text-width"></i>
+                <span class="menu-text">Typography </span>
+            </a>
+        </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/treeview.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Treeview
-                                </a>
-                            </li>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                <i class="icon-desktop"></i>
+                <span class="menu-text">UI Elements </span>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/jquery-ui.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    jQuery UI
-                                </a>
-                            </li>
+                <b class="arrow icon-angle-down"></b>
+            </a>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/nestable-list.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Nestable Lists
-                                </a>
-                            </li>
+            <ul class="submenu">
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/elements.html">
+                        <i class="icon-double-angle-right"></i>
+                        Elements
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
-                                    <i class="icon-double-angle-right"></i>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/buttons.html">
+                        <i class="icon-double-angle-right"></i>
+                        Buttons &amp; Icons
+                    </a>
+                </li>
 
-                                    Three Level Menu
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/treeview.html">
+                        <i class="icon-double-angle-right"></i>
+                        Treeview
+                    </a>
+                </li>
+
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/jquery-ui.html">
+                        <i class="icon-double-angle-right"></i>
+                        jQuery UI
+                    </a>
+                </li>
+
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/nestable-list.html">
+                        <i class="icon-double-angle-right"></i>
+                        Nestable Lists
+                    </a>
+                </li>
+
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                        <i class="icon-double-angle-right"></i>
+
+                        Three Level Menu
 										<b class="arrow icon-angle-down"></b>
-                                </a>
+                    </a>
 
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="http://192.69.216.111/themes/preview/ace/#">
-                                            <i class="icon-leaf"></i>
-                                            Item #1
-                                        </a>
-                                    </li>
+                    <ul class="submenu">
+                        <li>
+                            <a href="http://192.69.216.111/themes/preview/ace/#">
+                                <i class="icon-leaf"></i>
+                                Item #1
+                            </a>
+                        </li>
 
-                                    <li>
-                                        <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
-                                            <i class="icon-pencil"></i>
+                        <li>
+                            <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                                <i class="icon-pencil"></i>
 
-                                            4th level
+                                4th level
 												<b class="arrow icon-angle-down"></b>
-                                        </a>
+                            </a>
 
-                                        <ul class="submenu">
-                                            <li>
-                                                <a href="http://192.69.216.111/themes/preview/ace/#">
-                                                    <i class="icon-plus"></i>
-                                                    Add Product
-                                                </a>
-                                            </li>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="http://192.69.216.111/themes/preview/ace/#">
+                                        <i class="icon-plus"></i>
+                                        Add Product
+                                    </a>
+                                </li>
 
-                                            <li>
-                                                <a href="http://192.69.216.111/themes/preview/ace/#">
-                                                    <i class="icon-eye-open"></i>
-                                                    View Products
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                                <li>
+                                    <a href="http://192.69.216.111/themes/preview/ace/#">
+                                        <i class="icon-eye-open"></i>
+                                        View Products
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
-                            <i class="icon-list"></i>
-                            <span class="menu-text">Tables </span>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                <i class="icon-list"></i>
+                <span class="menu-text">Tables </span>
 
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
+                <b class="arrow icon-angle-down"></b>
+            </a>
 
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/tables.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Simple &amp; Dynamic
-                                </a>
-                            </li>
+            <ul class="submenu">
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/tables.html">
+                        <i class="icon-double-angle-right"></i>
+                        Simple &amp; Dynamic
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/jqgrid.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    jqGrid plugin
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/jqgrid.html">
+                        <i class="icon-double-angle-right"></i>
+                        jqGrid plugin
+                    </a>
+                </li>
+            </ul>
+        </li>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
-                            <i class="icon-edit"></i>
-                            <span class="menu-text">Forms </span>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                <i class="icon-edit"></i>
+                <span class="menu-text">Forms </span>
 
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
+                <b class="arrow icon-angle-down"></b>
+            </a>
 
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/form-elements.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Form Elements
-                                </a>
-                            </li>
+            <ul class="submenu">
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/form-elements.html">
+                        <i class="icon-double-angle-right"></i>
+                        Form Elements
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/form-wizard.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Wizard &amp; Validation
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/form-wizard.html">
+                        <i class="icon-double-angle-right"></i>
+                        Wizard &amp; Validation
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/wysiwyg.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Wysiwyg &amp; Markdown
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/wysiwyg.html">
+                        <i class="icon-double-angle-right"></i>
+                        Wysiwyg &amp; Markdown
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/dropzone.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Dropzone File Upload
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/dropzone.html">
+                        <i class="icon-double-angle-right"></i>
+                        Dropzone File Upload
+                    </a>
+                </li>
+            </ul>
+        </li>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/widgets.html">
-                            <i class="icon-list-alt"></i>
-                            <span class="menu-text">Widgets </span>
-                        </a>
-                    </li>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/widgets.html">
+                <i class="icon-list-alt"></i>
+                <span class="menu-text">Widgets </span>
+            </a>
+        </li>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/calendar.html">
-                            <i class="icon-calendar"></i>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/calendar.html">
+                <i class="icon-calendar"></i>
 
-                            <span class="menu-text">Calendar
+                <span class="menu-text">Calendar
 									<span class="badge badge-transparent tooltip-error" title="" data-original-title="2&nbsp;Important&nbsp;Events">
                                         <i class="icon-warning-sign red bigger-130"></i>
                                     </span>
-                            </span>
-                        </a>
-                    </li>
+                </span>
+            </a>
+        </li>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/gallery.html">
-                            <i class="icon-picture"></i>
-                            <span class="menu-text">Gallery </span>
-                        </a>
-                    </li>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/gallery.html">
+                <i class="icon-picture"></i>
+                <span class="menu-text">Gallery </span>
+            </a>
+        </li>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
-                            <i class="icon-tag"></i>
-                            <span class="menu-text">More Pages </span>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">More Pages </span>
 
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
+                <b class="arrow icon-angle-down"></b>
+            </a>
 
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/profile.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    User Profile
-                                </a>
-                            </li>
+            <ul class="submenu">
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/profile.html">
+                        <i class="icon-double-angle-right"></i>
+                        User Profile
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/inbox.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Inbox
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/inbox.html">
+                        <i class="icon-double-angle-right"></i>
+                        Inbox
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/pricing.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Pricing Tables
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/pricing.html">
+                        <i class="icon-double-angle-right"></i>
+                        Pricing Tables
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/invoice.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Invoice
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/invoice.html">
+                        <i class="icon-double-angle-right"></i>
+                        Invoice
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/timeline.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Timeline
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/timeline.html">
+                        <i class="icon-double-angle-right"></i>
+                        Timeline
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/login.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Login &amp; Register
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/login.html">
+                        <i class="icon-double-angle-right"></i>
+                        Login &amp; Register
+                    </a>
+                </li>
+            </ul>
+        </li>
 
-                    <li>
-                        <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
-                            <i class="icon-file-alt"></i>
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                <i class="icon-file-alt"></i>
 
-                            <span class="menu-text">Other Pages
+                <span class="menu-text">Other Pages
 									<span class="badge badge-primary ">5</span>
-                            </span>
+                </span>
 
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
+                <b class="arrow icon-angle-down"></b>
+            </a>
 
-                        <ul class="submenu">
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/faq.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    FAQ
-                                </a>
-                            </li>
+            <ul class="submenu">
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/faq.html">
+                        <i class="icon-double-angle-right"></i>
+                        FAQ
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/error-404.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Error 404
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/error-404.html">
+                        <i class="icon-double-angle-right"></i>
+                        Error 404
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/error-500.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Error 500
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/error-500.html">
+                        <i class="icon-double-angle-right"></i>
+                        Error 500
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/grid.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Grid
-                                </a>
-                            </li>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/grid.html">
+                        <i class="icon-double-angle-right"></i>
+                        Grid
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="http://192.69.216.111/themes/preview/ace/blank.html">
-                                    <i class="icon-double-angle-right"></i>
-                                    Blank Page
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <li>
+                    <a href="http://192.69.216.111/themes/preview/ace/blank.html">
+                        <i class="icon-double-angle-right"></i>
+                        Blank Page
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
 
-                <div class="sidebar-collapse" id="sidebar-collapse">
-                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
-                </div>
-            </div>
+    <div class="sidebar-collapse" id="sidebar-collapse">
+        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+    </div>
+</div>

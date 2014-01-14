@@ -191,10 +191,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SpecialityController.cs" />
     <Compile Include="Dependencies\DataAccessModule.cs" />
     <Compile Include="Dependencies\DomainServicesModule.cs" />
     <Compile Include="Extensions\CustomRoleProvider.cs" />
+    <Compile Include="Extensions\HtmlHelpers.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -349,6 +351,7 @@
     <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Views\Speciality\New.cshtml" />
     <Content Include="Views\Speciality\Index.cshtml" />
+    <Content Include="Views\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

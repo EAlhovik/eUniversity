@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -8,8 +7,8 @@
     <meta charset="utf-8">
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-    <meta name="description" content="Live preview eUniversity">
 
+    <meta name="description" content="Live preview eUniversity">
     @Styles.Render("~/bootstrap/css", "~/ace/css", "~/ace/font")
 </head>
 <body>
@@ -21,15 +20,17 @@
             @Html.Partial("_Sidebar")
 
             <div class="main-content">
-                @Html.Partial("_Breadcrumbs")
-                <div class="page-content">
-                    @Html.Partial("_PageHeader")
-                    <div class="row">
-                        <div class="col-xs-12">
-                            @RenderBody()
-                        </div>
+                <div>
+                    @Html.Partial("_Breadcrumbs")
+                    <div class="page-content" id="pageContent">
+                        @RenderBody()
                     </div>
                 </div>
+                <div class="loading" id="loading" style="display: none">
+                    <div class="background-gray"></div>
+                    <i class="icon-spinner icon-spin orange bigger-275"></i>
+                </div>
+
             </div>
         </div>
     </div>
