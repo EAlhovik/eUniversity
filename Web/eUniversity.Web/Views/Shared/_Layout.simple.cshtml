@@ -10,8 +10,7 @@
 
     <meta name="description" content="Live preview eUniversity">
 
-    @Styles.Render("~/bootstrap/css", "~/ace/css")
-    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    @Styles.Render("~/bootstrap/css", "~/ace/css", "~/ace/font")
 </head>
 <body>
     <header>
@@ -26,7 +25,9 @@
                 <div class="page-content">
                     @Html.Partial("_PageHeader")
                     <div class="row">
-                        @RenderBody()
+                        <div class="col-xs-12">
+                            @RenderBody()
+                        </div>
                     </div>
                 </div>
             </div>
