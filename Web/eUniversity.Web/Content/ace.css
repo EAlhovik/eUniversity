@@ -1,0 +1,17 @@
+﻿.dropdown-menu > li > .logoutForm > a {
+    font-size: 13px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    display: block;
+    padding: 4px 12px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333;
+    white-space: nowrap;
+}
+
+.user-menu > li > .logoutForm > a > [class*="icon-"] {
+    margin-right: 6px;
+    font-size: 120%;
+}

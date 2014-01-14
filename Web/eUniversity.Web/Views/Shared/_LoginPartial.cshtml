@@ -1,4 +1,4 @@
-﻿@if (Request.IsAuthenticated) {
+﻿@*@if (Request.IsAuthenticated) {
     <text>
         Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
@@ -11,4 +11,45 @@
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
+}*@
+
+@if (Request.IsAuthenticated)
+{
+    <a data-toggle="dropdown" href="@Url.Action(null)" class="dropdown-toggle">
+        <img class="nav-user-photo" src="~/Avatars/avatar1.png" alt="Jason's Photo">
+        <span class="user-info">
+            <small>Welcome,</small>
+            @User.Identity.Name
+        </span>
+
+        <i class="icon-caret-down"></i>
+    </a>
+
+    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/#">
+                <i class="icon-cog"></i>
+                Settings
+            </a>
+        </li>
+
+        <li>
+            <a href="http://192.69.216.111/themes/preview/ace/#">
+                <i class="icon-user"></i>
+                Profile
+            </a>
+        </li>
+
+        <li class="divider"></li>
+
+        <li>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i>
+                    Logout</a>
+            }
+        </li>
+    </ul>
+
 }

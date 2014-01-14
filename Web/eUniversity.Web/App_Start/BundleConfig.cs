@@ -10,9 +10,6 @@ namespace eUniversity.Web
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery/jquery-{version}.js"));
 
-//            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-//                        "~/Scripts/jquery-ui-{version}.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery/jquery.unobtrusive*",
                         "~/Scripts/jquery/jquery.validate*"));
@@ -28,13 +25,19 @@ namespace eUniversity.Web
                 "~/Content/bootstrap/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/ace/css").Include(
-                "~/Content/ace.min.css"
-//                ,"~/Content/font-awesome.min.css"
+                "~/Content/ace.min.css",
+                "~/Content/ace.css"
+                //                ,"~/Content/font-awesome.min.css"
                 ));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                       "~/Scripts/bootstrap/bootstrap.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/ace").Include(
-                        "~/Scripts/ace/ace-elements.min.js",
-                        "~/Scripts/ace/ace.min.js"));
+                "~/Scripts/ace/ace.min.js",
+                "~/Scripts/ace/ace-extra.min.js",
+                "~/Scripts/ace/ace-elements.min.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/ko").Include(
                         "~/Scripts/ko/knockout-{version}.js",

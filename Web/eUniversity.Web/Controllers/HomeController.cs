@@ -4,25 +4,9 @@ namespace eUniversity.Web.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize(Roles = "Student")]
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
-        }
-
-        [Authorize(Roles = "Student")]
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
