@@ -4,9 +4,6 @@ namespace eUniversity.Web.Controllers
 {
     public class ProfileController : Controller
     {
-        //
-        // GET: /Profile/
-
         public ActionResult Index()
         {
             return View();

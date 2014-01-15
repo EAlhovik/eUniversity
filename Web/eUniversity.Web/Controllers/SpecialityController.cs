@@ -1,26 +1,38 @@
-﻿using System.Web.Mvc;
+﻿using System.Net.Http;
+using System.Web.Mvc;
+using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.ViewModels.Speciality;
 
 namespace eUniversity.Web.Controllers
 {
     public class SpecialityController : Controller
     {
-        public ActionResult Index()
+        private readonly ISpecialityManagementService specialityManagementService;
+
+        public SpecialityController(ISpecialityManagementService specialityManagementService)
         {
-            if (Request.IsAjaxRequest())
-            {
-                System.Threading.Thread.Sleep(1000);
-                return PartialView("Index");
-            }
-            return View();
+            this.specialityManagementService = specialityManagementService;
         }
 
-        public ActionResult New()
+        public ActionResult Index()
         {
-            if (Request.IsAjaxRequest())
-            {
-                System.Threading.Thread.Sleep(1000);
-                return PartialView("New");
-            }
+            var rows = specialityManagementService.GetSpecialities();
+            return View(rows);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(long? specialityId)
+        {
+            var speciality = specialityManagementService.Open(specialityId);
+
+            return View(speciality);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(SpecialityViewModel speciality)
+        {
+            specialityManagementService.Save(speciality);
+
             return View();
         }
     }

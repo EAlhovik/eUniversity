@@ -58,10 +58,11 @@
                                         HttpMethod = "GET",
                                         InsertionMode = InsertionMode.Replace,
                                         LoadingElementId = "loading",
-                                        UpdateTargetId = "pageContent"
+                                        UpdateTargetId = "pageContent",
+                                        OnBegin = "OnBegin"
                                     };
                             }
-                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую","New", "Speciality", ajaxOptions)
+                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Speciality", ajaxOptions)
                         </li>
 
                         <li>

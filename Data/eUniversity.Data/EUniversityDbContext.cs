@@ -29,6 +29,16 @@ namespace eUniversity.Data
         /// Gets or sets the roles.
         /// </summary>
         public IDbSet<Role> Roles { get; set; }
+
+        /// <summary>
+        /// Gets or sets the specialities.
+        /// </summary>
+        public IDbSet<Speciality> Specialities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the specializations.
+        /// </summary>
+        public IDbSet<Specialization> Specializations { get; set; }
        
         /// <summary>
         /// Action that launches on model creating
@@ -42,6 +52,8 @@ namespace eUniversity.Data
             // Mappings
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new RoleConfiguration());
+            modelBuilder.Configurations.Add(new SpecialityConfiguration());
+            modelBuilder.Configurations.Add(new SpecializationConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\RoleConfiguration.cs" />
+    <Compile Include="Configuration\SpecialityConfiguration.cs" />
+    <Compile Include="Configuration\SpecializationConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
     <Compile Include="EUniversityDataBaseInitializer.cs" />
     <Compile Include="EUniversityDbContext.cs" />

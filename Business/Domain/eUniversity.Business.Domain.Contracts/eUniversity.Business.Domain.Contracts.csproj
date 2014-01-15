@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="IFormsAuthenticationService.cs" />
     <Compile Include="IRoleService.cs" />
+    <Compile Include="ISpecialityManagementService.cs" />
+    <Compile Include="ISpecialityService.cs" />
+    <Compile Include="ISpecializationService.cs" />
     <Compile Include="IUserManagementService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

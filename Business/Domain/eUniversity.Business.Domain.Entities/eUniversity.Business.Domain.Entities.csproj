@@ -45,6 +45,8 @@
     <Compile Include="Base\IEntityChanged.cs" />
     <Compile Include="Base\IEntityCreated.cs" />
     <Compile Include="eUniversity\Role.cs" />
+    <Compile Include="eUniversity\Speciality.cs" />
+    <Compile Include="eUniversity\Specialization.cs" />
     <Compile Include="eUniversity\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

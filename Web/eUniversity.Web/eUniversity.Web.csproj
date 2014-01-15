@@ -302,6 +302,7 @@
     <Content Include="Scripts\ko\knockout.validation.debug.js" />
     <Content Include="Scripts\ko\knockout.validation.js" />
     <Content Include="Scripts\modernizr-2.7.1.js" />
+    <Content Include="Scripts\styler.js" />
     <Content Include="Scripts\viewModels\account\loginViewModel.js" />
     <Content Include="Scripts\viewModels\account\registerViewModel.js" />
     <Content Include="Web.config">
@@ -349,9 +350,9 @@
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
-    <Content Include="Views\Speciality\New.cshtml" />
     <Content Include="Views\Speciality\Index.cshtml" />
     <Content Include="Views\Profile.cshtml" />
+    <Content Include="Views\Speciality\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

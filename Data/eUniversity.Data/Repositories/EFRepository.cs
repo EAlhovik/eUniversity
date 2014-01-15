@@ -66,20 +66,6 @@ namespace eUniversity.Data.Repositories
             }
 
             AttachForUpdate(entity, startTrackProperties);
-
-            SaveProperty(entity);
-        }
-
-        private static void SaveProperty(T entity)
-        {
-            if (entity is IEntityChanged)
-            {
-                if (entity.IsNew())
-                {
-                    ((IEntityChanged)entity).Created = DateTime.Now;
-                    ((IEntityChanged)entity).CreatedBy = "base me";
-                }
-            }
         }
 
         /// <summary>
