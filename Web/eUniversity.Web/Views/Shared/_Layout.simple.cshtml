@@ -9,7 +9,9 @@
 
 
     <meta name="description" content="Live preview eUniversity">
-    @Styles.Render("~/bootstrap/css", "~/ace/css", "~/ace/font")
+    @Styles.Render("~/bootstrap/css", "~/Content/chosen", "~/ace/css", "~/ace/font")
+    @Scripts.Render("~/bundles/jquery")
+
 </head>
 <body>
     <header>
@@ -35,7 +37,7 @@
         </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery", "~/bundles/bootstrap", "~/bundles/ace")
+    @Scripts.Render("~/bundles/bootstrap", "~/bundles/ace", "~/bundles/chosen")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/styler.js"> </script>
 </body>

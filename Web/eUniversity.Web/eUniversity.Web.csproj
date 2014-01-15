@@ -193,6 +193,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SpecialityController.cs" />
+    <Compile Include="Controllers\SpecializationController.cs" />
     <Compile Include="Dependencies\DataAccessModule.cs" />
     <Compile Include="Dependencies\DomainServicesModule.cs" />
     <Compile Include="Extensions\CustomRoleProvider.cs" />
@@ -215,6 +216,7 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\google-webfont.css" />
+    <Content Include="Content\select2\select2.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -302,6 +304,7 @@
     <Content Include="Scripts\ko\knockout.validation.debug.js" />
     <Content Include="Scripts\ko\knockout.validation.js" />
     <Content Include="Scripts\modernizr-2.7.1.js" />
+    <Content Include="Scripts\select2\select2.min.js" />
     <Content Include="Scripts\styler.js" />
     <Content Include="Scripts\viewModels\account\loginViewModel.js" />
     <Content Include="Scripts\viewModels\account\registerViewModel.js" />
@@ -353,6 +356,7 @@
     <Content Include="Views\Speciality\Index.cshtml" />
     <Content Include="Views\Profile.cshtml" />
     <Content Include="Views\Speciality\Edit.cshtml" />
+    <Content Include="Views\Specialization\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

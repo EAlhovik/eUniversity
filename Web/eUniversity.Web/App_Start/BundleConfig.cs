@@ -51,6 +51,19 @@ namespace eUniversity.Web
                         "~/Scripts/ko/knockout.mixins.js"
                         ));
 
+
+            #region chosen
+
+            bundles.Add(new ScriptBundle("~/bundles/chosen").Include(
+                "~/Scripts/select2/select2.min.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/chosen").Include(
+                "~/Content/select2/select2.css"
+                ));
+
+            #endregion
+
         }
     }
 }

@@ -45,6 +45,16 @@
                 <b class="arrow icon-angle-down"></b>
             </a>
             <ul class="submenu">
+                @{
+                    var ajaxOptions = new AjaxOptions()
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            LoadingElementId = "loading",
+                            UpdateTargetId = "pageContent",
+                            OnBegin = "OnBegin"
+                        };
+                }
                 <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-pencil"></i>
@@ -52,35 +62,23 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            @{
-                                var ajaxOptions = new AjaxOptions()
-                                    {
-                                        HttpMethod = "GET",
-                                        InsertionMode = InsertionMode.Replace,
-                                        LoadingElementId = "loading",
-                                        UpdateTargetId = "pageContent",
-                                        OnBegin = "OnBegin"
-                                    };
-                            }
                             @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Speciality", ajaxOptions)
                         </li>
 
                         <li>
-                              @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специальностей","Index", "Speciality", ajaxOptions)
+                            @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специальностей", "Index", "Speciality", ajaxOptions)
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
+                    <a href="#" class="dropdown-toggle">
                         <i class="icon-pencil"></i>
                         Специализация<b class="arrow icon-angle-down"></b>
                     </a>
 
                     <ul class="submenu">
                         <li>
-                            <a href="http://192.69.216.111/themes/preview/ace/#">
-                                <i class="icon-plus"></i>Добовить Новую
-                            </a>
+                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Specialization", ajaxOptions)
                         </li>
 
                         <li>
@@ -150,7 +148,7 @@
                         <i class="icon-double-angle-right"></i>
 
                         Three Level Menu
-										<b class="arrow icon-angle-down"></b>
+                        <b class="arrow icon-angle-down"></b>
                     </a>
 
                     <ul class="submenu">
@@ -166,7 +164,7 @@
                                 <i class="icon-pencil"></i>
 
                                 4th level
-												<b class="arrow icon-angle-down"></b>
+                                <b class="arrow icon-angle-down"></b>
                             </a>
 
                             <ul class="submenu">
@@ -265,10 +263,11 @@
             <a href="http://192.69.216.111/themes/preview/ace/calendar.html">
                 <i class="icon-calendar"></i>
 
-                <span class="menu-text">Calendar
-									<span class="badge badge-transparent tooltip-error" title="" data-original-title="2&nbsp;Important&nbsp;Events">
-                                        <i class="icon-warning-sign red bigger-130"></i>
-                                    </span>
+                <span class="menu-text">
+                    Calendar
+                    <span class="badge badge-transparent tooltip-error" title="" data-original-title="2&nbsp;Important&nbsp;Events">
+                        <i class="icon-warning-sign red bigger-130"></i>
+                    </span>
                 </span>
             </a>
         </li>
@@ -337,8 +336,9 @@
             <a href="http://192.69.216.111/themes/preview/ace/#" class="dropdown-toggle">
                 <i class="icon-file-alt"></i>
 
-                <span class="menu-text">Other Pages
-									<span class="badge badge-primary ">5</span>
+                <span class="menu-text">
+                    Other Pages
+                    <span class="badge badge-primary ">5</span>
                 </span>
 
                 <b class="arrow icon-angle-down"></b>
