@@ -83,7 +83,7 @@
 
 
 <script type="text/javascript">
-    jQuery(window).load(function () {
+    $(document).ready(function () {
         //        $(".select2").css('width', '200px').select2({ allowClear: true })
         //            .on('change', function () {
         //                
@@ -92,11 +92,11 @@
             {
                 allowClear: true,
                 ajax: {
-                    url: '@Url.Action("GetSpecialities", "Speciality")',
+                    url: '@Url.Action("GetSpecialities", "Loockup")',
                     dataType: 'json',
                     data: function (term) {
                         return {
-                            term: term, // search term
+                            term: term, 
                             page_limit: 10,
                         };
                     },

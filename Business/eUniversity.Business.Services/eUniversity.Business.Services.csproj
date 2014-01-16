@@ -49,6 +49,7 @@
     <Compile Include="Auth\FormsAuthenticationService.cs" />
     <Compile Include="Auth\UserManagementService.cs" />
     <Compile Include="Auth\UserService.cs" />
+    <Compile Include="ManagementServices\LoockupManagementService.cs" />
     <Compile Include="ManagementServices\SpecialityManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecialityService.cs" />

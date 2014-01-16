@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IFormsAuthenticationService.cs" />
+    <Compile Include="ILoockupManagementService.cs" />
     <Compile Include="IRoleService.cs" />
     <Compile Include="ISpecialityManagementService.cs" />
     <Compile Include="ISpecialityService.cs" />

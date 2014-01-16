@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Auth;
 using eUniversity.Business.ViewModels.Speciality;
 
@@ -34,6 +35,11 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                 .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
                 .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                ;
+
+            Mapper.CreateMap<Speciality, SelectedItemModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))
+                .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Name))
                 ;
         }
     }
