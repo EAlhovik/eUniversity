@@ -55,7 +55,8 @@ namespace eUniversity.Web
             #region chosen
 
             bundles.Add(new ScriptBundle("~/bundles/chosen").Include(
-                "~/Scripts/select2/select2.min.js"
+                "~/Scripts/select2/select2.min.js",
+                "~/Scripts/select2/select2_locale_ru.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/chosen").Include(

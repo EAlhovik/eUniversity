@@ -24,7 +24,8 @@
                 <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="state">Специальность</label>
 
                 <div class="col-xs-12 col-sm-9">
-                    <select id="state" name="state" class="select2" data-placeholder="Click to Choose...">
+                    <input class="select2" type="hidden" id="e21" style="width: 300px;" />
+@*                    <select id="state" name="state" class="select2" data-placeholder="Click to Choose...">
                         <option value="">&nbsp;</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -43,7 +44,7 @@
                         <option value="WV">West Virginia</option>
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
-                    </select>
+                    </select>*@
                 </div>
             </div>
             <div class="form-group">
@@ -66,7 +67,7 @@
                         <i class="icon-ok bigger-110"></i>
                         Сохранить
                     </button>
-                    
+
                     &nbsp; &nbsp; &nbsp;
                     <button class="btn" type="reset">
                         <i class="icon-undo bigger-110"></i>
@@ -82,11 +83,33 @@
 
 
 <script type="text/javascript">
-    alert('asd')
     jQuery(window).load(function () {
-        $(".select2").css('width', '200px').select2({ allowClear: true })
-            .on('change', function () {
-                
+        //        $(".select2").css('width', '200px').select2({ allowClear: true })
+        //            .on('change', function () {
+        //                
+        //            });
+        $(".select2").css('width', '200px').select2(
+            {
+                allowClear: true,
+                ajax: {
+                    url: '@Url.Action("GetSpecialities", "Speciality")',
+                    dataType: 'json',
+                    data: function (term) {
+                        return {
+                            term: term, // search term
+                            page_limit: 10,
+                        };
+                    },
+                    results: function (data, page) { // parse the results into the format expected by Select2.
+                        // since we are using custom formatting functions we do not need to alter remote JSON data
+                        //                        return { results: data };
+                        data.forEach(function (item) {
+                            item.text = item.Text;
+                            item.id = item.Id;
+                        });
+                        return { results: data };
+                    }
+                },
             });
     });
 </script>

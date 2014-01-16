@@ -305,6 +305,7 @@
     <Content Include="Scripts\ko\knockout.validation.js" />
     <Content Include="Scripts\modernizr-2.7.1.js" />
     <Content Include="Scripts\select2\select2.min.js" />
+    <Content Include="Scripts\select2\select2_locale_ru.js" />
     <Content Include="Scripts\styler.js" />
     <Content Include="Scripts\viewModels\account\loginViewModel.js" />
     <Content Include="Scripts\viewModels\account\registerViewModel.js" />
@@ -392,6 +393,10 @@
     <ProjectReference Include="..\..\Data\eUniversity.Data\eUniversity.Data.csproj">
       <Project>{979B9289-21A8-4F3D-AA0C-0D92093ADF4C}</Project>
       <Name>eUniversity.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
+      <Project>{47546296-321D-4C04-8B15-1F14A1023D92}</Project>
+      <Name>eUniversity.Business.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

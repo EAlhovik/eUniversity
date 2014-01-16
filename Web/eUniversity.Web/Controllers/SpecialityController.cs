@@ -1,6 +1,9 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Linq;
 using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Speciality;
 
 namespace eUniversity.Web.Controllers
@@ -34,6 +37,24 @@ namespace eUniversity.Web.Controllers
             specialityManagementService.Save(speciality);
 
             return View();
+        }
+
+        public JsonResult GetSpecialities(string term)
+        {
+            var lst = new List<SelectedItemModel>()
+                {
+                    new SelectedItemModel() {Id= "user0", Text= "Disabled User"},
+                    new SelectedItemModel() {Id= "user0", Text= "Jane Doe"},
+                    new SelectedItemModel() {Id= "user0", Text= "Robert Paulson"},
+                    new SelectedItemModel() {Id= "user0", Text= "Spongebob Squarepants"},
+                    new SelectedItemModel() {Id= "user0", Text= "Planet Bob"},
+                };
+            if (string.IsNullOrEmpty(term))
+            {
+
+                return Json(lst, JsonRequestBehavior.AllowGet);
+            }
+            return Json(lst.Where(p => p.Text.ToUpper().Contains(term.ToUpper())), JsonRequestBehavior.AllowGet);
         }
     }
 }
