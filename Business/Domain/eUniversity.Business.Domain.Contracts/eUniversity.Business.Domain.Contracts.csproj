@@ -39,11 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBaseService.cs" />
     <Compile Include="IFormsAuthenticationService.cs" />
     <Compile Include="ILoockupManagementService.cs" />
     <Compile Include="IRoleService.cs" />
     <Compile Include="ISpecialityManagementService.cs" />
     <Compile Include="ISpecialityService.cs" />
+    <Compile Include="ISpecializationManagementService.cs" />
     <Compile Include="ISpecializationService.cs" />
     <Compile Include="IUserManagementService.cs" />
     <Compile Include="IUserService.cs" />

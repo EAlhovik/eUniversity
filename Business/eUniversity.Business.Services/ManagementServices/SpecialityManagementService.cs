@@ -50,7 +50,7 @@ namespace eUniversity.Business.Services.ManagementServices
         /// <returns> All specialities </returns>
         public IEnumerable<SpecialityRowViewModel> GetSpecialities()
         {
-            var listViewModels = Mapper.Map<IEnumerable<Speciality>, IEnumerable<SpecialityRowViewModel>>(specialityService.All().ToList());
+            var listViewModels = specialityService.All().Select(Mapper.Map<Speciality, SpecialityRowViewModel>);
             return listViewModels;
         }
 

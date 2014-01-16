@@ -1,4 +1,4 @@
-﻿@model eUniversity.Business.ViewModels.Speciality.SpecialityViewModel
+﻿@model eUniversity.Business.ViewModels.Specialization.SpecializationViewModel
 @{
     ViewBag.PageHeader = "Специализация";
     if (Model == null || Model.Id == 0)
@@ -24,27 +24,28 @@
                 <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="state">Специальность</label>
 
                 <div class="col-xs-12 col-sm-9">
-                    <input class="select2" type="hidden" id="e21" style="width: 300px;" />
-@*                    <select id="state" name="state" class="select2" data-placeholder="Click to Choose...">
-                        <option value="">&nbsp;</option>
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                    </select>*@
+                    @Html.HiddenFor(m => m.SpecialityId, new { @class = "select2" })
+                    @*                    <input class="select2" type="hidden" id="e21" style="width: 300px;" />*@
+                    @*                    <select id="state" name="state" class="select2" data-placeholder="Click to Choose...">
+                            <option value="">&nbsp;</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>*@
                 </div>
             </div>
             <div class="form-group">
@@ -84,10 +85,6 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        //        $(".select2").css('width', '200px').select2({ allowClear: true })
-        //            .on('change', function () {
-        //                
-        //            });
         $(".select2").css('width', '200px').select2(
             {
                 allowClear: true,
@@ -96,18 +93,35 @@
                     dataType: 'json',
                     data: function (term) {
                         return {
-                            term: term, 
+                            term: term,
                             page_limit: 10,
                         };
                     },
-                    results: function (data, page) { // parse the results into the format expected by Select2.
-                        // since we are using custom formatting functions we do not need to alter remote JSON data
-                        //                        return { results: data };
+                    results: function (data) {
+                        var results = [];
                         data.forEach(function (item) {
-                            item.text = item.Text;
                             item.id = item.Id;
+                            item.text = item.Text;
                         });
                         return { results: data };
+                    }
+                },
+                id: function (obj) {
+                    return obj.Id;
+                },
+                initSelection: function (element, callback) {
+                    var id = $(element).val();
+                    if (id !== '' && id !== '0') {
+                        $.ajax('@Url.Action("GetSpeciality", "Loockup")', {
+                            data: {
+                                id: id
+                            },
+                            dataType: "json"
+                        }).done(function (data) {
+                            data.id = data.Id;
+                            data.text = data.Text;
+                            callback(data);
+                        });
                     }
                 },
             });

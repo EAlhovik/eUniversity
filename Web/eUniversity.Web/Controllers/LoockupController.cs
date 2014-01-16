@@ -17,5 +17,11 @@ namespace eUniversity.Web.Controllers
         {
             return Json(loockupService.GetSpecialities(term),JsonRequestBehavior.AllowGet );
         }
+
+        [HttpGet]
+        public JsonResult GetSpeciality(long? id)
+        {
+            return Json(loockupService.GetSpeciality(id),JsonRequestBehavior.AllowGet );
+        }
     }
 }

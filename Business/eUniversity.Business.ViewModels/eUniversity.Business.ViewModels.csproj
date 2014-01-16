@@ -45,6 +45,8 @@
     <Compile Include="Auth\RegisterViewModel.cs" />
     <Compile Include="Speciality\SpecialityRowViewModel.cs" />
     <Compile Include="Speciality\SpecialityViewModel.cs" />
+    <Compile Include="Specialization\SpecializationRowViewModel.cs" />
+    <Compile Include="Specialization\SpecializationViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -35,6 +35,17 @@ namespace eUniversity.Business.Services.ManagementServices
             return specialities.Select(Mapper.Map<Speciality, SelectedItemModel>);
         }
 
+        /// <summary>
+        /// Gets the speciality.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        public SelectedItemModel GetSpeciality(long? id)
+        {
+            var speciality = specialityService.CreateOrOpen(id);
+            return Mapper.Map<Speciality, SelectedItemModel>(speciality);
+        }
+
         #endregion
 
     }

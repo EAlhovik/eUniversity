@@ -1,8 +1,8 @@
-﻿@model IEnumerable<eUniversity.Business.ViewModels.Speciality.SpecialityRowViewModel>
+﻿@model IEnumerable<eUniversity.Business.ViewModels.Specialization.SpecializationRowViewModel>
 
 @{
-    ViewBag.PageHeader = "Специальность";
-    ViewBag.AdditionalInfo = "Список специальностей";
+    ViewBag.PageHeader = "Специализация";
+    ViewBag.AdditionalInfo = "Список специализаций";
     if (Request.IsAjaxRequest())
     {
         Layout = null;
@@ -45,7 +45,7 @@
                                 </label>
                             </td>
                             <td>
-                                @Html.ActionLink(row.Name, "Edit", "Speciality", new { specialityId = row.Id }, null)
+                                @Html.ActionLink(row.Name, "Edit", "Specialization", new { specializationId = row.Id }, null)
                             </td>
                             <td>@row.Description</td>
                             <td>Feb 12</td>

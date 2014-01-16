@@ -14,5 +14,12 @@ namespace eUniversity.Business.Domain.Contracts
         /// <param name="term">The term.</param>
         /// <returns>specialities by term</returns>
         IEnumerable<SelectedItemModel> GetSpecialities(string term);
+
+        /// <summary>
+        /// Gets the speciality.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        SelectedItemModel GetSpeciality(long? id);
     }
 }
