@@ -44,6 +44,7 @@
     <Compile Include="Base\IEntity.cs" />
     <Compile Include="Base\IEntityChanged.cs" />
     <Compile Include="Base\IEntityCreated.cs" />
+    <Compile Include="Base\Person.cs" />
     <Compile Include="eUniversity\Role.cs" />
     <Compile Include="eUniversity\Speciality.cs" />
     <Compile Include="eUniversity\Specialization.cs" />
