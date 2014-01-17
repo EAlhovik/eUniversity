@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
@@ -44,12 +45,14 @@ namespace eUniversity.Business.Services.Auth
         /// Registers the user.
         /// </summary>
         /// <param name="user">The user.</param>
-        public void RegisterUser(User user)
+        /// <param name="accountType"> Account type </param>
+        public void RegisterUser(User user, AccountTypeEnum accountType)
         {
             var hashedPassword = formsAuthenticationService.CreatePasswordHash(user.Password);
             user.Password = hashedPassword;
             userRepository.InsertOrUpdate(user);
-
+            var role = GetRoleByType(GetDefaultRoleForAccountType(accountType));
+            user.Roles = new List<Role> { role };
         }
 
         /// <summary>
@@ -64,6 +67,24 @@ namespace eUniversity.Business.Services.Auth
         }
 
         #endregion
+
+        private RoleEnum GetDefaultRoleForAccountType(AccountTypeEnum accountType)
+        {
+            switch (accountType)
+            {
+                case AccountTypeEnum.Student:
+                    return RoleEnum.Student;
+                case AccountTypeEnum.Professor:
+                    return RoleEnum.Professor;
+                default:
+                    throw new ArgumentOutOfRangeException("accountType");
+            }
+        }
+
+        private Role GetRoleByType(RoleEnum role)
+        {
+            return roleRepository.All().First(r => r.RoleType == role);
+        }
 
         #region IRoleService Members
 

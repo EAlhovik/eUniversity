@@ -15,6 +15,13 @@
     });
     
     ko.mapping.fromJS(serverModel, {}, self);
+    
+    self.register = function () {
+        if (self.validate()) {
+            return true;
+        }
+        return false;
+    };
 
     addValidation(self);
 }

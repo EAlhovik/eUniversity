@@ -54,11 +54,16 @@ namespace eUniversity.Business.Services.Auth
         /// <param name="registerViewModel">The register view model.</param>
         public void RegisterUser(RegisterViewModel registerViewModel)
         {
-            var user = Mapper.Map<RegisterViewModel, User>(registerViewModel); //todo: inject formsAuthenticationService for password
-            userService.RegisterUser(user);
+            var user = Mapper.Map<RegisterViewModel, User>(registerViewModel);
+            userService.RegisterUser(user, registerViewModel.AccountType);
             eUniversityUow.Commit();
         }
 
+        public bool Validate(RegisterViewModel registerViewModel)
+        {
+            throw new NotImplementedException();
+        }
+        
         #endregion
 
     }

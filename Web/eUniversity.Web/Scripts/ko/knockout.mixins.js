@@ -1,11 +1,11 @@
 ﻿function addValidation(self) {
     self.errors = ko.validation.group(self);
     self.validateable = ko.validatedObservable(self);
-    self.validate = function () {
-        return !this.isValid() ? (this.errors.showAllMessages(), false) : true;
-    };
     self.isValid = function () {
         return this.validateable.isValid();
+    };
+    self.validate = function () {
+        return !this.isValid() ? (this.errors.showAllMessages(), false) : true;
     };
     self.showServerErrors = function(a) {
         if (a.errors)

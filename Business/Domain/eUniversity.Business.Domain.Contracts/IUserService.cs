@@ -1,4 +1,5 @@
 ﻿using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers.Enums;
 
 namespace eUniversity.Business.Domain.Contracts
 {
@@ -15,7 +16,7 @@ namespace eUniversity.Business.Domain.Contracts
         /// <returns> true if the supplied user name and password are valid; otherwise, false.  </returns>
         bool ValidateUser(string userName, string password);
 
-        void RegisterUser(User user);
+        void RegisterUser(User user, AccountTypeEnum accountType);
 
         User GetUserByName(string userName);
     }

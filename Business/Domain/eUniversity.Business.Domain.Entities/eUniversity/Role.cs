@@ -11,7 +11,5 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public RoleEnum RoleType { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
-
-//        public long UserId { get; set; }
     }
 }
