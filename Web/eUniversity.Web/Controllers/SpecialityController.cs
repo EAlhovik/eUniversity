@@ -32,7 +32,7 @@ namespace eUniversity.Web.Controllers
         {
             specialityManagementService.Save(speciality);
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

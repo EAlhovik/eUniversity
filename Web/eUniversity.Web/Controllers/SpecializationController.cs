@@ -30,7 +30,7 @@ namespace eUniversity.Web.Controllers
         public ActionResult Edit(SpecializationViewModel viewModel)
         {
             specializationService.Save(viewModel);
-            return View(viewModel);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Base;
 using eUniversity.Data.Contracts;
@@ -39,7 +40,30 @@ namespace eUniversity.Business.Services.Base
             Repository.InsertOrUpdate(entity, true);
             if (entity.IsNew())
             {
-                //                UpdateHistoryInformation(speciality);
+                TryUpdateCreatedInformation(entity);
+            }
+            else
+            {
+                TryUpdateLastModifiedInformation(entity);
+            }
+        }
+
+        private void TryUpdateCreatedInformation(T entity)
+        {
+            var entityCreated = entity as IEntityCreated;
+            if (entityCreated != null)
+            {
+                entityCreated.Created = DateTime.Now;
+                entityCreated.CreatedBy = "System";
+            }
+        }
+        private void TryUpdateLastModifiedInformation(T entity)
+        {
+            var entityChanged = entity as IEntityChanged;
+            if (entityChanged != null)
+            {
+                entityChanged.LastModified = DateTime.Now;
+                entityChanged.LastModifiedBy = "System";
             }
         }
 
