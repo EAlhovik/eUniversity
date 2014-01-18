@@ -47,6 +47,8 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             #endregion
 
+            #region Specialization
+
             Mapper.CreateMap<Specialization, SpecializationRowViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
@@ -71,6 +73,9 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))
                 .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Name))
                 ;
+
+            #endregion
+
 
         }
     }

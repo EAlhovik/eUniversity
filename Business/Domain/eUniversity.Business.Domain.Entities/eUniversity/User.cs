@@ -6,7 +6,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     public class User : Entity
     {
         public string UserName { get; set; }
-//        public System.DateTime LastActivityDate { get; set; }
+        //        public System.DateTime LastActivityDate { get; set; }
         public virtual ICollection<Role> Roles { get; set; }
         public string Password { get; set; }
 
@@ -22,5 +22,8 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
 
         //#endregion
 
+
+        public Profile Profile { get; set; }
+        public long? PersonId { get; set; }
     }
 }

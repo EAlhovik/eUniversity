@@ -1,11 +1,12 @@
-﻿using eUniversity.Business.Helpers.Enums;
+﻿using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers.Enums;
 
 namespace eUniversity.Business.Domain.Entities.Base
 {
     /// <summary>
     /// The entity for personal employee information
     /// </summary>
-    public abstract class Person : Entity
+    public abstract class Profile : Entity
     {
         /// <summary>
         /// Gets or sets the first name.
@@ -26,5 +27,8 @@ namespace eUniversity.Business.Domain.Entities.Base
         /// Gets or sets the gender.
         /// </summary>
         public GenderType? Gender { get; set; }
+
+        public virtual User User { get; set; }
+//        public long UserId { get; set; }
     }
 }

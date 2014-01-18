@@ -39,7 +39,14 @@ namespace eUniversity.Data
         /// Gets or sets the specializations.
         /// </summary>
         public IDbSet<Specialization> Specializations { get; set; }
-       
+
+        /// <summary>
+        /// Gets or sets the students.
+        /// </summary>
+        public IDbSet<StudentProfile> StudentProfiles { get; set; }
+
+        public IDbSet<ProfessorProfile> ProfessorProfiles { get; set; } 
+
         /// <summary>
         /// Action that launches on model creating
         /// </summary>
@@ -54,6 +61,8 @@ namespace eUniversity.Data
             modelBuilder.Configurations.Add(new RoleConfiguration());
             modelBuilder.Configurations.Add(new SpecialityConfiguration());
             modelBuilder.Configurations.Add(new SpecializationConfiguration());
+            modelBuilder.Configurations.Add(new StudentProfileConfiguration());
+            modelBuilder.Configurations.Add(new ProfessorProfileConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

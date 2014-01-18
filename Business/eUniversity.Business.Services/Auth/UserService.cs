@@ -62,7 +62,7 @@ namespace eUniversity.Business.Services.Auth
         /// <returns>User</returns>
         public User GetUserByName(string userName)
         {
-            var user = userRepository.All().First(u => u.UserName == userName);
+            var user = userRepository.All().FirstOrDefault(u => u.UserName == userName);
             return user;
         }
 
@@ -96,6 +96,7 @@ namespace eUniversity.Business.Services.Auth
         public string[] GetUserRoles(string userName)
         {
             var user = GetUserByName(userName);
+            if (user == null) return new List<string>().ToArray();
             return user.Roles.Select(role => role.RoleName).ToArray();
         }
 

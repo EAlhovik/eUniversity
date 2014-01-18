@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ProfessorProfileConfiguration.cs" />
     <Compile Include="Configuration\RoleConfiguration.cs" />
     <Compile Include="Configuration\SpecialityConfiguration.cs" />
     <Compile Include="Configuration\SpecializationConfiguration.cs" />
+    <Compile Include="Configuration\StudentProfileConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
     <Compile Include="EUniversityDataBaseInitializer.cs" />
     <Compile Include="EUniversityDbContext.cs" />

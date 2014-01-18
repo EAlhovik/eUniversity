@@ -9,6 +9,8 @@ namespace eUniversity.Data.Configuration
         {
             // Primary Key
             this.HasKey(t => t.Id);
+//            this.HasOptional(user => user.Profile).WithMany().HasForeignKey(p => p.PersonId);
+            this.HasOptional(user => user.Profile).WithRequired(person => person.User);
 
             // Properties
             this.Property(t => t.UserName)

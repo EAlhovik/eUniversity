@@ -44,10 +44,12 @@
     <Compile Include="Base\IEntity.cs" />
     <Compile Include="Base\IEntityChanged.cs" />
     <Compile Include="Base\IEntityCreated.cs" />
-    <Compile Include="Base\Person.cs" />
+    <Compile Include="Base\Profile.cs" />
+    <Compile Include="eUniversity\ProfessorProfile.cs" />
     <Compile Include="eUniversity\Role.cs" />
     <Compile Include="eUniversity\Speciality.cs" />
     <Compile Include="eUniversity\Specialization.cs" />
+    <Compile Include="eUniversity\StudentProfile.cs" />
     <Compile Include="eUniversity\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
