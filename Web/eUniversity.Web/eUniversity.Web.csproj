@@ -362,6 +362,11 @@
     <Content Include="Views\Speciality\Edit.cshtml" />
     <Content Include="Views\Specialization\Edit.cshtml" />
     <Content Include="Views\Specialization\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Profile\EditorTemplates\BasicInfo.cshtml" />
+    <Content Include="Views\Profile\EditorTemplates\ChangePassword.cshtml" />
+    <Content Include="Views\Profile\EditorTemplates\Settings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

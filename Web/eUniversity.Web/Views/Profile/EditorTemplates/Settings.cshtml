@@ -1,0 +1,87 @@
+﻿@using eUniversity.Web.Extensions
+@{
+    Layout = null;
+}
+@{
+    var ajaxOptions = new AjaxOptions()
+        {
+            UpdateTargetId = "profile-form",
+            InsertionMode = InsertionMode.Replace,
+
+        };
+}
+
+<form class="form-horizontal">
+    <div class="tabbable">
+        <ul class="nav nav-tabs padding-16">
+           <li>
+                @Ajax.RawActionLink("<i class=\"green icon-edit bigger-125\"></i>Basic Info", "BasicInfo", "Profile", ajaxOptions)
+            </li>
+
+            <li class="active">
+                @Ajax.RawActionLink("<i class=\"purple icon-cog bigger-125\"></i>Settings", "Settings", "Profile", ajaxOptions)
+                
+            </li>
+
+            <li >
+                 @Ajax.RawActionLink("<i class=\"blue icon-key bigger-125\"></i>Password", "ChangePassword", "Profile", ajaxOptions)
+            </li>
+        </ul>
+
+        <div class="tab-content profile-edit-tab-content">
+
+            <div id="edit-settings" class="tab-pane active">
+                <div class="space-10"></div>
+
+                <div>
+                    <label class="inline">
+                        <input type="checkbox" name="form-field-checkbox" class="ace">
+                        <span class="lbl">Make my profile public</span>
+                    </label>
+                </div>
+
+                <div class="space-8"></div>
+
+                <div>
+                    <label class="inline">
+                        <input type="checkbox" name="form-field-checkbox" class="ace">
+                        <span class="lbl">Email me new updates</span>
+                    </label>
+                </div>
+
+                <div class="space-8"></div>
+
+                <div>
+                    <label class="inline">
+                        <input type="checkbox" name="form-field-checkbox" class="ace">
+                        <span class="lbl">Keep a history of my conversations</span>
+                    </label>
+
+                    <label class="inline">
+                        <span class="space-2 block"></span>
+
+                        for
+																	<input type="text" class="input-mini" maxlength="3">
+                        days
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="button">
+                <i class="icon-ok bigger-110"></i>
+                Save
+            </button>
+
+            &nbsp; &nbsp;
+														<button class="btn" type="reset">
+                                                            <i class="icon-undo bigger-110"></i>
+                                                            Reset
+                                                        </button>
+        </div>
+    </div>
+</form>
