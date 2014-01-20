@@ -49,8 +49,8 @@
     <Compile Include="Specialization\SpecializationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
-      <Project>{47546296-321D-4C04-8B15-1F14A1023D92}</Project>
+    <ProjectReference Include="..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
+      <Project>{387246CB-53C1-4A51-874A-135755655B12}</Project>
       <Name>eUniversity.Business.Helpers</Name>
     </ProjectReference>
   </ItemGroup>

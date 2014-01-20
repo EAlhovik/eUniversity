@@ -50,13 +50,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
-      <Project>{47546296-321D-4C04-8B15-1F14A1023D92}</Project>
-      <Name>eUniversity.Business.Helpers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
       <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
       <Name>eUniversity.Business.Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
+      <Project>{387246CB-53C1-4A51-874A-135755655B12}</Project>
+      <Name>eUniversity.Business.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
       <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>

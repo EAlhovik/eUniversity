@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("eUniversity.Business.Helpers")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("OM-3")]
 [assembly: AssemblyProduct("eUniversity.Business.Helpers")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright © OM-3 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c8af0a76-d5dd-4e4b-bb28-a3387534c80d")]
+[assembly: Guid("98ec3a81-e2a0-4bfb-9808-0ee0f2606bc3")]
 
 // Version information for an assembly consists of the following four values:
 //
