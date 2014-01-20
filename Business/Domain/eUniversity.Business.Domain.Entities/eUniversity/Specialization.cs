@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.Base;
 
 namespace eUniversity.Business.Domain.Entities.eUniversity
@@ -6,7 +7,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     /// <summary>
     /// The Specialization entity
     /// </summary>
-    public class Specialization : Entity, IEntityCreated, IEntityChanged
+    public class Specialization : Entity, IHasCreation, IHasModificatoin
     {
         /// <summary>
         /// Gets or sets the name.
@@ -28,7 +29,9 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         /// </summary>
         public long SpecialityId { get; set; }
 
-        #region IEntityCreated Members
+        public virtual ICollection<Сurriculum> Сurricula { get; set; }
+
+        #region IHasCreation Members
 
         public DateTime Created { get; set; }
 
@@ -36,7 +39,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
 
         #endregion
 
-        #region IEntityChanged Members
+        #region IHasModificatoin Members
 
         public DateTime? LastModified { get; set; }
 

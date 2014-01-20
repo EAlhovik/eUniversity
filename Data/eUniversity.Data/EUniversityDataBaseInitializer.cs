@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using eUniversity.Business.Domain.Entities.eUniversity;
@@ -27,6 +28,27 @@ namespace eUniversity.Data
             var user = context.Users.First();
             user.Profile = new StudentProfile() { FirstName = "sda", GroupName = "dasdsa" };
             context.SaveChanges();
+
+
+            var speciality = new Speciality()
+            {
+                Specializations = new List<Specialization>()
+                {
+                    new Specialization()
+                    {
+                        Сurricula = new List<Сurriculum>()
+                        {
+                            new Сurriculum()
+                        },
+                        Created =  DateTime.Now
+                    },
+                },
+                Created = DateTime.Now
+            };
+            context.Specialities.Add(speciality);
+            context.SaveChanges();
+
+            var t = context.Сurricula.ToList();
         }
     }
 }

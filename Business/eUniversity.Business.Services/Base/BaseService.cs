@@ -50,7 +50,7 @@ namespace eUniversity.Business.Services.Base
 
         private void TryUpdateCreatedInformation(T entity)
         {
-            var entityCreated = entity as IEntityCreated;
+            var entityCreated = entity as IHasCreation;
             if (entityCreated != null)
             {
                 entityCreated.Created = DateTime.Now;
@@ -59,7 +59,7 @@ namespace eUniversity.Business.Services.Base
         }
         private void TryUpdateLastModifiedInformation(T entity)
         {
-            var entityChanged = entity as IEntityChanged;
+            var entityChanged = entity as IHasModificatoin;
             if (entityChanged != null)
             {
                 entityChanged.LastModified = DateTime.Now;

@@ -45,7 +45,31 @@ namespace eUniversity.Data
         /// </summary>
         public IDbSet<StudentProfile> StudentProfiles { get; set; }
 
-        public IDbSet<ProfessorProfile> ProfessorProfiles { get; set; } 
+        /// <summary>
+        /// Gets or sets the professor profiles.
+        /// </summary>
+        public IDbSet<ProfessorProfile> ProfessorProfiles { get; set; }
+
+        /// <summary>
+        /// Gets or sets the сurricula.
+        /// </summary>
+        public IDbSet<Сurriculum> Сurricula { get; set; }
+
+        /// <summary>
+        /// Gets or sets the semesters.
+        /// </summary>
+        public IDbSet<Semester> Semesters { get; set; }
+
+        /// <summary>
+        /// Gets or sets the subjects.
+        /// </summary>
+        public IDbSet<Subject> Subjects { get; set; }
+
+        /// <summary>
+        /// Gets or sets the themes.
+        /// </summary>
+        public IDbSet<Theme> Themes { get; set; } 
+
 
         /// <summary>
         /// Action that launches on model creating
@@ -63,6 +87,10 @@ namespace eUniversity.Data
             modelBuilder.Configurations.Add(new SpecializationConfiguration());
             modelBuilder.Configurations.Add(new StudentProfileConfiguration());
             modelBuilder.Configurations.Add(new ProfessorProfileConfiguration());
+            modelBuilder.Configurations.Add(new СurriculumConfiguration());
+            modelBuilder.Configurations.Add(new SemesterConfiguration());
+            modelBuilder.Configurations.Add(new SubjectConfiguration());
+            modelBuilder.Configurations.Add(new ThemeConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

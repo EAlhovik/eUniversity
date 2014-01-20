@@ -7,7 +7,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     /// <summary>
     /// The Speciality entity
     /// </summary>
-    public class Speciality : Entity, IEntityCreated, IEntityChanged
+    public class Speciality : Entity, IHasCreation, IHasModificatoin
     {
         /// <summary>
         /// Gets or sets the name.
@@ -24,7 +24,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         /// </summary>
         public virtual ICollection<Specialization> Specializations { get; set; }
 
-        #region IEntityCreated Members
+        #region IHasCreation Members
 
         public DateTime Created { get; set; }
 
@@ -32,7 +32,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
 
         #endregion
 
-        #region IEntityChanged Members
+        #region IHasModificatoin Members
 
         public DateTime? LastModified { get; set; }
 

@@ -15,7 +15,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         //public bool IsApproved { get; set; }
         //public bool IsLockedOut { get; set; }
 
-        //#region IEntityChanged Members
+        //#region IHasModificatoin Members
 
         //public DateTime Created { get; set; }
         //public string CreatedBy { get; set; }
@@ -25,5 +25,6 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
 
         public Profile Profile { get; set; }
         public long? PersonId { get; set; }
+
     }
 }

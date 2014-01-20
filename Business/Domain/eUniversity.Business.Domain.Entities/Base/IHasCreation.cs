@@ -5,16 +5,16 @@ namespace eUniversity.Business.Domain.Entities.Base
     /// <summary>
     /// Interface for entities with history
     /// </summary>
-    public interface IEntityChanged : IEntity
+    public interface IHasCreation : IEntity
     {
         /// <summary>
-        /// Gets or sets the modified.
+        /// Gets or sets the created.
         /// </summary>
-        DateTime? LastModified { get; set; }
+        DateTime Created { get; set; }
 
         /// <summary>
-        /// Gets or sets the name person that modified entity.
+        /// Gets or sets the name person that created entity.
         /// </summary>
-        string LastModifiedBy { get; set; }
+        string CreatedBy { get; set; }
     }
 }
