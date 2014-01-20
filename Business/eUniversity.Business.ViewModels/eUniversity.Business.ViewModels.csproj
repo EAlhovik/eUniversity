@@ -41,6 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\LoginViewModel.cs" />
+    <Compile Include="Profile\BasicProfileViewModel.cs" />
+    <Compile Include="Profile\ChangePasswordViewModel.cs" />
+    <Compile Include="Profile\ContactInfoSectionViewModel.cs" />
+    <Compile Include="Profile\GeneralInfoSectionViewModel.cs" />
+    <Compile Include="Profile\SettingsViewModel.cs" />
+    <Compile Include="Profile\SocialInfoSectionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Auth\RegisterViewModel.cs" />
     <Compile Include="Speciality\SpecialityRowViewModel.cs" />

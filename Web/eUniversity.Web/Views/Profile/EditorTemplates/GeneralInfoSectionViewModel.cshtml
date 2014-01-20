@@ -1,0 +1,83 @@
+﻿@model eUniversity.Business.ViewModels.Profile.GeneralInfoSectionViewModel
+
+                <h4 class="header blue bolder smaller">General</h4>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="ace-file-input ace-file-multiple">
+                            <input type="file">
+                            <label class="file-label" data-title="Change avatar">
+                                <span class="file-name" data-title="No File ...">
+                                    <i class="icon-picture"></i>
+                                </span>
+                            </label>
+                            <a class="remove" href="#">
+                                <i class="icon-remove"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="vspace-xs"></div>
+
+                    <div class="col-xs-12 col-sm-8">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, "Логин", new { @class = "col-sm-4 control-label no-padding-right" })
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "col-xs-12 col-sm-10", placeholder = "Логин" })
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.LastName, "Имя", new { @class = "col-sm-4 control-label no-padding-right" })
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "input-small", placeholder = "Фамилия" })
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "input-small", placeholder = "Имя" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.BithDayDisplay, "День рождения", new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        <div class="input-medium">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.BithDayDisplay, new { @class = "input-medium date-picker", placeholder = "mm-dd-yyyy", data_date_format = "mm-dd-yyyy" })
+                                <span class="input-group-addon">
+                                    <i class="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right">Gender</label>
+
+                    <div class="col-sm-9">
+                        <label class="inline">
+                            @Html.RadioButtonFor(m => m.IsMale, true, new { @class = "ace" })
+                            <span class="lbl">Male</span>
+                        </label>
+                        &nbsp; &nbsp; &nbsp;
+                        <label class="inline">
+                            @Html.RadioButtonFor(m => m.IsMale, false, new { @class = "ace" })
+                            <span class="lbl">Female</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-comment">Comment</label>
+
+                    <div class="col-sm-9">
+                        <textarea id="form-field-comment"></textarea>
+                    </div>
+                </div>

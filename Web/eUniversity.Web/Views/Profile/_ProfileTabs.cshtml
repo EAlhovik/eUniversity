@@ -1,0 +1,28 @@
+﻿@using eUniversity.Web.Extensions
+@using eUniversity.Business.Helpers.Enums
+@model ProfileTabEnum
+
+@{
+    var ajaxOptions = new AjaxOptions()
+        {
+            UpdateTargetId = "profile-form",
+            InsertionMode = InsertionMode.Replace,
+
+        };
+
+    var tabs = new Dictionary<ProfileTabEnum, string>()
+            {
+                {ProfileTabEnum.BasicInfo, "<i class=\"green icon-edit bigger-125\"></i>Basic Info"},
+                {ProfileTabEnum.Settings, "<i class=\"purple icon-cog bigger-125\"></i>Settings"},
+                {ProfileTabEnum.ChangePassword, "<i class=\"blue icon-key bigger-125\"></i>Password"},
+            };
+}
+
+<ul class="nav nav-tabs padding-16">
+    @foreach (ProfileTabEnum tab in (ProfileTabEnum[])Enum.GetValues(typeof(ProfileTabEnum)))
+    {
+        <li class="@(tab == Model ? "active" : string.Empty)">
+            @Ajax.RawActionLink(tabs[tab], tab.ToString(), "Profile", ajaxOptions)
+        </li>
+    }
+</ul>

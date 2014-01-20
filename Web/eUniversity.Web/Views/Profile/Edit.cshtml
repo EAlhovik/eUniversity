@@ -1,4 +1,5 @@
-﻿@{
+﻿@model object
+@{
     ViewBag.PageHeader = "Профиль";
     ViewBag.AdditionalInfo = User.Identity.Name;
     if (Request.IsAjaxRequest())
@@ -23,16 +24,11 @@
                                                     <div class="progress-bar progress-bar-success" style="width: 70%"></div>
                                                 </div>
                     </div>
-
                     <div class="space"></div>
-                    <div>
-                        
-                    </div>
-                    @Html.Action("BasicInfo", "Profile")
+                    @Html.EditorFor(m=>m)
+@*                    @Html.Action("BasicInfo", "Profile")*@
                 </div>
-                <!-- /span -->
             </div>
-            <!-- /user-profile -->
         </div>
     </div>
 </div>

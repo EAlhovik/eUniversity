@@ -20,8 +20,6 @@ namespace eUniversity.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
-
             bundles.Add(new StyleBundle("~/bootstrap/css").Include(
                 "~/Content/bootstrap/bootstrap.css"));
 

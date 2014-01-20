@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Enums\AccountTypeEnum.cs" />
     <Compile Include="Enums\GenderType.cs" />
+    <Compile Include="Enums\ProfileTabEnum.cs" />
     <Compile Include="Enums\RoleEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectedItemModel.cs" />
