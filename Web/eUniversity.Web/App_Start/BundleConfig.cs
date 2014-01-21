@@ -38,7 +38,8 @@ namespace eUniversity.Web
             bundles.Add(new ScriptBundle("~/bundles/ace").Include(
                 "~/Scripts/ace/ace.min.js",
                 "~/Scripts/ace/ace-extra.min.js",
-                "~/Scripts/ace/ace-elements.min.js"
+                "~/Scripts/ace/ace-elements.min.js",
+                "~/Scripts/ace/fuelux.wizard.min.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/ko").Include(

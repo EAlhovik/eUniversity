@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\LoginViewModel.cs" />
+    <Compile Include="Curriculum\CurriculumViewModel.cs" />
+    <Compile Include="Curriculum\HeaderSectionViewModel.cs" />
     <Compile Include="Profile\BasicProfileViewModel.cs" />
     <Compile Include="Profile\ChangePasswordViewModel.cs" />
     <Compile Include="Profile\ContactInfoSectionViewModel.cs" />
@@ -60,6 +62,7 @@
       <Name>eUniversity.Business.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

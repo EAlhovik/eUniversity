@@ -11,7 +11,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public virtual ICollection<Semester> Semesters { get; set; }
 
         public virtual Specialization Specialization { get; set; }
-        public long SpecializationId { get; set; }
 
+        public long SpecializationId { get; set; }
     }
 }

@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SpecialityController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
+    <Compile Include="Controllers\СurriculumController.cs" />
     <Compile Include="Dependencies\DataAccessModule.cs" />
     <Compile Include="Dependencies\DomainServicesModule.cs" />
     <Compile Include="Extensions\CustomRoleProvider.cs" />
@@ -232,6 +233,7 @@
     <Content Include="Scripts\ace\ace-elements.min.js" />
     <Content Include="Scripts\ace\ace-extra.min.js" />
     <Content Include="Scripts\ace\ace.min.js" />
+    <Content Include="Scripts\ace\fuelux.wizard.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.js" />
@@ -319,6 +321,7 @@
     <Content Include="Views\Profile\EditorTemplates\BasicProfileViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\SettingsViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\ChangePasswordViewModel.cshtml" />
+    <Content Include="Views\Сurriculum\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

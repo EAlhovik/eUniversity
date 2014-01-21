@@ -86,6 +86,21 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-pencil"></i>
+                        Учебный план<b class="arrow icon-angle-down"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", "Edit", "Сurriculum", ajaxOptions)
+                        </li>
+
+                        <li>
+                            @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", "Index", "Сurriculum", ajaxOptions)
+                        </li>
+                    </ul>
+                </li>
             </ul>
 
         </li>

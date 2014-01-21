@@ -40,10 +40,12 @@ namespace eUniversity.Data
                         {
                             new Сurriculum()
                         },
-                        Created =  DateTime.Now
+                        Created =  DateTime.Now,
+                        Name = "the first specialization"
                     },
                 },
-                Created = DateTime.Now
+                Created = DateTime.Now,
+                Name = "First speciality"
             };
             context.Specialities.Add(speciality);
             context.SaveChanges();
