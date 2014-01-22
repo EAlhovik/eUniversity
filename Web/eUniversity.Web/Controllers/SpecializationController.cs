@@ -7,7 +7,6 @@ namespace eUniversity.Web.Controllers
     public class SpecializationController : Controller
     {
         private readonly ISpecializationManagementService specializationService;
-
         public SpecializationController(ISpecializationManagementService specializationService)
         {
             this.specializationService = specializationService;
