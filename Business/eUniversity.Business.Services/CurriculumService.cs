@@ -8,9 +8,9 @@ namespace eUniversity.Business.Services
     /// <summary>
     /// Represents curriculum service
     /// </summary>
-    public class СurriculumService : BaseService<Сurriculum>, IСurriculumService
+    public class CurriculumService : BaseService<Сurriculum>, ICurriculumService
     {
-        public СurriculumService(IRepository<Сurriculum> repository) : base(repository)
+        public CurriculumService(IRepository<Сurriculum> repository) : base(repository)
         {
         }
 

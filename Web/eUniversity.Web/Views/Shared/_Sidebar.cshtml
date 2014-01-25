@@ -1,4 +1,5 @@
-﻿@using eUniversity.Web.Extensions
+﻿@using eUniversity.Web.Constants
+@using eUniversity.Web.Extensions
 <div class="sidebar" id="sidebar">
 
     <div class="sidebar-shortcuts" id="sidebar-shortcuts">
@@ -93,11 +94,11 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", "Edit", "Сurriculum", ajaxOptions)
+                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", "Edit", ControllerNames.CurriculumController, ajaxOptions)
                         </li>
 
                         <li>
-                            @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", "Index", "Сurriculum", ajaxOptions)
+                            @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", "Index", ControllerNames.CurriculumController, ajaxOptions)
                         </li>
                     </ul>
                 </li>

@@ -6,5 +6,6 @@
     public class SemesterViewModel
     {
         public long Id { get; set; }
+        public int Sequential { get; set; }
     }
 }

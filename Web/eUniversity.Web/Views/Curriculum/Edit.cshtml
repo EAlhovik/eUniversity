@@ -1,0 +1,133 @@
+﻿@using eUniversity.Web.Constants
+@using eUniversity.Web.Extensions
+@model eUniversity.Business.ViewModels.Curriculum.CurriculumViewModel
+@{
+    ViewBag.PageHeader = "Учебный план";
+    if (Model == null || Model.HeaderSection == null || Model.HeaderSection.Id == 0)
+    {
+        ViewBag.AdditionalInfo = "Добавление нового учебного плана";
+    }
+    else
+    {
+        ViewBag.AdditionalInfo = "Редактирование учебного плана";
+    }
+
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+}
+@Html.Partial("_PageHeader")
+<div class="row" id="curriculum">
+    <div class="col-xs-12">
+        <div class="row">
+            <ul class="wizard-steps">
+                <!-- ko foreach: Steps -->
+                <li data-bind="css: {active: IsActive, complete: IsCompleted}">
+                    <span class="step" data-bind="text: Step, click: $parent.ChooseStep"></span>
+                    <span class="title" data-bind="text: Title"></span>
+                </li>
+                <!-- /ko -->
+            </ul>
+        </div>
+        <hr>
+        <div class="step-content row position-relative">
+            @using (Html.BeginForm("Edit", ControllerNames.CurriculumController, FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+            <!-- ko with: HeaderSection -->
+                <div class="step-pane" data-bind="css: {active: IsActive, complete: IsCompleted}">
+                    <h3 class="lighter block green">Учебный план</h3>
+                    <div class="form-group has-success">
+                        <label for="inputSuccess" class="col-xs-12 col-sm-3 control-label no-padding-right">Input with success</label>
+
+                        <div class="col-xs-12 col-sm-5">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" id="inputSuccess" class="width-100">
+                                <i class="icon-ok-sign"></i>
+                            </span>
+                        </div>
+                        <div class="help-block col-xs-12 col-sm-reset inline">
+                            Success tip help!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.HeaderSection.SpecializationId, "Специализация", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+                        <div class="col-xs-12 col-sm-9">
+                            @Html.HiddenFor(m => m.HeaderSection.SpecializationId, new
+                            {
+                                style = "width: 200px",
+                                @class = "select2",
+                                Data_Bind = "value: SpecializationId, lookupKey: 'id', select2: {allowClear: true,  placeholder: 'Выберите специальность',ajax:{url:'" + @Url.Action("GetSpecialities", "Loockup") + "'  } }"
+                         
+                            })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.HeaderSection.CountSemesters, "Количество семестров", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+                        <div class="col-xs-12 col-sm-9">
+                            @Html.HiddenFor(m => m.HeaderSection.CountSemesters, new
+                            {
+                                style = "width: 200px",
+                                @class = "select2",
+                                Data_Bind = "value: CountSemesters, lookupKey: 'id', select2: {allowClear: true,  placeholder: 'Выберите специальность',ajax:{url:'" + @Url.Action("GetSemesters", "Loockup") + "'  } }"
+                            })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.HeaderSection.DateOfEnactmentDisplay, "Дата принятия", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="input-group" style="width: 200px;">
+                                @Html.TextBoxFor(m => m.HeaderSection.DateOfEnactmentDisplay,new { @class = "form-control", Data_Bind = "value: DateOfEnactmentDisplay, datepicker:{}"} )
+                                <span class="input-group-addon">
+                                    <i class="icon-calendar bigger-110"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- /ko -->
+            <!-- ko foreach: Semesters -->
+                <div class="step-pane" data-bind="css: {active: IsActive, complete: IsCompleted}">
+                    <h3 class="lighter block green">Enter the following information</h3>
+                    <div class="form-group has-success">
+                        <label for="inputSuccess" class="col-xs-12 col-sm-3 control-label no-padding-right">Input with success</label>
+
+                        <div class="col-xs-12 col-sm-5">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" id="inputSuccess" class="width-100">
+                                <i class="icon-ok-sign"></i>
+                            </span>
+                        </div>
+                        <div class="help-block col-xs-12 col-sm-reset inline">
+                            Success tip help!
+                        </div>
+                    </div>
+                </div>
+            <!-- /ko -->
+            }
+        </div>
+        <hr>
+        <div class="row wizard-actions">
+            <button class="btn btn-prev" data-bind="click: BtnPrev, enable: IsDisablePrevBtn" disabled="disabled">
+                <i class="icon-arrow-left"></i>
+                Prev
+            </button>
+
+            <button class="btn btn-success btn-next" data-bind="click: BtnNext">
+                Next
+                <i class="icon-arrow-right icon-on-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/viewModels/curriculum/curriculumViewModel.js"> </script>
+<script src="~/Scripts/viewModels/curriculum/headerSectionViewModel.js"> </script>
+<script src="~/Scripts/viewModels/curriculum/semesterViewModel.js"> </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        ko.applyBindings(new CurriculumViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));
+    });
+</script>
+

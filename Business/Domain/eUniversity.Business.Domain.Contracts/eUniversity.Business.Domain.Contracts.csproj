@@ -50,8 +50,8 @@
     <Compile Include="ISpecializationService.cs" />
     <Compile Include="IUserManagementService.cs" />
     <Compile Include="IUserService.cs" />
-    <Compile Include="IСurriculumManagementService.cs" />
-    <Compile Include="IСurriculumService.cs" />
+    <Compile Include="ICurriculumManagementService.cs" />
+    <Compile Include="ICurriculumService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

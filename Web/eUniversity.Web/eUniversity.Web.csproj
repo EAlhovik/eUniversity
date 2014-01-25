@@ -189,13 +189,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constants\ControllerNames.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoockupController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SpecialityController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
-    <Compile Include="Controllers\СurriculumController.cs" />
+    <Compile Include="Controllers\CurriculumController.cs" />
     <Compile Include="Dependencies\DataAccessModule.cs" />
     <Compile Include="Dependencies\DomainServicesModule.cs" />
     <Compile Include="Extensions\CustomRoleProvider.cs" />
@@ -216,6 +217,9 @@
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\datepicker.css" />
+    <Content Include="Content\bootstrap\datepicker\datepicker.css" />
+    <Content Include="Content\bootstrap\datepicker\datepicker3.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\google-webfont.css" />
     <Content Include="Content\select2\select2.css" />
@@ -233,9 +237,13 @@
     <Content Include="Scripts\ace\ace-elements.min.js" />
     <Content Include="Scripts\ace\ace-extra.min.js" />
     <Content Include="Scripts\ace\ace.min.js" />
+    <Content Include="Scripts\ace\fuelux.spinner.min.js" />
     <Content Include="Scripts\ace\fuelux.wizard.min.js" />
+    <Content Include="Scripts\bootstrap\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap\datepicker\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\datepicker\bootstrap-datepicker.ru.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.min.map" />
@@ -260,6 +268,9 @@
     <Content Include="Scripts\styler.js" />
     <Content Include="Scripts\viewModels\account\loginViewModel.js" />
     <Content Include="Scripts\viewModels\account\registerViewModel.js" />
+    <Content Include="Scripts\viewModels\curriculum\curriculumViewModel.js" />
+    <Content Include="Scripts\viewModels\curriculum\headerSectionViewModel.js" />
+    <Content Include="Scripts\viewModels\curriculum\semesterViewModel.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -321,7 +332,7 @@
     <Content Include="Views\Profile\EditorTemplates\BasicProfileViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\SettingsViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\ChangePasswordViewModel.cshtml" />
-    <Content Include="Views\Сurriculum\Edit.cshtml" />
+    <Content Include="Views\Curriculum\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,6 +364,10 @@
     <ProjectReference Include="..\..\Business\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
       <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
       <Name>eUniversity.Business.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\eUniversity.Common.Utilities\eUniversity.Common.Utilities.csproj">
+      <Project>{8B32DF95-7AD3-4FE8-BA4B-4755676DF1FC}</Project>
+      <Name>eUniversity.Common.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\eUniversity.Data.Contracts\eUniversity.Data.Contracts.csproj">
       <Project>{A8BD361F-A76F-47BD-8855-28EAE94853DF}</Project>

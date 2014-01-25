@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.Domain.Contracts;
+﻿using System;
+using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels.Curriculum;
 
 namespace eUniversity.Business.Services.ManagementServices
@@ -6,11 +7,11 @@ namespace eUniversity.Business.Services.ManagementServices
     /// <summary>
     /// Represents curriculum management service
     /// </summary>
-    public class СurriculumManagementService : IСurriculumManagementService
+    public class CurriculumManagementService : ICurriculumManagementService
     {
         private readonly ISemesterManagementService semesterManagementService;
 
-        public СurriculumManagementService(ISemesterManagementService semesterManagementService)
+        public CurriculumManagementService(ISemesterManagementService semesterManagementService)
         {
             this.semesterManagementService = semesterManagementService;
         }
@@ -28,7 +29,9 @@ namespace eUniversity.Business.Services.ManagementServices
         {
             return new HeaderSectionViewModel
             {
-                Id = id.GetValueOrDefault()
+                Id = id.GetValueOrDefault(),
+                CountSemesters = SemesterEnum.eight,
+                DateOfEnactment = DateTime.Now
             };
         }
     }

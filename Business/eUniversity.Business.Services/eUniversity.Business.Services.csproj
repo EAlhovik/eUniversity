@@ -54,11 +54,11 @@
     <Compile Include="ManagementServices\SemesterManagementService.cs" />
     <Compile Include="ManagementServices\SpecialityManagementService.cs" />
     <Compile Include="ManagementServices\SpecializationManagementService.cs" />
-    <Compile Include="ManagementServices\СurriculumManagementService.cs" />
+    <Compile Include="ManagementServices\CurriculumManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecialityService.cs" />
     <Compile Include="SpecializationService.cs" />
-    <Compile Include="СurriculumService.cs" />
+    <Compile Include="CurriculumService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\eUniversity.Data.Contracts\eUniversity.Data.Contracts.csproj">

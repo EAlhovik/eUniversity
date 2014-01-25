@@ -14,7 +14,7 @@ namespace eUniversity.Business.Services.ManagementServices
         {
             if (!curriculumId.HasValue || curriculumId.Value == 0)
             {
-                return Enumerable.Range(0, 8).Select(p => new SemesterViewModel());
+                return Enumerable.Range(1, 8).Select(p => new SemesterViewModel(){Sequential = p});
             }
             return Enumerable.Empty<SemesterViewModel>();
         }

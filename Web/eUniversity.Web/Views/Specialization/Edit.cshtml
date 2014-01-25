@@ -21,7 +21,7 @@
         @using (Html.BeginForm("Edit", "Specialization", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             <div class="form-group">
-                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="state">Специальность</label>
+                @Html.LabelFor(m => m.SpecialityId, "Специальность", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
 
                 <div class="col-xs-12 col-sm-9">
                     @Html.HiddenFor(m => m.SpecialityId, new { @class = "select2" })
@@ -87,6 +87,7 @@
     $(document).ready(function () {
         $(".select2").css('width', '200px').select2(
             {
+                placeholder: "Выберите специальность",
                 allowClear: true,
                 ajax: {
                     url: '@Url.Action("GetSpecialities", "Loockup")',
@@ -122,7 +123,7 @@
                             callback(data);
                         });
                     }
-                },
+                }, 
             });
     });
 </script>

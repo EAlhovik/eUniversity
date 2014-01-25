@@ -21,7 +21,9 @@ namespace eUniversity.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/bootstrap/css").Include(
-                "~/Content/bootstrap/bootstrap.css"));
+                "~/Content/bootstrap/datepicker/datepicker3.css",
+                "~/Content/bootstrap/bootstrap.css"
+                ));
 
             bundles.Add(new StyleBundle("~/ace/css").Include(
                 "~/Content/ace.min.css",
@@ -33,12 +35,16 @@ namespace eUniversity.Web
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                       "~/Scripts/bootstrap/bootstrap.js"));
+                       "~/Scripts/bootstrap/bootstrap.js",
+                       "~/Scripts/bootstrap/datepicker/bootstrap-datepicker.js",
+                       "~/Scripts/bootstrap/datepicker/bootstrap-datepicker.ru.js"
+                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/ace").Include(
                 "~/Scripts/ace/ace.min.js",
                 "~/Scripts/ace/ace-extra.min.js",
                 "~/Scripts/ace/ace-elements.min.js",
+                "~/Scripts/ace/fuelux.spinner.min.js",
                 "~/Scripts/ace/fuelux.wizard.min.js"
                         ));
 
