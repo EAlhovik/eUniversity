@@ -29,16 +29,29 @@ namespace eUniversity.Data
             user.Profile = new StudentProfile() { FirstName = "sda", GroupName = "dasdsa" };
             context.SaveChanges();
 
-
             var speciality = new Speciality()
             {
                 Specializations = new List<Specialization>()
                 {
                     new Specialization()
                     {
-                        Сurricula = new List<Сurriculum>()
+                        Сurricula = new List<Curriculum>()
                         {
-                            new Сurriculum()
+                            new Curriculum()
+                            {
+                                DateOfEnactment = DateTime.Today,
+                                Semesters = new List<Semester>()
+                                {
+                                    new Semester(){Sequential = 1},
+                                    new Semester(){Sequential = 2},
+                                    new Semester(){Sequential = 3},
+                                    new Semester(){Sequential = 4},
+                                    new Semester(){Sequential = 5},
+                                    new Semester(){Sequential = 6},
+                                    new Semester(){Sequential = 7},
+                                    new Semester(){Sequential = 8},
+                                }
+                            }
                         },
                         Created =  DateTime.Now,
                         Name = "the first specialization"
@@ -50,7 +63,7 @@ namespace eUniversity.Data
             context.Specialities.Add(speciality);
             context.SaveChanges();
 
-            var t = context.Сurricula.ToList();
+            var t = context.Curricula.ToList();
         }
     }
 }

@@ -53,7 +53,7 @@ namespace eUniversity.Data
         /// <summary>
         /// Gets or sets the сurricula.
         /// </summary>
-        public IDbSet<Сurriculum> Сurricula { get; set; }
+        public IDbSet<Curriculum> Curricula { get; set; }
 
         /// <summary>
         /// Gets or sets the semesters.
@@ -87,7 +87,7 @@ namespace eUniversity.Data
             modelBuilder.Configurations.Add(new SpecializationConfiguration());
             modelBuilder.Configurations.Add(new StudentProfileConfiguration());
             modelBuilder.Configurations.Add(new ProfessorProfileConfiguration());
-            modelBuilder.Configurations.Add(new СurriculumConfiguration());
+            modelBuilder.Configurations.Add(new CurriculumConfiguration());
             modelBuilder.Configurations.Add(new SemesterConfiguration());
             modelBuilder.Configurations.Add(new SubjectConfiguration());
             modelBuilder.Configurations.Add(new ThemeConfiguration());

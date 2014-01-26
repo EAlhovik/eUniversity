@@ -3,7 +3,7 @@
 @model eUniversity.Business.ViewModels.Curriculum.CurriculumViewModel
 @{
     ViewBag.PageHeader = "Учебный план";
-    if (Model == null || Model.HeaderSection == null || Model.HeaderSection.Id == 0)
+    if (Model == null || Model.CurriculumHeader == null || Model.CurriculumHeader.Id == 0)
     {
         ViewBag.AdditionalInfo = "Добавление нового учебного плана";
     }
@@ -32,9 +32,10 @@
         </div>
         <hr>
         <div class="step-content row position-relative">
-            @using (Html.BeginForm("Edit", ControllerNames.CurriculumController, FormMethod.Post, new { @class = "form-horizontal" }))
+            @using (Html.BeginForm("Edit", ControllerNames.CurriculumController, FormMethod.Post, new { @class = "form-horizontal" , id="curriculumForm"}))
             {
-            <!-- ko with: HeaderSection -->
+                <!-- ko with: CurriculumHeader -->
+                @Html.HiddenFor(m=>m.CurriculumHeader.Id)
                 <div class="step-pane" data-bind="css: {active: IsActive, complete: IsCompleted}">
                     <h3 class="lighter block green">Учебный план</h3>
                     <div class="form-group has-success">
@@ -51,9 +52,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(m => m.HeaderSection.SpecializationId, "Специализация", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+                        @Html.LabelFor(m => m.CurriculumHeader.SpecializationId, "Специализация", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
                         <div class="col-xs-12 col-sm-9">
-                            @Html.HiddenFor(m => m.HeaderSection.SpecializationId, new
+                            @Html.HiddenFor(m => m.CurriculumHeader.SpecializationId, new
                             {
                                 style = "width: 200px",
                                 @class = "select2",
@@ -63,9 +64,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(m => m.HeaderSection.CountSemesters, "Количество семестров", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+                        @Html.LabelFor(m => m.CurriculumHeader.CountSemesters, "Количество семестров", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
                         <div class="col-xs-12 col-sm-9">
-                            @Html.HiddenFor(m => m.HeaderSection.CountSemesters, new
+                            @Html.HiddenFor(m => m.CurriculumHeader.CountSemesters, new
                             {
                                 style = "width: 200px",
                                 @class = "select2",
@@ -74,10 +75,10 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(m => m.HeaderSection.DateOfEnactmentDisplay, "Дата принятия", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+                        @Html.LabelFor(m => m.CurriculumHeader.DateOfEnactmentDisplay, "Дата принятия", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
                         <div class="col-xs-12 col-sm-9">
                             <div class="input-group" style="width: 200px;">
-                                @Html.TextBoxFor(m => m.HeaderSection.DateOfEnactmentDisplay,new { @class = "form-control", Data_Bind = "value: DateOfEnactmentDisplay, datepicker:{}"} )
+                                @Html.TextBoxFor(m => m.CurriculumHeader.DateOfEnactmentDisplay,new { @class = "form-control", Data_Bind = "value: DateOfEnactmentDisplay, datepicker:{}"} )
                                 <span class="input-group-addon">
                                     <i class="icon-calendar bigger-110"></i>
                                 </span>

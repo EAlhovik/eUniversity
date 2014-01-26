@@ -2,6 +2,7 @@
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Auth;
+using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Business.ViewModels.Speciality;
 using eUniversity.Business.ViewModels.Specialization;
 
@@ -76,6 +77,43 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             #endregion
 
+            #region Curriculum
+
+            Mapper.CreateMap<CurriculumViewModel, Curriculum>()
+                .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.CurriculumHeader.Id))
+                .ForMember(m => m.DateOfEnactment, opt => opt.MapFrom(vm => vm.CurriculumHeader.DateOfEnactment))
+                .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm => vm.CurriculumHeader.SpecializationId))
+//                .ForMember(m => m.Semesters, opt => opt.MapFrom(vm => vm.Semesters))
+                .ForMember(m => m.Semesters, opt => opt.Ignore())
+                ;
+
+            Mapper.CreateMap<Curriculum, CurriculumViewModel>()
+                .ForMember(vm => vm.CurriculumHeader, opt => opt.MapFrom(m => m))
+                .ForMember(vm => vm.Semesters, opt => opt.MapFrom(m => m.Semesters))
+                ;
+
+            Mapper.CreateMap<Curriculum, CurriculumHeaderViewModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.CountSemesters, opt => opt.MapFrom(m => (SemesterEnum)m.Semesters.Count))
+                .ForMember(vm => vm.DateOfEnactment, opt => opt.MapFrom(m => m.DateOfEnactment))
+                .ForMember(vm => vm.SpecializationId, opt => opt.MapFrom(m => m.SpecializationId))
+                ;
+
+            #endregion
+
+            #region Semester
+
+            Mapper.CreateMap<SemesterViewModel, Semester>()
+                .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
+                .ForMember(m => m.Sequential, opt => opt.MapFrom(vm => vm.Sequential))
+                ;
+
+            Mapper.CreateMap<Semester, SemesterViewModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.Sequential, opt => opt.MapFrom(m => m.Sequential))
+                ;
+
+            #endregion
 
         }
     }

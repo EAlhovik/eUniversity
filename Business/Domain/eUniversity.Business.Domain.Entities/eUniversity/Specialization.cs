@@ -32,7 +32,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         /// <summary>
         /// Gets or sets the сurricula.
         /// </summary>
-        public virtual ICollection<Сurriculum> Сurricula { get; set; }
+        public virtual ICollection<Curriculum> Сurricula { get; set; }
 
         #region IHasCreation Members
 

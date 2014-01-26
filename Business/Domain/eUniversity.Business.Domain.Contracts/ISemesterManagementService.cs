@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Curriculum;
 
 namespace eUniversity.Business.Domain.Contracts
@@ -9,5 +10,7 @@ namespace eUniversity.Business.Domain.Contracts
     public interface ISemesterManagementService
     {
         IEnumerable<SemesterViewModel> GetSemesters(long? curriculumId);
+
+        void Save(IEnumerable<SemesterViewModel> semesters, Curriculum curriculum);
     }
 }

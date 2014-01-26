@@ -5,7 +5,7 @@ namespace eUniversity.Business.Domain.Contracts
     /// <summary>
     /// Interface for curriculum service
     /// </summary>
-    public interface ICurriculumService : IBaseService<Сurriculum>
+    public interface ICurriculumService : IBaseService<Curriculum>
     {
          
     }

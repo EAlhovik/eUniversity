@@ -7,7 +7,7 @@ namespace eUniversity.Business.ViewModels.Curriculum
     /// </summary>
     public class CurriculumViewModel
     {
-        public HeaderSectionViewModel HeaderSection { get; set; }
+        public CurriculumHeaderViewModel CurriculumHeader { get; set; }
 
         public IEnumerable<SemesterViewModel> Semesters { get; set; }
     }

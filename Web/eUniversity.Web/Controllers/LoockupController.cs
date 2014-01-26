@@ -26,7 +26,7 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetSpeciality(long? id)// TODo_: remove after knockout specialization page
+        public JsonResult GetSpeciality(long? id)// TODo: remove after knockout specialization page
         {
             return Json(loockupService.GetSpeciality(id), JsonRequestBehavior.AllowGet);
         }

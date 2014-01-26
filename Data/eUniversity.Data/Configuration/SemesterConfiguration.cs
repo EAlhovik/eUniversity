@@ -7,7 +7,7 @@ namespace eUniversity.Data.Configuration
     {
         public SemesterConfiguration()
         {
-            HasRequired(s => s.Сurriculum)
+            HasRequired(s => s.Curriculum)
                 .WithMany(c => c.Semesters)
                 .HasForeignKey(s => s.CurriculaId);
         }

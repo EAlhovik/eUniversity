@@ -3,9 +3,9 @@ using eUniversity.Business.Domain.Entities.eUniversity;
 
 namespace eUniversity.Data.Configuration
 {
-    public class СurriculumConfiguration : EntityTypeConfiguration<Сurriculum>
+    public class CurriculumConfiguration : EntityTypeConfiguration<Curriculum>
     {
-        public СurriculumConfiguration()
+        public CurriculumConfiguration()
         {
             HasRequired(c => c.Specialization)
                 .WithMany(s => s.Сurricula)

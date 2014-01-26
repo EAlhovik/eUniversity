@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Curriculum;
+using eUniversity.Data.Contracts;
 
 namespace eUniversity.Business.Services.ManagementServices
 {
@@ -10,29 +12,51 @@ namespace eUniversity.Business.Services.ManagementServices
     public class CurriculumManagementService : ICurriculumManagementService
     {
         private readonly ISemesterManagementService semesterManagementService;
+        private readonly ICurriculumService curriculumService;
+        private readonly IEUniversityUow eUniversityUow;
 
-        public CurriculumManagementService(ISemesterManagementService semesterManagementService)
+        public CurriculumManagementService(ISemesterManagementService semesterManagementService,
+            ICurriculumService curriculumService, IEUniversityUow eUniversityUow)
         {
             this.semesterManagementService = semesterManagementService;
+            this.curriculumService = curriculumService;
+            this.eUniversityUow = eUniversityUow;
         }
 
+        #region ICurriculumManagementService Members
+
+        /// <summary>
+        /// Opens the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>CurriculumViewModel</returns>
         public CurriculumViewModel Open(long? id)
         {
-            return new CurriculumViewModel
-            {
-                HeaderSection = OpenHeader(id),
-                Semesters = semesterManagementService.GetSemesters(id)
-            };
+            var curriculum = curriculumService.CreateOrOpen(id);
+            var viewModel = Mapper.Map<Curriculum, CurriculumViewModel>(curriculum);
+            return viewModel;
         }
 
-        private HeaderSectionViewModel OpenHeader(long? id)
+        /// <summary>
+        /// Saves the specified curriculum.
+        /// </summary>
+        /// <param name="viewModel">The curriculum.</param>
+        public void Save(CurriculumViewModel viewModel)
         {
-            return new HeaderSectionViewModel
-            {
-                Id = id.GetValueOrDefault(),
-                CountSemesters = SemesterEnum.eight,
-                DateOfEnactment = DateTime.Now
-            };
+            var curriculum = new Curriculum() { Id = viewModel.CurriculumHeader.Id };
+            UpdateModel(viewModel, curriculum);
+
+            semesterManagementService.Save(viewModel.Semesters, curriculum);
+
+            eUniversityUow.Commit();
         }
+
+        private void UpdateModel(CurriculumViewModel viewModel, Curriculum curriculum)
+        {
+            curriculumService.Save(curriculum);
+            Mapper.Map<CurriculumViewModel, Curriculum>(viewModel, curriculum);
+        }
+
+        #endregion
     }
 }

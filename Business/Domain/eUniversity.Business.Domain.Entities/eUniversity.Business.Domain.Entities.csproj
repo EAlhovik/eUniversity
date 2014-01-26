@@ -45,7 +45,7 @@
     <Compile Include="Base\IHasModificatoin.cs" />
     <Compile Include="Base\IHasCreation.cs" />
     <Compile Include="Base\Profile.cs" />
-    <Compile Include="eUniversity\Сurriculum.cs" />
+    <Compile Include="eUniversity\Curriculum.cs" />
     <Compile Include="eUniversity\ProfessorProfile.cs" />
     <Compile Include="eUniversity\Role.cs" />
     <Compile Include="eUniversity\Semester.cs" />

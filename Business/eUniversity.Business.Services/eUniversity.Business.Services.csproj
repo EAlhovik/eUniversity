@@ -56,6 +56,7 @@
     <Compile Include="ManagementServices\SpecializationManagementService.cs" />
     <Compile Include="ManagementServices\CurriculumManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SemesterService.cs" />
     <Compile Include="SpecialityService.cs" />
     <Compile Include="SpecializationService.cs" />
     <Compile Include="CurriculumService.cs" />

@@ -44,6 +44,7 @@
     <Compile Include="ILoockupManagementService.cs" />
     <Compile Include="IRoleService.cs" />
     <Compile Include="ISemesterManagementService.cs" />
+    <Compile Include="ISemesterService.cs" />
     <Compile Include="ISpecialityManagementService.cs" />
     <Compile Include="ISpecialityService.cs" />
     <Compile Include="ISpecializationManagementService.cs" />

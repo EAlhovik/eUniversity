@@ -8,5 +8,6 @@ namespace eUniversity.Business.Domain.Contracts
     public interface ICurriculumManagementService
     {
         CurriculumViewModel Open(long? id);
+        void Save(CurriculumViewModel curriculum);
     }
 }

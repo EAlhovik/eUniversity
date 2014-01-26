@@ -5,24 +5,33 @@ namespace eUniversity.Business.ViewModels.Curriculum
     public enum SemesterEnum
     {
         [Description("1 семестр")]
-        one,
+        One = 1,
+
         [Description("2 семестра")]
-        two,
+        Two = 2,
+
         [Description("3 семестра")]
-        three,
+        Three = 3,
+
         [Description("4 семестра")]
-        four,
+        Four = 4,
+
         [Description("5 семестров")]
-        five,
+        Five = 5,
+
         [Description("6 семестров")]
-        six,
+        Six = 6,
+
         [Description("7 семестров")]
-        seven,
+        Seven = 7,
+
         [Description("8 семестров")]
-        eight,
+        Eight = 8,
+
         [Description("9 семестров")]
-        nine,
+        Nine = 9,
+
         [Description("10 семестров")]
-        ten,
+        Ten = 10,
     }
 }

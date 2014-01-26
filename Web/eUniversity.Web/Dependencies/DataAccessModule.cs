@@ -22,7 +22,8 @@ namespace eUniversity.Web.Dependencies
 
              builder.RegisterGeneric(typeof(EFRepository<>))
                 .As(typeof(IRepository<>));
-
+             builder.RegisterAssemblyTypes(typeof(CurriculumRepository).Assembly).Where(t => t.Name.EndsWith("Repository")).
+                AsImplementedInterfaces();
          }
     }
 }
