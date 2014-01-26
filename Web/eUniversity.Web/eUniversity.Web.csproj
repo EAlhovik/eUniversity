@@ -189,6 +189,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constants\ActionNames.cs" />
     <Compile Include="Constants\ControllerNames.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -333,6 +334,8 @@
     <Content Include="Views\Profile\EditorTemplates\SettingsViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\ChangePasswordViewModel.cshtml" />
     <Content Include="Views\Curriculum\Edit.cshtml" />
+    <Content Include="Views\Curriculum\EditorTemplates\CurriculumHeaderViewModel.cshtml" />
+    <Content Include="Views\Curriculum\EditorTemplates\SemesterViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

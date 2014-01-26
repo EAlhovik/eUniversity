@@ -6,5 +6,6 @@
     public class ControllerNames
     {
         public const string CurriculumController = "Curriculum";
+        public const string LoockupController = "Loockup";
     }
 }

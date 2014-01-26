@@ -23,7 +23,7 @@ namespace eUniversity.Web.Controllers
         public ActionResult Edit(long? curriculumId)
         {
             var curriculum = curriculumManagementService.Open(curriculumId);
-            curriculum.CurriculumHeader.SpecializationId = 1;
+//            curriculum.CurriculumHeader.SpecializationId = 1;
             return View(curriculum);
         }
 
@@ -32,7 +32,6 @@ namespace eUniversity.Web.Controllers
         {
             curriculumManagementService.Save(curriculum);
             return Json(curriculum);
-            return View(curriculum);
         }
     }
 }

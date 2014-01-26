@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
@@ -13,10 +14,12 @@ namespace eUniversity.Business.Services.ManagementServices
     public class LoockupManagementService : ILoockupManagementService
     {
         private readonly ISpecialityService specialityService;
+        private readonly ISpecializationService specializationService;
 
-        public LoockupManagementService(ISpecialityService specialityService)
+        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService)
         {
             this.specialityService = specialityService;
+            this.specializationService = specializationService;
         }
 
         #region ILoockupManagementService Members
@@ -40,10 +43,24 @@ namespace eUniversity.Business.Services.ManagementServices
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        public SelectedItemModel GetSpeciality(long? id)
+        public SelectedItemModel GetSpeciality(long? id)//todl:remove
         {
             var speciality = specialityService.CreateOrOpen(id);
             return Mapper.Map<Speciality, SelectedItemModel>(speciality);
+        }
+
+        public IEnumerable<SelectedItemModel> GetSpecialization(string term)
+        {
+            var specializations =
+                specializationService.All().Where(
+                                     TermPredicate(term));
+            return specializations.Select(Mapper.Map<Specialization, SelectedItemModel>);
+        }
+
+        private static Func<Specialization, bool> TermPredicate(string term)
+        {
+            return spec =>
+                string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0;
         }
 
         #endregion

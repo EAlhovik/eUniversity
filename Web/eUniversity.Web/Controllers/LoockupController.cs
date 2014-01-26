@@ -1,12 +1,9 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Common.Utilities;
-using Microsoft.Ajax.Utilities;
 
 namespace eUniversity.Web.Controllers
 {
@@ -26,9 +23,9 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetSpeciality(long? id)// TODo: remove after knockout specialization page
+        public JsonResult GetSpecialization(string term)
         {
-            return Json(loockupService.GetSpeciality(id), JsonRequestBehavior.AllowGet);
+            return Json(loockupService.GetSpecialization(term), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetSemesters(string term)
@@ -39,6 +36,12 @@ namespace eUniversity.Web.Controllers
                 return Json(values, JsonRequestBehavior.AllowGet);
             }
             return Json(values.Where(s => s.Text.Contains(term)), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetSpeciality(long? id)// TODo: remove after knockout specialization page
+        {
+            return Json(loockupService.GetSpeciality(id), JsonRequestBehavior.AllowGet);
         }
     }
 }

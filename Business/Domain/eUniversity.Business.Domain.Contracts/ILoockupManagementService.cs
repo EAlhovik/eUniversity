@@ -20,6 +20,13 @@ namespace eUniversity.Business.Domain.Contracts
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        SelectedItemModel GetSpeciality(long? id);
+        SelectedItemModel GetSpeciality(long? id); //todo: remove
+
+        /// <summary>
+        /// Gets the specialization.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <returns>Specializations by term</returns>
+        IEnumerable<SelectedItemModel> GetSpecialization(string term);
     }
 }

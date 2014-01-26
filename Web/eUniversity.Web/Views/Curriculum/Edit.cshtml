@@ -1,5 +1,4 @@
 ﻿@using eUniversity.Web.Constants
-@using eUniversity.Web.Extensions
 @model eUniversity.Business.ViewModels.Curriculum.CurriculumViewModel
 @{
     ViewBag.PageHeader = "Учебный план";
@@ -32,79 +31,15 @@
         </div>
         <hr>
         <div class="step-content row position-relative">
-            @using (Html.BeginForm("Edit", ControllerNames.CurriculumController, FormMethod.Post, new { @class = "form-horizontal" , id="curriculumForm"}))
+            @using (Html.BeginForm("Edit", ControllerNames.CurriculumController, FormMethod.Post, new { @class = "form-horizontal", id = "curriculumForm" }))
             {
                 <!-- ko with: CurriculumHeader -->
-                @Html.HiddenFor(m=>m.CurriculumHeader.Id)
-                <div class="step-pane" data-bind="css: {active: IsActive, complete: IsCompleted}">
-                    <h3 class="lighter block green">Учебный план</h3>
-                    <div class="form-group has-success">
-                        <label for="inputSuccess" class="col-xs-12 col-sm-3 control-label no-padding-right">Input with success</label>
+                @Html.EditorFor(m => m.CurriculumHeader)
+                <!-- /ko -->
 
-                        <div class="col-xs-12 col-sm-5">
-                            <span class="block input-icon input-icon-right">
-                                <input type="text" id="inputSuccess" class="width-100">
-                                <i class="icon-ok-sign"></i>
-                            </span>
-                        </div>
-                        <div class="help-block col-xs-12 col-sm-reset inline">
-                            Success tip help!
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.CurriculumHeader.SpecializationId, "Специализация", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
-                        <div class="col-xs-12 col-sm-9">
-                            @Html.HiddenFor(m => m.CurriculumHeader.SpecializationId, new
-                            {
-                                style = "width: 200px",
-                                @class = "select2",
-                                Data_Bind = "value: SpecializationId, lookupKey: 'id', select2: {allowClear: true,  placeholder: 'Выберите специальность',ajax:{url:'" + @Url.Action("GetSpecialities", "Loockup") + "'  } }"
-                         
-                            })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.CurriculumHeader.CountSemesters, "Количество семестров", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
-                        <div class="col-xs-12 col-sm-9">
-                            @Html.HiddenFor(m => m.CurriculumHeader.CountSemesters, new
-                            {
-                                style = "width: 200px",
-                                @class = "select2",
-                                Data_Bind = "value: CountSemesters, lookupKey: 'id', select2: {allowClear: true,  placeholder: 'Выберите специальность',ajax:{url:'" + @Url.Action("GetSemesters", "Loockup") + "'  } }"
-                            })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.CurriculumHeader.DateOfEnactmentDisplay, "Дата принятия", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
-                        <div class="col-xs-12 col-sm-9">
-                            <div class="input-group" style="width: 200px;">
-                                @Html.TextBoxFor(m => m.CurriculumHeader.DateOfEnactmentDisplay,new { @class = "form-control", Data_Bind = "value: DateOfEnactmentDisplay, datepicker:{}"} )
-                                <span class="input-group-addon">
-                                    <i class="icon-calendar bigger-110"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- /ko -->
-            <!-- ko foreach: Semesters -->
-                <div class="step-pane" data-bind="css: {active: IsActive, complete: IsCompleted}">
-                    <h3 class="lighter block green">Enter the following information</h3>
-                    <div class="form-group has-success">
-                        <label for="inputSuccess" class="col-xs-12 col-sm-3 control-label no-padding-right">Input with success</label>
-
-                        <div class="col-xs-12 col-sm-5">
-                            <span class="block input-icon input-icon-right">
-                                <input type="text" id="inputSuccess" class="width-100">
-                                <i class="icon-ok-sign"></i>
-                            </span>
-                        </div>
-                        <div class="help-block col-xs-12 col-sm-reset inline">
-                            Success tip help!
-                        </div>
-                    </div>
-                </div>
-            <!-- /ko -->
+                <!-- ko foreach: Semesters -->
+                @Html.Partial("EditorTemplates/SemesterViewModel")
+                <!-- /ko -->
             }
         </div>
         <hr>
