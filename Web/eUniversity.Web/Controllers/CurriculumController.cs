@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels.Curriculum;
-using eUniversity.Data;
 
 namespace eUniversity.Web.Controllers
 {
@@ -23,7 +22,6 @@ namespace eUniversity.Web.Controllers
         public ActionResult Edit(long? curriculumId)
         {
             var curriculum = curriculumManagementService.Open(curriculumId);
-//            curriculum.CurriculumHeader.SpecializationId = 1;
             return View(curriculum);
         }
 

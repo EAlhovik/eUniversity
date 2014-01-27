@@ -1,5 +1,4 @@
-﻿
-<div class="step-pane" data-bind="css: {active: IsActive, complete: IsCompleted}">
+﻿<div class="step-pane" data-bind="css: { active: IsActive, complete: IsCompleted }">
     <h3 class="lighter block green">Enter the following information</h3>
     <div class="form-group has-success">
         <label for="inputSuccess" class="col-xs-12 col-sm-3 control-label no-padding-right">Input with success</label>
@@ -14,11 +13,49 @@
             Success tip help!
         </div>
     </div>
+    <!-- ko foreach: Subjects -->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="platform">Название предмета</label>
+
+        <div class="col-xs-12 col-sm-9">
+            <div class="clearfix">
+                <input style="width: 200px;" type="hidden" data-bind="value: Id, select2: { minimumInputLength: 0, query: Query }"/>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-3 no-padding-right">Тип предмета</label>
+        <div class="col-xs-12 col-sm-9">
+            <div>
+                <label class="blue">
+                    <input name="gender" value="1" type="radio" class="ace">
+                    <span class="lbl"> Лекционные занятия</span>
+                </label>
+            </div>
+            <div>
+                <label class="blue">
+                    <input name="gender" value="1" type="radio" class="ace">
+                    <span class="lbl"> Курсовая работа</span>
+                </label>
+            </div>
+
+            <div>
+                <label class="blue">
+                    <input name="gender" value="2" type="radio" class="ace">
+                    <span class="lbl"> Курсовой проект</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="hr hr-dotted"></div>
+    <!-- /ko -->
     <div class="form-group">
         <div class="col-xs-12 col-sm-5 col-sm-offset-3">
             <h4 class="pink">
                 <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
-                <a href="#modal-table" role="button" class="green" data-toggle="modal"> Table Inside a Modal Box </a>
+                <a href="#" role="button" class="green" data-bind="click: AddSubject">Добавить предмет</a>
+@*                <a href="#modal-table" role="button" class="green" data-toggle="modal">Table Inside a Modal Box </a>*@
             </h4>
         </div>
     </div>

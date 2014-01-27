@@ -272,6 +272,7 @@
     <Content Include="Scripts\viewModels\curriculum\curriculumViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\headerSectionViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\semesterViewModel.js" />
+    <Content Include="Scripts\viewModels\curriculum\subjectViewModel.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

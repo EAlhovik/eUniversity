@@ -61,6 +61,7 @@
 <script src="~/Scripts/viewModels/curriculum/curriculumViewModel.js"> </script>
 <script src="~/Scripts/viewModels/curriculum/headerSectionViewModel.js"> </script>
 <script src="~/Scripts/viewModels/curriculum/semesterViewModel.js"> </script>
+<script src="~/Scripts/viewModels/curriculum/subjectViewModel.js"> </script>
 <script type="text/javascript">
     $(document).ready(function () {
         ko.applyBindings(new CurriculumViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Services.Base;
@@ -22,7 +23,8 @@ namespace eUniversity.Business.Services
             {
                 Semesters = Enumerable.Range(1, 8)
                                 .Select(p => new Semester() { Sequential = p })
-                                .ToList()
+                                .ToList(),
+                DateOfEnactment = DateTime.Today
             };
         }
     }
