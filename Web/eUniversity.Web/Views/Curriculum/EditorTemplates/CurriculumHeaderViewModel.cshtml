@@ -17,17 +17,16 @@
                 Success tip help!
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.SpecializationId, "Специализация", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
-            <div class="col-xs-12 col-sm-9">
-                @Html.HiddenFor(m => m.SpecializationId, new
-                            {
-                                style = "width: 200px",
-                                @class = "select2",
-                                Data_Bind = "value: SpecializationId, lookupKey: 'id', select2: {allowClear: true,  placeholder: 'Выберите специальность',ajax:{url:'" + @Url.Action(ActionNames.GetSpecializationAction, ControllerNames.LoockupController) + "'  } }"
 
-                            })
-            </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Specialization, "Специализация", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+            <div class="col-xs-12 col-sm-9">
+                @Html.HiddenFor(m => m.Specialization, new
+                {
+                    style = "width: 200px",
+                    Data_Bind = "selectedValue: Specialization,select2: {allowClear: true,  placeholder: 'Специализация',multiple: false, ajax:{url:'/Loockup/GetSpecialization'  }},select2Options: {data: Specialization}"
+                })
+              </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.CountSemesters, "Количество семестров", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
@@ -36,7 +35,7 @@
                             {
                                 style = "width: 200px",
                                 @class = "select2",
-                                Data_Bind = "value: CountSemesters, lookupKey: 'id', select2: {allowClear: true,  placeholder: 'Выберите специальность',ajax:{url:'" + @Url.Action(ActionNames.GetSemestersAction, ControllerNames.LoockupController) + "'  } }"
+                                Data_Bind = "selectedValue: CountSemesters,select2: {allowClear: true,  placeholder: 'Специализация',multiple: false, ajax:{url:'" + @Url.Action(ActionNames.GetSemestersAction, ControllerNames.LoockupController) + "'  }},select2Options: {data: CountSemesters}"
                             })
             </div>
         </div>

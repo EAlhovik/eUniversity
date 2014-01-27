@@ -1,4 +1,5 @@
 ﻿using System;
+using eUniversity.Business.Helpers;
 
 namespace eUniversity.Business.ViewModels.Curriculum
 {
@@ -8,8 +9,12 @@ namespace eUniversity.Business.ViewModels.Curriculum
     public class CurriculumHeaderViewModel
     {
         public long Id { get; set; }
-        public long? SpecializationId { get; set; }
-        public SemesterEnum CountSemesters { get; set; }
+//        public long? SpecializationId { get; set; }
+//        private SelectedItemModel specialization;
+
+        public SelectedItemModel Specialization{get;set;}
+
+        public SelectedItemModel CountSemesters { get; set; }
 
         public DateTime DateOfEnactment
         {

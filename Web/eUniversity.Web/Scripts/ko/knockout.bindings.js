@@ -23,47 +23,60 @@ ko.validation.configure({
     messageTemplate: null
 });
 /************* Select2 *********************/
+ko.utils.setValue = function (property, newValue) {
+    if (ko.isObservable(property))
+        property(newValue);
+    else
+        property = newValue;
+};
+
 ko.bindingHandlers.select2 = {
     init: function (element, valueAccessor, allBindingsAccessor) {
-        function createItem(item) {
-            item.id = item.Id;
-            item.text = item.Text;
-            return item;
+        var obj = valueAccessor();
+        var options = ko.toJS(obj);
+        options.id = function (item) {
+            return item.Id();
+        };
+        var format = function (current) {
+            return (current.Text() || "").toString();
+        };
+        options.formatResult = format;
+        options.formatSelection = format;
+        options.initSelection = function (element, callback) {
+            var data = $(element).select2('data');
+            callback(data);
         }
-        var obj = valueAccessor(),
-            allBindings = allBindingsAccessor(),
-            lookupKey = allBindings.lookupKey;
-        if (obj.ajax) {
-            obj.ajax.dataType = obj.ajax.dataType || 'json';
-            obj.ajax.data = obj.ajax.data || function (term) {
+        if (options.ajax) {
+            options.ajax.dataType = 'json';
+            options.ajax.data = function(term) {
                 return {
-                    term: term,
-                    page_limit: 10,
+                    term: term
                 };
             };
-            obj.ajax.results = obj.ajax.results || function (data) {
-                data.forEach(createItem);
-                return { results: data };
+            options.ajax.results = function(data) {
+                return { results: ko.mapping.fromJS(data)() };
             };
         }
-        $(element).select2(obj);
-        if (lookupKey) {
-            var value = ko.utils.unwrapObservable(allBindings.value);
-            $.ajax(obj.ajax.url, {
-                dataType: "json"
-            }).done(function (data) {
-                data.forEach(createItem);
-                $(element).select2('data', ko.utils.arrayFirst(data, function (item) {
-                    return item[lookupKey] == value;
-                }));
-            });
-        }
+
+        $(element).select2(options);
+
+        ko.utils.registerEventHandler(element, "select2-selected", function (data) {
+            if ('selectedValue' in allBindingsAccessor()) {
+                ko.utils.setValue(allBindingsAccessor().selectedValue, data.choice);
+            }
+        });
 
         ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
             $(element).select2('destroy');
         });
     },
-    update: function (element) {
+    update: function (element, valueAccessor, allBindingsAccessor) {
+        var options = allBindingsAccessor().select2Options || {};
+
+        for (var property in options) {
+            $(element).select2(property, ko.utils.unwrapObservable(options[property]));
+        }
+
         $(element).trigger('change');
     }
 };
@@ -84,6 +97,6 @@ ko.bindingHandlers.datepicker = {
         $(element).datepicker('update', date);
     },
     update: function (element) {
-                $(element).trigger('change');
+        $(element).trigger('change');
     }
 };
