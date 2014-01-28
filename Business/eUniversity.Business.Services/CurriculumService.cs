@@ -2,6 +2,7 @@
 using System.Linq;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers;
 using eUniversity.Business.Services.Base;
 using eUniversity.Data.Contracts;
 
@@ -26,6 +27,11 @@ namespace eUniversity.Business.Services
                                 .ToList(),
                 DateOfEnactment = DateTime.Today
             };
+        }
+
+        protected override SelectedItemModel CreateSelectedItem(Curriculum item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

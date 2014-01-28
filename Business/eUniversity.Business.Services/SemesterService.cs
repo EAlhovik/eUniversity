@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers;
 using eUniversity.Business.Services.Base;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Data.Contracts;
@@ -37,5 +38,20 @@ namespace eUniversity.Business.Services
 
         #endregion
 
+        #region BaseService Members
+
+        protected override Semester CreateItem()
+        {
+            return new Semester();
+        }
+
+        protected override SelectedItemModel CreateSelectedItem(Semester item)
+        {
+            throw new NotImplementedException();
+        } 
+        #endregion
     }
+
+
+
 }

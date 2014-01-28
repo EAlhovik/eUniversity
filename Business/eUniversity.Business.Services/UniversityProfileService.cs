@@ -1,5 +1,4 @@
-﻿using AutoMapper.Internal;
-using eUniversity.Business.Domain.Contracts;
+﻿using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Common.Utilities;

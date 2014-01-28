@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.Base;
+using eUniversity.Business.Helpers;
 
 namespace eUniversity.Business.Domain.Contracts
 {
@@ -26,5 +27,12 @@ namespace eUniversity.Business.Domain.Contracts
         /// </summary>
         /// <returns>All entities</returns>
         IEnumerable<T> All();
+
+        /// <summary>
+        /// Gets the selected item by identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Selecte item</returns>
+        SelectedItemModel GetSelectedItemById(long id);
     }
 }

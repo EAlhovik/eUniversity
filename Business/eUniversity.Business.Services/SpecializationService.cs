@@ -20,17 +20,13 @@ namespace eUniversity.Business.Services
             return new Specialization();
         }
 
-        private SelectedItemModel CreateSelectedItem(Specialization specialization)
+        protected override SelectedItemModel CreateSelectedItem(Specialization specialization)
         {
-            return new SelectedItemModel()
+            return new SelectedItemModel
             {
                 Id = specialization.Id.ToString(),
                 Text = specialization.Name
             };
-        }
-        public SelectedItemModel GetSelectedItemById(long id)
-        {
-            return CreateSelectedItem(Repository.GetById(id));
         }
     }
 }

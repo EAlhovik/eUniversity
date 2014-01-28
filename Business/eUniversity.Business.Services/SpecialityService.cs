@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers;
 using eUniversity.Business.Services.Base;
 using eUniversity.Data.Contracts;
 
@@ -25,9 +26,9 @@ namespace eUniversity.Business.Services
             return new Speciality();
         }
 
-        private Speciality CreateSpeciality()
+        protected override SelectedItemModel CreateSelectedItem(Speciality item)
         {
-            return new Speciality();
+            throw new System.NotImplementedException();
         }
 
         private void UpdateHistoryInformation(Speciality speciality)

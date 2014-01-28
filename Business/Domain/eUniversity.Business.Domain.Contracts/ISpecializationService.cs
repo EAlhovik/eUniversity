@@ -8,6 +8,5 @@ namespace eUniversity.Business.Domain.Contracts
     /// </summary>
     public interface ISpecializationService : IBaseService<Specialization>
     {
-        SelectedItemModel GetSelectedItemById(long id);
     }
 }

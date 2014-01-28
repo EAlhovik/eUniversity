@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Base;
+using eUniversity.Business.Helpers;
 using eUniversity.Data.Contracts;
 
 namespace eUniversity.Business.Services.Base
@@ -76,9 +77,17 @@ namespace eUniversity.Business.Services.Base
             return Repository.All();
         }
 
-        protected virtual T CreateItem()
+        /// <summary>
+        /// Gets the selected item by identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Selected item</returns>
+        public SelectedItemModel GetSelectedItemById(long id)
         {
-            return default(T);
+            return CreateSelectedItem(Repository.GetById(id));
         }
+
+        protected abstract T CreateItem();
+        protected abstract SelectedItemModel CreateSelectedItem(T item);
     }
 }
