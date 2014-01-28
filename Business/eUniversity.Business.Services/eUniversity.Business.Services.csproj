@@ -60,8 +60,13 @@
     <Compile Include="SpecialityService.cs" />
     <Compile Include="SpecializationService.cs" />
     <Compile Include="CurriculumService.cs" />
+    <Compile Include="UniversityProfileService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\eUniversity.Common.Utilities\eUniversity.Common.Utilities.csproj">
+      <Project>{8B32DF95-7AD3-4FE8-BA4B-4755676DF1FC}</Project>
+      <Name>eUniversity.Common.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\eUniversity.Data.Contracts\eUniversity.Data.Contracts.csproj">
       <Project>{A8BD361F-A76F-47BD-8855-28EAE94853DF}</Project>
       <Name>eUniversity.Data.Contracts</Name>

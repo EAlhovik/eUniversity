@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain\eUniversity.Business.Domain.Contracts\eUniversity.Business.Domain.Contracts.csproj">
+      <Project>{36511853-F05B-43A6-A269-E87B245E6348}</Project>
+      <Name>eUniversity.Business.Domain.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
       <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
       <Name>eUniversity.Business.Domain.Entities</Name>

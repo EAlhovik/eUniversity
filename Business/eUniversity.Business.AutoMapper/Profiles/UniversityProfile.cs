@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Auth;
@@ -13,6 +14,12 @@ namespace eUniversity.Business.AutoMapper.Profiles
     /// </summary>
     public class UniversityProfile : Profile
     {
+        private readonly IUniversityProfileService universityProfileService;
+        public UniversityProfile(IUniversityProfileService universityProfileService)
+        {
+            this.universityProfileService = universityProfileService;
+        }
+
         protected override void Configure()
         {
             Mapper.CreateMap<RegisterViewModel, User>()
@@ -82,7 +89,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
             Mapper.CreateMap<CurriculumViewModel, Curriculum>()
                 .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.CurriculumHeader.Id))
                 .ForMember(m => m.DateOfEnactment, opt => opt.MapFrom(vm => vm.CurriculumHeader.DateOfEnactment))
-                .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm => int.Parse(vm.CurriculumHeader.Specialization.Id)))
+                .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm => universityProfileService.GetId(vm.CurriculumHeader.Specialization)))
                 .ForMember(m => m.Semesters, opt => opt.Ignore())
                 ;
 
@@ -93,10 +100,9 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             Mapper.CreateMap<Curriculum, CurriculumHeaderViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
-                .ForMember(vm => vm.CountSemesters, opt => opt.MapFrom(m => new SelectedItemModel { Id = m.Semesters.Count.ToString(), Text = m.Semesters.Count.ToString()}))
-//                .ForMember(vm => vm.CountSemesters, opt => opt.MapFrom(m => (SemesterEnum)m.Semesters.Count))
+                .ForMember(vm => vm.CountSemesters, opt => opt.MapFrom(m =>universityProfileService.CreateCountSemesters(m.Semesters.Count)))
                 .ForMember(vm => vm.DateOfEnactment, opt => opt.MapFrom(m => m.DateOfEnactment))
-                .ForMember(vm => vm.Specialization, opt => opt.MapFrom(m => new SelectedItemModel() { Id = m.SpecializationId.ToString(), Text = m.SpecializationId.ToString()}))
+                .ForMember(vm => vm.Specialization, opt => opt.MapFrom(m =>universityProfileService.CreateSpecialization(m.SpecializationId)))
                 ;
 
             #endregion

@@ -1,5 +1,6 @@
 ﻿using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers;
 using eUniversity.Business.Services.Base;
 using eUniversity.Data.Contracts;
 
@@ -17,6 +18,19 @@ namespace eUniversity.Business.Services
         protected override Specialization CreateItem()
         {
             return new Specialization();
+        }
+
+        private SelectedItemModel CreateSelectedItem(Specialization specialization)
+        {
+            return new SelectedItemModel()
+            {
+                Id = specialization.Id.ToString(),
+                Text = specialization.Name
+            };
+        }
+        public SelectedItemModel GetSelectedItemById(long id)
+        {
+            return CreateSelectedItem(Repository.GetById(id));
         }
     }
 }
