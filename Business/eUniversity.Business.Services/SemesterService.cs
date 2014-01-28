@@ -48,10 +48,8 @@ namespace eUniversity.Business.Services
         protected override SelectedItemModel CreateSelectedItem(Semester item)
         {
             throw new NotImplementedException();
-        } 
+        }
+
         #endregion
     }
-
-
-
 }

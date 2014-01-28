@@ -21,28 +21,36 @@
     };
 
     ko.mapping.fromJS(serverModel, mappingOverride, self);
-    self.Steps.push(new StepViewModel(self.CurriculumHeader().IsActive, self.CurriculumHeader().IsCompleted, 'Общая информация', '¤'));
-    for (var i = 0; i < self.Semesters().length; i++) {
-        self.Steps.push(new StepViewModel(self.Semesters()[i].IsActive, self.Semesters()[i].IsCompleted, 'Семестр ' + self.Semesters()[i].Sequential(), self.Semesters()[i].Sequential()));
+
+    function updateSteps() {
+        self.Steps.removeAll();
+        self.Steps.push(new StepViewModel(self.CurriculumHeader().IsActive, self.CurriculumHeader().IsCompleted, 'Общая информация', '¤'));
+        for (var i = 0; i < self.Semesters().length; i++) {
+            self.Steps.push(new StepViewModel(self.Semesters()[i].IsActive, self.Semesters()[i].IsCompleted, 'Семестр ' + self.Semesters()[i].Sequential(), self.Semesters()[i].Sequential()));
+        }
     }
+
+    updateSteps();
+
+
 
     self.BtnPrev = function () {
         var index = firstActiveStep();
         setCurrentStep(index - 1);
     };
-    
+
     self.BtnNext = function () {
         var index = firstActiveStep();
         if (self.Steps().length - 1 != index) {
             setCurrentStep(index + 1);
         } else {
             save();
-//            $('#curriculumForm').submit();
+            //            $('#curriculumForm').submit();
         }
-        
+
     };
 
-    self.ChooseStep = function(step) {
+    self.ChooseStep = function (step) {
         var index = self.Steps().indexOf(step);
         setCurrentStep(index);
     };
@@ -51,6 +59,18 @@
         var activeItem = firstActiveStep();
         return activeItem > 0;
     });
+
+    self.NewCountSemestersSelecting = function (e) {
+        if (confirm('Вы уверены?')) {
+            self.Semesters.removeAll();
+            for (var i = 0; i < e.val; i++) {
+                self.Semesters.push(new window.SemesterViewModel({Sequential:i+1}));
+            }
+            updateSteps();
+        } else {
+            e.preventDefault();
+        }
+    };
 
     function save() {
         $.ajax({
@@ -61,7 +81,7 @@
             contentType: "application/json; charset=utf-8",
             success: function (data) {
 
-                    ko.mapping.fromJS(data, {}, self);
+                ko.mapping.fromJS(data, {}, self);
             },
             complete: function (param1, status) {
             }

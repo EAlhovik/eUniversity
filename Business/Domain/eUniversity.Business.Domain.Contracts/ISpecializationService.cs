@@ -1,5 +1,4 @@
 ﻿using eUniversity.Business.Domain.Entities.eUniversity;
-using eUniversity.Business.Helpers;
 
 namespace eUniversity.Business.Domain.Contracts
 {

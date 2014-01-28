@@ -35,6 +35,11 @@ ko.bindingHandlers.select2 = {
         var obj = valueAccessor();
         var options = ko.toJS(obj);
         options.id = function (item) {
+            if (item.hasOwnProperty('Id')){
+                return item.Id();
+            }
+            item.Text = ko.observable(item.id);
+            item.Id = ko.observable(item.text);
             return item.Id();
         };
         var format = function (current) {
@@ -42,10 +47,10 @@ ko.bindingHandlers.select2 = {
         };
         options.formatResult = format;
         options.formatSelection = format;
-        options.initSelection = function (element, callback) {
+        options.initSelection = function(element, callback) {
             var data = $(element).select2('data');
             callback(data);
-        }
+        };
         if (options.ajax) {
             options.ajax.dataType = 'json';
             options.ajax.data = function(term) {
@@ -59,7 +64,11 @@ ko.bindingHandlers.select2 = {
         }
 
         $(element).select2(options);
-
+        var events = allBindingsAccessor().select2Event || {};
+        for (var event in events) {
+            $(element).on(event, events[event]);
+        }
+        
         ko.utils.registerEventHandler(element, "select2-selected", function (data) {
             if ('selectedValue' in allBindingsAccessor()) {
                 ko.utils.setValue(allBindingsAccessor().selectedValue, data.choice);

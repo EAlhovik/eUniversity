@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using eUniversity.Business.Domain.Contracts;
+﻿using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.Services.Base;
