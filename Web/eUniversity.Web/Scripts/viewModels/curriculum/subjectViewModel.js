@@ -5,14 +5,27 @@
     ko.mapping.fromJS(serverModel, {}, self);
 
     self.Query = function (query) {
-        var data = { results: [] }, i, j, s;
-        if (query.term != '') {
-            for (i = 1; i < 5; i++) {
-                s = "";
-                for (j = 0; j < i; j++) { s = s + query.term; }
-                data.results.push({ id: query.term + i, text: s });
-            }
-        }
-        query.callback(data);
+        $.ajax("/Loockup/GetSubjects", {
+            data: {
+                term: query.term
+            },
+            dataType: "json"
+        }).done(function (data) {
+            data = data || [];
+            data.push({ Id: '0', Text: query.term });
+            query.callback({ results: ko.mapping.fromJS(data)() });
+        });
+        
+
     };
+
+    self.Add = function() {
+        self.modal.close(self);
+    };
+    
+    self.Cancel = function () {
+        self.modal.close();
+    };
+//    self.template = "AddSubject";
 }
+SubjectViewModel.prototype.template = "AddSubject";

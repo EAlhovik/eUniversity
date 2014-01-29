@@ -62,9 +62,107 @@
 <script src="~/Scripts/viewModels/curriculum/headerSectionViewModel.js"> </script>
 <script src="~/Scripts/viewModels/curriculum/semesterViewModel.js"> </script>
 <script src="~/Scripts/viewModels/curriculum/subjectViewModel.js"> </script>
+
+<script type="text/html" id="AddSubject">
+    <div class="modal fade in" role="dialog" style="display: block;" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header no-padding">
+                    <div class="table-header">
+                        <button type="button" class="close" aria-hidden="true" data-bind="click: Cancel">
+                            <span class="white">×</span>
+                        </button>
+                        <span>Results for "Latest Registered Domains</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="platform">Название предмета</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input style="width: 200px;" type="hidden" data-bind="value: Id, select2: { minimumInputLength: 0, query: Query }" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div><div class="modal-footer">
+                          <button data-bb-handler="cancel" type="button" class="btn btn-default" data-bind="click: Cancel">Cancel</button>
+                          <button data-bb-handler="confirm" type="button" class="btn btn-primary" data-bind="click: Add">OK</button>
+                      </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header no-padding">
+                    <div class="table-header">
+                        <button type="button" class="close" aria-hidden="true" data-bind="click: cancel">
+                            <span class="white">×</span>
+                        </button>
+                        Results for "Latest Registered Domains
+                    </div>
+                </div>
+
+                <div class="modal-body no-padding">
+                    <form action="#" data-bind="submit: add">
+                        <div class="control-group">
+                            <label class="control-label">New note:</label>
+                            <div class="controls">
+                                <textarea data-bind="value: text"></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="checkbox"><input type="checkbox" data-bind="checked: important" />Important</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer no-margin-top">
+                    <a href="#" class="btn btn-primary" data-bind="click: add">Add Note</a>
+                    <button class="btn btn-sm btn-danger pull-left" data-bind="click: cancel">
+                        <i class="icon-remove"></i>
+                        Close
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>*@
+
+</script>
 <script type="text/javascript">
     $(document).ready(function () {
         ko.applyBindings(new CurriculumViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));
     });
 </script>
 
+<script type="text/html" id="modal-template">
+    <div class="modal fade in" tabindex="-1" role="dialog" style="display: block;" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header no-padding">
+                    <div class="table-header">
+                        <button type="button" class="close" aria-hidden="true" data-bind="click: cancel">
+                            <span class="white">×</span>
+                        </button>
+                        <span>Results for "Latest Registered Domains</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    @*                    <div class="modal-body no-padding">Are you sure?</div>*@
+                </div><div class="modal-footer">
+                    <button data-bb-handler="cancel" type="button" class="btn btn-default">Cancel</button>
+                    <button data-bb-handler="confirm" type="button" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

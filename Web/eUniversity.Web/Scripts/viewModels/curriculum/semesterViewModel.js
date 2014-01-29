@@ -18,11 +18,19 @@
 
     ko.mapping.fromJS(serverModel, mappingOverride, self);
 
-    self.AddSubject = function() {
-        self.Subjects.push(new SubjectViewModel());
+    self.AddSubject = function () {
+        showModal({ viewModel: new SubjectViewModel() })
+        .done(function (result) {
+            self.Subjects.push(result);
+            console.log("Modal closed with result: " + result);
+        })
+        .fail(function () {
+            console.log("Modal cancelled");
+        });
+//        self.Subjects.push(new SubjectViewModel());
     };
 
-    self.RemoveSubject = function(subject) {
+    self.RemoveSubject = function (subject) {
         self.Subjects.remove(subject);
     };
 }
