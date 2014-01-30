@@ -72,19 +72,39 @@
                         <button type="button" class="close" aria-hidden="true" data-bind="click: Cancel">
                             <span class="white">×</span>
                         </button>
-                        <span>Results for "Latest Registered Domains</span>
+                        <span>Предмет</span>
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-7">
+                        <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
-                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="platform">Название предмета</label>
+                                <label class="control-label" for="form-field-username">Название предмета</label>
 
+                                <div class="clearfix">
+                                    <input id="form-field-username" style="width: 200px;" type="hidden" data-bind="selectedValue: Id, select2: { minimumInputLength: 0, query: Query },select2Options: {data: Id}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Тип предмета</label>
                                 <div class="col-xs-12 col-sm-9">
-                                    <div class="clearfix">
-                                        <input style="width: 200px;" type="hidden" data-bind="value: Id, select2: { minimumInputLength: 0, query: Query }" />
-
+                                    <div>
+                                        <label class="blue">
+                                            <input name="gender" value="1" type="radio" class="ace">
+                                            <span class="lbl"> Лекционные занятия</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="blue">
+                                            <input name="gender" value="1" type="radio" class="ace">
+                                            <span class="lbl"> Курсовая работа</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="blue">
+                                            <input name="gender" value="2" type="radio" class="ace">
+                                            <span class="lbl"> Курсовой проект</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -98,44 +118,6 @@
             </div>
         </div>
     </div>
-    @*<div class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header no-padding">
-                    <div class="table-header">
-                        <button type="button" class="close" aria-hidden="true" data-bind="click: cancel">
-                            <span class="white">×</span>
-                        </button>
-                        Results for "Latest Registered Domains
-                    </div>
-                </div>
-
-                <div class="modal-body no-padding">
-                    <form action="#" data-bind="submit: add">
-                        <div class="control-group">
-                            <label class="control-label">New note:</label>
-                            <div class="controls">
-                                <textarea data-bind="value: text"></textarea>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <label class="checkbox"><input type="checkbox" data-bind="checked: important" />Important</label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer no-margin-top">
-                    <a href="#" class="btn btn-primary" data-bind="click: add">Add Note</a>
-                    <button class="btn btn-sm btn-danger pull-left" data-bind="click: cancel">
-                        <i class="icon-remove"></i>
-                        Close
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div>*@
 
 </script>
 <script type="text/javascript">

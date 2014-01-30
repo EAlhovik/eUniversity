@@ -19,32 +19,8 @@
 
         <div class="col-xs-12 col-sm-9">
             <div class="clearfix">
-                <input style="width: 200px;" type="hidden" data-bind="value: Id, select2: { minimumInputLength: 0, query: Query }"/>
+                <input style="width: 200px;" type="hidden" data-bind="selectedValue: Id, select2: { minimumInputLength: 0, query: Query },select2Options: {data: Id}" />
 
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-3 no-padding-right">Тип предмета</label>
-        <div class="col-xs-12 col-sm-9">
-            <div>
-                <label class="blue">
-                    <input name="gender" value="1" type="radio" class="ace">
-                    <span class="lbl"> Лекционные занятия</span>
-                </label>
-            </div>
-            <div>
-                <label class="blue">
-                    <input name="gender" value="1" type="radio" class="ace">
-                    <span class="lbl"> Курсовая работа</span>
-                </label>
-            </div>
-
-            <div>
-                <label class="blue">
-                    <input name="gender" value="2" type="radio" class="ace">
-                    <span class="lbl"> Курсовой проект</span>
-                </label>
             </div>
         </div>
     </div>
