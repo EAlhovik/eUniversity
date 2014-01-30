@@ -1,10 +1,17 @@
-﻿namespace eUniversity.Business.ViewModels.Curriculum
+﻿using eUniversity.Business.Helpers;
+using eUniversity.Business.Helpers.Enums;
+
+namespace eUniversity.Business.ViewModels.Curriculum
 {
     /// <summary>
     /// View model for subject
     /// </summary>
     public class SubjectViewModel
     {
-        public long Id { get; set; }
+//        public long Id { get; set; }
+
+        public SelectedItemModel Subject { get; set; }
+
+        public SubjectTypeEnum SubjectType { get; set; }
     }
 }

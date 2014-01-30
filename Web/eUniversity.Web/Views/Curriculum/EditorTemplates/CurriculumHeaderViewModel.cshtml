@@ -1,53 +1,53 @@
 ﻿@using eUniversity.Web.Constants
 @model eUniversity.Business.ViewModels.Curriculum.CurriculumHeaderViewModel
 
-    @Html.HiddenFor(m => m.Id)
-    <div class="step-pane" data-bind="css: {active: IsActive, complete: IsCompleted}">
-        <h3 class="lighter block green">Учебный план</h3>
-        <div class="form-group has-success">
-            <label for="inputSuccess" class="col-xs-12 col-sm-3 control-label no-padding-right">Input with success</label>
+@Html.HiddenFor(m => m.Id)
+<div class="step-pane" data-bind="css: {active: IsActive, complete: IsCompleted}">
+    <h3 class="lighter block green">Учебный план</h3>
+    <div class="form-group has-success">
+        <label for="inputSuccess" class="col-xs-12 col-sm-3 control-label no-padding-right">Input with success</label>
 
-            <div class="col-xs-12 col-sm-5">
-                <span class="block input-icon input-icon-right">
-                    <input type="text" id="inputSuccess" class="width-100">
-                    <i class="icon-ok-sign"></i>
-                </span>
-            </div>
-            <div class="help-block col-xs-12 col-sm-reset inline">
-                Success tip help!
-            </div>
+        <div class="col-xs-12 col-sm-5">
+            <span class="block input-icon input-icon-right">
+                <input type="text" id="inputSuccess" class="width-100">
+                <i class="icon-ok-sign"></i>
+            </span>
         </div>
+        <div class="help-block col-xs-12 col-sm-reset inline">
+            Success tip help!
+        </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.Specialization, "Специализация", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
-            <div class="col-xs-12 col-sm-9">
-                @Html.HiddenFor(m => m.Specialization, new
+    <div class="form-group">
+        @Html.LabelFor(m => m.Specialization, "Специализация", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+        <div class="col-xs-12 col-sm-9">
+            @Html.HiddenFor(m => m.Specialization, new
                 {
                     style = "width: 200px",
                     Data_Bind = "selectedValue: Specialization,select2: {allowClear: true,  placeholder: 'Специализация',multiple: false, ajax:{url:'/Loockup/GetSpecialization'  }},select2Options: {data: Specialization}"
                 })
-              </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.CountSemesters, "Количество семестров", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
-            <div class="col-xs-12 col-sm-9">
-                @Html.HiddenFor(m => m.CountSemesters, new
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CountSemesters, "Количество семестров", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+        <div class="col-xs-12 col-sm-9">
+            @Html.HiddenFor(m => m.CountSemesters, new
                             {
                                 style = "width: 200px",
                                 @class = "select2",
                                 Data_Bind = "selectedValue: CountSemesters,select2: {multiple: false, ajax:{url:'" + @Url.Action(ActionNames.GetSemestersAction, ControllerNames.LoockupController) + "'  }},select2Options: {data: CountSemesters}, select2Event:{'select2-selecting': $parent.NewCountSemestersSelecting}"
                             })
-            </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.DateOfEnactmentDisplay, "Дата принятия", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
-            <div class="col-xs-12 col-sm-9">
-                <div class="input-group" style="width: 200px;">
-                    @Html.TextBoxFor(m => m.DateOfEnactmentDisplay, new { @class = "form-control", Data_Bind = "value: DateOfEnactmentDisplay, datepicker:{}" })
-                    <span class="input-group-addon">
-                        <i class="icon-calendar bigger-110"></i>
-                    </span>
-                </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfEnactmentDisplay, "Дата принятия", new { @class = "control-label col-xs-12 col-sm-3 no-padding-right" })
+        <div class="col-xs-12 col-sm-9">
+            <div class="input-group" style="width: 200px;">
+                @Html.TextBoxFor(m => m.DateOfEnactmentDisplay, new { @class = "form-control", Data_Bind = "value: DateOfEnactmentDisplay, datepicker:{}" })
+                <span class="input-group-addon">
+                    <i class="icon-calendar bigger-110"></i>
+                </span>
             </div>
         </div>
     </div>
+</div>

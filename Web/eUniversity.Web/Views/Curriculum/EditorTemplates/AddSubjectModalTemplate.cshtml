@@ -1,0 +1,62 @@
+﻿@using eUniversity.Business.Helpers.Enums
+@model eUniversity.Business.ViewModels.Curriculum.SubjectViewModel
+<script type="text/html" id="AddSubject">
+    <div class="modal fade in" role="dialog" style="display: block;" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header no-padding">
+                    <div class="table-header">
+                        <button type="button" class="close" aria-hidden="true" data-bind="click: Cancel">
+                            <span class="white">×</span>
+                        </button>
+                        <span>Предмет</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label" for="form-field-username">Название предмета</label>
+                                <div class="clearfix">
+                                    <input id="form-field-username" style="width: 200px;" type="hidden" data-bind="selectedValue: Subject, select2: { minimumInputLength: 0, query: Query },select2Options: {data: Subject}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Тип предмета</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div>
+                                        <label class="blue">
+                                            @Html.RadioButtonFor(m => m.SubjectType, SubjectTypeEnum.Lecture, new { @class = "ace", Data_Bind = "checked:SubjectType" })
+@*                                            <input class="ace"  name="SubjectType" type="radio" value="Lecture">*@
+@*                                            <input name="gender" value="1" type="radio" class="ace">*@
+                                            <span class="lbl"> Лекционные занятия</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="blue">
+@*                                            <input name="gender" value="1" type="radio" class="ace">*@
+                                            @Html.RadioButtonFor(m => m.SubjectType, SubjectTypeEnum.CourseWork, new { @class = "ace", Data_Bind = "checked:SubjectType" })
+                                            <span class="lbl"> Курсовая работа</span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="blue">
+@*                                            <input name="gender" value="2" type="radio" class="ace">*@
+                                            @Html.RadioButtonFor(m => m.SubjectType, SubjectTypeEnum.CourseProject, new { @class = "ace", Data_Bind = "checked:SubjectType" })
+                                            <span class="lbl"> Курсовой проект</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button data-bb-handler="cancel" type="button" class="btn btn-default" data-bind="click: Cancel">Cancel</button>
+                    <button data-bb-handler="confirm" type="button" class="btn btn-primary" data-bind="click: Add">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
