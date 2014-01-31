@@ -5,6 +5,10 @@
 
     self.Subjects = ko.observableArray();
     self.Sequential = ko.observable();
+    
+    self.Title = ko.computed(function () {
+        return 'Семестр ' + self.Sequential();
+    });
 
     var mappingOverride =
     {
@@ -17,6 +21,8 @@
     };
 
     ko.mapping.fromJS(serverModel, mappingOverride, self);
+
+    
 
     self.AddSubject = function () {
         showModal({ viewModel: new SubjectViewModel() })

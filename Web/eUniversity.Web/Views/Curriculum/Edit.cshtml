@@ -20,10 +20,20 @@
 <div class="row" id="curriculum">
     <div class="col-xs-12">
         <div class="row">
+            <div class="col-xs-12">
+                <form role="form" class="form-horizontal">
+                    <!-- ko with: CurriculumHeader -->
+                    @Html.EditorFor(m => m.CurriculumHeader)
+                    <!-- /ko -->
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="lighter block green">Семестры</h3>
             <ul class="wizard-steps">
-                <!-- ko foreach: Steps -->
-                <li data-bind="css: {active: IsActive, complete: IsCompleted}">
-                    <span class="step" data-bind="text: Step, click: $parent.ChooseStep"></span>
+                <!-- ko foreach: Semesters -->
+                <li data-bind="css: { active: IsActive, complete: IsCompleted }">
+                    <span class="step" data-bind="text: Sequential, click: $parent.ChooseStep"></span>
                     <span class="title" data-bind="text: Title"></span>
                 </li>
                 <!-- /ko -->
@@ -33,10 +43,6 @@
         <div class="step-content row position-relative">
             @using (Html.BeginForm("Edit", ControllerNames.CurriculumController, FormMethod.Post, new { @class = "form-horizontal", id = "curriculumForm" }))
             {
-                <!-- ko with: CurriculumHeader -->
-                @Html.EditorFor(m => m.CurriculumHeader)
-                <!-- /ko -->
-
                 <!-- ko foreach: Semesters -->
                 @Html.Partial("EditorTemplates/SemesterViewModel")
                 <!-- /ko -->
@@ -63,62 +69,7 @@
 <script src="~/Scripts/viewModels/curriculum/semesterViewModel.js"> </script>
 <script src="~/Scripts/viewModels/curriculum/subjectViewModel.js"> </script>
 @Html.Partial("EditorTemplates/AddSubjectModalTemplate", new ViewDataDictionary())
-@*<script type="text/html" id="AddSubject">
-    <div class="modal fade in" role="dialog" style="display: block;" aria-hidden="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header no-padding">
-                    <div class="table-header">
-                        <button type="button" class="close" aria-hidden="true" data-bind="click: Cancel">
-                            <span class="white">×</span>
-                        </button>
-                        <span>Предмет</span>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="form-group">
-                                <label class="control-label" for="form-field-username">Название предмета</label>
-                                <div class="clearfix">
-                                    <input id="form-field-username" style="width: 200px;" type="hidden" data-bind="selectedValue: Subject, select2: { minimumInputLength: 0, query: Query },select2Options: {data: Subject}" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Тип предмета</label>
-                                <div class="col-xs-12 col-sm-9">
-                                    <div>
-                                        <label class="blue">
-                                            <input name="gender" value="1" type="radio" class="ace">
-                                            <span class="lbl"> Лекционные занятия</span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label class="blue">
-                                            <input name="gender" value="1" type="radio" class="ace">
-                                            <span class="lbl"> Курсовая работа</span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label class="blue">
-                                            <input name="gender" value="2" type="radio" class="ace">
-                                            <span class="lbl"> Курсовой проект</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button data-bb-handler="cancel" type="button" class="btn btn-default" data-bind="click: Cancel">Cancel</button>
-                    <button data-bb-handler="confirm" type="button" class="btn btn-primary" data-bind="click: Add">OK</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>*@
 <script type="text/javascript">
     $(document).ready(function () {
         ko.applyBindings(new CurriculumViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));
@@ -139,7 +90,8 @@
                 </div>
                 <div class="modal-body">
                     @*                    <div class="modal-body no-padding">Are you sure?</div>*@
-                </div><div class="modal-footer">
+                </div>
+                <div class="modal-footer">
                     <button data-bb-handler="cancel" type="button" class="btn btn-default">Cancel</button>
                     <button data-bb-handler="confirm" type="button" class="btn btn-primary">OK</button>
                 </div>

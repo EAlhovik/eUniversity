@@ -2,7 +2,6 @@
     var self = this;
     self.CurriculumHeader = ko.observable();
     self.Semesters = ko.observableArray();
-    self.Steps = ko.observableArray();
 
     var mappingOverride =
     {
@@ -22,18 +21,6 @@
 
     ko.mapping.fromJS(serverModel, mappingOverride, self);
 
-    function updateSteps() {
-        self.Steps.removeAll();
-        self.Steps.push(new StepViewModel(self.CurriculumHeader().IsActive, self.CurriculumHeader().IsCompleted, 'Общая информация', '¤'));
-        for (var i = 0; i < self.Semesters().length; i++) {
-            self.Steps.push(new StepViewModel(self.Semesters()[i].IsActive, self.Semesters()[i].IsCompleted, 'Семестр ' + self.Semesters()[i].Sequential(), self.Semesters()[i].Sequential()));
-        }
-    }
-
-    updateSteps();
-
-
-
     self.BtnPrev = function () {
         var index = firstActiveStep();
         setCurrentStep(index - 1);
@@ -41,17 +28,16 @@
 
     self.BtnNext = function () {
         var index = firstActiveStep();
-        if (self.Steps().length - 1 != index) {
+        if (self.Semesters().length - 1 != index) {
             setCurrentStep(index + 1);
         } else {
             save();
-            //            $('#curriculumForm').submit();
         }
 
     };
 
     self.ChooseStep = function (step) {
-        var index = self.Steps().indexOf(step);
+        var index = self.Semesters().indexOf(step);
         setCurrentStep(index);
     };
 
@@ -66,7 +52,6 @@
             for (var i = 0; i < e.val; i++) {
                 self.Semesters.push(new window.SemesterViewModel({Sequential:i+1}));
             }
-            updateSteps();
         } else {
             e.preventDefault();
         }
@@ -90,18 +75,17 @@
 
     function setCurrentStep(index) {
         var i = 0;
-        ko.utils.arrayForEach(self.Steps(), function (item) {
+        ko.utils.arrayForEach(self.Semesters(), function (item) {
             item.IsCompleted(index > i);
             item.IsActive(index == i);
             i++;
         });
     }
     function firstActiveStep() {
-        var activeItem = ko.utils.arrayFirst(self.Steps(), function (item) {
+        var activeItem = ko.utils.arrayFirst(self.Semesters(), function (item) {
             return item.IsActive();
         });
-        return self.Steps().indexOf(activeItem);
-        //        ko.utils.arrayIndexOf(self.Steps(), activeItem);
+        return self.Semesters().indexOf(activeItem);
     }
 }
 
