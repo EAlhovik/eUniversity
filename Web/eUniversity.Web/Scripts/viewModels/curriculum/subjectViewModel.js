@@ -25,11 +25,8 @@
     };
 
     self.ShowSubject = function() {
-        showModal({ viewModel: new SubjectViewModel(ko.toJS(self)) })
+        showModal({ viewModel: self })
         .done(function (result) {
-            var data = ko.toJS(result);
-            ko.mapping.fromJS(data, {}, self);
-//            self.Subjects.push(result);
             console.log("Modal closed with result: " + result);
         })
         .fail(function () {

@@ -21,7 +21,8 @@
     self.AddSubject = function () {
         showModal({ viewModel: new SubjectViewModel() })
         .done(function (result) {
-            self.Subjects.push(result);
+//            self.Subjects.push(result);
+            self.Subjects.push(new window.SubjectViewModel(ko.toJS(result)));
             console.log("Modal closed with result: " + result);
         })
         .fail(function () {
