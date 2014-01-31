@@ -84,7 +84,8 @@ namespace eUniversity.Business.Services.Base
         /// <returns>Selected item</returns>
         public SelectedItemModel GetSelectedItemById(long id)
         {
-            return CreateSelectedItem(Repository.GetById(id));
+            var item = Repository.GetById(id);
+            return item == null ? null: CreateSelectedItem(item);
         }
 
         protected abstract T CreateItem();
