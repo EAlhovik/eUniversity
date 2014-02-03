@@ -15,11 +15,13 @@ namespace eUniversity.Business.Services.ManagementServices
     {
         private readonly ISpecialityService specialityService;
         private readonly ISpecializationService specializationService;
+        private readonly IProfessorProfileService professorProfileService;
 
-        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService)
+        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService, IProfessorProfileService professorProfileService)
         {
             this.specialityService = specialityService;
             this.specializationService = specializationService;
+            this.professorProfileService = professorProfileService;
         }
 
         #region ILoockupManagementService Members
@@ -57,13 +59,18 @@ namespace eUniversity.Business.Services.ManagementServices
             return specializations.Select(Mapper.Map<Specialization, SelectedItemModel>);
         }
 
+        public IEnumerable<SelectedItemModel> GetProfessors(string term)
+        {
+            return professorProfileService.GetProfessors(term);
+        }
+
+        #endregion
+
+
         private static Func<Specialization, bool> TermPredicate(string term)
         {
             return spec =>
                 string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0;
         }
-
-        #endregion
-
     }
 }

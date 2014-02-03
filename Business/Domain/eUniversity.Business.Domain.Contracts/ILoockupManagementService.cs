@@ -28,5 +28,12 @@ namespace eUniversity.Business.Domain.Contracts
         /// <param name="term">The term.</param>
         /// <returns>Specializations by term</returns>
         IEnumerable<SelectedItemModel> GetSpecialization(string term);
+
+        /// <summary>
+        /// Gets the professors.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <returns>Professors by term</returns>
+        IEnumerable<SelectedItemModel> GetProfessors(string term);
     }
 }

@@ -42,6 +42,7 @@
     <Compile Include="IBaseService.cs" />
     <Compile Include="IFormsAuthenticationService.cs" />
     <Compile Include="ILoockupManagementService.cs" />
+    <Compile Include="IProfessorProfileService.cs" />
     <Compile Include="IRoleService.cs" />
     <Compile Include="ISemesterManagementService.cs" />
     <Compile Include="ISemesterService.cs" />

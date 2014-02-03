@@ -20,6 +20,8 @@ namespace eUniversity.Web.Controllers
         [HttpGet]
         public JsonResult GetProfessors(string term)
         {
+            return Json(loockupService.GetProfessors(term), JsonRequestBehavior.AllowGet);
+
             var lst = new List<SelectedItemModel>()
             {
                 new SelectedItemModel(){Id = "1",Text = "1BD"},
