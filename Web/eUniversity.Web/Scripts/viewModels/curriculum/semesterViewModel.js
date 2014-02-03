@@ -22,8 +22,6 @@
 
     ko.mapping.fromJS(serverModel, mappingOverride, self);
 
-    
-
     self.AddSubject = function () {
         showModal({ viewModel: new SubjectViewModel() })
         .done(function (result) {
@@ -34,7 +32,6 @@
         .fail(function () {
             console.log("Modal cancelled");
         });
-//        self.Subjects.push(new SubjectViewModel());
     };
 
     self.RemoveSubject = function (subject) {

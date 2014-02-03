@@ -1,17 +1,24 @@
 ﻿<div class="step-pane" data-bind="css: { active: IsActive, complete: IsCompleted }">
     <h3 class="lighter block green">Предметы</h3>
     <!-- ko foreach: Subjects -->
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-3 no-padding-right">Название предмета</label>
+    <div class="subject-activity clearfix">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-3">
+            <div>
+                <a class="subject" href="#" data-bind="text: SubjectNameDisplay, click:ShowSubject"></a>
+                &nbsp;-&nbsp;<span data-bind="text: SubjectTypeDisplay"></span>.&nbsp;
+            </div>
 
-        <div class="col-xs-12 col-sm-9">
-            <div class="clearfix">
-                <a href="#" class="btn btn-white" data-bind="text:DisplayName, click:ShowSubject"></a>
-@*                <input style="width: 200px;" type="hidden" data-bind="selectedValue: Id, select2: { minimumInputLength: 0, query: Query },select2Options: {data: Id}" />*@
+            <div class="tools action-buttons">
+                <a href="#" class="blue" data-bind="click: ShowSubject">
+                    <i class="icon-pencil bigger-125"></i>
+                </a>
+
+                <a href="#" class="red" data-bind="click: $parent.RemoveSubject">
+                    <i class="icon-remove bigger-125"></i>
+                </a>
             </div>
         </div>
     </div>
-    <div class="hr hr-dotted"></div>
     <!-- /ko -->
     <div class="form-group">
         <div class="col-xs-12 col-sm-5 col-sm-offset-3">
@@ -21,5 +28,4 @@
             </h4>
         </div>
     </div>
-
 </div>

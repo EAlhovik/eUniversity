@@ -5,11 +5,25 @@
     self.SubjectType = ko.observable();
 
     ko.mapping.fromJS(serverModel, {}, self);
-    self.DisplayName = ko.computed(function () {
+    
+    self.SubjectNameDisplay = ko.computed(function () {
         if (self.Subject() != null) {
             return self.Subject().Text();
         }
         return '';
+    });
+    
+    self.SubjectTypeDisplay = ko.computed(function() {
+        switch (self.SubjectType()) {
+            case 'CourseWork':
+                return 'Курсовая работа';
+            case 'Lecture':
+                return 'Лекционные занятия';
+            case 'CourseProject':
+                return 'Курсовой проект';
+            default:
+                return '';
+        }
     });
     
     self.Query = function (query) {
