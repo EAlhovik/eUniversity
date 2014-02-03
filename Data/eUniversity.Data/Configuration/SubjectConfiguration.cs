@@ -10,7 +10,8 @@ namespace eUniversity.Data.Configuration
             HasRequired(subject => subject.Semester)
                 .WithMany(semestr => semestr.Subjects)
                 .HasForeignKey(subject => subject.SemesterId)
-                .WillCascadeOnDelete(true);
+//                .WillCascadeOnDelete()
+                ;
         }
     }
 }

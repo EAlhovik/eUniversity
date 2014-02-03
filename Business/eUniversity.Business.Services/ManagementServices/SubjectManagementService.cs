@@ -49,7 +49,7 @@ namespace eUniversity.Business.Services.ManagementServices
 
         public void Delete(IEnumerable<Subject> subjects)
         {
-            //todo:
+//            subjects.ToList().ForEach(subject => subjectService.Delete(subject));
         }
 
         #endregion

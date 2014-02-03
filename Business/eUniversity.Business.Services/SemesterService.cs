@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
@@ -15,8 +16,12 @@ namespace eUniversity.Business.Services
     /// </summary>
     public class SemesterService : BaseService<Semester>, ISemesterService
     {
-        public SemesterService(IRepository<Semester> repository) : base(repository)
+        private readonly ISubjectService subjectService;
+
+        public SemesterService(IRepository<Semester> repository, ISubjectService subjectService)
+            : base(repository)
         {
+            this.subjectService = subjectService;
         }
 
         #region ISemesterService Members //todo: remove
@@ -37,6 +42,15 @@ namespace eUniversity.Business.Services
         }
 
         #endregion
+
+        void IBaseService<Semester>.Delete(Semester semester)
+        {
+            if (semester.Subjects != null)
+            {
+                semester.Subjects.ToList().ForEach(subject => subjectService.Delete(subject));
+            }
+            base.Delete(semester);
+        }
 
         #region BaseService Members
 
