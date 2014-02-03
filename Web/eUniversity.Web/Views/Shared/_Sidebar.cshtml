@@ -39,73 +39,63 @@
                 <span class="menu-text">Dashboard </span>
             </a>
         </li>
+        @{
+            var ajaxOptions = new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    LoadingElementId = "loading",
+                    UpdateTargetId = "pageContent",
+                    OnBegin = "OnBegin"
+                };
+        }
+
         <li>
             <a href="#" class="dropdown-toggle">
-                <i class="icon-desktop"></i>
-                <span class="menu-text">Факультет </span>
-                <b class="arrow icon-angle-down"></b>
+                <i class="icon-list-alt"></i>
+                Специальность<b class="arrow icon-angle-down"></b>
             </a>
             <ul class="submenu">
-                @{
-                    var ajaxOptions = new AjaxOptions()
-                        {
-                            HttpMethod = "GET",
-                            InsertionMode = InsertionMode.Replace,
-                            LoadingElementId = "loading",
-                            UpdateTargetId = "pageContent",
-                            OnBegin = "OnBegin"
-                        };
-                }
                 <li>
-                    <a href="#" class="dropdown-toggle">
-                        <i class="icon-pencil"></i>
-                        Специальность<b class="arrow icon-angle-down"></b>
-                    </a>
-                    <ul class="submenu">
-                        <li>
-                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Speciality", ajaxOptions)
-                        </li>
-
-                        <li>
-                            @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специальностей", "Index", "Speciality", ajaxOptions)
-                        </li>
-                    </ul>
+                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Speciality", ajaxOptions)
                 </li>
+
                 <li>
-                    <a href="#" class="dropdown-toggle">
-                        <i class="icon-pencil"></i>
-                        Специализация<b class="arrow icon-angle-down"></b>
-                    </a>
-
-                    <ul class="submenu">
-                        <li>
-                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Specialization", ajaxOptions)
-                        </li>
-
-                        <li>
-                            @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специализаций", "Index", "Specialization", ajaxOptions)
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle">
-                        <i class="icon-pencil"></i>
-                        Учебный план<b class="arrow icon-angle-down"></b>
-                    </a>
-                    <ul class="submenu">
-                        <li>
-                            @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", "Edit", ControllerNames.CurriculumController, ajaxOptions)
-                        </li>
-
-                        <li>
-                            @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", "Index", ControllerNames.CurriculumController, ajaxOptions)
-                        </li>
-                    </ul>
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специальностей", "Index", "Speciality", ajaxOptions)
                 </li>
             </ul>
-
         </li>
+        <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-list-alt"></i>
+                Специализация<b class="arrow icon-angle-down"></b>
+            </a>
 
+            <ul class="submenu">
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Specialization", ajaxOptions)
+                </li>
+
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специализаций", "Index", "Specialization", ajaxOptions)
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-list-alt"></i>
+                Учебный план<b class="arrow icon-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", "Edit", ControllerNames.CurriculumController, ajaxOptions)
+                </li>
+
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", "Index", ControllerNames.CurriculumController, ajaxOptions)
+                </li>
+            </ul>
+        </li>
         <li>
             <a href="http://192.69.216.111/themes/preview/ace/typography.html">
                 <i class="icon-text-width"></i>
