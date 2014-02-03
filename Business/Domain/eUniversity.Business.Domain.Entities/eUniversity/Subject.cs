@@ -6,8 +6,10 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     /// <summary>
     /// The subject entity
     /// </summary>
-    public class Subject: Entity
+    public class Subject : Entity
     {
+        public string Name { get; set; }
+
         public virtual ICollection<Theme> Themes { get; set; }
 
         public virtual Semester Semester { get; set; }

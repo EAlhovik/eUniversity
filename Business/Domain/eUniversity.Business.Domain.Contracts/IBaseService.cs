@@ -34,5 +34,11 @@ namespace eUniversity.Business.Domain.Contracts
         /// <param name="id">The identifier.</param>
         /// <returns>Selecte item</returns>
         SelectedItemModel GetSelectedItemById(long id);
+
+        /// <summary>
+        /// Delete the entity.
+        /// </summary>
+        /// <param name="entity">Entity to delete.</param>
+        void Delete(T entity);
     }
 }

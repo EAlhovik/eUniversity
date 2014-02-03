@@ -88,11 +88,3 @@
         return self.Semesters().indexOf(activeItem);
     }
 }
-
-function StepViewModel(isActive, isCompleted, title, step) {
-    var self = this;
-    self.IsActive = isActive;
-    self.IsCompleted = isCompleted;
-    self.Title = ko.observable(title);
-    self.Step = ko.observable(step);
-}

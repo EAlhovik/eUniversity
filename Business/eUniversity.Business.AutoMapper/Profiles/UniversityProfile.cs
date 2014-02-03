@@ -100,9 +100,9 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             Mapper.CreateMap<Curriculum, CurriculumHeaderViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
-                .ForMember(vm => vm.CountSemesters, opt => opt.MapFrom(m =>universityProfileService.CreateCountSemesters(m.Semesters.Count)))
+                .ForMember(vm => vm.CountSemesters, opt => opt.MapFrom(m => universityProfileService.CreateCountSemesters(m.Semesters.Count)))
                 .ForMember(vm => vm.DateOfEnactment, opt => opt.MapFrom(m => m.DateOfEnactment))
-                .ForMember(vm => vm.Specialization, opt => opt.MapFrom(m =>universityProfileService.CreateSpecialization(m.SpecializationId)))
+                .ForMember(vm => vm.Specialization, opt => opt.MapFrom(m => universityProfileService.CreateSpecialization(m.SpecializationId)))
                 ;
 
             #endregion
@@ -112,15 +112,37 @@ namespace eUniversity.Business.AutoMapper.Profiles
             Mapper.CreateMap<SemesterViewModel, Semester>()
                 .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                 .ForMember(m => m.Sequential, opt => opt.MapFrom(vm => vm.Sequential))
+                .ForMember(m => m.Subjects, opt => opt.Ignore())
                 ;
 
             Mapper.CreateMap<Semester, SemesterViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Sequential, opt => opt.MapFrom(m => m.Sequential))
+                .ForMember(vm => vm.Subjects, opt => opt.MapFrom(m => m.Subjects))
                 ;
 
             #endregion
 
+            #region Subject
+
+            Mapper.CreateMap<Subject, SubjectViewModel>()
+                .ForMember(vm => vm.Subject, opt => opt.MapFrom(m => m))
+                .ForMember(vm => vm.Assignee, opt => opt.MapFrom(m => universityProfileService.CreateAssignee(m)))
+                ;
+
+            Mapper.CreateMap<Subject, SelectedItemModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))
+                .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Name))
+                ;
+
+
+            Mapper.CreateMap<SubjectViewModel, Subject>()
+                  .ForMember(m => m.Id, opt => opt.Ignore())
+                  .ForMember(m => m.Themes, opt => opt.Ignore())
+                  .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Subject.Text))
+                ;
+
+            #endregion
         }
     }
 }

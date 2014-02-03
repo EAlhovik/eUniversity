@@ -1,4 +1,5 @@
 ﻿using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Common.Utilities;
@@ -39,6 +40,15 @@ namespace eUniversity.Business.Services
                 Id = countSemesters.ToString(),
                 Text = EnumHelper.GetEnumDescription((SemesterEnum) countSemesters)
             };
+        }
+
+        public SelectedItemModel CreateAssignee(Subject subject)
+        {
+            return new SelectedItemModel()
+                {
+                    Id = "0",
+                    Text = "asdas"
+                };
         }
     }
 }

@@ -88,6 +88,15 @@ namespace eUniversity.Business.Services.Base
             return item == null ? null: CreateSelectedItem(item);
         }
 
+        /// <summary>
+        /// Delete the entity.
+        /// </summary>
+        /// <param name="entity">Entity to delete.</param>
+        public void Delete(T entity)
+        {
+            Repository.Delete(entity);
+        }
+
         protected abstract T CreateItem();
         protected abstract SelectedItemModel CreateSelectedItem(T item);
     }

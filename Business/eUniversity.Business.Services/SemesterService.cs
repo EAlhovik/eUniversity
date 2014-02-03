@@ -19,7 +19,7 @@ namespace eUniversity.Business.Services
         {
         }
 
-        #region ISemesterService Members
+        #region ISemesterService Members //todo: remove
 
         public void Save(IEnumerable<Semester> semesters)
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
@@ -18,6 +17,17 @@ namespace eUniversity.Web.Controllers
             this.loockupService = loockupService;
         }
 
+        [HttpGet]
+        public JsonResult GetProfessors(string term)
+        {
+            var lst = new List<SelectedItemModel>()
+            {
+                new SelectedItemModel(){Id = "1",Text = "1BD"},
+                new SelectedItemModel(){Id = "2",Text = "1Seti"},
+                new SelectedItemModel(){Id = "2",Text = "1Test"},
+            };
+            return Json(lst.Where(p => string.IsNullOrEmpty(term) || p.Text.ToUpper().Contains(term.ToUpper())), JsonRequestBehavior.AllowGet);
+        }
         [HttpGet]
         public JsonResult GetSubjects(string term)
         {

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Curriculum;
@@ -34,6 +35,7 @@ namespace eUniversity.Business.Services.ManagementServices
         {
             var curriculum = curriculumService.CreateOrOpen(id);
             var viewModel = Mapper.Map<Curriculum, CurriculumViewModel>(curriculum);
+            viewModel.Semesters = viewModel.Semesters.OrderBy(s => s.Sequential);
             return viewModel;
         }
 

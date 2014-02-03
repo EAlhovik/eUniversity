@@ -29,6 +29,7 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-xs-12">
             <h3 class="lighter block green">Семестры</h3>
             <ul class="wizard-steps">
                 <!-- ko foreach: Semesters -->
@@ -39,14 +40,17 @@
                 <!-- /ko -->
             </ul>
         </div>
+        </div>
         <hr>
         <div class="step-content row position-relative">
+            <div class="col-xs-12">
             @using (Html.BeginForm("Edit", ControllerNames.CurriculumController, FormMethod.Post, new { @class = "form-horizontal", id = "curriculumForm" }))
             {
                 <!-- ko foreach: Semesters -->
                 @Html.Partial("EditorTemplates/SemesterViewModel")
                 <!-- /ko -->
             }
+        </div>
         </div>
         <hr>
         <div class="row wizard-actions">

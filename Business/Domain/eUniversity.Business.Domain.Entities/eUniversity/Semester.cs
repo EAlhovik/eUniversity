@@ -10,7 +10,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     {
         public virtual ICollection<Subject> Subjects { get; set; }
         public virtual Curriculum Curriculum { get; set; }
-        public long? CurriculaId { get; set; }
+        public long? CurriculumId { get; set; }
 
         public int Sequential { get; set; }
     }

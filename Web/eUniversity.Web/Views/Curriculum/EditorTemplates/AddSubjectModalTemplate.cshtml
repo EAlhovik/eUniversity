@@ -1,4 +1,5 @@
 ﻿@using eUniversity.Business.Helpers.Enums
+@using eUniversity.Web.Constants
 @model eUniversity.Business.ViewModels.Curriculum.SubjectViewModel
 <script type="text/html" id="AddSubject">
     <div class="modal fade in" role="dialog" style="display: block;" aria-hidden="false">
@@ -16,9 +17,9 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
-                                <label class="control-label" for="form-field-username">Название предмета</label>
+                                @Html.LabelFor(m => m.Subject, "Название предмета", new { @class = "control-label" })
                                 <div class="clearfix">
-                                    <input id="form-field-username" style="width: 200px;" type="hidden" data-bind="selectedValue: Subject, select2: { minimumInputLength: 0, query: Query }, select2Options: { data: Subject }" />
+                                    @Html.HiddenFor(m => m.Subject, new { style = "width: 200px;", Data_Bind = "selectedValue: Subject, select2: { minimumInputLength: 0, query: Query }, select2Options: { data: Subject }" })
                                 </div>
                             </div>
                             <div class="form-group">
@@ -45,6 +46,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Assignee, "Преподаватель", new { @class = "control-label" })
+                                <div class="clearfix">
+                                    @Html.HiddenFor(m => m.Assignee, new { style = "width: 200px;",
+                                   Data_Bind = "selectedValue: Assignee, select2: {allowClear: true,  placeholder: 'Специализация',multiple: false, ajax:{url:'"+Url.Action(ActionNames.GetProfessorsAction, ControllerNames.LoockupController) +"'  }},select2Options: {data: Assignee}" })
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>

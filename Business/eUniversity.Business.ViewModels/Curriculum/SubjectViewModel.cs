@@ -11,6 +11,7 @@ namespace eUniversity.Business.ViewModels.Curriculum
 //        public long Id { get; set; }
 
         public SelectedItemModel Subject { get; set; }
+        public SelectedItemModel Assignee { get; set; }
 
         public SubjectTypeEnum SubjectType { get; set; }
     }

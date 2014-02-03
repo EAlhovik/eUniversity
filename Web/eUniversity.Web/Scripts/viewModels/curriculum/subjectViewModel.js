@@ -1,6 +1,7 @@
 ﻿function SubjectViewModel(serverModel) {
     var self = this;
     self.Subject = ko.observable();
+    self.Assignee = ko.observable();
     self.SubjectType = ko.observable();
 
     ko.mapping.fromJS(serverModel, {}, self);

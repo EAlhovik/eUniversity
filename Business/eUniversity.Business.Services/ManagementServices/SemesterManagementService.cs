@@ -14,10 +14,12 @@ namespace eUniversity.Business.Services.ManagementServices
     public class SemesterManagementService : ISemesterManagementService
     {
         private readonly ISemesterService semesterService;
+        private readonly ISubjectManagementService subjectManagementService;
 
-        public SemesterManagementService(ISemesterService semesterService)
+        public SemesterManagementService(ISemesterService semesterService, ISubjectManagementService subjectManagementService)
         {
             this.semesterService = semesterService;
+            this.subjectManagementService = subjectManagementService;
         }
 
         public IEnumerable<SemesterViewModel> GetSemesters(long? curriculumId)
@@ -31,7 +33,7 @@ namespace eUniversity.Business.Services.ManagementServices
 
         public void Save(IEnumerable<SemesterViewModel> semesters, Curriculum curriculum)
         {
-            var originalSemesters = semesterService.All().Where(s => s.CurriculaId == curriculum.Id);
+            var originalSemesters = semesterService.All().Where(s => s.CurriculumId == curriculum.Id);
             var modification = CollectionModificationResolver.Resolve(semesters, originalSemesters,
                 (income, viewModel) => income.Id == viewModel.Id);
 
@@ -48,7 +50,8 @@ namespace eUniversity.Business.Services.ManagementServices
 
             foreach (var semester in modification.Deleted)
             {
-//                semesterService.Delete(semester);
+                subjectManagementService.Delete(semester.Subjects);
+                semesterService.Delete(semester);
             }
         }
 
@@ -56,6 +59,8 @@ namespace eUniversity.Business.Services.ManagementServices
         {
             semesterService.Save(semester);
             Mapper.Map<SemesterViewModel, Semester>(viewModel, semester);
+            subjectManagementService.Save(viewModel.Subjects, semester);
+
         }
     }
 }

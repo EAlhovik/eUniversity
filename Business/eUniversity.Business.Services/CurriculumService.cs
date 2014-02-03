@@ -18,6 +18,16 @@ namespace eUniversity.Business.Services
         {
         }
 
+        public new Curriculum CreateOrOpen(long? id)
+        {
+            if (id == null || id.Value == 0)
+            {
+                return CreateItem();
+            }
+            var item = Repository.GetById(id.Value);
+            return item ?? CreateItem();
+        }
+
         protected override Curriculum CreateItem()
         {
             return new Curriculum

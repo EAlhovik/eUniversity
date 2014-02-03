@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.Helpers;
+﻿using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers;
 
 namespace eUniversity.Business.Domain.Contracts
 {
@@ -11,5 +12,7 @@ namespace eUniversity.Business.Domain.Contracts
 
         SelectedItemModel CreateSpecialization(long id);
         SelectedItemModel CreateCountSemesters(int countSemesters);
+
+        SelectedItemModel CreateAssignee(Subject subject);
     }
 }
