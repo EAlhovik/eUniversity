@@ -40,6 +40,10 @@
       <HintPath>..\eUniversity.Tests\bin\Debug\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Web\eUniversity.Web\bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,8 +54,10 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Base\GeneralReletionshipTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ServicesRelationshipTests.cs" />
+    <Compile Include="Business\ServicesRelationshipTest.cs" />
+    <Compile Include="Web\WebRelationshipTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Business\Domain\eUniversity.Business.Domain.Contracts\eUniversity.Business.Domain.Contracts.csproj">
@@ -66,7 +72,12 @@
       <Project>{3BAEAB86-3751-4270-9235-C4664D5DE755}</Project>
       <Name>eUniversity.Business.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Web\eUniversity.Web\eUniversity.Web.csproj">
+      <Project>{430A12FA-8F4D-45A1-AC53-9C23F2E46DEF}</Project>
+      <Name>eUniversity.Web</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

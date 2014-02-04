@@ -184,13 +184,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Constants\ActionNames.cs" />
-    <Compile Include="Constants\ControllerNames.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoockupController.cs" />
@@ -198,8 +195,6 @@
     <Compile Include="Controllers\SpecialityController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
     <Compile Include="Controllers\CurriculumController.cs" />
-    <Compile Include="Dependencies\DataAccessModule.cs" />
-    <Compile Include="Dependencies\DomainServicesModule.cs" />
     <Compile Include="Extensions\CustomRoleProvider.cs" />
     <Compile Include="Extensions\HtmlHelpers.cs" />
     <Compile Include="Global.asax.cs">
@@ -349,25 +344,9 @@
       <Project>{36511853-F05B-43A6-A269-E87B245E6348}</Project>
       <Name>eUniversity.Business.Domain.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Business\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
-      <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
-      <Name>eUniversity.Business.Domain.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Business\eUniversity.Business.AutoMapper\eUniversity.Business.AutoMapper.csproj">
-      <Project>{66B745CF-920D-49E0-83A6-45E2D34095A7}</Project>
-      <Name>eUniversity.Business.AutoMapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Business\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
       <Project>{387246CB-53C1-4A51-874A-135755655B12}</Project>
       <Name>eUniversity.Business.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Business\eUniversity.Business.ManagementServices\eUniversity.Business.ManagementServices.csproj">
-      <Project>{74A14686-B673-4F95-BCF5-753D1CFA8F11}</Project>
-      <Name>eUniversity.Business.ManagementServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Business\eUniversity.Business.Services\eUniversity.Business.Services.csproj">
-      <Project>{3BAEAB86-3751-4270-9235-C4664D5DE755}</Project>
-      <Name>eUniversity.Business.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Business\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
       <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
@@ -377,13 +356,9 @@
       <Project>{8B32DF95-7AD3-4FE8-BA4B-4755676DF1FC}</Project>
       <Name>eUniversity.Common.Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Data\eUniversity.Data.Contracts\eUniversity.Data.Contracts.csproj">
-      <Project>{A8BD361F-A76F-47BD-8855-28EAE94853DF}</Project>
-      <Name>eUniversity.Data.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\eUniversity.Data\eUniversity.Data.csproj">
-      <Project>{979B9289-21A8-4F3D-AA0C-0D92093ADF4C}</Project>
-      <Name>eUniversity.Data</Name>
+    <ProjectReference Include="..\eUniversity.Web.Infrastructure\eUniversity.Web.Infrastructure.csproj">
+      <Project>{db4e17a0-abab-40c7-b4da-a5dcdbf0002e}</Project>
+      <Name>eUniversity.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

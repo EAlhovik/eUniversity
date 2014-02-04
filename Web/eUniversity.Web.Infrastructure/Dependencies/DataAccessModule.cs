@@ -4,7 +4,7 @@ using eUniversity.Data;
 using eUniversity.Data.Contracts;
 using eUniversity.Data.Repositories;
 
-namespace eUniversity.Web.Dependencies
+namespace eUniversity.Web.Infrastructure.Dependencies
 {
     /// <summary>
     /// Represents module to register data access types

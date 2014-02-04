@@ -6,7 +6,7 @@ using eUniversity.Business.AutoMapper.Profiles;
 using eUniversity.Business.ManagementServices;
 using eUniversity.Business.Services.Auth;
 
-namespace eUniversity.Web.Dependencies
+namespace eUniversity.Web.Infrastructure.Dependencies
 {
     public class DomainServicesModule : Module
     {

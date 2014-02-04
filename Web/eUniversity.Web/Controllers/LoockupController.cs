@@ -21,26 +21,20 @@ namespace eUniversity.Web.Controllers
         public JsonResult GetProfessors(string term)
         {
             return Json(loockupService.GetProfessors(term), JsonRequestBehavior.AllowGet);
-
-            var lst = new List<SelectedItemModel>()
-            {
-                new SelectedItemModel(){Id = "1",Text = "1BD"},
-                new SelectedItemModel(){Id = "2",Text = "1Seti"},
-                new SelectedItemModel(){Id = "2",Text = "1Test"},
-            };
-            return Json(lst.Where(p => string.IsNullOrEmpty(term) || p.Text.ToUpper().Contains(term.ToUpper())), JsonRequestBehavior.AllowGet);
         }
+
         [HttpGet]
         public JsonResult GetSubjects(string term)
         {
             var lst = new List<SelectedItemModel>()
             {
-                new SelectedItemModel(){Id = "1",Text = "BD"},
-                new SelectedItemModel(){Id = "2",Text = "Seti"},
-                new SelectedItemModel(){Id = "2",Text = "Test"},
+                new SelectedItemModel(){Id = "1", Text = "BD"},
+                new SelectedItemModel(){Id = "2", Text = "Seti"},
+                new SelectedItemModel(){Id = "2", Text = "Test"},
             };
-            return Json(lst.Where(p=>string.IsNullOrEmpty(term) || p.Text.ToUpper().Contains(term.ToUpper())), JsonRequestBehavior.AllowGet);
+            return Json(lst.Where(p => string.IsNullOrEmpty(term) || p.Text.ToUpper().Contains(term.ToUpper())), JsonRequestBehavior.AllowGet);
         }
+
         [HttpGet]
         public JsonResult GetSpecialities(string term)
         {
@@ -53,6 +47,7 @@ namespace eUniversity.Web.Controllers
             return Json(loockupService.GetSpecialization(term), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public JsonResult GetSemesters(string term)
         {
             var values = EnumHelper.GetEnumValues(typeof(SemesterEnum)).Select(p => new SelectedItemModel { Id = p.Key, Text = p.Value });

@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUniversity.Business.Manage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUniversity.Relationship.Tests", "Tests\eUniversity.Relationship.Tests\eUniversity.Relationship.Tests.csproj", "{3A4EBF7E-19A4-4C85-AC18-2788CEF19D7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUniversity.Web.Infrastructure", "Web\eUniversity.Web.Infrastructure\eUniversity.Web.Infrastructure.csproj", "{DB4E17A0-ABAB-40C7-B4DA-A5DCDBF0002E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,12 +99,17 @@ Global
 		{3A4EBF7E-19A4-4C85-AC18-2788CEF19D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A4EBF7E-19A4-4C85-AC18-2788CEF19D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A4EBF7E-19A4-4C85-AC18-2788CEF19D7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB4E17A0-ABAB-40C7-B4DA-A5DCDBF0002E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4E17A0-ABAB-40C7-B4DA-A5DCDBF0002E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4E17A0-ABAB-40C7-B4DA-A5DCDBF0002E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4E17A0-ABAB-40C7-B4DA-A5DCDBF0002E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{430A12FA-8F4D-45A1-AC53-9C23F2E46DEF} = {815C6F8D-3D0C-4E07-9DA8-3BC7A35843A7}
+		{DB4E17A0-ABAB-40C7-B4DA-A5DCDBF0002E} = {815C6F8D-3D0C-4E07-9DA8-3BC7A35843A7}
 		{389FA86D-86E9-40B5-8BD1-F9E201CBD165} = {B322B6E9-6086-4780-9D49-A5BC7E99769E}
 		{3BAEAB86-3751-4270-9235-C4664D5DE755} = {B322B6E9-6086-4780-9D49-A5BC7E99769E}
 		{B5833BCB-3BE7-4F93-9CE1-778BEC25F879} = {B322B6E9-6086-4780-9D49-A5BC7E99769E}
