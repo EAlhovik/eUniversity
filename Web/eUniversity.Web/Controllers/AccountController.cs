@@ -9,11 +9,11 @@ namespace eUniversity.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly IUserManagementService userManagementService;
+        private readonly IMembershipManagementService membershipManagementService;
 
-        public AccountController(IUserManagementService userManagementService)
+        public AccountController(IMembershipManagementService membershipManagementService)
         {
-            this.userManagementService = userManagementService;
+            this.membershipManagementService = membershipManagementService;
         }
 
         [AllowAnonymous]
@@ -28,7 +28,7 @@ namespace eUniversity.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-            if (userManagementService.LogIn(model))
+            if (membershipManagementService.LogIn(model))
             {
                 return RedirectToLocal(returnUrl);
             }
@@ -42,7 +42,7 @@ namespace eUniversity.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            userManagementService.LogOut();
+            membershipManagementService.LogOut();
 
             return RedirectToAction("Index", "Home");
         }
@@ -66,7 +66,7 @@ namespace eUniversity.Web.Controllers
                 // Attempt to register the user
                 try
                 {
-                    userManagementService.RegisterUser(model);
+                    membershipManagementService.RegisterUser(model);
 //                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
 //                    WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");

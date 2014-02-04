@@ -10,20 +10,20 @@ namespace eUniversity.Business.ManagementServices.Auth
     /// <summary>
     /// Represents user management service
     /// </summary>
-    public class UserManagementService : IUserManagementService
+    public class MembershipManagementService : IMembershipManagementService
     {
         private readonly IUserService userService;
         private readonly IFormsAuthenticationService formsAuthenticationService;
         private readonly IEUniversityUow eUniversityUow;
 
-        public UserManagementService(IUserService userService, IFormsAuthenticationService formsAuthenticationService, IEUniversityUow eUniversityUow)
+        public MembershipManagementService(IUserService userService, IFormsAuthenticationService formsAuthenticationService, IEUniversityUow eUniversityUow)
         {
             this.userService = userService;
             this.formsAuthenticationService = formsAuthenticationService;
             this.eUniversityUow = eUniversityUow;
         }
 
-        #region IUserManagementService Members
+        #region IMembershipManagementService Members
 
         /// <summary>
         /// Logs the in.

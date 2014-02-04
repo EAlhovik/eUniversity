@@ -54,7 +54,7 @@
     <Compile Include="ISubjectManagementService.cs" />
     <Compile Include="ISubjectService.cs" />
     <Compile Include="IUniversityProfileService.cs" />
-    <Compile Include="IUserManagementService.cs" />
+    <Compile Include="IMembershipManagementService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="ICurriculumManagementService.cs" />
     <Compile Include="ICurriculumService.cs" />

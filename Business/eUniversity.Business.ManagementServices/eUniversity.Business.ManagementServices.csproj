@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auth\UserManagementService.cs" />
+    <Compile Include="Auth\MembershipManagementService.cs" />
     <Compile Include="CurriculumManagementService.cs" />
     <Compile Include="LoockupManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

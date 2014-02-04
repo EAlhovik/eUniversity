@@ -5,7 +5,7 @@ namespace eUniversity.Business.Domain.Contracts
     /// <summary>
     /// Interface for user management service
     /// </summary>
-    public interface IUserManagementService
+    public interface IMembershipManagementService
     {
         /// <summary>
         /// Logs the in.

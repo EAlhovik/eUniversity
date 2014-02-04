@@ -9,5 +9,6 @@
         public const string GetSpecializationAction = "GetSpecialization";
         public const string GetSemestersAction = "GetSemesters";
         public const string GetProfessorsAction = "GetProfessors";
+        public const string IndexAction = "Index";
     }
 }
