@@ -1,4 +1,6 @@
-﻿using eUniversity.Business.ViewModels.Auth;
+﻿using System.Collections.Generic;
+using eUniversity.Business.ViewModels.Auth;
+using eUniversity.Business.ViewModels.Membership;
 
 namespace eUniversity.Business.Domain.Contracts
 {
@@ -18,5 +20,7 @@ namespace eUniversity.Business.Domain.Contracts
         void RegisterUser(RegisterViewModel registerViewModel);
 
         bool Validate(RegisterViewModel registerViewModel);
+
+        IEnumerable<UserRowViewModel> GetUsers();
     }
 }

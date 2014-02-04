@@ -16,8 +16,8 @@ namespace eUniversity.Web.Extensions
         public override string[] GetRolesForUser(string username)
         {
             var roleService = DependencyResolver.Current.GetService<IRoleService>();
-//                var roleService = MvcApplication.Container.Resolve<IRoleService>();
-                return roleService.GetUserRoles(username);
+            var roles = roleService.GetUserRoles(username);
+            return roles;
         }   
 
         public override bool IsUserInRole(string username, string roleName)

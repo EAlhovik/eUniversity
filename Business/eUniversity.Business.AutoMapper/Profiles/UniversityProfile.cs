@@ -4,6 +4,7 @@ using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Auth;
 using eUniversity.Business.ViewModels.Curriculum;
+using eUniversity.Business.ViewModels.Membership;
 using eUniversity.Business.ViewModels.Speciality;
 using eUniversity.Business.ViewModels.Specialization;
 
@@ -22,6 +23,10 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
         protected override void Configure()
         {
+            Mapper.CreateMap<User, UserRowViewModel>()
+               .ForMember(vm => vm.UserName, opt => opt.MapFrom(m => m.UserName))
+                ;
+
             Mapper.CreateMap<RegisterViewModel, User>()
                .ForMember(m => m.Id, opt => opt.Ignore())
                .ForMember(m => m.UserName, opt => opt.MapFrom(vm => vm.UserName))

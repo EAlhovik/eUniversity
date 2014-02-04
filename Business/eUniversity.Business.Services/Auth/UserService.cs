@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers;
 using eUniversity.Business.Helpers.Enums;
+using eUniversity.Business.Services.Base;
 using eUniversity.Data.Contracts;
 
 namespace eUniversity.Business.Services.Auth
@@ -11,21 +13,25 @@ namespace eUniversity.Business.Services.Auth
     /// <summary>
     /// Represents user service
     /// </summary>
-    public class UserService : IUserService, IRoleService
+    public class UserService :BaseService<User>, IUserService, IRoleService
     {
-        private readonly IRepository<User> userRepository;
         private readonly IFormsAuthenticationService formsAuthenticationService;
 
         private readonly IRepository<Role> roleRepository;
 
         public UserService(IRepository<User> userRepository, IFormsAuthenticationService formsAuthenticationService, IRepository<Role> roleRepository)
+            : base(userRepository)
         {
-            this.userRepository = userRepository;
             this.formsAuthenticationService = formsAuthenticationService;
             this.roleRepository = roleRepository;
         }
 
         #region IUserService Members
+
+        public IEnumerable<User> GetUsersByRole(RoleEnum role)
+        {
+            return roleRepository.All().Where(r => r.RoleType == role).SelectMany(r => r.Users);
+        }
 
         /// <summary>
         /// Validates the user.
@@ -38,7 +44,7 @@ namespace eUniversity.Business.Services.Auth
         public bool ValidateUser(string userName, string password)
         {
             var hashedPassword = formsAuthenticationService.CreatePasswordHash(password);
-            return userRepository.All().Any(user => user.UserName == userName && user.Password == hashedPassword);
+            return Repository.All().Any(user => user.UserName == userName && user.Password == hashedPassword);
         }
 
         /// <summary>
@@ -50,7 +56,7 @@ namespace eUniversity.Business.Services.Auth
         {
             var hashedPassword = formsAuthenticationService.CreatePasswordHash(user.Password);
             user.Password = hashedPassword;
-            userRepository.InsertOrUpdate(user);
+            Repository.InsertOrUpdate(user);
             var role = GetRoleByType(GetDefaultRoleForAccountType(accountType));
             user.Roles = new List<Role> { role };
         }
@@ -62,7 +68,8 @@ namespace eUniversity.Business.Services.Auth
         /// <returns>User</returns>
         public User GetUserByName(string userName)
         {
-            var user = userRepository.All().FirstOrDefault(u => u.UserName == userName);
+            var user = Repository.All()
+                .SingleOrDefault(u => u.UserName == userName);
             return user;
         }
 
@@ -105,14 +112,29 @@ namespace eUniversity.Business.Services.Auth
             return roleRepository.All();
         }
 
-        public bool IsUserInRole(User user, RoleEnum role)
+        public bool IsUserInRole(string userName, RoleEnum role)
         {
-            throw new System.NotImplementedException();
+            var user = GetUserByName(userName);
+            return roleRepository.All().Any(r => r.Users.Any(u => u.Id == user.Id) && r.RoleType == role);
         }
 
         public void AddUserToRole(User user, RoleEnum role)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region BaseService Members
+
+        protected override User CreateItem()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override SelectedItemModel CreateSelectedItem(User item)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

@@ -1,4 +1,6 @@
-﻿using eUniversity.Business.Domain.Entities.eUniversity;
+﻿using System.Collections;
+using System.Collections.Generic;
+using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers.Enums;
 
 namespace eUniversity.Business.Domain.Contracts
@@ -6,7 +8,7 @@ namespace eUniversity.Business.Domain.Contracts
     /// <summary>
     /// Interface for User service
     /// </summary>
-    public interface IUserService
+    public interface IUserService : IBaseService<User>
     {
         /// <summary>
         /// Validates the user.
@@ -19,5 +21,7 @@ namespace eUniversity.Business.Domain.Contracts
         void RegisterUser(User user, AccountTypeEnum accountType);
 
         User GetUserByName(string userName);
+
+        IEnumerable<User> GetUsersByRole(RoleEnum role);
     }
 }

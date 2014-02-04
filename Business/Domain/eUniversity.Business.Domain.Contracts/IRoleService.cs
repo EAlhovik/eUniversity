@@ -11,7 +11,7 @@ namespace eUniversity.Business.Domain.Contracts
     {
         IEnumerable<Role> GetRoles();
 
-        bool IsUserInRole(User user, RoleEnum role);
+        bool IsUserInRole(string userName, RoleEnum role);
 
         void AddUserToRole(User user, RoleEnum role);
 
