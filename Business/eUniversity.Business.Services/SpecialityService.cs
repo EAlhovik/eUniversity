@@ -11,7 +11,8 @@ namespace eUniversity.Business.Services
     /// </summary>
     public class SpecialityService : BaseService<Speciality>, ISpecialityService
     {
-        public SpecialityService(IRepository<Speciality> specialitySpecializationRepository):base(specialitySpecializationRepository)
+        public SpecialityService(IRepository<Speciality> specialitySpecializationRepository, IAuthorizationService authorizationService)
+            : base(specialitySpecializationRepository, authorizationService)
         {
         }
 

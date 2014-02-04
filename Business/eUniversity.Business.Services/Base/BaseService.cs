@@ -10,9 +10,12 @@ namespace eUniversity.Business.Services.Base
     public abstract class BaseService<T> : IBaseService<T> where T : class,IEntity
     {
         protected IRepository<T> Repository { get; set; }
-        protected BaseService(IRepository<T> repository)
+        private readonly IAuthorizationService authorizationService;
+
+        protected BaseService(IRepository<T> repository, IAuthorizationService authorizationService = null)
         {
             this.Repository = repository;
+            this.authorizationService = authorizationService;
         }
 
         /// <summary>
@@ -55,17 +58,27 @@ namespace eUniversity.Business.Services.Base
             if (entityCreated != null)
             {
                 entityCreated.Created = DateTime.Now;
-                entityCreated.CreatedBy = "System";
+                entityCreated.CreatedBy = GetUserName();
             }
         }
+
         private void TryUpdateLastModifiedInformation(T entity)
         {
             var entityChanged = entity as IHasModificatoin;
             if (entityChanged != null)
             {
                 entityChanged.LastModified = DateTime.Now;
-                entityChanged.LastModifiedBy = "System";
+                entityChanged.LastModifiedBy = GetUserName();
             }
+        }
+
+        private string GetUserName()
+        {
+            if (authorizationService != null && authorizationService.User != null)
+            {
+                return authorizationService.User.Identity.Name;
+            }
+            return string.Empty;
         }
 
         /// <summary>

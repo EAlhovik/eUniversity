@@ -10,7 +10,8 @@ namespace eUniversity.Business.Services
 {
     public class ProfessorProfileService : BaseService<ProfessorProfile>, IProfessorProfileService
     {
-        public ProfessorProfileService(IRepository<ProfessorProfile> repository) : base(repository)
+        public ProfessorProfileService(IRepository<ProfessorProfile> repository)
+            : base(repository)
         {
         }
 

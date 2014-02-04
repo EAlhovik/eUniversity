@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAuthorizationService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IFormsAuthenticationService.cs" />
     <Compile Include="ILoockupManagementService.cs" />
