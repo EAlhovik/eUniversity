@@ -1,5 +1,5 @@
 ﻿using eUniversity.Business.Domain.Contracts;
-using eUniversity.Business.Services.Auth;
+using eUniversity.Business.ManagementServices.Auth;
 using eUniversity.Business.ViewModels.Auth;
 using eUniversity.Data.Contracts;
 using Moq;

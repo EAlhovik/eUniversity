@@ -43,7 +43,6 @@
     <Compile Include="Auth\LoginViewModel.cs" />
     <Compile Include="Curriculum\CurriculumViewModel.cs" />
     <Compile Include="Curriculum\CurriculumHeaderViewModel.cs" />
-    <Compile Include="Curriculum\SemesterEnum.cs" />
     <Compile Include="Curriculum\SemesterViewModel.cs" />
     <Compile Include="Curriculum\SubjectViewModel.cs" />
     <Compile Include="Profile\BasicProfileViewModel.cs" />

@@ -47,15 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\FormsAuthenticationService.cs" />
-    <Compile Include="Auth\UserManagementService.cs" />
     <Compile Include="Auth\UserService.cs" />
     <Compile Include="Base\BaseService.cs" />
-    <Compile Include="ManagementServices\LoockupManagementService.cs" />
-    <Compile Include="ManagementServices\SemesterManagementService.cs" />
-    <Compile Include="ManagementServices\SpecialityManagementService.cs" />
-    <Compile Include="ManagementServices\SpecializationManagementService.cs" />
-    <Compile Include="ManagementServices\CurriculumManagementService.cs" />
-    <Compile Include="ManagementServices\SubjectManagementService.cs" />
     <Compile Include="ProfessorProfileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SemesterService.cs" />
@@ -85,10 +78,6 @@
     <ProjectReference Include="..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
       <Project>{387246CB-53C1-4A51-874A-135755655B12}</Project>
       <Name>eUniversity.Business.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
-      <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
-      <Name>eUniversity.Business.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

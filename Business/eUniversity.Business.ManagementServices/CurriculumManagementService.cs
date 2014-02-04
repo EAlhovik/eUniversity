@@ -5,7 +5,7 @@ using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Data.Contracts;
 
-namespace eUniversity.Business.Services.ManagementServices
+namespace eUniversity.Business.ManagementServices
 {
     /// <summary>
     /// Represents curriculum management service

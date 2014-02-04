@@ -5,7 +5,7 @@ using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Auth;
 using eUniversity.Data.Contracts;
 
-namespace eUniversity.Business.Services.Auth
+namespace eUniversity.Business.ManagementServices.Auth
 {
     /// <summary>
     /// Represents user management service

@@ -6,7 +6,7 @@ using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 
-namespace eUniversity.Business.Services.ManagementServices
+namespace eUniversity.Business.ManagementServices
 {
     /// <summary>
     /// Represents management service

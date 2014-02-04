@@ -361,6 +361,10 @@
       <Project>{387246CB-53C1-4A51-874A-135755655B12}</Project>
       <Name>eUniversity.Business.Helpers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Business\eUniversity.Business.ManagementServices\eUniversity.Business.ManagementServices.csproj">
+      <Project>{74A14686-B673-4F95-BCF5-753D1CFA8F11}</Project>
+      <Name>eUniversity.Business.ManagementServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Business\eUniversity.Business.Services\eUniversity.Business.Services.csproj">
       <Project>{3BAEAB86-3751-4270-9235-C4664D5DE755}</Project>
       <Name>eUniversity.Business.Services</Name>

@@ -6,7 +6,7 @@ using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Specialization;
 using eUniversity.Data.Contracts;
 
-namespace eUniversity.Business.Services.ManagementServices
+namespace eUniversity.Business.ManagementServices
 {
     /// <summary>
     /// Represents specialization management service

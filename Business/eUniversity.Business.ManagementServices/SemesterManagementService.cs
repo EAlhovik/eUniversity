@@ -6,7 +6,7 @@ using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Curriculum;
 
-namespace eUniversity.Business.Services.ManagementServices
+namespace eUniversity.Business.ManagementServices
 {
     /// <summary>
     /// Represents semester management service
