@@ -15,7 +15,7 @@ namespace eUniversity.Web.Controllers
         public ActionResult Index()
         {
             var t = membershipManagementService.GetUsers();
-            return View();
+            return View(t);
         }
 	}
 }

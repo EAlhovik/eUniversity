@@ -79,6 +79,6 @@
     <script src="~/Scripts/viewModels/account/loginViewModel.js"> </script>
 
     <script type="text/javascript">
-        ko.applyBindings(new LoginViewModel(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model))), $("#loginForm").get(0));
+        ko.applyBindings(new LoginViewModel(@Html.Raw(Json.Encode(Model))), $("#loginForm").get(0));
     </script>
 }

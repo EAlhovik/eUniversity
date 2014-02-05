@@ -9,7 +9,7 @@
     }
 }
 @Html.Partial("_PageHeader")
-<div class="row">
+<div class="row" id="loginForm">
     <div class="col-xs-12">
 
         <div class="table-responsive">
@@ -125,3 +125,11 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/Scripts/viewModels/membership/membershipViewModel.js"> </script>
+
+    <script type="text/javascript">
+        ko.applyBindings(new MembershipViewModel(@Html.Raw(Json.Encode(Model))), $("#loginForm").get(0));
+    </script>
+}

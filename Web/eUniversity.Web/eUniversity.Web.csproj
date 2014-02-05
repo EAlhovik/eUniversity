@@ -267,6 +267,7 @@
     <Content Include="Scripts\viewModels\curriculum\headerSectionViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\semesterViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\subjectViewModel.js" />
+    <Content Include="Scripts\viewModels\membership\membershipViewModel.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -324,7 +325,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\viewModels\membership\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
