@@ -3,7 +3,7 @@
     <a data-toggle="dropdown" href="@Url.Action(null)" class="dropdown-toggle">
         <img class="nav-user-photo" src="~/Avatars/avatar1.png" alt="Jason's Photo">
         <span class="user-info">
-            <small>Welcome,</small>
+            <small>@eUniversity.Common.Strings.Resources.Common_Welcome,</small>
             @User.Identity.Name
         </span>
 
@@ -21,7 +21,7 @@
         <li>
             <a href="@Url.Action("Index", "Profile")">
                 <i class="icon-user"></i>
-                Profile
+                @eUniversity.Common.Strings.Resources.Common_Profile
             </a>
         </li>
 
@@ -32,7 +32,7 @@
             {
                 @Html.AntiForgeryToken()
                 <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i>
-                    Logout</a>
+                   @eUniversity.Common.Strings.Resources.Common_LogOut</a>
             }
         </li>
     </ul>

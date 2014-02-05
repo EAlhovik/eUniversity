@@ -58,10 +58,13 @@
   <ItemGroup>
     <Compile Include="Constants\ActionNames.cs" />
     <Compile Include="Constants\ControllerNames.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Dependencies\DataAccessModule.cs" />
     <Compile Include="Dependencies\DomainServicesModule.cs" />
+    <Compile Include="Filters\LocalizationAttribute.cs" />
     <Compile Include="HttpApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\CultureHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Business\Domain\eUniversity.Business.Domain.Contracts\eUniversity.Business.Domain.Contracts.csproj">

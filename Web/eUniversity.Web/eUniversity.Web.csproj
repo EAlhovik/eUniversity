@@ -350,6 +350,10 @@
       <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
       <Name>eUniversity.Business.ViewModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\eUniversity.Common.Strings\eUniversity.Common.Strings.csproj">
+      <Project>{55c2ce7f-6ae8-484e-b1a1-8222b22e85a4}</Project>
+      <Name>eUniversity.Common.Strings</Name>
+    </ProjectReference>
     <ProjectReference Include="..\eUniversity.Web.Infrastructure\eUniversity.Web.Infrastructure.csproj">
       <Project>{db4e17a0-abab-40c7-b4da-a5dcdbf0002e}</Project>
       <Name>eUniversity.Web.Infrastructure</Name>

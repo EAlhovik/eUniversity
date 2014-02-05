@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUniversity.Web.Infrastruct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUniversity.Data.Entities", "Data\eUniversity.Data.Entities\eUniversity.Data.Entities.csproj", "{505060A9-729D-4906-8DB6-739EF2974909}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUniversity.Common.Strings", "Common\eUniversity.Common.Strings\eUniversity.Common.Strings.csproj", "{55C2CE7F-6AE8-484E-B1A1-8222B22E85A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{505060A9-729D-4906-8DB6-739EF2974909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505060A9-729D-4906-8DB6-739EF2974909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505060A9-729D-4906-8DB6-739EF2974909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55C2CE7F-6AE8-484E-B1A1-8222B22E85A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C2CE7F-6AE8-484E-B1A1-8222B22E85A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C2CE7F-6AE8-484E-B1A1-8222B22E85A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C2CE7F-6AE8-484E-B1A1-8222B22E85A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,5 +142,6 @@ Global
 		{38CDBDB0-5C7B-4FE4-AB19-1E610954A883} = {14230614-C25D-4171-8252-D3B0AD02F33F}
 		{3A4EBF7E-19A4-4C85-AC18-2788CEF19D7B} = {14230614-C25D-4171-8252-D3B0AD02F33F}
 		{8B32DF95-7AD3-4FE8-BA4B-4755676DF1FC} = {9305E688-59BC-433A-883E-0883BD769D92}
+		{55C2CE7F-6AE8-484E-B1A1-8222B22E85A4} = {9305E688-59BC-433A-883E-0883BD769D92}
 	EndGlobalSection
 EndGlobal

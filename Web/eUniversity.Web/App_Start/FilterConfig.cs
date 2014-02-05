@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using eUniversity.Web.Infrastructure.Filters;
 
 namespace eUniversity.Web
 {
@@ -8,6 +9,7 @@ namespace eUniversity.Web
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new AuthorizeAttribute());
+            filters.Add(new LocalizationAttribute());
         }
     }
 }
