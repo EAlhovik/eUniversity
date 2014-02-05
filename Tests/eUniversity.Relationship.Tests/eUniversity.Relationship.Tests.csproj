@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Web\eUniversity.Web\bin\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\eUniversity.Tests\bin\Debug\nunit.framework.dll</HintPath>
@@ -55,6 +59,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Base\GeneralReletionshipTest.cs" />
+    <Compile Include="Business\AutoMapperRelationshipTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Business\ServicesRelationshipTest.cs" />
     <Compile Include="Web\WebRelationshipTest.cs" />
@@ -67,6 +72,10 @@
     <ProjectReference Include="..\..\Business\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
       <Project>{800e2802-2b23-48d5-902a-643a1266ecfe}</Project>
       <Name>eUniversity.Business.Domain.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\eUniversity.Business.AutoMapper\eUniversity.Business.AutoMapper.csproj">
+      <Project>{66B745CF-920D-49E0-83A6-45E2D34095A7}</Project>
+      <Name>eUniversity.Business.AutoMapper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Business\eUniversity.Business.Services\eUniversity.Business.Services.csproj">
       <Project>{3BAEAB86-3751-4270-9235-C4664D5DE755}</Project>

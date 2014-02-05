@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.eUniversity;
-using eUniversity.Business.Helpers;
+using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.Domain.Contracts
 {

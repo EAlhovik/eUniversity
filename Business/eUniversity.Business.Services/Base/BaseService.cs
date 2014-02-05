@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Base;
-using eUniversity.Business.Helpers;
 using eUniversity.Data.Contracts;
+using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.Services.Base
 {

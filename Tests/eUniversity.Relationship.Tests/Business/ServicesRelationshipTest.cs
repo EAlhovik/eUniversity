@@ -27,6 +27,7 @@ namespace eUniversity.Relationship.Tests.Business
                     "eUniversity.Business.Domain.Entities",
                     "eUniversity.Business.Helpers",
                     "eUniversity.Data.Contracts",
+                    "eUniversity.Data.Entities",
                 };
             }
         }

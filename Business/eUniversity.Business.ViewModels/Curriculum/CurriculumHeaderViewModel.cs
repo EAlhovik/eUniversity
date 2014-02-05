@@ -10,11 +10,11 @@ namespace eUniversity.Business.ViewModels.Curriculum
     {
         public long Id { get; set; }
 //        public long? SpecializationId { get; set; }
-//        private SelectedItemModel specialization;
+//        private SelectedItemViewModel specialization;
 
-        public SelectedItemModel Specialization{get;set;}
+        public SelectedItemViewModel Specialization{get;set;}
 
-        public SelectedItemModel CountSemesters { get; set; }
+        public SelectedItemViewModel CountSemesters { get; set; }
 
         public DateTime DateOfEnactment
         {

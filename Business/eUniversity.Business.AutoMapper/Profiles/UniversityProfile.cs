@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
-using eUniversity.Business.Helpers;
+using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Auth;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Business.ViewModels.Membership;
 using eUniversity.Business.ViewModels.Speciality;
 using eUniversity.Business.ViewModels.Specialization;
+using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.AutoMapper.Profiles
 {
@@ -15,23 +16,41 @@ namespace eUniversity.Business.AutoMapper.Profiles
     /// </summary>
     public class UniversityProfile : Profile
     {
-        private readonly IUniversityProfileService universityProfileService;
-        public UniversityProfile(IUniversityProfileService universityProfileService)
+        private readonly IUniversityProfileManagementService universityProfileService;
+        public UniversityProfile(IUniversityProfileManagementService universityProfileService)
         {
             this.universityProfileService = universityProfileService;
         }
 
         protected override void Configure()
         {
+            #region SelectedItem
+
+            Mapper.CreateMap<SelectedItemModel, SelectedItemViewModel>()
+               .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+               .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Text))
+                ;
+
+            Mapper.CreateMap<SelectedItemViewModel, SelectedItemModel>()
+               .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
+               .ForMember(m => m.Text, opt => opt.MapFrom(vm => vm.Text))
+                ;
+
+            #endregion
+
+            #region User
+
             Mapper.CreateMap<User, UserRowViewModel>()
-               .ForMember(vm => vm.UserName, opt => opt.MapFrom(m => m.UserName))
+                  .ForMember(vm => vm.UserName, opt => opt.MapFrom(m => m.UserName))
                 ;
 
             Mapper.CreateMap<RegisterViewModel, User>()
-               .ForMember(m => m.Id, opt => opt.Ignore())
-               .ForMember(m => m.UserName, opt => opt.MapFrom(vm => vm.UserName))
-               .ForMember(m => m.Password, opt => opt.MapFrom(vm => vm.Password))
-               ;
+                  .ForMember(m => m.Id, opt => opt.Ignore())
+                  .ForMember(m => m.UserName, opt => opt.MapFrom(vm => vm.UserName))
+                  .ForMember(m => m.Password, opt => opt.MapFrom(vm => vm.Password))
+                ;
+
+            #endregion
 
             #region Speciality
 
@@ -53,7 +72,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
                 ;
 
-            Mapper.CreateMap<Speciality, SelectedItemModel>()
+            Mapper.CreateMap<Speciality, SelectedItemViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))
                 .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Name))
                 ;
@@ -82,7 +101,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.SpecialityId, opt => opt.MapFrom(vm => vm.SpecialityId.Value))
                 ;
 
-            Mapper.CreateMap<Specialization, SelectedItemModel>()
+            Mapper.CreateMap<Specialization, SelectedItemViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))
                 .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Name))
                 ;
@@ -135,7 +154,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Assignee, opt => opt.MapFrom(m => universityProfileService.CreateAssignee(m)))
                 ;
 
-            Mapper.CreateMap<Subject, SelectedItemModel>()
+            Mapper.CreateMap<Subject, SelectedItemViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))
                 .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Name))
                 ;

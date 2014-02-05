@@ -20,7 +20,8 @@ namespace eUniversity.Tests.Services.UserServiceTest
             var userService = new Mock<IUserService>();
             userService.Setup(f => f.ValidateUser(user.UserName, user.Password)).Returns(true);
 
-            IMembershipManagementService membershipManagementService = new MembershipManagementService(userService.Object, formsAuthentication.Object, new Mock<IEUniversityUow>().Object);
+            IMembershipManagementService membershipManagementService = new MembershipManagementService(userService.Object, formsAuthentication.Object, new Mock<IEUniversityUow>().Object,
+                new Mock<IAuthorizationService>().Object, new Mock<IRoleService>().Object);
             // Action
             var isLogIn = membershipManagementService.LogIn(user);
             // Verify the result
@@ -38,7 +39,8 @@ namespace eUniversity.Tests.Services.UserServiceTest
             var userService = new Mock<IUserService>();
             userService.Setup(f => f.ValidateUser(It.IsAny<string>(), It.IsAny<string>())).Returns(false);
 
-            IMembershipManagementService membershipManagementService = new MembershipManagementService(userService.Object, formsAuthentication.Object, new Mock<IEUniversityUow>().Object);
+            IMembershipManagementService membershipManagementService = new MembershipManagementService(userService.Object, formsAuthentication.Object, new Mock<IEUniversityUow>().Object,
+                new Mock<IAuthorizationService>().Object, new Mock<IRoleService>().Object);
             // Action
             var isLogIn = membershipManagementService.LogIn(user);
             // Verify the result

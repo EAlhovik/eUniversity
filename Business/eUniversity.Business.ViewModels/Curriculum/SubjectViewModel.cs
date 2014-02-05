@@ -8,8 +8,8 @@ namespace eUniversity.Business.ViewModels.Curriculum
     /// </summary>
     public class SubjectViewModel
     {
-        public SelectedItemModel Subject { get; set; }
-        public SelectedItemModel Assignee { get; set; }
+        public SelectedItemViewModel Subject { get; set; }
+        public SelectedItemViewModel Assignee { get; set; }
 
         public SubjectTypeEnum SubjectType { get; set; }
     }

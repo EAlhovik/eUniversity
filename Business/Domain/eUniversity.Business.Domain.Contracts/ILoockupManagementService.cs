@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using eUniversity.Business.Helpers;
+using eUniversity.Business.ViewModels;
 
 namespace eUniversity.Business.Domain.Contracts
 {
@@ -13,27 +13,34 @@ namespace eUniversity.Business.Domain.Contracts
         /// </summary>
         /// <param name="term">The term.</param>
         /// <returns>specialities by term</returns>
-        IEnumerable<SelectedItemModel> GetSpecialities(string term);
+        IEnumerable<SelectedItemViewModel> GetSpecialities(string term);
 
         /// <summary>
         /// Gets the speciality.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        SelectedItemModel GetSpeciality(long? id); //todo: remove
+        SelectedItemViewModel GetSpeciality(long? id); //todo: remove
 
         /// <summary>
         /// Gets the specialization.
         /// </summary>
         /// <param name="term">The term.</param>
         /// <returns>Specializations by term</returns>
-        IEnumerable<SelectedItemModel> GetSpecialization(string term);
+        IEnumerable<SelectedItemViewModel> GetSpecialization(string term);
 
         /// <summary>
         /// Gets the professors.
         /// </summary>
         /// <param name="term">The term.</param>
         /// <returns>Professors by term</returns>
-        IEnumerable<SelectedItemModel> GetProfessors(string term);
+        IEnumerable<SelectedItemViewModel> GetProfessors(string term);
+
+        /// <summary>
+        /// Gets the semesters.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <returns>Semesters</returns>
+        IEnumerable<SelectedItemViewModel> GetSemesters(string term);
     }
 }

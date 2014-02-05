@@ -1,23 +1,24 @@
 ﻿using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
-using eUniversity.Business.Helpers;
+using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Common.Utilities;
+using eUniversity.Data.Entities;
 
-namespace eUniversity.Business.Services
+namespace eUniversity.Business.ManagementServices.AutoMapperServices
 {
     /// <summary>
     /// Represents university profile service
     /// </summary>
-    public class UniversityProfileService : IUniversityProfileService
+    public class UniversityProfileManagementService : IUniversityProfileManagementService
     {
         private readonly ISpecializationService specializationService;
-        public UniversityProfileService(ISpecializationService specializationService)
+        public UniversityProfileManagementService(ISpecializationService specializationService)
         {
             this.specializationService = specializationService;
         }
 
-        public long GetId(SelectedItemModel selectedItemModel)
+        public long GetId(SelectedItemViewModel selectedItemModel)
         {
             if (selectedItemModel == null)
             {

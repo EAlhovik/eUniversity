@@ -346,17 +346,9 @@
       <Project>{36511853-F05B-43A6-A269-E87B245E6348}</Project>
       <Name>eUniversity.Business.Domain.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Business\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
-      <Project>{387246CB-53C1-4A51-874A-135755655B12}</Project>
-      <Name>eUniversity.Business.Helpers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Business\eUniversity.Business.ViewModels\eUniversity.Business.ViewModels.csproj">
       <Project>{B5833BCB-3BE7-4F93-9CE1-778BEC25F879}</Project>
       <Name>eUniversity.Business.ViewModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\eUniversity.Common.Utilities\eUniversity.Common.Utilities.csproj">
-      <Project>{8B32DF95-7AD3-4FE8-BA4B-4755676DF1FC}</Project>
-      <Name>eUniversity.Common.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\eUniversity.Web.Infrastructure\eUniversity.Web.Infrastructure.csproj">
       <Project>{db4e17a0-abab-40c7-b4da-a5dcdbf0002e}</Project>

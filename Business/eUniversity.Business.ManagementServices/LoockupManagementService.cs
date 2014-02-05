@@ -4,7 +4,10 @@ using System.Linq;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
-using eUniversity.Business.Helpers;
+using eUniversity.Business.ViewModels;
+using eUniversity.Business.ViewModels.Curriculum;
+using eUniversity.Common.Utilities;
+using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.ManagementServices
 {
@@ -31,13 +34,13 @@ namespace eUniversity.Business.ManagementServices
         /// </summary>
         /// <param name="term">The term.</param>
         /// <returns> specialities by term </returns>
-        public IEnumerable<SelectedItemModel> GetSpecialities(string term)
+        public IEnumerable<SelectedItemViewModel> GetSpecialities(string term)
         {
             var specialities =
                 specialityService.All().Where(
                                      spec =>
                                      string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0);
-            return specialities.Select(Mapper.Map<Speciality, SelectedItemModel>);
+            return specialities.Select(Mapper.Map<Speciality, SelectedItemViewModel>);
         }
 
         /// <summary>
@@ -45,23 +48,29 @@ namespace eUniversity.Business.ManagementServices
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        public SelectedItemModel GetSpeciality(long? id)//todl:remove
+        public SelectedItemViewModel GetSpeciality(long? id)//todl:remove
         {
             var speciality = specialityService.CreateOrOpen(id);
-            return Mapper.Map<Speciality, SelectedItemModel>(speciality);
+            return Mapper.Map<Speciality, SelectedItemViewModel>(speciality);
         }
 
-        public IEnumerable<SelectedItemModel> GetSpecialization(string term)
+        public IEnumerable<SelectedItemViewModel> GetSpecialization(string term)
         {
             var specializations =
                 specializationService.All().Where(
                                      TermPredicate(term));
-            return specializations.Select(Mapper.Map<Specialization, SelectedItemModel>);
+            return specializations.Select(Mapper.Map<Specialization, SelectedItemViewModel>);
         }
 
-        public IEnumerable<SelectedItemModel> GetProfessors(string term)
+        public IEnumerable<SelectedItemViewModel> GetProfessors(string term)
         {
-            return professorProfileService.GetProfessors(term);
+            return professorProfileService.GetProfessors(term).Select(Mapper.Map<SelectedItemModel, SelectedItemViewModel>);
+        }
+
+        public IEnumerable<SelectedItemViewModel> GetSemesters(string term)
+        {
+            var values = EnumHelper.GetEnumValues(typeof(SemesterEnum)).Select(p => new SelectedItemViewModel { Id = p.Key, Text = p.Value });
+            return string.IsNullOrEmpty(term) ? values : values.Where(s => s.Text.Contains(term));
         }
 
         #endregion

@@ -2,9 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
-using eUniversity.Business.Helpers;
-using eUniversity.Business.ViewModels.Curriculum;
-using eUniversity.Common.Utilities;
+using eUniversity.Business.ViewModels;
 
 namespace eUniversity.Web.Controllers
 {
@@ -26,11 +24,11 @@ namespace eUniversity.Web.Controllers
         [HttpGet]
         public JsonResult GetSubjects(string term)
         {
-            var lst = new List<SelectedItemModel>()
+            var lst = new List<SelectedItemViewModel>()
             {
-                new SelectedItemModel(){Id = "1", Text = "BD"},
-                new SelectedItemModel(){Id = "2", Text = "Seti"},
-                new SelectedItemModel(){Id = "2", Text = "Test"},
+                new SelectedItemViewModel(){Id = "1", Text = "BD"},
+                new SelectedItemViewModel(){Id = "2", Text = "Seti"},
+                new SelectedItemViewModel(){Id = "2", Text = "Test"},
             };
             return Json(lst.Where(p => string.IsNullOrEmpty(term) || p.Text.ToUpper().Contains(term.ToUpper())), JsonRequestBehavior.AllowGet);
         }
@@ -50,12 +48,8 @@ namespace eUniversity.Web.Controllers
         [HttpGet]
         public JsonResult GetSemesters(string term)
         {
-            var values = EnumHelper.GetEnumValues(typeof(SemesterEnum)).Select(p => new SelectedItemModel { Id = p.Key, Text = p.Value });
-            if (string.IsNullOrEmpty(term))
-            {
-                return Json(values, JsonRequestBehavior.AllowGet);
-            }
-            return Json(values.Where(s => s.Text.Contains(term)), JsonRequestBehavior.AllowGet);
+            var semesters = loockupService.GetSemesters(term);
+            return Json(semesters, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

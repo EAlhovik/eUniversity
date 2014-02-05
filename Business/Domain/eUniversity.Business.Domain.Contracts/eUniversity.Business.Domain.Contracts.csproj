@@ -53,7 +53,7 @@
     <Compile Include="ISpecializationService.cs" />
     <Compile Include="ISubjectManagementService.cs" />
     <Compile Include="ISubjectService.cs" />
-    <Compile Include="IUniversityProfileService.cs" />
+    <Compile Include="IUniversityProfileManagementService.cs" />
     <Compile Include="IMembershipManagementService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="ICurriculumManagementService.cs" />
@@ -61,6 +61,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\eUniversity.Data.Entities\eUniversity.Data.Entities.csproj">
+      <Project>{505060A9-729D-4906-8DB6-739EF2974909}</Project>
+      <Name>eUniversity.Data.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">
       <Project>{387246CB-53C1-4A51-874A-135755655B12}</Project>
       <Name>eUniversity.Business.Helpers</Name>

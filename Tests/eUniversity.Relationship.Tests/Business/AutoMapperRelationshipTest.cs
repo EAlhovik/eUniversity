@@ -1,19 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using NUnit.Framework;
+using eUniversity.Business.AutoMapper.Profiles;
 using eUniversity.Relationship.Tests.Base;
-using eUniversity.Web.Controllers;
 
-namespace eUniversity.Relationship.Tests.Web
+namespace eUniversity.Relationship.Tests.Business
 {
     [TestFixture]
-    public class WebRelationshipTest : GeneralReletionshipTest
+    public class AutoMapperRelationshipTest : GeneralReletionshipTest
     {
         protected override Assembly TestAssembly
         {
             get
             {
-                return typeof(AccountController).Assembly;
+                return typeof(UniversityProfile).Assembly;
             }
         }
 
@@ -24,6 +24,8 @@ namespace eUniversity.Relationship.Tests.Web
                 return new List<string>()
                 {
                     "eUniversity.Business.Domain.Contracts",
+                    "eUniversity.Business.Domain.Entities",
+                    "eUniversity.Data.Entities",
                     "eUniversity.Business.ViewModels",
                 };
             }
@@ -35,17 +37,11 @@ namespace eUniversity.Relationship.Tests.Web
             {
                 return new List<string>()
                 {
-                    "eUniversity.Business.Domain.Entities",
-                    "eUniversity.Business.AutoMapper",
                     "eUniversity.Business.Helpers",
-                    "eUniversity.Business.ManagementServices",
-                    "eUniversity.Business.Services",
-                    "eUniversity.Common.Utilities",
-                    "eUniversity.Data",
                     "eUniversity.Data.Contracts",
-                    "eUniversity.Relationship.Tests",
-                    "eUniversity.Tests",
-                    "eUniversity.Data.Entities",
+                    "eUniversity.Business.ManagementServices",
+                    "eUniversity.Business.AutoMapper",
+                    "eUniversity.Data",
                 };
             }
         }
