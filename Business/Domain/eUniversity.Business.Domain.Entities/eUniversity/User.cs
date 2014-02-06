@@ -12,7 +12,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
 
         //public string PasswordSalt { get; set; }
         //public string Email { get; set; }
-        //public bool IsApproved { get; set; }
+        public bool IsApproved { get; set; }
         //public bool IsLockedOut { get; set; }
 
         //#region IHasModificatoin Members

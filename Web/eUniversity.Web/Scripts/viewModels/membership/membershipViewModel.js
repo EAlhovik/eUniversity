@@ -2,11 +2,27 @@
     var self = this;
     self.Users = ko.observableArray();
 
-    ko.mapping.fromJS(serverModel, {}, self.Users);
-}
+    var mappingOverride =
+    {
+        "Users":
+        {
+            create: function (options) {
+                return new window.UserRowViewModel(options.data);
+            }
+        }
+    };
 
-function UserRowViewModel(serverModel) {
-    var self = this;
+    ko.mapping.fromJS(serverModel, mappingOverride, self);
+    
+    self.ShowProfile = function () {
 
-    ko.mapping.fromJS(serverModel, {}, self);
+    };
+
+    self.ApproveUser = function () {
+
+    };
+
+    self.DeleteUser = function () {
+
+    };
 }

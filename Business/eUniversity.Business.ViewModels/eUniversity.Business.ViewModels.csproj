@@ -45,6 +45,7 @@
     <Compile Include="Curriculum\CurriculumHeaderViewModel.cs" />
     <Compile Include="Curriculum\SemesterViewModel.cs" />
     <Compile Include="Curriculum\SubjectViewModel.cs" />
+    <Compile Include="Membership\MembershipViewModel.cs" />
     <Compile Include="Membership\UserRowViewModel.cs" />
     <Compile Include="Profile\BasicProfileViewModel.cs" />
     <Compile Include="Profile\ChangePasswordViewModel.cs" />

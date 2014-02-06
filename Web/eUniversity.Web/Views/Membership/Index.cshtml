@@ -9,7 +9,7 @@
     }
 }
 @Html.Partial("_PageHeader")
-<div class="row" id="loginForm">
+<div class="row" id="membershipList">
     <div class="col-xs-12">
 
         <div class="table-responsive">
@@ -26,7 +26,6 @@
                             </label>
                         </th>
                         <th>Name</th>
-                        <th>Description</th>
 
                         <th>
                             <i class="icon-time bigger-110 hidden-480"></i>
@@ -36,15 +35,15 @@
 
                         <th>
                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="#">
+                                <a class="blue" href="#" title="посмотреть профиль" data-bind="click: ShowProfile">
                                     <i class="icon-zoom-in bigger-130"></i>
                                 </a>
 
-                                <a class="green" href="#">
+                                <a class="green" href="#" data-bind="click: ApproveUser">
                                     <i class="icon-pencil bigger-130"></i>
                                 </a>
 
-                                <a class="red" href="#">
+                                <a class="red" href="#" data-bind="click: DeleteUser">
                                     <i class="icon-trash bigger-130"></i>
                                 </a>
                             </div>
@@ -52,6 +51,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- ko foreach: Users -->
                     <tr>
                         <td class="center">
                             <label>
@@ -60,26 +60,25 @@
                             </label>
                         </td>
                         <td>
-                            @Html.ActionLink("row.Name", "Edit", "Speciality", new { }, null)
+                            <a href="#" data-bind="text: UserName"></a>
                         </td>
-                        <td>"row.Description"</td>
                         <td>Feb 12</td>
 
                         <td class="hidden-480">
-                            <span class="label label-sm label-warning">Expiring</span>
+                            <span class="label label-sm label-warning" data-bind="text: StatusDisplay, css:{'label-warning':!self.IsApproved,'label-success':self.IsApproved}"></span>
                         </td>
 
                         <td class=" ">
                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="#">
+                                <a class="blue" href="#" title="посмотреть профиль" data-bind="click: ShowProfile">
                                     <i class="icon-zoom-in bigger-130"></i>
                                 </a>
 
-                                <a class="green" href="#">
+                                <a class="green" href="#" data-bind="click: ApproveUser">
                                     <i class="icon-pencil bigger-130"></i>
                                 </a>
 
-                                <a class="red" href="#">
+                                <a class="red" href="#" data-bind="click: DeleteUser">
                                     <i class="icon-trash bigger-130"></i>
                                 </a>
                             </div>
@@ -119,7 +118,7 @@
                             </div>
                         </td>
                     </tr>
-
+                    <!-- /ko -->
                 </tbody>
             </table>
         </div>
@@ -128,8 +127,9 @@
 
 @section Scripts {
     <script src="~/Scripts/viewModels/membership/membershipViewModel.js"> </script>
+    <script src="~/Scripts/viewModels/membership/userRowViewModel.js"> </script>
 
     <script type="text/javascript">
-        ko.applyBindings(new MembershipViewModel(@Html.Raw(Json.Encode(Model))), $("#loginForm").get(0));
+        ko.applyBindings(new MembershipViewModel(@Html.Raw(Json.Encode(Model))), $("#membershipList").get(0));
     </script>
 }

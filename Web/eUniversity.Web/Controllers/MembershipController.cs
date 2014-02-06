@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.ViewModels.Membership;
 
 namespace eUniversity.Web.Controllers
 {
@@ -14,8 +15,11 @@ namespace eUniversity.Web.Controllers
 
         public ActionResult Index()
         {
-            var t = membershipManagementService.GetUsers();
-            return View(t);
+            var viewModel = new MembershipViewModel
+            {
+                Users = membershipManagementService.GetUsers()
+            };
+            return View(viewModel);
         }
 	}
 }
