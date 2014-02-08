@@ -206,6 +206,7 @@
   <ItemGroup>
     <Content Include="Avatars\avatar.png" />
     <Content Include="Avatars\avatar1.png" />
+    <Content Include="Content\ace-skins.min.css" />
     <Content Include="Content\ace.css" />
     <Content Include="Content\ace.min.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
