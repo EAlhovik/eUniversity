@@ -81,7 +81,7 @@
                         <td><span data-bind="text:Created"></span></td>
 
                         <td class="hidden-480">
-                            <span class="label label-sm label-warning" data-bind="text: StatusDisplay, css:{'label-warning':!self.IsApproved,'label-success':self.IsApproved}"></span>
+                            <span class="label label-sm" data-bind="text: StatusDisplay, css:{'label-warning':!IsApproved(),'label-success':IsApproved()}"></span>
                         </td>
 
                         <td>
