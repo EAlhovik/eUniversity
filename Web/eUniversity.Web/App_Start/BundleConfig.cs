@@ -31,8 +31,8 @@ namespace eUniversity.Web
                 "~/Content/ace.css"
                 ));
             bundles.Add(new StyleBundle("~/ace/font").Include(
-                "~/Content/font-awesome.min.css",
-                "~/Content/google-webfont.css"
+                "~/Content/font-awesome.min.css"
+//                "~/Content/google-webfont.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
