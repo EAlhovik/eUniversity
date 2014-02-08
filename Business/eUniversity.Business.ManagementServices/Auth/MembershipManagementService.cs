@@ -35,6 +35,15 @@ namespace eUniversity.Business.ManagementServices.Auth
 
         #region IMembershipManagementService Members
 
+        public void ApproveUsers(IEnumerable<long> userIds)
+        {
+            foreach (var userId in userIds)
+            {
+                userService.ApproveUser(userId);
+            }
+            eUniversityUow.Commit();
+        }
+
         public IEnumerable<UserRowViewModel> GetUsers()
         {
             var users = GetAvailableUsers();

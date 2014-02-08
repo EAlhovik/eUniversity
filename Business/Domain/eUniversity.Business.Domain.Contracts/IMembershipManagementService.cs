@@ -22,5 +22,6 @@ namespace eUniversity.Business.Domain.Contracts
         bool Validate(RegisterViewModel registerViewModel);
 
         IEnumerable<UserRowViewModel> GetUsers();
+        void ApproveUsers(IEnumerable<long> userIds);
     }
 }

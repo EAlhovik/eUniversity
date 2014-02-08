@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels.Membership;
 
@@ -21,6 +23,13 @@ namespace eUniversity.Web.Controllers
                 Users = membershipManagementService.GetUsers()
             };
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public JsonResult ActivateUser(IEnumerable<long> userIds)
+        {
+            membershipManagementService.ApproveUsers(userIds);
+            return Json(userIds);
         }
 	}
 }

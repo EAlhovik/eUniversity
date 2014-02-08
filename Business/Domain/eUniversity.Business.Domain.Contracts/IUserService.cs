@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers.Enums;
 
@@ -23,5 +22,6 @@ namespace eUniversity.Business.Domain.Contracts
         User GetUserByName(string userName);
 
         IEnumerable<User> GetUsersByRole(RoleEnum role);
+        void ApproveUser(long userId);
     }
 }

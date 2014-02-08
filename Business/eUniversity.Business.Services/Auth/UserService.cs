@@ -28,6 +28,12 @@ namespace eUniversity.Business.Services.Auth
 
         #region IUserService Members
 
+        public void ApproveUser(long userId)
+        {
+            var user = Repository.GetById(userId);
+            user.IsApproved = true;
+        }
+
         public IEnumerable<User> GetUsersByRole(RoleEnum role)
         {
             return roleRepository.All().Where(r => r.RoleType == role).SelectMany(r => r.Users);

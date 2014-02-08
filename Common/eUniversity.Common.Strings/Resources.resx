@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Common_Approved" xml:space="preserve">
+    <value>Подтвержденный</value>
+  </data>
   <data name="Common_Create" xml:space="preserve">
     <value>Создан</value>
+  </data>
+  <data name="Common_Draft" xml:space="preserve">
+    <value>Не Подтвержденный</value>
   </data>
   <data name="Common_LogOut" xml:space="preserve">
     <value>Выйти</value>
@@ -133,9 +139,9 @@
     <value>Статус</value>
   </data>
   <data name="Common_Welcome" xml:space="preserve">
-    <value>Добро Пожаловать</value>
+    <value>Привет</value>
   </data>
-  <data name="Membersip_ActivateAccount" xml:space="preserve">
+  <data name="Membersip_ApproveAccount" xml:space="preserve">
     <value>Подтвердить Регистрацию</value>
   </data>
   <data name="Membersip_DeleteAccount" xml:space="preserve">

@@ -61,11 +61,29 @@ namespace eUniversity.Common.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Подтвержденный.
+        /// </summary>
+        public static string Common_Approved {
+            get {
+                return ResourceManager.GetString("Common_Approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Создан.
         /// </summary>
         public static string Common_Create {
             get {
                 return ResourceManager.GetString("Common_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не Подтвержденный.
+        /// </summary>
+        public static string Common_Draft {
+            get {
+                return ResourceManager.GetString("Common_Draft", resourceCulture);
             }
         }
         
@@ -106,7 +124,7 @@ namespace eUniversity.Common.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Добро Пожаловать.
+        ///   Looks up a localized string similar to Привет.
         /// </summary>
         public static string Common_Welcome {
             get {
@@ -117,9 +135,9 @@ namespace eUniversity.Common.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Подтвердить Регистрацию.
         /// </summary>
-        public static string Membersip_ActivateAccount {
+        public static string Membersip_ApproveAccount {
             get {
-                return ResourceManager.GetString("Membersip_ActivateAccount", resourceCulture);
+                return ResourceManager.GetString("Membersip_ApproveAccount", resourceCulture);
             }
         }
         

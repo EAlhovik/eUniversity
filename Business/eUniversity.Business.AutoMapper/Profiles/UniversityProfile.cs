@@ -41,8 +41,9 @@ namespace eUniversity.Business.AutoMapper.Profiles
             #region User
 
             Mapper.CreateMap<User, UserRowViewModel>()
+                  .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                   .ForMember(vm => vm.UserName, opt => opt.MapFrom(m => m.UserName))
-
+                  .ForMember(vm => vm.Created, opt => opt.MapFrom(m => m.Created.ToShortDateString()))
                   .ForMember(vm => vm.IsApproved, opt => opt.MapFrom(m => m.IsApproved))
                 ;
 
