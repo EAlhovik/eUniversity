@@ -17,6 +17,8 @@ namespace eUniversity.Data
                 UserName = "user1",
                 Password = "E3C70ADF5F1C30DB24407E6A85ECF9120F45660E",
                 Roles = new List<Role>() { studentRole },
+                Created = DateTime.Now,
+                CreatedBy = "System"
             };
             context.Roles.Add(studentRole);
             context.Roles.Add(new Role { RoleName = RoleEnum.Professor.ToString(), RoleType = RoleEnum.Professor });

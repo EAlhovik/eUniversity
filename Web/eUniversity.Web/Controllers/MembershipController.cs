@@ -4,6 +4,7 @@ using eUniversity.Business.ViewModels.Membership;
 
 namespace eUniversity.Web.Controllers
 {
+    [Authorize(Roles = "Professor, Admin")]
     public class MembershipController : Controller
     {
         private readonly IMembershipManagementService membershipManagementService;

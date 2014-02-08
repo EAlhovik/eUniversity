@@ -56,7 +56,7 @@ namespace eUniversity.Business.Services.Auth
         {
             var hashedPassword = formsAuthenticationService.CreatePasswordHash(user.Password);
             user.Password = hashedPassword;
-            Repository.InsertOrUpdate(user);
+            Save(user);
             var role = GetRoleByType(GetDefaultRoleForAccountType(accountType));
             user.Roles = new List<Role> { role };
         }
@@ -104,7 +104,8 @@ namespace eUniversity.Business.Services.Auth
         {
             var user = GetUserByName(userName);
             if (user == null) return new List<string>().ToArray();
-            return user.Roles.Select(role => role.RoleName).ToArray();
+            return roleRepository.All().Where(r => r.Users.Any(u => u.Id == user.Id)).Select(role => role.RoleName).ToArray(); ;
+            return user.Roles.Select(role => role.RoleName).ToArray(); // todo: remove  
         }
 
         public IEnumerable<Role> GetRoles()

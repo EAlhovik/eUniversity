@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.Base;
 
 namespace eUniversity.Business.Domain.Entities.eUniversity
 {
-    public class User : Entity
+    public class User : Entity, IHasCreation
     {
         public string UserName { get; set; }
         //        public System.DateTime LastActivityDate { get; set; }
@@ -15,16 +16,15 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public bool IsApproved { get; set; }
         //public bool IsLockedOut { get; set; }
 
-        //#region IHasModificatoin Members
-
-        //public DateTime Created { get; set; }
-        //public string CreatedBy { get; set; }
-
-        //#endregion
-
-
         public Profile Profile { get; set; }
         public long? PersonId { get; set; }
+
+        #region IHasCreation Members
+
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+
+        #endregion
 
     }
 }
