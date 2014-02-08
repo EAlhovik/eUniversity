@@ -1,9 +1,11 @@
-﻿namespace eUniversity.Business.ViewModels.Speciality
+﻿using eUniversity.Business.ViewModels.Base;
+
+namespace eUniversity.Business.ViewModels.Speciality
 {
     /// <summary>
     /// View model for Speciality
     /// </summary>
-    public class SpecialityViewModel
+    public class SpecialityViewModel : IViewModel
     {
         /// <summary>
         /// Gets or sets the identifier.

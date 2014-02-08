@@ -1,5 +1,6 @@
 ﻿function CurriculumViewModel(serverModel) {
     var self = this;
+    self.Id = ko.observable();
     self.CurriculumHeader = ko.observable();
     self.Semesters = ko.observableArray();
 

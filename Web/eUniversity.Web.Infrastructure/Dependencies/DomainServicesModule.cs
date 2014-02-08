@@ -5,6 +5,7 @@ using eUniversity.Business.AutoMapper;
 using eUniversity.Business.AutoMapper.Profiles;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ManagementServices;
+using eUniversity.Business.ManagementServices.Base;
 using eUniversity.Business.Services.Auth;
 using eUniversity.Business.Services.Base;
 
@@ -18,6 +19,8 @@ namespace eUniversity.Web.Infrastructure.Dependencies
                 .Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
             builder.RegisterAssemblyTypes(typeof(CurriculumManagementService).Assembly)
                 .Where(t => t.Name.EndsWith("ManagementService")).AsImplementedInterfaces();
+            builder.RegisterGeneric(typeof(BaseManagementService<,,>))
+                .As(typeof(IBaseManagementService<,,>));
 
             builder.RegisterType(typeof(UniversityProfile)).AsImplementedInterfaces().As(typeof(Profile)).InstancePerHttpRequest();
             builder.RegisterType(typeof(AutomapperConfigurator)).AsSelf().InstancePerHttpRequest();
@@ -26,15 +29,7 @@ namespace eUniversity.Web.Infrastructure.Dependencies
 
 //            builder.RegisterGeneric(typeof (BaseService<>)).OnActivated(e => e.Context.Resolve<IAuthorizationService>());
             builder.RegisterGeneric(typeof (BaseService<>)).PropertiesAutowired();
-           
-//            builder.RegisterType(customType).WithProperty("PropertyName", "value");
 
-            //        //builder.RegisterType(typeof(FormsAuthProvider)).AsImplementedInterfaces();
-
-            //        //builder.RegisterType(typeof(UniversityProfile)).AsImplementedInterfaces().As(typeof(AutoMapper.Profile)).InstancePerHttpRequest();
-            //        //builder.RegisterType(typeof(AutomapperConfigurator)).AsSelf().InstancePerHttpRequest();
-
-            //        base.Load(builder);
         }
     }
 }

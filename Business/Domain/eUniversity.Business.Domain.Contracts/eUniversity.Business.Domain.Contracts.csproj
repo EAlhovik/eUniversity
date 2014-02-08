@@ -40,16 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAuthorizationService.cs" />
+    <Compile Include="IBaseManagementService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IFormsAuthenticationService.cs" />
+    <Compile Include="IGroupService.cs" />
     <Compile Include="ILoockupManagementService.cs" />
     <Compile Include="IProfessorProfileService.cs" />
     <Compile Include="IRoleService.cs" />
     <Compile Include="ISemesterManagementService.cs" />
     <Compile Include="ISemesterService.cs" />
-    <Compile Include="ISpecialityManagementService.cs" />
     <Compile Include="ISpecialityService.cs" />
-    <Compile Include="ISpecializationManagementService.cs" />
     <Compile Include="ISpecializationService.cs" />
     <Compile Include="ISubjectManagementService.cs" />
     <Compile Include="ISubjectService.cs" />

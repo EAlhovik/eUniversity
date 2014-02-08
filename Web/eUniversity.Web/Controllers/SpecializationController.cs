@@ -1,20 +1,21 @@
 ﻿using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Specialization;
 
 namespace eUniversity.Web.Controllers
 {
     public class SpecializationController : Controller
     {
-        private readonly ISpecializationManagementService specializationService;
-        public SpecializationController(ISpecializationManagementService specializationService)
+        private readonly IBaseManagementService<SpecializationViewModel, SpecializationRowViewModel, Specialization> specializationService;
+        public SpecializationController(IBaseManagementService<SpecializationViewModel, SpecializationRowViewModel, Specialization> specializationService)
         {
             this.specializationService = specializationService;
         }
 
         public ActionResult Index()
         {
-            var rows = specializationService.GetSpecializations();
+            var rows = specializationService.GetRows();
             return View(rows);
         }
 

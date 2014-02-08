@@ -115,19 +115,20 @@ namespace eUniversity.Business.AutoMapper.Profiles
             #region Curriculum
 
             Mapper.CreateMap<CurriculumViewModel, Curriculum>()
-                .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.CurriculumHeader.Id))
+                .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                 .ForMember(m => m.DateOfEnactment, opt => opt.MapFrom(vm => vm.CurriculumHeader.DateOfEnactment))
                 .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm => universityProfileService.GetId(vm.CurriculumHeader.Specialization)))
                 .ForMember(m => m.Semesters, opt => opt.Ignore())
                 ;
 
             Mapper.CreateMap<Curriculum, CurriculumViewModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.CurriculumHeader, opt => opt.MapFrom(m => m))
                 .ForMember(vm => vm.Semesters, opt => opt.MapFrom(m => m.Semesters))
                 ;
 
             Mapper.CreateMap<Curriculum, CurriculumHeaderViewModel>()
-                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+//                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.CountSemesters, opt => opt.MapFrom(m => universityProfileService.CreateCountSemesters(m.Semesters.Count)))
                 .ForMember(vm => vm.DateOfEnactment, opt => opt.MapFrom(m => m.DateOfEnactment))
                 .ForMember(vm => vm.Specialization, opt => opt.MapFrom(m => universityProfileService.CreateSpecialization(m.SpecializationId)))

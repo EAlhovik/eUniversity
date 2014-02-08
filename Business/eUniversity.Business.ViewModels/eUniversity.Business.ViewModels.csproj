@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\LoginViewModel.cs" />
+    <Compile Include="Base\IViewModel.cs" />
     <Compile Include="Curriculum\CurriculumViewModel.cs" />
     <Compile Include="Curriculum\CurriculumHeaderViewModel.cs" />
     <Compile Include="Curriculum\SemesterViewModel.cs" />
