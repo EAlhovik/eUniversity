@@ -112,10 +112,10 @@
 /*
         <div class="widget-box-overlay"><i class="icon-spinner icon-spin icon-2x white"></i></div>
 */
-#membershipList .table-hover > tbody > tr:hover > td .action-buttons {
+#membershipList .table-hover > tbody > tr:hover > td .actionBtns {
     display: block !important;
 }
 
-#membershipList .table-hover > tbody > tr > td .action-buttons {
+#membershipList .table-hover > tbody > tr > td .actionBtns {
     display: none !important;
 }

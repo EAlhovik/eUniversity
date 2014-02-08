@@ -25,28 +25,19 @@
                                 <span class="lbl"></span>
                             </label>
                         </th>
-                        <th>Name</th>
+                        <th>@eUniversity.Common.Strings.Resources.Common_Name</th>
 
                         <th>
                             <i class="icon-time bigger-110 hidden-480"></i>
-                            Create
+                            @eUniversity.Common.Strings.Resources.Common_Create
                         </th>
-                        <th class="hidden-480">Status</th>
+                        <th class="hidden-480">@eUniversity.Common.Strings.Resources.Common_Status</th>
 
                         <th style="width: 100px;">
                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                 <div data-bind="visible: IsAnySelected">
-                                    <a class="blue" href="#" title="посмотреть профиль" data-bind="click: ShowProfile, visible: IsAnySelected">
-                                        <i class="icon-zoom-in bigger-130"></i>
-                                    </a>
-
-                                    <a class="green" href="#" data-bind="click: ApproveUser">
-                                        <i class="icon-pencil bigger-130"></i>
-                                    </a>
-
-                                    <a class="red" href="#" data-bind="click: DeleteUser">
-                                        <i class="icon-trash bigger-130"></i>
-                                    </a>
+                                    @ActionBtn("icon-plus-sign", "green", "data-bind='click: ApproveUser'", eUniversity.Common.Strings.Resources.Membersip_ActivateAccount)
+                                    @ActionBtn("icon-trash", "red", "data-bind='click: DeleteUser'", eUniversity.Common.Strings.Resources.Membersip_DeleteAccount)
                                 </div>
                             </div>
                             <div class="visible-xs visible-sm hidden-md hidden-lg">
@@ -56,28 +47,13 @@
                                     </button><div class="dropdown-backdrop"></div>
 
                                     <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+
                                         <li>
-                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
-                                                <span class="blue">
-                                                    <i class="icon-zoom-in bigger-120"></i>
-                                                </span>
-                                            </a>
+                                            @ActionBtn("icon-plus-sign", "green", "data-bind='click: ApproveUser'", eUniversity.Common.Strings.Resources.Membersip_ActivateAccount)
                                         </li>
 
                                         <li>
-                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
-                                                <span class="green">
-                                                    <i class="icon-edit bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
-                                                <span class="red">
-                                                    <i class="icon-trash bigger-120"></i>
-                                                </span>
-                                            </a>
+                                            @ActionBtn("icon-trash", "red", "data-bind='click: DeleteUser'", eUniversity.Common.Strings.Resources.Membersip_DeleteAccount)
                                         </li>
                                     </ul>
                                 </div>
@@ -105,18 +81,17 @@
                         </td>
 
                         <td>
-                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="#" title="посмотреть профиль" data-bind="click: ShowProfile">
-                                    <i class="icon-zoom-in bigger-130"></i>
-                                </a>
+                            <div class="actionBtns">
+                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
 
-                                <a class="green" href="#" data-bind="click: ApproveUser">
-                                    <i class="icon-pencil bigger-130"></i>
-                                </a>
+                                    @ActionBtn("icon-zoom-in", "blue", "data-bind='click: ShowProfile'", eUniversity.Common.Strings.Resources.Membersip_ShowProfile)
 
-                                <a class="red" href="#" data-bind="click: DeleteUser">
-                                    <i class="icon-trash bigger-130"></i>
-                                </a>
+                                    @ActionBtn("icon-plus-sign", "green", "data-bind='click: ApproveUser'", eUniversity.Common.Strings.Resources.Membersip_ActivateAccount)
+
+
+                                    @ActionBtn("icon-trash", "red", "data-bind='click: DeleteUser'", eUniversity.Common.Strings.Resources.Membersip_DeleteAccount)
+
+                                </div>
                             </div>
 
                             <div class="visible-xs visible-sm hidden-md hidden-lg">
@@ -127,27 +102,15 @@
 
                                     <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
                                         <li>
-                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
-                                                <span class="blue">
-                                                    <i class="icon-zoom-in bigger-120"></i>
-                                                </span>
-                                            </a>
+                                            @ActionBtn("icon-trash", "red", "data-bind='click: DeleteUser'", eUniversity.Common.Strings.Resources.Membersip_DeleteAccount)
                                         </li>
 
                                         <li>
-                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
-                                                <span class="green">
-                                                    <i class="icon-edit bigger-120"></i>
-                                                </span>
-                                            </a>
+                                            @ActionBtn("icon-plus-sign", "green", "data-bind='click: ApproveUser'", eUniversity.Common.Strings.Resources.Membersip_ActivateAccount)
                                         </li>
 
                                         <li>
-                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
-                                                <span class="red">
-                                                    <i class="icon-trash bigger-120"></i>
-                                                </span>
-                                            </a>
+                                            @ActionBtn("icon-trash", "red", "data-bind='click: DeleteUser'", eUniversity.Common.Strings.Resources.Membersip_DeleteAccount)
                                         </li>
                                     </ul>
                                 </div>
@@ -162,12 +125,21 @@
 </div>
 
 @*@section Scripts {*@
-    <script src="~/Scripts/viewModels/membership/membershipViewModel.js"> </script>
-    <script src="~/Scripts/viewModels/membership/userRowViewModel.js"> </script>
+<script src="~/Scripts/viewModels/membership/membershipViewModel.js"> </script>
+<script src="~/Scripts/viewModels/membership/userRowViewModel.js"> </script>
 
 <script type="text/javascript">
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
         ko.applyBindings(new MembershipViewModel(@Html.Raw(Json.Encode(Model))), $("#membershipList").get(0));
     });
 </script>
 @*}*@
+
+
+@helper ActionBtn(string icon, string color, string dataBind, string title)
+{
+    <a class="@color" href="#" title="@title" @dataBind>
+        <i class="@icon bigger-130"></i>
+    </a>
+
+}
