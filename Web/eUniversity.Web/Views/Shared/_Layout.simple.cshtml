@@ -40,7 +40,7 @@
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/styler.js"> </script>
     <script type="text/javascript">
-        $('#skins button').click(function () {
+        $('#skins .btn').click(function () {
             var d = $(this).data("skin");
             var c = $(document.body);
             c.removeClass("skin-1 skin-2 skin-3");
