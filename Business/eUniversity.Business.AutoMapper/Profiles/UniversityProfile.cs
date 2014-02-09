@@ -104,6 +104,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
                 .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
                 .ForMember(m => m.SpecialityId, opt => opt.MapFrom(vm => universityProfileService.GetId(vm.Speciality)))
+                .ForMember(m => m.Speciality, opt => opt.Ignore())
                 ;
 
             Mapper.CreateMap<Specialization, SelectedItemViewModel>()

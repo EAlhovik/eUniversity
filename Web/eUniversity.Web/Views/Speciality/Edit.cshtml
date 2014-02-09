@@ -18,25 +18,25 @@
 @Html.Partial("_PageHeader")
 <div class="row">
     <div class="col-xs-12">
-        @using (Html.BeginForm("Edit", "Speciality", FormMethod.Post, new { @class = "form-horizontal" }))
+        @using (Html.BeginForm("Edit", "Speciality", FormMethod.Post, new { @class = "form-horizontal", Id = "specialityForm" }))
         {
             <div class="form-group">
                 @Html.LabelFor(m => m.Name, "Название", new { @class = "col-sm-3 control-label no-padding-right" })
                 <div class="col-sm-9">
-                    @Html.TextBoxFor(m => m.Name, new { @class = "col-xs-10 col-sm-5", placeholder = "Специальность" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "col-xs-10 col-sm-5", placeholder = "Специальность", Data_Bind = "value: Name" })
                 </div>
             </div>
             <div class="space-4"></div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Description, "Описание", new { @class = "col-sm-3 control-label no-padding-right" })
                 <div class="col-sm-9">
-                    @Html.TextAreaFor(m => m.Description, new { @class = "col-xs-10 col-sm-5", placeholder = "Описание", style = "height: 52px; padding-left: 5px;" })
+                    @Html.TextAreaFor(m => m.Description, new { @class = "col-xs-10 col-sm-5", placeholder = "Описание", style = "height: 52px; padding-left: 5px;", Data_Bind = "value: Description" })
                 </div>
             </div>
             @Html.HiddenFor(m=>m.Id)
             <div class="clearfix form-actions">
                 <div class="col-md-offset-3 col-md-9">
-                    <button class="btn btn-info" type="submit">
+                    <button class="btn btn-info" type="button" data-bind="click: Save">
                         <i class="icon-ok bigger-110"></i>
                         Сохранить
                     </button>
@@ -51,3 +51,10 @@
         }
     </div>
 </div>
+
+<script src="~/Scripts/viewModels/speciality/specialityViewModel.js"> </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        ko.applyBindings(new SpecialityViewModel(@Html.Raw(Json.Encode(Model))), $('#specialityForm').get(0));
+    });
+</script>

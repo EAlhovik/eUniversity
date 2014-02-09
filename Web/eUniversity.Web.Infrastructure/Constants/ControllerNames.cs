@@ -10,5 +10,6 @@
         public const string MembershipController = "Membership";
         public const string GroupController = "Group";
         public const string SpecializationController = "Specialization";
+        public const string SpecialityController = "Speciality";
     }
 }

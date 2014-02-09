@@ -10,13 +10,20 @@
         window.strings = strings;
 
         var actions = {
+            speciality: {
+                EditSpecialityUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecialityController, new { Id = "id" })',
+                SaveSpecialityUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecialityController)',
+                SpecialityGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.SpecialityController)',
+            },
             specialization: {
                 EditSpecializationUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecializationController, new {Id = "id"})',
                 SaveSpecializationUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecializationController)',
+                SpecializationGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.SpecializationController)',
             },
             group: {
                 EditGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController, new {Id = "id"})',
-                SaveGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController)'
+                SaveGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController)',
+                GroupGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.GroupController)'
             }
         };
         window.actions = actions;

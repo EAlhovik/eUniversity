@@ -64,54 +64,9 @@
     </div>
 </div>
 
-<script src="~/Scripts/viewModels/Specialization/specializationViewModel.js"> </script>
+<script src="~/Scripts/viewModels/specialization/specializationViewModel.js"> </script>
 <script type="text/javascript">
     $(document).ready(function () {
         ko.applyBindings(new SpecializationViewModel(@Html.Raw(Json.Encode(Model))), $('#specializationForm').get(0));
     });
 </script>
-
-@*<script type="text/javascript">
-    $(document).ready(function () {
-        $(".select2").css('width', '200px').select2(
-            {
-                placeholder: "Выберите специальность",
-                allowClear: true,
-                ajax: {
-                    url: '@Url.Action("GetSpecialities", "Loockup")',
-                    dataType: 'json',
-                    data: function (term) {
-                        return {
-                            term: term,
-                            page_limit: 10,
-                        };
-                    },
-                    results: function (data) {
-                        data.forEach(function (item) {
-                            item.id = item.Id;
-                            item.text = item.Text;
-                        });
-                        return { results: data };
-                    }
-                },
-                id: function (obj) {
-                    return obj.Id;
-                },
-                initSelection: function (element, callback) {
-                    var id = $(element).val();
-                    if (id !== '' && id !== '0') {
-                        $.ajax('@Url.Action("GetSpeciality", "Loockup")', {
-                            data: {
-                                id: id
-                            },
-                            dataType: "json"
-                        }).done(function (data) {
-                            data.id = data.Id;
-                            data.text = data.Text;
-                            callback(data);
-                        });
-                    }
-                },
-            });
-    });
-</script>*@

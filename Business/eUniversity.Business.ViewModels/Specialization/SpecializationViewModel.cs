@@ -22,7 +22,7 @@ namespace eUniversity.Business.ViewModels.Specialization
         /// </summary>
         public string Description { get; set; }
 
-        public long? SpecialityId { get; set; }
+//        public long? SpecialityId { get; set; }
 
         public SelectedItemViewModel Speciality { get; set; }
     }

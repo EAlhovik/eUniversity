@@ -83,21 +83,6 @@
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list-alt"></i>
-                <span class='menu-text'> Учебный план </span><b class="arrow icon-angle-down"></b>
-            </a>
-            <ul class="submenu">
-                <li>
-                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", "Edit", ControllerNames.CurriculumController, ajaxOptions)
-                </li>
-
-                <li>
-                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", "Index", ControllerNames.CurriculumController, ajaxOptions)
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#" class="dropdown-toggle">
-                <i class="icon-list-alt"></i>
                 <span class='menu-text'> Группа </span><b class="arrow icon-angle-down"></b>
             </a>
             <ul class="submenu">
@@ -107,6 +92,21 @@
 
                 <li>
                     @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Групп", "Index", ControllerNames.GroupController, ajaxOptions)
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-list-alt"></i>
+                <span class='menu-text'> Учебный план </span><b class="arrow icon-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", "Edit", ControllerNames.CurriculumController, ajaxOptions)
+                </li>
+
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", "Index", ControllerNames.CurriculumController, ajaxOptions)
                 </li>
             </ul>
         </li>

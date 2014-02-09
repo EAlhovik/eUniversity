@@ -3,7 +3,7 @@
     /// <summary>
     /// View model for speciality row
     /// </summary>
-    public class SpecialityRowViewModel
+    public class SpecialityRowViewModel: KnockoutViewModel
     {
         /// <summary>
         /// Gets or sets the identifier.

@@ -33,11 +33,11 @@ namespace eUniversity.Web.Infrastructure.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(TViewModel viewModel)
+        public JsonResult Edit(TViewModel viewModel)
         {
             ManagementService.Save(viewModel);
 
-            return RedirectToAction("Index");
+            return Json(true);
         }
     }
 }

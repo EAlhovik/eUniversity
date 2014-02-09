@@ -15,8 +15,7 @@
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                window.location.reload(true);
-                //                ko.mapping.fromJS(data, {}, self);
+                window.location.href = window.actions.specialization.SpecializationGridUrl;
             }
         });
     };
