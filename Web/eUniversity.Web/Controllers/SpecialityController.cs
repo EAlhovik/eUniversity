@@ -1,15 +1,14 @@
 ﻿using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
-using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels.Speciality;
 
 namespace eUniversity.Web.Controllers
 {
     public class SpecialityController : Controller
     {
-        private readonly IBaseManagementService<SpecialityViewModel, SpecialityRowViewModel, Speciality> specialityManagementService;
+        private readonly ISpecialityManagementService specialityManagementService;
 
-        public SpecialityController(IBaseManagementService<SpecialityViewModel, SpecialityRowViewModel, Speciality> specialityManagementService)
+        public SpecialityController(ISpecialityManagementService specialityManagementService)
         {
             this.specialityManagementService = specialityManagementService;
         }

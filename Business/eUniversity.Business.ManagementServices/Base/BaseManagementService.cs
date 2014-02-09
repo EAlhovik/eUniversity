@@ -14,7 +14,7 @@ namespace eUniversity.Business.ManagementServices.Base
     /// <typeparam name="TViewModel">The type of the view model.</typeparam>
     /// <typeparam name="TRowViewModel">The type of the row view model.</typeparam>
     /// <typeparam name="TModel"></typeparam>
-    public class BaseManagementService<TViewModel, TRowViewModel, TModel> : IBaseManagementService<TViewModel, TRowViewModel, TModel>
+    public class BaseManagementService<TViewModel, TRowViewModel, TModel>
         where TViewModel : class, IViewModel
         where TRowViewModel : class
         where TModel : class, IEntity

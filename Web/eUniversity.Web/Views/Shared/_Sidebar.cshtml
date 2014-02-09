@@ -52,7 +52,7 @@
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list-alt"></i>
-                Специальность<b class="arrow icon-angle-down"></b>
+                <span class='menu-text'>Специальность </span><b class="arrow icon-angle-down"></b>
             </a>
             <ul class="submenu">
                 <li>
@@ -67,7 +67,7 @@
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list-alt"></i>
-                Специализация<b class="arrow icon-angle-down"></b>
+                <span class='menu-text'>Специализация </span><b class="arrow icon-angle-down"></b>
             </a>
 
             <ul class="submenu">
@@ -83,7 +83,7 @@
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list-alt"></i>
-                Учебный план<b class="arrow icon-angle-down"></b>
+                <span class='menu-text'> Учебный план </span><b class="arrow icon-angle-down"></b>
             </a>
             <ul class="submenu">
                 <li>
@@ -96,11 +96,11 @@
             </ul>
         </li>
         <li>
-            @Ajax.RawActionLink("<i class='icon-group'></i>Пользователи ", ActionNames.IndexAction, ControllerNames.MembershipController, ajaxOptions)
+            @Ajax.RawActionLink("<i class='icon-group'></i><span class='menu-text'>Пользователи </span>", ActionNames.IndexAction, ControllerNames.MembershipController, ajaxOptions)
             @*<a href="http://192.69.216.111/themes/preview/ace/widgets.html">
-                    <i class="icon-group"></i>
-                    <span class="menu-text">Пользователи </span>
-                </a>*@
+        <i class="icon-group"></i>
+        <span class="menu-text">Пользователи </span>
+    </a>*@
         </li>
     </ul>
 
