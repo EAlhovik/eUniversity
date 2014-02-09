@@ -51,11 +51,5 @@ namespace eUniversity.Web.Controllers
             var semesters = loockupService.GetSemesters(term);
             return Json(semesters, JsonRequestBehavior.AllowGet);
         }
-
-        [HttpGet]
-        public JsonResult GetSpeciality(long? id)// TODo: remove after knockout specialization page
-        {
-            return Json(loockupService.GetSpeciality(id), JsonRequestBehavior.AllowGet);
-        }
     }
 }

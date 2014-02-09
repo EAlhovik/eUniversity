@@ -28,11 +28,11 @@ namespace eUniversity.Business.Services
 
         protected override SelectedItemModel CreateSelectedItem(Speciality item)
         {
-            throw new System.NotImplementedException();
-        }
-
-        private void UpdateHistoryInformation(Speciality speciality)
-        {
+            return new SelectedItemModel
+            {
+                Id = item.Id.ToString(),
+                Text = item.Name
+            };
         }
     }
 }

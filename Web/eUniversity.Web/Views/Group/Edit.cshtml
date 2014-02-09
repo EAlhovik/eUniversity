@@ -25,16 +25,16 @@
 
                 <div class="col-xs-12 col-sm-9">
                     @Html.HiddenFor(m => m.Specialization, new
-               { 
-                    style = "width: 200px",
-                    Data_Bind = "selectedValue: Specialization,select2: {allowClear: true,  placeholder: 'Специализация',multiple: false, ajax:{url:'/Loockup/GetSpecialization'  }},select2Options: {data: Specialization}"
-                })
+                       {
+                           style = "width: 200px",
+                           Data_Bind = "selectedValue: Specialization,select2: {allowClear: true,  placeholder: 'Специализация',multiple: false, ajax:{url:'/Loockup/GetSpecialization'  }},select2Options: {data: Specialization}"
+                       })
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Name, "Название", new { @class = "col-sm-3 control-label no-padding-right" })
                 <div class="col-sm-9">
-                    @Html.TextBoxFor(m => m.Name, new { @class = "col-xs-10 col-sm-5", placeholder = "Специальность", Data_Bind="value: Name" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "col-xs-10 col-sm-5", placeholder = "Специальность", Data_Bind = "value: Name" })
                 </div>
             </div>
             <div class="space-4"></div>

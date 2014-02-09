@@ -273,6 +273,8 @@
     <Content Include="Scripts\viewModels\group\groupViewModel.js" />
     <Content Include="Scripts\viewModels\membership\membershipViewModel.js" />
     <Content Include="Scripts\viewModels\membership\userRowViewModel.js" />
+    <Content Include="Scripts\viewModels\Specialization\specializationRowViewModel.js" />
+    <Content Include="Scripts\viewModels\Specialization\specializationViewModel.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -10,8 +10,13 @@
         window.strings = strings;
 
         var actions = {
+            specialization: {
+                EditSpecializationUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecializationController, new {Id = "id"})',
+                SaveSpecializationUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecializationController)',
+            },
             group: {
-                EditGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController,new {Id = "id"})',
+                EditGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController, new {Id = "id"})',
+                SaveGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController)'
             }
         };
         window.actions = actions;

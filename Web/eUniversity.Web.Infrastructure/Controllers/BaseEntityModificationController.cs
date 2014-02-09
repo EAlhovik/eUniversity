@@ -28,8 +28,8 @@ namespace eUniversity.Web.Infrastructure.Controllers
         [HttpGet]
         public ActionResult Edit(long? id)
         {
-            var group = ManagementService.Open(id);
-            return View(group);
+            var viewModel = ManagementService.Open(id);
+            return View(viewModel);
         }
 
         [HttpPost]

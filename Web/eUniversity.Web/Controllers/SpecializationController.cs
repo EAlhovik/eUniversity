@@ -1,10 +1,17 @@
-﻿using System.Web.Mvc;
-using eUniversity.Business.Domain.Contracts;
+﻿using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels.Specialization;
+using eUniversity.Web.Infrastructure.Controllers;
 
 namespace eUniversity.Web.Controllers
 {
-    public class SpecializationController : Controller
+    public class SpecializationController : BaseEntityModificationController<SpecializationViewModel, SpecializationRowViewModel>
+    {
+        public SpecializationController(ISpecializationManagementService specializationService)
+            : base(specializationService)
+        {
+        }
+    }
+   /* public class SpecializationController : Controller
     {
         private readonly ISpecializationManagementService specializationService;
         public SpecializationController(ISpecializationManagementService specializationService)
@@ -31,5 +38,5 @@ namespace eUniversity.Web.Controllers
             specializationService.Save(viewModel);
             return RedirectToAction("Index");
         }
-    }
+    }*/
 }

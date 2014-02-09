@@ -96,14 +96,14 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
-                .ForMember(vm => vm.SpecialityId, opt => opt.MapFrom(m => m.SpecialityId))
+                .ForMember(vm => vm.Speciality, opt => opt.MapFrom(m => universityProfileService.CreateSpeciality(m.SpecialityId)))
                 ;
 
             Mapper.CreateMap<SpecializationViewModel, Specialization>()
                 .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                 .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
                 .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
-                .ForMember(m => m.SpecialityId, opt => opt.MapFrom(vm => vm.SpecialityId.Value))
+                .ForMember(m => m.SpecialityId, opt => opt.MapFrom(vm => universityProfileService.GetId(vm.Speciality)))
                 ;
 
             Mapper.CreateMap<Specialization, SelectedItemViewModel>()

@@ -13,9 +13,11 @@ namespace eUniversity.Business.ManagementServices.AutoMapperServices
     public class UniversityProfileManagementService : IUniversityProfileManagementService
     {
         private readonly ISpecializationService specializationService;
-        public UniversityProfileManagementService(ISpecializationService specializationService)
+        private readonly ISpecialityService specialityService;
+        public UniversityProfileManagementService(ISpecializationService specializationService, ISpecialityService specialityService)
         {
             this.specializationService = specializationService;
+            this.specialityService = specialityService;
         }
 
         public long GetId(SelectedItemViewModel selectedItemModel)
@@ -34,12 +36,17 @@ namespace eUniversity.Business.ManagementServices.AutoMapperServices
             return specializationService.GetSelectedItemById(id);
         }
 
+        public SelectedItemModel CreateSpeciality(long specialityId)
+        {
+            return specialityService.GetSelectedItemById(specialityId);
+        }
+
         public SelectedItemModel CreateCountSemesters(int countSemesters)
         {
             return new SelectedItemModel
             {
                 Id = countSemesters.ToString(),
-                Text = EnumHelper.GetEnumDescription((SemesterEnum) countSemesters)
+                Text = EnumHelper.GetEnumDescription((SemesterEnum)countSemesters)
             };
         }
 
