@@ -40,8 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAuthorizationService.cs" />
+    <Compile Include="IBaseManagementService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IFormsAuthenticationService.cs" />
+    <Compile Include="IGroupManagementService.cs" />
     <Compile Include="IGroupService.cs" />
     <Compile Include="ILoockupManagementService.cs" />
     <Compile Include="IProfessorProfileService.cs" />

@@ -34,6 +34,11 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         /// </summary>
         public virtual ICollection<Curriculum> Сurricula { get; set; }
 
+        /// <summary>
+        /// Gets or sets the groups.
+        /// </summary>
+        public virtual ICollection<Group> Groups { get; set; }
+
         #region IHasCreation Members
 
         public DateTime Created { get; set; }

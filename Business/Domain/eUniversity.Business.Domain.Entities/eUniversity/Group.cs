@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Sockets;
-using eUniversity.Business.Domain.Entities.Base;
+﻿using eUniversity.Business.Domain.Entities.Base;
 
 namespace eUniversity.Business.Domain.Entities.eUniversity
 {
@@ -11,8 +9,10 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     {
         public string Name { get; set; }
 
-        public long SpecializationsId { get; set; }
+        public string Description { get; set; }
 
-        public virtual ICollection<Specialization> Specializations { get; set; }
+        public long SpecializationId { get; set; }
+
+        public virtual Specialization Specialization { get; set; }
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="Constants\ActionNames.cs" />
     <Compile Include="Constants\ControllerNames.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaseEntityModificationController.cs" />
     <Compile Include="Dependencies\DataAccessModule.cs" />
     <Compile Include="Dependencies\DomainServicesModule.cs" />
     <Compile Include="Filters\LocalizationAttribute.cs" />

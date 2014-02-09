@@ -39,9 +39,9 @@ namespace eUniversity.Business.ManagementServices.Base
 
         public virtual void Save(TViewModel viewModel)
         {
-            var speciality = Service.CreateOrOpen(viewModel.Id);
-            Mapper.Map<TViewModel, TModel>(viewModel, speciality);
-            Service.Save(speciality);
+            var entity = Service.CreateOrOpen(viewModel.Id);
+            Mapper.Map<TViewModel, TModel>(viewModel, entity);
+            Service.Save(entity);
             UnitOfWork.Commit();
         }
 
@@ -52,6 +52,5 @@ namespace eUniversity.Business.ManagementServices.Base
         }
 
         #endregion
-
     }
 }

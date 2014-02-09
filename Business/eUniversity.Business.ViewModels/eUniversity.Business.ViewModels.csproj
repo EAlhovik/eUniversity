@@ -46,6 +46,10 @@
     <Compile Include="Curriculum\CurriculumHeaderViewModel.cs" />
     <Compile Include="Curriculum\SemesterViewModel.cs" />
     <Compile Include="Curriculum\SubjectViewModel.cs" />
+    <Compile Include="GridViewModel.cs" />
+    <Compile Include="Group\GroupRowViewModel.cs" />
+    <Compile Include="Group\GroupViewModel.cs" />
+    <Compile Include="KnockoutViewModel.cs" />
     <Compile Include="Membership\MembershipViewModel.cs" />
     <Compile Include="Membership\UserRowViewModel.cs" />
     <Compile Include="Profile\BasicProfileViewModel.cs" />

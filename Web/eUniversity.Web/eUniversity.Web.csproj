@@ -188,6 +188,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoockupController.cs" />
     <Compile Include="Controllers\MembershipController.cs" />
@@ -267,6 +268,9 @@
     <Content Include="Scripts\viewModels\curriculum\headerSectionViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\semesterViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\subjectViewModel.js" />
+    <Content Include="Scripts\viewModels\gridViewModel.js" />
+    <Content Include="Scripts\viewModels\group\groupRowViewModel.js" />
+    <Content Include="Scripts\viewModels\group\groupViewModel.js" />
     <Content Include="Scripts\viewModels\membership\membershipViewModel.js" />
     <Content Include="Scripts\viewModels\membership\userRowViewModel.js" />
     <Content Include="Web.config">
@@ -323,6 +327,8 @@
     <Content Include="Views\Curriculum\EditorTemplates\AddSubjectModalTemplate.cshtml" />
     <Content Include="Views\Membership\Index.cshtml" />
     <Content Include="Views\Shared\_CommonJS.cshtml" />
+    <Content Include="Views\Group\Edit.cshtml" />
+    <Content Include="Views\Group\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

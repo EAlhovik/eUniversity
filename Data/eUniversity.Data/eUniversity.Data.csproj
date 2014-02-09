@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\CurriculumConfiguration.cs" />
+    <Compile Include="Configuration\GroupConfiguration.cs" />
     <Compile Include="Configuration\ProfessorProfileConfiguration.cs" />
     <Compile Include="Configuration\RoleConfiguration.cs" />
     <Compile Include="Configuration\SemesterConfiguration.cs" />

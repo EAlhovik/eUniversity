@@ -96,6 +96,21 @@
             </ul>
         </li>
         <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-list-alt"></i>
+                <span class='menu-text'> Группа </span><b class="arrow icon-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", ControllerNames.GroupController, ajaxOptions)
+                </li>
+
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Групп", "Index", ControllerNames.GroupController, ajaxOptions)
+                </li>
+            </ul>
+        </li>
+        <li>
             @Ajax.RawActionLink("<i class='icon-group'></i><span class='menu-text'>Пользователи </span>", ActionNames.IndexAction, ControllerNames.MembershipController, ajaxOptions)
             @*<a href="http://192.69.216.111/themes/preview/ace/widgets.html">
         <i class="icon-group"></i>

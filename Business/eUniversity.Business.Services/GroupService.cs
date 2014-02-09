@@ -6,6 +6,9 @@ using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.Services
 {
+    /// <summary>
+    /// Represents group service
+    /// </summary>
     public class GroupService : BaseService<Group>, IGroupService
     {
         public GroupService(IRepository<Group> repository, IAuthorizationService authorizationService = null) : base(repository, authorizationService)
