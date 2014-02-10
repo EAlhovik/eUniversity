@@ -55,13 +55,13 @@
         return item != null;
     });
 
-    self.IsAllSelected = ko.computed({
+    self.IfAllSelected = ko.computed({
         read: function () {
-            var isAllSelected = true;
+            var ifAllSelected = true;
             ko.utils.arrayForEach(self.Users(), function (user) {
-                isAllSelected = isAllSelected && user.IsSelected();
+                ifAllSelected = ifAllSelected && user.IsSelected();
             });
-            return isAllSelected;
+            return ifAllSelected;
         },
         write: function (value) {
             ko.utils.arrayForEach(self.Users(), function (user) {
