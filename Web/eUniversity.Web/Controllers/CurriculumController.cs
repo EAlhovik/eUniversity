@@ -1,18 +1,19 @@
-﻿using System.Web.Mvc;
-using eUniversity.Business.Domain.Contracts;
+﻿using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels.Curriculum;
+using eUniversity.Web.Infrastructure.Controllers;
 
 namespace eUniversity.Web.Controllers
 {
-    public class CurriculumController : Controller
+    public class CurriculumController : BaseEntityModificationController<CurriculumViewModel, CurriculumRowViewModel>
     {
-        private readonly ICurriculumManagementService curriculumManagementService;
+//        private readonly ICurriculumManagementService curriculumManagementService;
 
         public CurriculumController(ICurriculumManagementService curriculumManagementService)
+            : base(curriculumManagementService)
         {
-            this.curriculumManagementService = curriculumManagementService;
+//            this.curriculumManagementService = curriculumManagementService;
         }
-
+/*
         public ActionResult Index()
         {
             return View();
@@ -30,6 +31,6 @@ namespace eUniversity.Web.Controllers
         {
             curriculumManagementService.Save(curriculum);
             return Json(curriculum);
-        }
+        }*/
     }
 }

@@ -6,7 +6,7 @@ using eUniversity.Data.Contracts;
 
 namespace eUniversity.Business.ManagementServices
 {
-    public class GroupManagementService :  BaseManagementService<GroupViewModel, GroupRowViewModel, Group>,IGroupManagementService
+    public class GroupManagementService :  BaseManagementService<GroupViewModel, GroupRowViewModel, Group>, IGroupManagementService
     {
         public GroupManagementService(IEUniversityUow unitOfWork, IGroupService service) : base(unitOfWork, service)
         {

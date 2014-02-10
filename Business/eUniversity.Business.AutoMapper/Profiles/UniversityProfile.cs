@@ -160,6 +160,12 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Specialization, opt => opt.MapFrom(m => universityProfileService.CreateSpecialization(m.SpecializationId)))
                 ;
 
+            Mapper.CreateMap<Curriculum, CurriculumRowViewModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.DateOfEnactment, opt => opt.MapFrom(m => m.DateOfEnactment.ToShortDateString()))
+                .ForMember(vm => vm.SpecializatoinName, opt => opt.MapFrom(m => "dada"))
+                ;
+
             #endregion
 
             #region Semester

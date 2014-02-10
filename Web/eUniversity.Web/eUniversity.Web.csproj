@@ -264,6 +264,7 @@
     <Content Include="Scripts\styler.js" />
     <Content Include="Scripts\viewModels\account\loginViewModel.js" />
     <Content Include="Scripts\viewModels\account\registerViewModel.js" />
+    <Content Include="Scripts\viewModels\curriculum\curriculumRowViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\curriculumViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\headerSectionViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\semesterViewModel.js" />
@@ -332,6 +333,7 @@
     <Content Include="Views\Shared\_CommonJS.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
+    <Content Include="Views\Curriculum\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

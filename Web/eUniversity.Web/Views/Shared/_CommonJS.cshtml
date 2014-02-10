@@ -10,6 +10,9 @@
         window.strings = strings;
 
         var actions = {
+            curriculum: {
+                CurriculumGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.CurriculumController)',
+            },
             speciality: {
                 EditSpecialityUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecialityController, new { Id = "id" })',
                 SaveSpecialityUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecialityController)',

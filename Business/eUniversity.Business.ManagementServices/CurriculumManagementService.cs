@@ -10,7 +10,7 @@ namespace eUniversity.Business.ManagementServices
     /// <summary>
     /// Represents curriculum management service
     /// </summary>
-    public class CurriculumManagementService : BaseManagementService<CurriculumViewModel, CurriculumViewModel, Curriculum>, ICurriculumManagementService
+    public class CurriculumManagementService : BaseManagementService<CurriculumViewModel, CurriculumRowViewModel, Curriculum>, ICurriculumManagementService
     {
         private readonly ISemesterManagementService semesterManagementService;
 
