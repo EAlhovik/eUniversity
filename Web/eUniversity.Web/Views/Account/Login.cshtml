@@ -9,11 +9,11 @@
         <div class="widget-main">
             <h4 class="header blue lighter bigger">
                 <i class="icon-coffee green"></i>
-                Please Enter Your Information
+                @eUniversity.Common.Strings.Resources.Login_EnterLogin
             </h4>
 
             <div class="space-6"></div>
-            @using (Html.BeginForm(null, null, new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", Data_Bind="deferredSubmit: login" }))
+            @using (Html.BeginForm(null, null, new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", Data_Bind = "deferredSubmit: login" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
@@ -21,7 +21,7 @@
                     <div class="form-group" data-bind="validationElement: UserName">
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "UserName", Data_Bind = "value: UserName" })
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Login, Data_Bind = "value: UserName" })
                                 <i class="icon-user"></i>
                             </span>
                         </label>
@@ -30,7 +30,7 @@
                     <div class="form-group" data-bind="validationElement: Password">
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", Data_Bind = "value: Password" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Password, Data_Bind = "value: Password" })
                                 <i class="icon-lock"></i>
                             </span>
                         </label>
@@ -41,12 +41,12 @@
                     <div class="clearfix">
                         <label class="inline">
                             @Html.CheckBoxFor(m => m.RememberMe, new { @class = "ace", Data_Bind = "checked: RememberMe" })
-                            <span class="lbl">Remember Me</span>
+                            <span class="lbl">@eUniversity.Common.Strings.Resources.Login_RememberMe</span>
                         </label>
 
                         <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" @*data-bind="click: $data.ValidateForm"*@>
                             <i class="icon-key"></i>
-                            Login
+                            @eUniversity.Common.Strings.Resources.Login_Login
                         </button>
                     </div>
 
@@ -60,13 +60,13 @@
             <div>
                 <a href="@Url.Action("Forgot","Account")" class="forgot-password-link">
                     <i class="icon-arrow-left"></i>
-                    I forgot my password
+                    @eUniversity.Common.Strings.Resources.Login_IForgotPassword
                 </a>
             </div>
 
             <div>
                 <a href="@Url.Action("Register","Account")" class="user-signup-link">
-                    I want to register
+                    @eUniversity.Common.Strings.Resources.Login_IWantToRegister
                     <i class="icon-arrow-right"></i>
                 </a>
             </div>

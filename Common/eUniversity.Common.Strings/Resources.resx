@@ -120,11 +120,17 @@
   <data name="Common_Approved" xml:space="preserve">
     <value>Подтвержденный</value>
   </data>
+  <data name="Common_BackToLogin" xml:space="preserve">
+    <value>Вернуться к авторизации</value>
+  </data>
   <data name="Common_Create" xml:space="preserve">
     <value>Создан</value>
   </data>
   <data name="Common_Draft" xml:space="preserve">
     <value>Не Подтвержденный</value>
+  </data>
+  <data name="Common_Login" xml:space="preserve">
+    <value>Логин</value>
   </data>
   <data name="Common_LogOut" xml:space="preserve">
     <value>Выйти</value>
@@ -132,14 +138,50 @@
   <data name="Common_Name" xml:space="preserve">
     <value>Имя</value>
   </data>
+  <data name="Common_Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
   <data name="Common_Profile" xml:space="preserve">
     <value>Профиль</value>
+  </data>
+  <data name="Common_Register" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="Common_RepeatPassword" xml:space="preserve">
+    <value>Повторите пароль</value>
+  </data>
+  <data name="Common_Reset" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+  <data name="Common_SendMe" xml:space="preserve">
+    <value>Отправить!</value>
   </data>
   <data name="Common_Status" xml:space="preserve">
     <value>Статус</value>
   </data>
   <data name="Common_Welcome" xml:space="preserve">
     <value>Привет</value>
+  </data>
+  <data name="ForgotPassword_Details" xml:space="preserve">
+    <value>Введите пароль для отправки инструкций</value>
+  </data>
+  <data name="ForgotPassword_Title" xml:space="preserve">
+    <value>Востановление пароля</value>
+  </data>
+  <data name="Login_EnterLogin" xml:space="preserve">
+    <value>Введите логин и пароль</value>
+  </data>
+  <data name="Login_IForgotPassword" xml:space="preserve">
+    <value>Я забыл пароль</value>
+  </data>
+  <data name="Login_IWantToRegister" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="Login_Login" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Login_RememberMe" xml:space="preserve">
+    <value>Запомнить меня?</value>
   </data>
   <data name="Membersip_ApproveAccount" xml:space="preserve">
     <value>Подтвердить Регистрацию</value>
@@ -149,5 +191,11 @@
   </data>
   <data name="Membersip_ShowProfile" xml:space="preserve">
     <value>Посмотреть Профиль</value>
+  </data>
+  <data name="Register_EnterYourDetailsToBegin" xml:space="preserve">
+    <value>Введите ваши данные, чтобы начать:</value>
+  </data>
+  <data name="Register_NewUser" xml:space="preserve">
+    <value>Регистрация пользователя</value>
   </data>
 </root>

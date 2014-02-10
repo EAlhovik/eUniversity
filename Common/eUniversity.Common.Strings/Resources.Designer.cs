@@ -70,6 +70,15 @@ namespace eUniversity.Common.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вернуться к авторизации.
+        /// </summary>
+        public static string Common_BackToLogin {
+            get {
+                return ResourceManager.GetString("Common_BackToLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Создан.
         /// </summary>
         public static string Common_Create {
@@ -84,6 +93,15 @@ namespace eUniversity.Common.Strings {
         public static string Common_Draft {
             get {
                 return ResourceManager.GetString("Common_Draft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Логин.
+        /// </summary>
+        public static string Common_Login {
+            get {
+                return ResourceManager.GetString("Common_Login", resourceCulture);
             }
         }
         
@@ -106,11 +124,56 @@ namespace eUniversity.Common.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Пароль.
+        /// </summary>
+        public static string Common_Password {
+            get {
+                return ResourceManager.GetString("Common_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Профиль.
         /// </summary>
         public static string Common_Profile {
             get {
                 return ResourceManager.GetString("Common_Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация.
+        /// </summary>
+        public static string Common_Register {
+            get {
+                return ResourceManager.GetString("Common_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повторите пароль.
+        /// </summary>
+        public static string Common_RepeatPassword {
+            get {
+                return ResourceManager.GetString("Common_RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сбросить.
+        /// </summary>
+        public static string Common_Reset {
+            get {
+                return ResourceManager.GetString("Common_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отправить!.
+        /// </summary>
+        public static string Common_SendMe {
+            get {
+                return ResourceManager.GetString("Common_SendMe", resourceCulture);
             }
         }
         
@@ -129,6 +192,69 @@ namespace eUniversity.Common.Strings {
         public static string Common_Welcome {
             get {
                 return ResourceManager.GetString("Common_Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите пароль для отправки инструкций.
+        /// </summary>
+        public static string ForgotPassword_Details {
+            get {
+                return ResourceManager.GetString("ForgotPassword_Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Востановление пароля.
+        /// </summary>
+        public static string ForgotPassword_Title {
+            get {
+                return ResourceManager.GetString("ForgotPassword_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите логин и пароль.
+        /// </summary>
+        public static string Login_EnterLogin {
+            get {
+                return ResourceManager.GetString("Login_EnterLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Я забыл пароль.
+        /// </summary>
+        public static string Login_IForgotPassword {
+            get {
+                return ResourceManager.GetString("Login_IForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Зарегистрироваться.
+        /// </summary>
+        public static string Login_IWantToRegister {
+            get {
+                return ResourceManager.GetString("Login_IWantToRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Войти.
+        /// </summary>
+        public static string Login_Login {
+            get {
+                return ResourceManager.GetString("Login_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Запомнить меня?.
+        /// </summary>
+        public static string Login_RememberMe {
+            get {
+                return ResourceManager.GetString("Login_RememberMe", resourceCulture);
             }
         }
         
@@ -156,6 +282,24 @@ namespace eUniversity.Common.Strings {
         public static string Membersip_ShowProfile {
             get {
                 return ResourceManager.GetString("Membersip_ShowProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Введите ваши данные, чтобы начать:.
+        /// </summary>
+        public static string Register_EnterYourDetailsToBegin {
+            get {
+                return ResourceManager.GetString("Register_EnterYourDetailsToBegin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация пользователя.
+        /// </summary>
+        public static string Register_NewUser {
+            get {
+                return ResourceManager.GetString("Register_NewUser", resourceCulture);
             }
         }
     }

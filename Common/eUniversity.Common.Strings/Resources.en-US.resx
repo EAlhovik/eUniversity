@@ -126,20 +126,59 @@
   <data name="Common_Draft" xml:space="preserve">
     <value>Draft</value>
   </data>
+  <data name="Common_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="Common_LogOut" xml:space="preserve">
     <value>Logout</value>
   </data>
   <data name="Common_Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Common_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="Common_Profile" xml:space="preserve">
     <value>Profile</value>
+  </data>
+  <data name="Common_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Common_RepeatPassword" xml:space="preserve">
+    <value>Repeat password</value>
+  </data>
+  <data name="Common_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Common_SendMe" xml:space="preserve">
+    <value>Send Me!</value>
   </data>
   <data name="Common_Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Common_Welcome" xml:space="preserve">
     <value>Welcome</value>
+  </data>
+  <data name="ForgotPassword_Details" xml:space="preserve">
+    <value>Enter your email and to receive instructions</value>
+  </data>
+  <data name="ForgotPassword_Title" xml:space="preserve">
+    <value>Retrieve Password</value>
+  </data>
+  <data name="Login_EnterLogin" xml:space="preserve">
+    <value>Please Enter Your Information</value>
+  </data>
+  <data name="Login_IForgotPassword" xml:space="preserve">
+    <value>I forgot my password</value>
+  </data>
+  <data name="Login_IWantToRegister" xml:space="preserve">
+    <value>I want to register</value>
+  </data>
+  <data name="Login_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Login_RememberMe" xml:space="preserve">
+    <value>Remember Me?</value>
   </data>
   <data name="Membersip_ApproveAccount" xml:space="preserve">
     <value>Activate Account</value>
@@ -149,5 +188,14 @@
   </data>
   <data name="Membersip_ShowProfile" xml:space="preserve">
     <value>Show Profile</value>
+  </data>
+  <data name="Register_BackToLogin" xml:space="preserve">
+    <value>Back to login</value>
+  </data>
+  <data name="Register_EnterYourDetailsToBegin" xml:space="preserve">
+    <value>Enter your details to begin: </value>
+  </data>
+  <data name="Register_NewUser" xml:space="preserve">
+    <value>New User Registration</value>
   </data>
 </root>

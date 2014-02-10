@@ -10,11 +10,11 @@
         <div class="widget-main">
             <h4 class="header green lighter bigger">
                 <i class="icon-group blue"></i>
-                New User Registration
+                @eUniversity.Common.Strings.Resources.Register_NewUser
             </h4>
 
             <div class="space-6"></div>
-            <p>Enter your details to begin: </p>
+            <p>@eUniversity.Common.Strings.Resources.Register_EnterYourDetailsToBegin</p>
             @using (Html.BeginForm(null, null, null, FormMethod.Post, new { id = "registerForm", Data_Bind = "deferredSubmit: register" }))
             {
                 @Html.AntiForgeryToken()
@@ -23,7 +23,7 @@
                     <div class="form-group" data-bind="validationElement: UserName">
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Username", Data_Bind = "value: UserName" })
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Login, Data_Bind = "value: UserName" })
                                 <i class="icon-user"></i>
                             </span>
                         </label>
@@ -32,7 +32,7 @@
                     <div class="form-group" data-bind="validationElement: Password">
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", Data_Bind = "value: Password" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Password, Data_Bind = "value: Password" })
                                 <i class="icon-lock"></i>
                             </span>
                         </label>
@@ -41,14 +41,14 @@
                     <div class="form-group" data-bind="validationElement: ConfirmPassword">
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Repeat password", Data_Bind = "value: ConfirmPassword" })
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_RepeatPassword, Data_Bind = "value: ConfirmPassword" })
                                 <i class="icon-retweet"></i>
                             </span>
                         </label>
                     </div>
                     <div class="form-group" data-bind="validationElement: ConfirmPassword">
                         <label class="block clearfix">
-                            @Html.EnumDropDownListFor(m=>m.AccountType, new {@class = "form-control", placeholder = "Repeat password"})
+                            @Html.EnumDropDownListFor(m=>m.AccountType, new {@class = "form-control"})
                         </label>
                     </div>
                     
@@ -57,11 +57,11 @@
                     <div class="clearfix">
                         <button type="reset" class="width-30 pull-left btn btn-sm">
                             <i class="icon-refresh"></i>
-                            Reset
+                            @eUniversity.Common.Strings.Resources.Common_Reset
                         </button>
 
                         <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
-                            Register
+                            @eUniversity.Common.Strings.Resources.Common_Register
                             <i class="icon-arrow-right icon-on-right"></i>
                         </button>
                     </div>
@@ -73,7 +73,7 @@
 
             <a href="@Url.Action("Login","Account")" class="back-to-login-link">
                 <i class="icon-arrow-left"></i>
-                Back to login
+                @eUniversity.Common.Strings.Resources.Common_BackToLogin
             </a>
         </div>
     </div>

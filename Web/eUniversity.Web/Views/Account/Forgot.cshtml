@@ -9,12 +9,12 @@
         <div class="widget-main">
             <h4 class="header red lighter bigger">
                 <i class="icon-key"></i>
-                Retrieve Password
+                @eUniversity.Common.Strings.Resources.ForgotPassword_Title
             </h4>
 
             <div class="space-6"></div>
             <p>
-                Enter your email and to receive instructions
+                @eUniversity.Common.Strings.Resources.ForgotPassword_Details
             </p>
 
             <form>
@@ -29,21 +29,18 @@
                     <div class="clearfix">
                         <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
                             <i class="icon-lightbulb"></i>
-                            Send Me!
+                            @eUniversity.Common.Strings.Resources.Common_SendMe
                         </button>
                     </div>
                 </fieldset>
             </form>
         </div>
-        <!-- /widget-main -->
 
         <div class="toolbar center">
             <a href="@Url.Action("Login", "Account")" class="back-to-login-link">
-                Back to login
+                @eUniversity.Common.Strings.Resources.Common_BackToLogin
                 <i class="icon-arrow-right"></i>
             </a>
         </div>
     </div>
-    <!-- /widget-body -->
 </div>
-<!-- /forgot-box -->
