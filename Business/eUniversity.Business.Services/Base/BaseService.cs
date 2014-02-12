@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Base;
 using eUniversity.Data.Contracts;
@@ -108,6 +109,21 @@ namespace eUniversity.Business.Services.Base
         public void Delete(T entity)
         {
             Repository.Delete(entity);
+        }
+
+        /// <summary>
+        /// Gets the selected items.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <returns>All selected items</returns>
+        /// <exception cref="System.NotImplementedException">if term not null or empry</exception>
+        public virtual IEnumerable<SelectedItemModel> GetSelectedItems(string term)
+        {
+            if (!string.IsNullOrEmpty(term))
+            {
+                throw new NotImplementedException();
+            }
+            return Repository.All().Select(CreateSelectedItem);
         }
 
         protected abstract T CreateItem();

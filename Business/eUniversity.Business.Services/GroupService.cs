@@ -1,4 +1,6 @@
-﻿using eUniversity.Business.Domain.Contracts;
+﻿using System.Collections.Generic;
+using System.Linq;
+using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Services.Base;
 using eUniversity.Data.Contracts;
@@ -22,7 +24,23 @@ namespace eUniversity.Business.Services
 
         protected override SelectedItemModel CreateSelectedItem(Group item)
         {
-            throw new System.NotImplementedException();
+            return new SelectedItemModel
+            {
+                Id = item.Id.ToString(),
+                Text = item.Name
+            };
+        }
+
+        /// <summary>
+        /// Gets the selected items.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <returns>Selected item by term</returns>
+        public override IEnumerable<SelectedItemModel> GetSelectedItems(string term)
+        {
+            return Repository.All()
+                .Where(group => string.IsNullOrEmpty(term) || group.Name.ToUpper().IndexOf(term.ToUpper()) >= 0)
+                .Select(CreateSelectedItem);
         }
     }
 }

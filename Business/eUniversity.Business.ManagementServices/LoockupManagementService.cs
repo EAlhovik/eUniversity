@@ -19,12 +19,14 @@ namespace eUniversity.Business.ManagementServices
         private readonly ISpecialityService specialityService;
         private readonly ISpecializationService specializationService;
         private readonly IProfessorProfileService professorProfileService;
+        private readonly IGroupService groupService;
 
-        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService, IProfessorProfileService professorProfileService)
+        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService, IProfessorProfileService professorProfileService, IGroupService groupService)
         {
             this.specialityService = specialityService;
             this.specializationService = specializationService;
             this.professorProfileService = professorProfileService;
+            this.groupService = groupService;
         }
 
         #region ILoockupManagementService Members
@@ -41,6 +43,13 @@ namespace eUniversity.Business.ManagementServices
                                      spec =>
                                      string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0);
             return specialities.Select(Mapper.Map<Speciality, SelectedItemViewModel>);
+        }
+
+        public IEnumerable<SelectedItemViewModel> GetGroups(string term)
+        {
+            var groups = groupService.GetSelectedItems(term)
+                .Select(Mapper.Map<SelectedItemModel, SelectedItemViewModel>);
+            return groups;
         }
 
         /// <summary>

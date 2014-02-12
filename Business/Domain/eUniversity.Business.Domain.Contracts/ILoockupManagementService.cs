@@ -42,5 +42,12 @@ namespace eUniversity.Business.Domain.Contracts
         /// <param name="term">The term.</param>
         /// <returns>Semesters</returns>
         IEnumerable<SelectedItemViewModel> GetSemesters(string term);
+
+        /// <summary>
+        /// Gets the groups.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <returns>List groups</returns>
+        IEnumerable<SelectedItemViewModel> GetGroups(string term);
     }
 }

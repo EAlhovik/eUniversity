@@ -7,6 +7,5 @@ namespace eUniversity.Business.Domain.Contracts
     /// </summary>
     public interface IGroupService : IBaseService<Group>
     {
-         
     }
 }

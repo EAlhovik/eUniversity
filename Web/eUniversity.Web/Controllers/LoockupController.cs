@@ -22,6 +22,12 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetGroups(string term)
+        {
+            return Json(loockupService.GetGroups(term), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult GetSubjects(string term)
         {
             var lst = new List<SelectedItemViewModel>()

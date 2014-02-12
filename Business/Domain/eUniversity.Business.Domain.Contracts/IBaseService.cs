@@ -40,5 +40,7 @@ namespace eUniversity.Business.Domain.Contracts
         /// </summary>
         /// <param name="entity">Entity to delete.</param>
         void Delete(T entity);
+
+        IEnumerable<SelectedItemModel> GetSelectedItems(string term);
     }
 }
