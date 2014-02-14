@@ -57,6 +57,7 @@
     <Compile Include="Profile\ChangePasswordViewModel.cs" />
     <Compile Include="Profile\ContactInfoSectionViewModel.cs" />
     <Compile Include="Profile\GeneralInfoSectionViewModel.cs" />
+    <Compile Include="Profile\ProfileViewModel.cs" />
     <Compile Include="Profile\SettingsViewModel.cs" />
     <Compile Include="Profile\SocialInfoSectionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

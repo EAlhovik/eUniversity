@@ -1,4 +1,5 @@
-﻿@{
+﻿@model eUniversity.Business.ViewModels.Profile.ProfileViewModel
+@{
     ViewBag.PageHeader = "Профиль";
     ViewBag.AdditionalInfo = User.Identity.Name;
     if (Request.IsAjaxRequest())
@@ -10,116 +11,73 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="hr dotted"></div>
         <div>
             <div class="user-profile row">
-                <div class="col-xs-6 col-sm-3 center">
-                    <div>
-                        <div class="space-4"></div>
+                <div class="col-sm-offset-1 col-sm-10">
+                    <div class="well well-sm">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        &nbsp;
+                        <div class="inline middle blue bigger-110">Your profile is 70% complete </div>
 
-                        <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
-                            <div class="inline position-relative">
-                                <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-                                    <span class="white">Alex M. Doe</span>
-                                </a>
+                        &nbsp; &nbsp; &nbsp;
+                        <div style="width: 200px;" data-percent="70%" class="inline middle no-margin progress progress-striped active">
+                            <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                    <div class="form-horizontal">
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs padding-16">
+                                <!-- ko foreach: Tabs -->
+                                <li data-bind="css:{active: IsActive}">
+                                    <a href="#" data-bind="click: $parent.SelectTab">
+                                        <i class="bigger-125" data-bind="css: IconClass"></i>
+                                        <span data-bind="text: Title"></span>
+                                    </a>
+                                </li>
+                                <!-- /ko -->
+                            </ul>
+                            <div class="tab-content profile-edit-tab-content">
+                                <!-- ko template: {name: 'basicProfileViewModel-template', data: BasicProfile, if: BasicProfile} --><!-- /ko -->
+                               
+                                 <!-- ko template: {name: 'settingsViewModel-template', data: Settings, if: Settings} --><!-- /ko -->
+
+                                <!-- ko template: {name: 'changePasswordViewModel-template', data: ChangePassword, if: ChangePassword} --><!-- /ko -->
+                            </div>
+                        </div>
+
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    Save
+                                </button>
+
+                                &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    Reset
+                                </button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="space-6"></div>
-
-                    <div class="profile-contact-info">
-                        <div class="profile-social-links center">
-                            <a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
-                                <i class="middle icon-facebook-sign icon-2x blue"></i>
-                            </a>
-
-                            <a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
-                                <i class="middle icon-twitter-sign icon-2x light-blue"></i>
-                            </a>
-
-                            <a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
-                                <i class="middle icon-pinterest-sign icon-2x red"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="hr hr12 dotted"></div>
-
-                    <div class="clearfix">
-                        <div class="grid2">
-                            <span class="bigger-175 blue">25</span>
-
-                            <br>
-                            Followers
-                        </div>
-
-                        <div class="grid2">
-                            <span class="bigger-175 blue">12</span>
-
-                            <br>
-                            Following
-                        </div>
-                    </div>
-                    <div class="hr hr16 dotted"></div>
-                </div>
-
-                <div class="col-xs-11 col-sm-9">
-
-                    <div class="profile-user-info profile-user-info-striped">
-                        <div class="profile-info-row">
-                            <div class="profile-info-name">Username </div>
-
-                            <div class="profile-info-value">
-                                <span class="editable editable-click" id="username">alexdoe</span>
-                            </div>
-                        </div>
-
-                        <div class="profile-info-row">
-                            <div class="profile-info-name">Location </div>
-
-                            <div class="profile-info-value">
-                                <i class="icon-map-marker light-orange bigger-110"></i>
-                                <span class="editable editable-click" id="country">Netherlands</span>
-                                <span class="editable editable-click" id="city">Amsterdam</span>
-                            </div>
-                        </div>
-
-                        <div class="profile-info-row">
-                            <div class="profile-info-name">Age </div>
-
-                            <div class="profile-info-value">
-                                <span class="editable editable-click" id="age">38</span>
-                            </div>
-                        </div>
-
-                        <div class="profile-info-row">
-                            <div class="profile-info-name">Joined </div>
-
-                            <div class="profile-info-value">
-                                <span class="editable editable-click" id="signup">20/06/2010</span>
-                            </div>
-                        </div>
-
-                        <div class="profile-info-row">
-                            <div class="profile-info-name">Last Online </div>
-
-                            <div class="profile-info-value">
-                                <span class="editable editable-click" id="login">3 hours ago</span>
-                            </div>
-                        </div>
-
-                        <div class="profile-info-row">
-                            <div class="profile-info-name">About Me </div>
-
-                            <div class="profile-info-value">
-                                <span class="editable editable-click" id="about">Editable as WYSIWYG</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="space-20"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="~/Scripts/viewModels/profile/changePasswordViewModel.js"> </script>
+<script src="~/Scripts/viewModels/profile/settingsViewModel.js"> </script>
+<script src="~/Scripts/viewModels/profile/profileViewModel.js"> </script>
+<script src="~/Scripts/viewModels/profile/basicProfileViewModel.js"> </script>
+<script src="~/Scripts/viewModels/profile/generalInfoSectionViewModel.js"> </script>
+@Html.Partial("EditorTemplates/ChangePasswordViewModel", new ViewDataDictionary())
+@Html.Partial("EditorTemplates/SettingsViewModel", new ViewDataDictionary())
+@Html.Partial("EditorTemplates/BasicProfileViewModel", new ViewDataDictionary())
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        ko.applyBindings(new ProfileViewModel(@Html.Raw(Json.Encode(Model))), $('.user-profile').get(0));
+    });
+</script>

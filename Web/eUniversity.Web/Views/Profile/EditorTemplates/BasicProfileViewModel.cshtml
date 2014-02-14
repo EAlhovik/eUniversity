@@ -1,38 +1,18 @@
 ﻿@model eUniversity.Business.ViewModels.Profile.BasicProfileViewModel
 
+<script type="text/html" id="basicProfileViewModel-template">
+    <div id="edit-basic" class="tab-pane" data-bind="css:{active: IsActive}">
+        <!-- ko with: GeneralSection -->
+        @Html.Partial("EditorTemplates/GeneralInfoSectionViewModel", new ViewDataDictionary())
+        <!-- /ko -->
+        <div class="space"></div>
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "profile-form", @class = "form-horizontal" }))
-{
-    <div class="tabbable">
-        @Html.Partial("_ProfileTabs", eUniversity.Business.Helpers.Enums.ProfileTabEnum.BasicInfo)
-        <div class="tab-content profile-edit-tab-content">
-            <div id="edit-basic" class="tab-pane in active">
-                @Html.EditorFor(m => m.GeneralSection)
+        @Html.EditorFor(m => m.ContactSection)
 
-                <div class="space"></div>
+        <div class="space"></div>
 
-                @Html.EditorFor(m => m.ContactSection)
-
-                <div class="space"></div>
-
-                @Html.EditorFor(m => m.SocialSection)
-            </div>
-        </div>
+        @Html.EditorFor(m => m.SocialSection)
     </div>
 
-    <div class="clearfix form-actions">
-        <div class="col-md-offset-3 col-md-9">
-            <button class="btn btn-info" type="submit">
-                <i class="icon-ok bigger-110"></i>
-                Save
-            </button>
-
-            &nbsp; &nbsp;
-                <button class="btn" type="reset">
-                    <i class="icon-undo bigger-110"></i>
-                    Reset
-                </button>
-        </div>
-    </div>
-}
+</script>
 

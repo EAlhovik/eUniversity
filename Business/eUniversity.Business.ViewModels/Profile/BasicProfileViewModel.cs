@@ -8,6 +8,7 @@
         public GeneralInfoSectionViewModel GeneralSection { get; set; }
 
         public ContactInfoSectionViewModel ContactSection { get; set; }
-        public SocialInfoSectionViewModel SocialSection { get; set; }
+
+        public ContactInfoSectionViewModel SocialSection { get; set; }
     }
 }

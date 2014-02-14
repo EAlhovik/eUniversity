@@ -1,63 +1,41 @@
 ﻿@model eUniversity.Business.ViewModels.Profile.SettingsViewModel
+<script type="text/html" id="settingsViewModel-template">
 
-<form class="form-horizontal" id="profile-form">
-    <div class="tabbable">
-        @Html.Partial("_ProfileTabs", eUniversity.Business.Helpers.Enums.ProfileTabEnum.Settings)
+    <div id="edit-settings" class="tab-pane" data-bind="css:{active: IsActive}">
 
-        <div class="tab-content profile-edit-tab-content">
+        <div class="space-10"></div>
 
-            <div id="edit-settings" class="tab-pane active">
-                <div class="space-10"></div>
+        <div>
+            <label class="inline">
+                <input type="checkbox" name="form-field-checkbox" class="ace">
+                <span class="lbl">Make my profile public</span>
+            </label>
+        </div>
 
-                <div>
-                    <label class="inline">
-                        <input type="checkbox" name="form-field-checkbox" class="ace">
-                        <span class="lbl">Make my profile public</span>
-                    </label>
-                </div>
+        <div class="space-8"></div>
 
-                <div class="space-8"></div>
+        <div>
+            <label class="inline">
+                <input type="checkbox" name="form-field-checkbox" class="ace">
+                <span class="lbl">Email me new updates</span>
+            </label>
+        </div>
 
-                <div>
-                    <label class="inline">
-                        <input type="checkbox" name="form-field-checkbox" class="ace">
-                        <span class="lbl">Email me new updates</span>
-                    </label>
-                </div>
+        <div class="space-8"></div>
 
-                <div class="space-8"></div>
+        <div>
+            <label class="inline">
+                <input type="checkbox" name="form-field-checkbox" class="ace">
+                <span class="lbl">Keep a history of my conversations</span>
+            </label>
 
-                <div>
-                    <label class="inline">
-                        <input type="checkbox" name="form-field-checkbox" class="ace">
-                        <span class="lbl">Keep a history of my conversations</span>
-                    </label>
+            <label class="inline">
+                <span class="space-2 block"></span>
 
-                    <label class="inline">
-                        <span class="space-2 block"></span>
-
-                        for
-																	<input type="text" class="input-mini" maxlength="3">
-                        days
-                    </label>
-                </div>
-            </div>
-
+                for
+                <input type="text" class="input-mini" maxlength="3">
+                days
+            </label>
         </div>
     </div>
-
-    <div class="clearfix form-actions">
-        <div class="col-md-offset-3 col-md-9">
-            <button class="btn btn-info" type="button">
-                <i class="icon-ok bigger-110"></i>
-                Save
-            </button>
-
-            &nbsp; &nbsp;
-														<button class="btn" type="reset">
-                                                            <i class="icon-undo bigger-110"></i>
-                                                            Reset
-                                                        </button>
-        </div>
-    </div>
-</form>
+</script>

@@ -274,6 +274,11 @@
     <Content Include="Scripts\viewModels\group\groupViewModel.js" />
     <Content Include="Scripts\viewModels\membership\membershipViewModel.js" />
     <Content Include="Scripts\viewModels\membership\userRowViewModel.js" />
+    <Content Include="Scripts\viewModels\profile\basicProfileViewModel.js" />
+    <Content Include="Scripts\viewModels\profile\changePasswordViewModel.js" />
+    <Content Include="Scripts\viewModels\profile\generalInfoSectionViewModel.js" />
+    <Content Include="Scripts\viewModels\profile\profileViewModel.js" />
+    <Content Include="Scripts\viewModels\profile\settingsViewModel.js" />
     <Content Include="Scripts\viewModels\speciality\specialityRowViewModel.js" />
     <Content Include="Scripts\viewModels\speciality\specialityViewModel.js" />
     <Content Include="Scripts\viewModels\specialization\specializationRowViewModel.js" />
@@ -316,8 +321,6 @@
     <Content Include="Views\Specialization\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
-    <Content Include="Views\Profile\EditorTemplates\BasicInfo.cshtml" />
-    <Content Include="Views\Profile\EditorTemplates\ChangePassword.cshtml" />
     <Content Include="Views\Profile\_ProfileTabs.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\GeneralInfoSectionViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\ContactInfoSectionViewModel.cshtml" />

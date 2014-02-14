@@ -7,7 +7,19 @@ namespace eUniversity.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(new ProfileViewModel
+            {
+                BasicProfile = new BasicProfileViewModel()
+                {
+                    GeneralSection = new GeneralInfoSectionViewModel()
+                    {
+                        FirstName = "dasd",
+                        Comment = "asdasdasda"
+                    },
+                },
+                Settings = new SettingsViewModel() { },
+                ChangePassword = new ChangePasswordViewModel() { }
+            });
         }
 
         public ActionResult Edit()
@@ -19,7 +31,6 @@ namespace eUniversity.Web.Controllers
         public ActionResult BasicInfo()
         {
             return PartialView(@"EditorTemplates\BasicProfileViewModel", new BasicProfileViewModel());
-            return View(@"EditorTemplates\BasicInfo");
         }
 
         [HttpPost]
@@ -31,7 +42,6 @@ namespace eUniversity.Web.Controllers
         public ActionResult ChangePassword()
         {
             return PartialView(@"EditorTemplates\ChangePasswordViewModel", new ChangePasswordViewModel());
-            return View(@"EditorTemplates\ChangePassword");
         }
 
         public ActionResult Settings()
