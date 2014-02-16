@@ -198,4 +198,10 @@
   <data name="Register_NewUser" xml:space="preserve">
     <value>Регистрация пользователя</value>
   </data>
+  <data name="Common_Congrats" xml:space="preserve">
+    <value>Поздравляем!</value>
+  </data>
+  <data name="Register_SuccessufullyRegistration" xml:space="preserve">
+    <value>Вы зарегистрированны! Ожидайте подтверждения.</value>
+  </data>
 </root>

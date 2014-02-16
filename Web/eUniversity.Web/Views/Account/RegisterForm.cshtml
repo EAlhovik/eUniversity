@@ -7,7 +7,7 @@
     <div class="widget-body">
         <div class="widget-main" id="widget-main">
             @{
-                if (Model.Profile == null)
+                if (Model == null || Model.Profile == null)
                 {
                     <!-- ko with: Register -->
                     @(Html.EditorFor(m => m.Register))
