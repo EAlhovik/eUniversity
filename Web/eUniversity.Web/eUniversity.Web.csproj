@@ -266,7 +266,7 @@
     <Content Include="Scripts\viewModels\account\registerViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\curriculumRowViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\curriculumViewModel.js" />
-    <Content Include="Scripts\viewModels\curriculum\headerSectionViewModel.js" />
+    <Content Include="Scripts\viewModels\curriculum\curriculumHeaderViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\semesterViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\subjectViewModel.js" />
     <Content Include="Scripts\viewModels\gridViewModel.js" />

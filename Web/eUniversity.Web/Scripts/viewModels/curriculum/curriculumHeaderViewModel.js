@@ -1,4 +1,4 @@
-﻿function HeaderSectionViewModel(serverModel) {
+﻿function CurriculumHeaderViewModel(serverModel) {
     var self = this;
     self.IsActive = ko.observable(true);
     self.IsCompleted = ko.observable(false);

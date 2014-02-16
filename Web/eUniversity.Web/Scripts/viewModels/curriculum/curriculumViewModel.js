@@ -9,7 +9,7 @@
         "CurriculumHeader":
         {
             create: function (options) {
-                return new window.HeaderSectionViewModel(options.data);
+                return new window.CurriculumHeaderViewModel(options.data);
             }
         },
         'Semesters':
