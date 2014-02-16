@@ -22,31 +22,15 @@ namespace eUniversity.Web.Controllers
             });
         }
 
+        [HttpPost]
+        public JsonResult Save(BasicProfileViewModel viewModel)
+        {
+            return Json(true);
+        }
+
         public ActionResult Edit()
         {
             return View(new BasicProfileViewModel());
-        }
-
-        [HttpGet]
-        public ActionResult BasicInfo()
-        {
-            return PartialView(@"EditorTemplates\BasicProfileViewModel", new BasicProfileViewModel());
-        }
-
-        [HttpPost]
-        public ActionResult BasicInfo(BasicProfileViewModel viewModel)
-        {
-            return View(@"EditorTemplates\BasicInfo");
-        }
-
-        public ActionResult ChangePassword()
-        {
-            return PartialView(@"EditorTemplates\ChangePasswordViewModel", new ChangePasswordViewModel());
-        }
-
-        public ActionResult Settings()
-        {
-            return PartialView(@"EditorTemplates\SettingsViewModel", new SettingsViewModel());
         }
     }
 }

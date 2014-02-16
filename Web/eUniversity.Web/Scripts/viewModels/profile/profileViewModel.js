@@ -36,13 +36,35 @@
     ko.mapping.fromJS(serverModel, mappingOverride, self);
 
     self.SelectTab = function(tab) {
-        var activeTab = ko.utils.arrayFirst(self.Tabs(), function(item) {
-            return item.IsActive();
-        });
+        var activeTab = getActiveTab();
         
         self[activeTab.Type()]().IsActive(false);
         activeTab.IsActive(false);
         tab.IsActive(true);
         self[tab.Type()]().IsActive(true);
     };
+
+    self.Save = function() {
+        var activeTab = getActiveTab();
+        $.ajax({
+            url: '/Profile/Save',
+            type: "POST",
+            data: JSON.stringify({ viewModel: ko.mapping.toJS(self[activeTab.Type()]) }),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+
+                alert('data was successfully saved');
+            },
+            complete: function (param1, status) {
+            }
+        });
+    };
+    
+    function getActiveTab() {
+        var activeTab = ko.utils.arrayFirst(self.Tabs(), function (item) {
+            return item.IsActive();
+        });
+        return activeTab;
+    }
 }

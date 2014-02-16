@@ -321,10 +321,7 @@
     <Content Include="Views\Specialization\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
-    <Content Include="Views\Profile\_ProfileTabs.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\GeneralInfoSectionViewModel.cshtml" />
-    <Content Include="Views\Profile\EditorTemplates\ContactInfoSectionViewModel.cshtml" />
-    <Content Include="Views\Profile\EditorTemplates\SocialInfoSectionViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\BasicProfileViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\SettingsViewModel.cshtml" />
     <Content Include="Views\Profile\EditorTemplates\ChangePasswordViewModel.cshtml" />

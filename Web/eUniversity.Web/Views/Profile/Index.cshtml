@@ -39,9 +39,7 @@
                             </ul>
                             <div class="tab-content profile-edit-tab-content">
                                 <!-- ko template: {name: 'basicProfileViewModel-template', data: BasicProfile, if: BasicProfile} --><!-- /ko -->
-                               
-                                 <!-- ko template: {name: 'settingsViewModel-template', data: Settings, if: Settings} --><!-- /ko -->
-
+                                <!-- ko template: {name: 'settingsViewModel-template', data: Settings, if: Settings} --><!-- /ko -->
                                 <!-- ko template: {name: 'changePasswordViewModel-template', data: ChangePassword, if: ChangePassword} --><!-- /ko -->
                             </div>
                         </div>
@@ -72,6 +70,7 @@
 <script src="~/Scripts/viewModels/profile/profileViewModel.js"> </script>
 <script src="~/Scripts/viewModels/profile/basicProfileViewModel.js"> </script>
 <script src="~/Scripts/viewModels/profile/generalInfoSectionViewModel.js"> </script>
+
 @Html.Partial("EditorTemplates/ChangePasswordViewModel", new ViewDataDictionary())
 @Html.Partial("EditorTemplates/SettingsViewModel", new ViewDataDictionary())
 @Html.Partial("EditorTemplates/BasicProfileViewModel", new ViewDataDictionary())
