@@ -11,5 +11,6 @@
         public const string GetProfessorsAction = "GetProfessors";
         public const string IndexAction = "Index";
         public const string EditAction = "Edit";
+        public const string GetGroupsAction = "GetGroups";
     }
 }

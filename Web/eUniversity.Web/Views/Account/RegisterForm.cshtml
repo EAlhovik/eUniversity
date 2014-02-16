@@ -1,0 +1,41 @@
+﻿@model eUniversity.Business.ViewModels.Auth.RegisterFormViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Login.layout.cshtml";
+}
+<div id="signup-box" class="signup-box widget-box no-border visible">
+    <div class="widget-body">
+        <div class="widget-main" id="widget-main">
+            @{
+                if (Model.Profile == null)
+                {
+                    <!-- ko with: Register -->
+                    @(Html.EditorFor(m => m.Register))
+                    <!-- /ko -->
+                }
+                else
+                {
+                    <!-- ko with: Profile -->
+                    Html.RenderPartial("EditorTemplates/Profile", Model);
+                    <!-- /ko -->
+                }
+            }
+        </div>
+        <div class="toolbar center">
+
+            <a href="@Url.Action("Login","Account")" class="back-to-login-link">
+                <i class="icon-arrow-left"></i>
+                @eUniversity.Common.Strings.Resources.Common_BackToLogin
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/viewModels/account/registerViewModel.js"></script>
+    <script src="~/Scripts/viewModels/account/registerFormViewModel.js"></script>
+    <script src="~/Scripts/viewModels/account/profileViewModel.js"></script>
+    <script type="text/javascript">
+        ko.applyBindings(new RegisterFormViewModel(@Html.Raw(Json.Encode(Model))), $(".widget-main").get(0));
+    </script>
+}

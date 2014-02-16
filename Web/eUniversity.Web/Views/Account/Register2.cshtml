@@ -1,0 +1,99 @@
+﻿@using eUniversity.Web.Extensions
+@model eUniversity.Business.ViewModels.Auth.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Login.layout.cshtml";
+}
+
+<div id="signup-box" class="signup-box widget-box no-border visible">
+    <div class="widget-body">
+        <div class="widget-main">
+            <h4 class="header green lighter bigger">
+                <i class="icon-group blue"></i>
+                @eUniversity.Common.Strings.Resources.Register_NewUser
+            </h4>
+
+            <div class="space-6"></div>
+            <p>@eUniversity.Common.Strings.Resources.Register_EnterYourDetailsToBegin</p>
+            @using (Html.BeginForm(null, null, null, FormMethod.Post, new { id = "registerForm", Data_Bind = "deferredSubmit: register" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
+                <fieldset>
+                    <div class="form-group" data-bind="validationElement: UserName">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Login, Data_Bind = "value: UserName" })
+                                <i class="icon-user"></i>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="form-group" data-bind="validationElement: Password">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Password, Data_Bind = "value: Password" })
+                                <i class="icon-lock"></i>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="form-group" data-bind="validationElement: ConfirmPassword">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_RepeatPassword, Data_Bind = "value: ConfirmPassword" })
+                                <i class="icon-retweet"></i>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="form-group" data-bind="validationElement: ConfirmPassword">
+                        <label class="block clearfix">
+                            @Html.EnumDropDownListFor(m => m.AccountType, new { @class = "form-control" })
+                        </label>
+                    </div>
+
+                    @*<div class="form-group clearfix">
+                            @Html.LabelFor(m => m.Group, "Группа", new { @class = "control-label col-xs-12 col-sm-3 no-padding-left" })
+                            <div class="col-xs-12 col-sm-9">
+                                @Html.HiddenFor(m => m.Group, new
+                                {
+                                    style = "width: 200px",
+                                    Data_Bind = "selectedValue: Group,select2: {allowClear: true,  placeholder: 'Группа',multiple: false, ajax:{url:'" + @Url.Action(ActionNames.GetGroupsAction, ControllerNames.LoockupController) + "'  }},select2Options: {data: Group}"
+                                })
+                            </div>
+                        </div>*@
+
+                    <div class="space-24"></div>
+
+                    <div class="clearfix">
+                        <button type="reset" class="width-30 pull-left btn btn-sm">
+                            <i class="icon-refresh"></i>
+                            @eUniversity.Common.Strings.Resources.Common_Reset
+                        </button>
+
+                        <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+                            @eUniversity.Common.Strings.Resources.Common_Register
+                            <i class="icon-arrow-right icon-on-right"></i>
+                        </button>
+                    </div>
+                </fieldset>
+            }
+        </div>
+
+        <div class="toolbar center">
+
+            <a href="@Url.Action("Login","Account")" class="back-to-login-link">
+                <i class="icon-arrow-left"></i>
+                @eUniversity.Common.Strings.Resources.Common_BackToLogin
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/viewModels/"></script>
+    <script src="~/Scripts/viewModels/account/registerViewModel.js"></script>
+    <script type="text/javascript">
+        ko.applyBindings(new RegisterViewModel(@Html.Raw(Json.Encode(Model))), $("#registerForm").get(0));
+    </script>
+}

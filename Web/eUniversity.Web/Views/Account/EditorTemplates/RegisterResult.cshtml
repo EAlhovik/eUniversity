@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Login.layout.cshtml";
+}
+<div id="signup-box" class="signup-box widget-box no-border visible">
+    <div class="widget-body">
+        <div class="widget-main" id="widget-main">
+            <div>
+                <ul class="wizard-steps">
+                    <li data-target="#step1" class="complete">
+                        <span class="step">1</span>
+                        <span class="title">@eUniversity.Common.Strings.Resources.Common_Register</span>
+                    </li>
+
+                    <li data-target="#step2" class="complete">
+                        <span class="step">2</span>
+                        <span class="title">Профиль</span>
+                    </li>
+                </ul>
+            </div>
+
+            <hr>
+            <div class="step-content position-relative" id="step-container">
+                <div class="step-pane active">
+                    <div class="center">
+                        <h3 class="green">Congrats!</h3>
+                        Your product is ready to ship! Click finish to continue!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar center">
+
+            <a href="@Url.Action("Login","Account")" class="back-to-login-link">
+                <i class="icon-arrow-left"></i>
+                @eUniversity.Common.Strings.Resources.Common_BackToLogin
+            </a>
+        </div>
+    </div>
+</div>

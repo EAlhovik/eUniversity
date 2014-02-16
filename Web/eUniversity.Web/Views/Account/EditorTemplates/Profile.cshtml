@@ -1,17 +1,18 @@
-﻿@using eUniversity.Web.Extensions
-@model eUniversity.Business.ViewModels.Auth.RegisterViewModel
+﻿@using eUniversity.Web.Infrastructure.Constants
+@model eUniversity.Business.ViewModels.Auth.RegisterFormViewModel
 @{
     ViewBag.Title = "Register";
+    Layout = null;
 }
 
 <div>
     <ul class="wizard-steps">
-        <li data-target="#step1" class="active">
+        <li data-target="#step1" class="complete">
             <span class="step">1</span>
             <span class="title">@eUniversity.Common.Strings.Resources.Common_Register</span>
         </li>
 
-        <li data-target="#step2">
+        <li data-target="#step2" class="active">
             <span class="step">2</span>
             <span class="title">Профиль</span>
         </li>
@@ -27,35 +28,36 @@
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
             <fieldset>
-                <div class="form-group" data-bind="validationElement: UserName">
+                <div class="form-group" data-bind="validationElement: FirstName">
                     <label class="block clearfix">
                         <span class="block input-icon input-icon-right">
-                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Login, Data_Bind = "value: UserName" })
+                            @Html.TextBoxFor(m => m.Profile.FirstName, new { @class = "form-control", placeholder = "имя", Data_Bind = "value: FirstName" })
                             <i class="icon-user"></i>
                         </span>
                     </label>
                 </div>
 
-                <div class="form-group" data-bind="validationElement: Password">
+                <div class="form-group" data-bind="validationElement: LastName">
                     <label class="block clearfix">
                         <span class="block input-icon input-icon-right">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Password, Data_Bind = "value: Password" })
+                            @Html.TextBoxFor(m => m.Profile.LastName, new { @class = "form-control", placeholder = "фамилия", Data_Bind = "value: LastName" })
                             <i class="icon-lock"></i>
                         </span>
                     </label>
                 </div>
 
-                <div class="form-group" data-bind="validationElement: ConfirmPassword">
+                <div class="form-group clearfix">
                     <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_RepeatPassword, Data_Bind = "value: ConfirmPassword" })
-                            <i class="icon-retweet"></i>
-                        </span>
-                    </label>
-                </div>
-                <div class="form-group" data-bind="validationElement: ConfirmPassword">
-                    <label class="block clearfix">
-                        @Html.EnumDropDownListFor(m => m.AccountType, new { @class = "form-control" })
+                        @*@Html.HiddenFor(m => m.Profile.Group, new
+                            {
+                                style = "width: 275px",
+                                Data_Bind = "selectedValue: Group,select2: {allowClear: true,  placeholder: 'Группа',multiple: false, ajax:{url:'" + @Url.Action(ActionNames.GetGroupsAction, ControllerNames.LoockupController) + "'  }},select2Options: {data: Group}"
+                            })*@
+                        <input data-bind="selectedValue: Group,select2: {allowClear: true,  placeholder: 'Группа',multiple: false, ajax:{url:'/Loockup/GetGroups'  }},select2Options: {data: Group}" style="width: 275px" type="hidden">
+                        <!-- ko if: Group -->
+                        @Html.HiddenFor(m => m.Profile.Group.Id, new { Data_bind = "value: Group().Id" })
+                        @Html.HiddenFor(m => m.Profile.Group.Text, new { Data_bind = "value: Group.Text" })
+                        <!-- /ko -->
                     </label>
                 </div>
 
@@ -73,6 +75,7 @@
                     </button>
                 </div>
             </fieldset>
+            @HiddenModel()
         }
     </div>
 
@@ -80,3 +83,11 @@
     </div>
 
 </div>
+
+@helper HiddenModel()
+{
+    @Html.HiddenFor(m => m.Register.UserName)
+    @Html.HiddenFor(m => m.Register.Password)
+    @Html.HiddenFor(m => m.Register.ConfirmPassword)
+    @Html.HiddenFor(m => m.Register.AccountType)
+}

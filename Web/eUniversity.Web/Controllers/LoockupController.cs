@@ -21,7 +21,7 @@ namespace eUniversity.Web.Controllers
             return Json(loockupService.GetProfessors(term), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpGet, AllowAnonymous]
         public JsonResult GetGroups(string term)
         {
             return Json(loockupService.GetGroups(term), JsonRequestBehavior.AllowGet);

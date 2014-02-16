@@ -53,8 +53,25 @@ namespace eUniversity.Web.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Register
+        [AllowAnonymous]
+        public ActionResult RegisterForm()
+        {
+            return View(new RegisterFormViewModel
+            {
+                Register = new RegisterViewModel()
+            });
+        }
+
+        [HttpPost, AllowAnonymous]
+        public ActionResult RegisterForm(RegisterFormViewModel viewModel)
+        {
+            if (viewModel.Profile == null)
+            {
+                viewModel.Profile = new ProfileViewModel();
+                return View(viewModel);
+            }
+            return View("EditorTemplates/RegisterResult");
+        }
 
         [HttpPost]
         [AllowAnonymous]
@@ -67,8 +84,8 @@ namespace eUniversity.Web.Controllers
                 try
                 {
                     membershipManagementService.RegisterUser(model);
-//                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-//                    WebSecurity.Login(model.UserName, model.Password);
+                    //                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    //                    WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)

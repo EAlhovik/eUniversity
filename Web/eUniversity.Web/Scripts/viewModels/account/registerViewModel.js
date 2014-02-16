@@ -1,6 +1,6 @@
 ﻿function RegisterViewModel(serverModel) {
     var self = this;
-
+    
     self.UserName = ko.observable().extend({ required: true });
     self.Password = ko.observable().extend({ required: true });
     self.ConfirmPassword = ko.observable().extend(
@@ -12,7 +12,9 @@
             message: 'Passwords do not match.',
             params: self.Password
         }
-    });
+        });
+    self.Group = ko.observable();
+
     
     ko.mapping.fromJS(serverModel, {}, self);
     
