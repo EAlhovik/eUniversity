@@ -46,14 +46,14 @@
                     </label>
                 </div>
 
-                <div class="form-group clearfix">
+                <div class="form-group clearfix" data-bind="validationElement: Group">
                     <label class="block clearfix">
                         @*@Html.HiddenFor(m => m.Profile.Group, new
-                            {
-                                style = "width: 275px",
-                                Data_Bind = "selectedValue: Group,select2: {allowClear: true,  placeholder: 'Группа',multiple: false, ajax:{url:'" + @Url.Action(ActionNames.GetGroupsAction, ControllerNames.LoockupController) + "'  }},select2Options: {data: Group}"
-                            })*@
-                        <input data-bind="selectedValue: Group,select2: {allowClear: true,  placeholder: 'Группа',multiple: false, ajax:{url:'/Loockup/GetGroups'  }},select2Options: {data: Group}" style="width: 275px" type="hidden">
+                {
+                    style = "width: 275px",
+                    Data_Bind = "selectedValue: Group,select2: {allowClear: true,  placeholder: 'Группа',multiple: false, ajax:{url:'" + @Url.Action(ActionNames.GetGroupsAction, ControllerNames.LoockupController) + "'  }},select2Options: {data: Group}"
+                })*@
+                        <input data-bind="selectedValue: Group, select2: { placeholder: 'Группа',multiple: false, ajax:{url:'/Loockup/GetGroups'  }},select2Options: {data: Group}" style="width: 275px" type="hidden">
                         <!-- ko if: Group -->
                         @Html.HiddenFor(m => m.Profile.Group.Id, new { Data_bind = "value: Group().Id" })
                         @Html.HiddenFor(m => m.Profile.Group.Text, new { Data_bind = "value: Group.Text" })
