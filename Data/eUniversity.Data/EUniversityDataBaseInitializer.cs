@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using eUniversity.Business.Domain.Entities.Base;
 using eUniversity.Business.Domain.Entities.eUniversity;
-using eUniversity.Business.Helpers.Enums;
 
 namespace eUniversity.Data
 {

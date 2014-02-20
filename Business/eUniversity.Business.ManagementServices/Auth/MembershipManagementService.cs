@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.Base;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers.Enums;
 using eUniversity.Business.ViewModels.Auth;

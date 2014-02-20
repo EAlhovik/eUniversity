@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="eUniversity.Business.Domain.Entities">
-      <HintPath>..\Domain\eUniversity.Business.Domain.Entities\bin\Debug\eUniversity.Business.Domain.Entities.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,12 +41,16 @@
   <ItemGroup>
     <Compile Include="CollectionModificationResolver.cs" />
     <Compile Include="Enums\AccountTypeEnum.cs" />
-    <Compile Include="Enums\GenderType.cs" />
     <Compile Include="Enums\ProfileTabEnum.cs" />
-    <Compile Include="Enums\RoleEnum.cs" />
     <Compile Include="Enums\SemesterEnum.cs" />
     <Compile Include="Enums\SubjectTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\eUniversity.Business.Domain.Entities\eUniversity.Business.Domain.Entities.csproj">
+      <Project>{800E2802-2B23-48D5-902A-643A1266ECFE}</Project>
+      <Name>eUniversity.Business.Domain.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

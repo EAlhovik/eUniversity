@@ -1,4 +1,4 @@
-﻿namespace eUniversity.Business.Helpers.Enums
+﻿namespace eUniversity.Business.Domain.Entities.Base
 {
     /// <summary>
     /// Enumerater genders

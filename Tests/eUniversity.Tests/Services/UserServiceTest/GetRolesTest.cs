@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.Base;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers.Enums;
 using eUniversity.Business.Services.Auth;

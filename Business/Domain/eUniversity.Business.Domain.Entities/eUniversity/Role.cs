@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.Base;
-using eUniversity.Business.Helpers.Enums;
 
 namespace eUniversity.Business.Domain.Entities.eUniversity
 {
