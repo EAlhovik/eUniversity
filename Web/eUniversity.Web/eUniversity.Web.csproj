@@ -196,6 +196,7 @@
     <Compile Include="Controllers\SpecialityController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
     <Compile Include="Controllers\CurriculumController.cs" />
+    <Compile Include="Controllers\ThemeController.cs" />
     <Compile Include="Extensions\CustomRoleProvider.cs" />
     <Compile Include="Extensions\HtmlHelpers.cs" />
     <Compile Include="Global.asax.cs">
@@ -285,6 +286,7 @@
     <Content Include="Scripts\viewModels\speciality\specialityViewModel.js" />
     <Content Include="Scripts\viewModels\specialization\specializationRowViewModel.js" />
     <Content Include="Scripts\viewModels\specialization\specializationViewModel.js" />
+    <Content Include="Scripts\viewModels\subject\subjectRowViewModel.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -341,6 +343,7 @@
     <Content Include="Views\Account\EditorTemplates\Profile.cshtml" />
     <Content Include="Views\Account\EditorTemplates\RegisterViewModel.cshtml" />
     <Content Include="Views\Account\EditorTemplates\RegisterResult.cshtml" />
+    <Content Include="Views\Theme\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

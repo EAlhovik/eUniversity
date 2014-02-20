@@ -42,6 +42,7 @@
     <Compile Include="ICurriculumRepository.cs" />
     <Compile Include="IEUniversityUow.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="ISubjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

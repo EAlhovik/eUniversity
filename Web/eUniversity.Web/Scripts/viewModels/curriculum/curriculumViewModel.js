@@ -62,7 +62,7 @@
         $.ajax({
             url: '/Curriculum/Edit',
             type: "POST",
-            data: JSON.stringify({ curriculum: ko.mapping.toJS(self) }),
+            data: JSON.stringify({ viewModel: ko.mapping.toJS(self) }),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (data) {

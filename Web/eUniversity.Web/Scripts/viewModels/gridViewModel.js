@@ -15,8 +15,8 @@
     ko.mapping.fromJS(serverModel, mappingOverride, self);
     
     self.SelectedRows = ko.computed(function () {
-        return ko.utils.arrayFilter(self.Rows(), function (user) {
-            return user.IsSelected();
+        return ko.utils.arrayFilter(self.Rows(), function (row) {
+            return row.IsSelected();
         });
     });
     

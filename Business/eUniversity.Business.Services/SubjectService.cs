@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Services.Base;
@@ -9,7 +10,12 @@ namespace eUniversity.Business.Services
 {
     public class SubjectService :BaseService<Subject>, ISubjectService
     {
-        public SubjectService(IRepository<Subject> repository) : base(repository)
+        private ISubjectRepository SubjectRepository
+        {
+            get { return (ISubjectRepository)Repository; }
+        }
+        public SubjectService(ISubjectRepository repository)
+            : base(repository)
         {
         }
         
@@ -23,6 +29,11 @@ namespace eUniversity.Business.Services
         protected override SelectedItemModel CreateSelectedItem(Subject item)
         {
             throw new NotImplementedException();
+        }
+
+        public override IEnumerable<Subject> All()
+        {
+            return SubjectRepository.GetSubjects();
         }
 
         #endregion

@@ -14,6 +14,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public virtual Specialization Specialization { get; set; }
 
         public long SpecializationId { get; set; }
+
         public DateTime DateOfEnactment { get; set; }
     }
 }

@@ -72,11 +72,11 @@
 
             <ul class="submenu">
                 <li>
-                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Specialization", ajaxOptions)
+                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", ActionNames.EditAction, "Specialization", ajaxOptions)
                 </li>
 
                 <li>
-                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специализаций", "Index", "Specialization", ajaxOptions)
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специализаций", ActionNames.IndexAction, "Specialization", ajaxOptions)
                 </li>
             </ul>
         </li>
@@ -87,11 +87,11 @@
             </a>
             <ul class="submenu">
                 <li>
-                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", ControllerNames.GroupController, ajaxOptions)
+                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", ActionNames.EditAction, ControllerNames.GroupController, ajaxOptions)
                 </li>
 
                 <li>
-                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Групп", "Index", ControllerNames.GroupController, ajaxOptions)
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Групп", ActionNames.IndexAction, ControllerNames.GroupController, ajaxOptions)
                 </li>
             </ul>
         </li>
@@ -102,11 +102,22 @@
             </a>
             <ul class="submenu">
                 <li>
-                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", "Edit", ControllerNames.CurriculumController, ajaxOptions)
+                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новый", ActionNames.EditAction, ControllerNames.CurriculumController, ajaxOptions)
                 </li>
 
                 <li>
-                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", "Index", ControllerNames.CurriculumController, ajaxOptions)
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Планов", ActionNames.IndexAction, ControllerNames.CurriculumController, ajaxOptions)
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-list-alt"></i>
+                <span class='menu-text'> Темы </span><b class="arrow icon-angle-down"></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Учебных Предметов", ActionNames.IndexAction, ControllerNames.ThemeController, ajaxOptions)
                 </li>
             </ul>
         </li>

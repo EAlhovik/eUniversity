@@ -11,5 +11,6 @@
         public const string GroupController = "Group";
         public const string SpecializationController = "Specialization";
         public const string SpecialityController = "Speciality";
+        public const string ThemeController = "Theme";
     }
 }

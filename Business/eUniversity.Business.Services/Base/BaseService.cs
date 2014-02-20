@@ -86,7 +86,7 @@ namespace eUniversity.Business.Services.Base
         /// Alls this instance.
         /// </summary>
         /// <returns>All entities</returns>
-        public IEnumerable<T> All()
+        public virtual IEnumerable<T> All()
         {
             return Repository.All();
         }

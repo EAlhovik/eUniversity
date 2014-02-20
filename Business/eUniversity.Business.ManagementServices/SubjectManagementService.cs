@@ -5,6 +5,7 @@ using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Curriculum;
+using eUniversity.Business.ViewModels.Subject;
 
 namespace eUniversity.Business.ManagementServices
 {
@@ -21,6 +22,13 @@ namespace eUniversity.Business.ManagementServices
         }
 
         #region ISubjectManagementService Members
+
+        public IEnumerable<SubjectRowViewModel> GetRows()
+        {
+            var subjects = subjectService.All();
+            var viewModels = Mapper.Map<IEnumerable<Subject>, IEnumerable<SubjectRowViewModel>>(subjects);
+            return viewModels;
+        }
 
         public void Save(IEnumerable<SubjectViewModel> subjects, Semester semester)
         {

@@ -8,6 +8,7 @@ using eUniversity.Business.ViewModels.Group;
 using eUniversity.Business.ViewModels.Membership;
 using eUniversity.Business.ViewModels.Speciality;
 using eUniversity.Business.ViewModels.Specialization;
+using eUniversity.Business.ViewModels.Subject;
 using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.AutoMapper.Profiles
@@ -163,7 +164,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
             Mapper.CreateMap<Curriculum, CurriculumRowViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.DateOfEnactment, opt => opt.MapFrom(m => m.DateOfEnactment.ToShortDateString()))
-                .ForMember(vm => vm.SpecializatoinName, opt => opt.MapFrom(m => "dada"))
+                .ForMember(vm => vm.SpecializatoinName, opt => opt.MapFrom(m => universityProfileService.CreateSpecialization(m.SpecializationId).Text))
                 ;
 
             #endregion
@@ -186,6 +187,14 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             #region Subject
 
+            Mapper.CreateMap<Subject, SubjectRowViewModel>()
+                .ForMember(vm => vm.Id  , opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.SubjectName  , opt => opt.MapFrom(m => m.Name))
+                .ForMember(vm => vm.SemesterNumber  , opt => opt.MapFrom(m => m.Semester.Sequential.ToString()))
+                .ForMember(vm => vm.CurriculumName  , opt => opt.MapFrom(m => m.Semester.Curriculum.DateOfEnactment.ToShortDateString()))
+                .ForMember(vm => vm.SpecializationName, opt => opt.MapFrom(m => universityProfileService.CreateSpecialization(m.Semester.Curriculum.SpecializationId).Text))
+                ;
+
             Mapper.CreateMap<Subject, SubjectViewModel>()
                 .ForMember(vm => vm.Subject, opt => opt.MapFrom(m => m))
                 .ForMember(vm => vm.Assignee, opt => opt.MapFrom(m => universityProfileService.CreateAssignee(m)))
@@ -201,6 +210,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                   .ForMember(m => m.Themes, opt => opt.Ignore())
                   .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Subject.Text))
                 ;
+
 
             #endregion
         }

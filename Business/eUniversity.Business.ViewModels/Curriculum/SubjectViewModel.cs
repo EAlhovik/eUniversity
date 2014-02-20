@@ -1,5 +1,4 @@
-﻿using eUniversity.Business.Helpers;
-using eUniversity.Business.Helpers.Enums;
+﻿using eUniversity.Business.Helpers.Enums;
 
 namespace eUniversity.Business.ViewModels.Curriculum
 {
