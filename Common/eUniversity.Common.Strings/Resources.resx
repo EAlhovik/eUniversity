@@ -130,7 +130,7 @@
     <value>Не Подтвержденный</value>
   </data>
   <data name="Common_Login" xml:space="preserve">
-    <value>Логин</value>
+    <value>Email</value>
   </data>
   <data name="Common_LogOut" xml:space="preserve">
     <value>Выйти</value>

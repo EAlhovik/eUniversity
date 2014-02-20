@@ -1,6 +1,6 @@
 ﻿function LoginViewModel(serverModel) {
     var self = this;
-    self.UserName = ko.observable().extend({ required: true });
+    self.Email = ko.observable().extend({ required: true, email: true });
     self.Password = ko.observable().extend({ required: true });
     self.RememberMe = ko.observable();
 

@@ -127,7 +127,7 @@
     <value>Draft</value>
   </data>
   <data name="Common_Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Email</value>
   </data>
   <data name="Common_LogOut" xml:space="preserve">
     <value>Logout</value>

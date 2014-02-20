@@ -13,7 +13,7 @@ namespace eUniversity.Data.Configuration
             this.HasOptional(user => user.Profile).WithRequired(person => person.User);
 
             // Properties
-            this.Property(t => t.UserName)
+            this.Property(t => t.Email)
                 .IsRequired()
                 .HasMaxLength(256);
 

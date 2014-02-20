@@ -1,7 +1,7 @@
 ﻿function RegisterViewModel(serverModel) {
     var self = this;
     
-    self.UserName = ko.observable().extend({ required: true });
+    self.Email = ko.observable().extend({ required: true, email: true });
     self.Password = ko.observable().extend({ required: true });
     self.ConfirmPassword = ko.observable().extend(
         {
@@ -13,8 +13,7 @@
             params: self.Password
         }
         });
-    self.Group = ko.observable();
-
+    self.AccountType = ko.observable();
     
     ko.mapping.fromJS(serverModel, {}, self);
     

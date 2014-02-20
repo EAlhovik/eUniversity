@@ -71,9 +71,9 @@ namespace eUniversity.Business.ManagementServices.Auth
         /// <returns> true if the supplied user name and password are valid; otherwise, false. </returns>
         public bool LogIn(LoginViewModel loginViewModel)
         {
-            if (userService.ValidateUser(loginViewModel.UserName, loginViewModel.Password))
+            if (userService.ValidateUser(loginViewModel.Email, loginViewModel.Password))
             {
-                formsAuthenticationService.SetAuthCookie(loginViewModel.UserName, loginViewModel.RememberMe);
+                formsAuthenticationService.SetAuthCookie(loginViewModel.Email, loginViewModel.RememberMe);
                 return true;
             }
             return false;
@@ -91,19 +91,97 @@ namespace eUniversity.Business.ManagementServices.Auth
         /// Registers the user.
         /// </summary>
         /// <param name="registerViewModel">The register view model.</param>
-        public void RegisterUser(RegisterViewModel registerViewModel)
+        /// <returns>
+        ///   <c>true</c> if user successful registered; otherwise, <c>false</c>.
+        /// </returns>
+        public bool Register(RegisterFormViewModel registerViewModel)
+        {
+            if (Validate(registerViewModel))
+            {
+                RegisterUser(registerViewModel.Register);
+                CreateProfile(registerViewModel.Profile);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Validates the specified register view model.
+        /// </summary>
+        /// <param name="registerViewModel">The register view model.</param>
+        /// <returns>
+        ///    <c>true</c> if Register and Profile valid; otherwise, <c>false</c>.
+        /// </returns>
+        public bool Validate(RegisterFormViewModel registerViewModel)
+        {
+            bool isValid = ValidateRegister(registerViewModel);
+            if (isValid)
+            {
+                isValid = ValidateProfile(registerViewModel);
+            }
+            registerViewModel.Errors = errors;
+            return isValid;
+        }
+
+        #endregion
+
+        private List<string> errors = new List<string>();
+
+        private bool ValidateProfile(RegisterFormViewModel registerViewModel)
+        {
+            if (registerViewModel.Profile == null)
+            {
+                registerViewModel.Profile = new ProfileViewModel();
+                return false;
+            }
+            if (string.IsNullOrEmpty(registerViewModel.Profile.FirstName))
+            {
+                
+            }
+            if (string.IsNullOrEmpty(registerViewModel.Profile.LastName))
+            {
+                
+            }
+            if (registerViewModel.Register.AccountType == AccountTypeEnum.Student)
+            {
+                if (registerViewModel.Profile.Group == null)
+                {
+                    
+                }
+                else
+                {
+                    //todo: additional group checks, if need
+                }
+            }
+            return !errors.Any();
+        }
+
+        private bool ValidateRegister(RegisterFormViewModel registerViewModel)
+        {
+            if (string.IsNullOrEmpty(registerViewModel.Register.Email))
+            {
+                
+            }
+            if (string.IsNullOrEmpty(registerViewModel.Register.Password))
+            {
+                
+            }
+            if(!registerViewModel.Register.Password.Equals(registerViewModel.Register.ConfirmPassword))
+            {
+
+            }
+            return !errors.Any();
+        }
+
+        private void RegisterUser(RegisterViewModel registerViewModel)
         {
             var user = Mapper.Map<RegisterViewModel, User>(registerViewModel);
             userService.RegisterUser(user, registerViewModel.AccountType);
             eUniversityUow.Commit();
         }
 
-        public bool Validate(RegisterViewModel registerViewModel)
+        private void CreateProfile(ProfileViewModel profile)
         {
-            throw new NotImplementedException();
         }
-        
-        #endregion
-
     }
 }

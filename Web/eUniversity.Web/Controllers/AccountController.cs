@@ -62,15 +62,19 @@ namespace eUniversity.Web.Controllers
             });
         }
 
-        [HttpPost, AllowAnonymous]
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult RegisterForm(RegisterFormViewModel viewModel)
         {
-            if (viewModel.Profile == null)
+            if (membershipManagementService.Validate(viewModel))
             {
-                viewModel.Profile = new ProfileViewModel();
-                return View(viewModel);
+                // todo: register
+                membershipManagementService.Register(viewModel);
+                return View("EditorTemplates/RegisterResult");
             }
-            return View("EditorTemplates/RegisterResult");
+            return View(viewModel);
+
         }
 
         [HttpPost]
@@ -83,7 +87,7 @@ namespace eUniversity.Web.Controllers
                 // Attempt to register the user
                 try
                 {
-                    membershipManagementService.RegisterUser(model);
+//                    membershipManagementService.RegisterUser(model); TODO: REMOVE
                     //                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     //                    WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");

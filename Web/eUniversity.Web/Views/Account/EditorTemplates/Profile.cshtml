@@ -2,91 +2,64 @@
 @model eUniversity.Business.ViewModels.Auth.RegisterFormViewModel
 @{
     ViewBag.Title = "Register";
-    Layout = null;
 }
 
-<div>
-    <ul class="wizard-steps">
-        <li data-target="#step1" class="complete">
-            <span class="step">1</span>
-            <span class="title">@eUniversity.Common.Strings.Resources.Common_Register</span>
-        </li>
+<div class="step-pane active">
+    <p>@eUniversity.Common.Strings.Resources.Register_EnterYourDetailsToBegin</p>
+    @using (Html.BeginForm(null, null, null, FormMethod.Post, new { id = "registerForm", Data_Bind = "deferredSubmit: register" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
+        <fieldset>
+            <div class="form-group" data-bind="validationElement: FirstName">
+                <label class="block clearfix">
+                    <span class="block input-icon input-icon-right">
+                        @Html.TextBoxFor(m => m.Profile.FirstName, new { @class = "form-control", placeholder = "имя", Data_Bind = "value: FirstName" })
+                        <i class="icon-user"></i>
+                    </span>
+                </label>
+            </div>
 
-        <li data-target="#step2" class="active">
-            <span class="step">2</span>
-            <span class="title">Профиль</span>
-        </li>
-    </ul>
-</div>
+            <div class="form-group" data-bind="validationElement: LastName">
+                <label class="block clearfix">
+                    <span class="block input-icon input-icon-right">
+                        @Html.TextBoxFor(m => m.Profile.LastName, new { @class = "form-control", placeholder = "фамилия", Data_Bind = "value: LastName" })
+                        <i class="icon-lock"></i>
+                    </span>
+                </label>
+            </div>
 
-<hr>
-<div class="step-content position-relative" id="step-container">
-    <div class="step-pane active" id="step1">
-        <p>@eUniversity.Common.Strings.Resources.Register_EnterYourDetailsToBegin</p>
-        @using (Html.BeginForm(null, null, null, FormMethod.Post, new { id = "registerForm", Data_Bind = "deferredSubmit: register" }))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
-            <fieldset>
-                <div class="form-group" data-bind="validationElement: FirstName">
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.TextBoxFor(m => m.Profile.FirstName, new { @class = "form-control", placeholder = "имя", Data_Bind = "value: FirstName" })
-                            <i class="icon-user"></i>
-                        </span>
-                    </label>
-                </div>
+            <div class="form-group clearfix" data-bind="validationElement: Group, visible: IsStudent">
+                <label class="block clearfix">
+                    <input data-bind="selectedValue: Group, select2: { placeholder: 'Группа', multiple: false, ajax: { url: '/Loockup/GetGroups' } }, select2Options: { data: Group }" style="width: 275px" type="hidden">
+                    <!-- ko if: Group -->
+                    @Html.HiddenFor(m => m.Profile.Group.Id, new { Data_bind = "value: Group().Id" })
+                    @Html.HiddenFor(m => m.Profile.Group.Text, new { Data_bind = "value: Group.Text" })
+                    <!-- /ko -->
+                </label>
+            </div>
 
-                <div class="form-group" data-bind="validationElement: LastName">
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.TextBoxFor(m => m.Profile.LastName, new { @class = "form-control", placeholder = "фамилия", Data_Bind = "value: LastName" })
-                            <i class="icon-lock"></i>
-                        </span>
-                    </label>
-                </div>
+            <div class="space-24"></div>
 
-                <div class="form-group clearfix" data-bind="validationElement: Group">
-                    <label class="block clearfix">
-                        @*@Html.HiddenFor(m => m.Profile.Group, new
-                {
-                    style = "width: 275px",
-                    Data_Bind = "selectedValue: Group,select2: {allowClear: true,  placeholder: 'Группа',multiple: false, ajax:{url:'" + @Url.Action(ActionNames.GetGroupsAction, ControllerNames.LoockupController) + "'  }},select2Options: {data: Group}"
-                })*@
-                        <input data-bind="selectedValue: Group, select2: { placeholder: 'Группа',multiple: false, ajax:{url:'/Loockup/GetGroups'  }},select2Options: {data: Group}" style="width: 275px" type="hidden">
-                        <!-- ko if: Group -->
-                        @Html.HiddenFor(m => m.Profile.Group.Id, new { Data_bind = "value: Group().Id" })
-                        @Html.HiddenFor(m => m.Profile.Group.Text, new { Data_bind = "value: Group.Text" })
-                        <!-- /ko -->
-                    </label>
-                </div>
+            <div class="clearfix">
+                <button type="reset" class="width-30 pull-left btn btn-sm">
+                    <i class="icon-refresh"></i>
+                    @eUniversity.Common.Strings.Resources.Common_Reset
+                </button>
 
-                <div class="space-24"></div>
-
-                <div class="clearfix">
-                    <button type="reset" class="width-30 pull-left btn btn-sm">
-                        <i class="icon-refresh"></i>
-                        @eUniversity.Common.Strings.Resources.Common_Reset
-                    </button>
-
-                    <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
-                        @eUniversity.Common.Strings.Resources.Common_Register
-                        <i class="icon-arrow-right icon-on-right"></i>
-                    </button>
-                </div>
-            </fieldset>
-            @HiddenModel()
-        }
-    </div>
-
-    <div class="step-pane" id="step2">
-    </div>
-
+                <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+                    @eUniversity.Common.Strings.Resources.Common_Register
+                    <i class="icon-arrow-right icon-on-right"></i>
+                </button>
+            </div>
+        </fieldset>
+        @HiddenModel()
+    }
 </div>
 
 @helper HiddenModel()
 {
-    @Html.HiddenFor(m => m.Register.UserName)
+    @Html.HiddenFor(m => m.Register.Email)
     @Html.HiddenFor(m => m.Register.Password)
     @Html.HiddenFor(m => m.Register.ConfirmPassword)
     @Html.HiddenFor(m => m.Register.AccountType)

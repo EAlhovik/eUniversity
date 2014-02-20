@@ -20,11 +20,11 @@ namespace eUniversity.Tests.Services.UserServiceTest
             var repository = new Mock<IRepository<User>>();
             var data = new List<User>
             {
-                new User {UserName = "John", Password = "wdasd"},
-                new User {UserName = "Jane", Password = "Doe"},
-                new User {UserName = "John", Password = "Smith"},
-                new User {UserName = "Matthew", Password = "MacDonald"},
-                new User {UserName = "Andrew", Password = "MacDonald"}
+                new User {Email = "John", Password = "wdasd"},
+                new User {Email = "Jane", Password = "Doe"},
+                new User {Email = "John", Password = "Smith"},
+                new User {Email = "Matthew", Password = "MacDonald"},
+                new User {Email = "Andrew", Password = "MacDonald"}
             };
             repository.Setup(r => r.All()).Returns(data.AsQueryable());
 

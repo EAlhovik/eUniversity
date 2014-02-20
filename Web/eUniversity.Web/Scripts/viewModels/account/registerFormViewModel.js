@@ -3,6 +3,7 @@
 
     self.Register = ko.observable();
     self.Profile = ko.observable();
+    self.Errors = ko.observableArray();
 
     var mappingOverride =
     {
@@ -15,7 +16,7 @@
         'Profile':
         {
             create: function (options) {
-                return new window.ProfileViewModel(options.data);
+                return new window.ProfileViewModel(options.data, options.parent.Register().AccountType);
             }
         }
     };

@@ -17,9 +17,9 @@ namespace eUniversity.Business.Domain.Contracts
 
         void LogOut();
 
-        void RegisterUser(RegisterViewModel registerViewModel);
+        bool Register(RegisterFormViewModel registerViewModel);
 
-        bool Validate(RegisterViewModel registerViewModel);
+        bool Validate(RegisterFormViewModel registerViewModel);
 
         IEnumerable<UserRowViewModel> GetUsers();
         void ApproveUsers(IEnumerable<long> userIds);

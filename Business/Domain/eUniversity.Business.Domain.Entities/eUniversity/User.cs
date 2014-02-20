@@ -6,7 +6,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
 {
     public class User : Entity, IHasCreation
     {
-        public string UserName { get; set; }
+        public string Email { get; set; }
         //        public System.DateTime LastActivityDate { get; set; }
         public virtual ICollection<Role> Roles { get; set; }
         public string Password { get; set; }

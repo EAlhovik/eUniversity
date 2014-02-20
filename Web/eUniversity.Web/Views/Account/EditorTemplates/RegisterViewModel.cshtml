@@ -1,80 +1,58 @@
-﻿
-@using eUniversity.Web.Extensions
+﻿@using eUniversity.Web.Extensions
 @model eUniversity.Business.ViewModels.Auth.RegisterViewModel
 
-<div data-target="#step-container">
-    <ul class="wizard-steps">
-        <li data-target="#step1" class="active">
-            <span class="step">1</span>
-            <span class="title">@eUniversity.Common.Strings.Resources.Common_Register</span>
-        </li>
+<div class="step-pane active">
+    <p>@eUniversity.Common.Strings.Resources.Register_EnterYourDetailsToBegin</p>
+    @using (Html.BeginForm(null, null, null, FormMethod.Post, new { id = "registerForm", Data_Bind = "deferredSubmit: register" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
+        <fieldset>
+            <div class="form-group" data-bind="validationElement: Email">
+                <label class="block clearfix">
+                    <span class="block input-icon input-icon-right">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Login, Data_Bind = "value: Email" })
+                        <i class="icon-user"></i>
+                    </span>
+                </label>
+            </div>
 
-        <li data-target="#step2">
-            <span class="step">2</span>
-            <span class="title">Профиль</span>
-        </li>
-    </ul>
-</div>
+            <div class="form-group" data-bind="validationElement: Password">
+                <label class="block clearfix">
+                    <span class="block input-icon input-icon-right">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Password, Data_Bind = "value: Password" })
+                        <i class="icon-lock"></i>
+                    </span>
+                </label>
+            </div>
 
-<hr>
-<div class="step-content position-relative" id="step-container">
-    <div class="step-pane active" id="step1">
-        <p>@eUniversity.Common.Strings.Resources.Register_EnterYourDetailsToBegin</p>
-        @using (Html.BeginForm(null, null, null, FormMethod.Post, new { id = "registerForm", Data_Bind = "deferredSubmit: register" }))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
-            <fieldset>
-                <div class="form-group" data-bind="validationElement: UserName">
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Login, Data_Bind = "value: UserName" })
-                            <i class="icon-user"></i>
-                        </span>
-                    </label>
-                </div>
+            <div class="form-group" data-bind="validationElement: ConfirmPassword">
+                <label class="block clearfix">
+                    <span class="block input-icon input-icon-right">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_RepeatPassword, Data_Bind = "value: ConfirmPassword" })
+                        <i class="icon-retweet"></i>
+                    </span>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="block clearfix">
+                    @Html.EnumDropDownListFor(m => m.AccountType, new { @class = "form-control", Data_Bind = "value: AccountType" })
+                </label>
+            </div>
 
-                <div class="form-group" data-bind="validationElement: Password">
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Password, Data_Bind = "value: Password" })
-                            <i class="icon-lock"></i>
-                        </span>
-                    </label>
-                </div>
+            <div class="space-24"></div>
 
-                <div class="form-group" data-bind="validationElement: ConfirmPassword">
-                    <label class="block clearfix">
-                        <span class="block input-icon input-icon-right">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_RepeatPassword, Data_Bind = "value: ConfirmPassword" })
-                            <i class="icon-retweet"></i>
-                        </span>
-                    </label>
-                </div>
-                <div class="form-group" data-bind="validationElement: ConfirmPassword">
-                    <label class="block clearfix">
-                        @Html.EnumDropDownListFor(m => m.AccountType, new { @class = "form-control" })
-                    </label>
-                </div>
+            <div class="clearfix">
+                <button type="reset" class="width-30 pull-left btn btn-sm">
+                    <i class="icon-refresh"></i>
+                    @eUniversity.Common.Strings.Resources.Common_Reset
+                </button>
 
-                <div class="space-24"></div>
-
-                <div class="clearfix">
-                    <button type="reset" class="width-30 pull-left btn btn-sm">
-                        <i class="icon-refresh"></i>
-                        @eUniversity.Common.Strings.Resources.Common_Reset
-                    </button>
-
-                    <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
-                        @eUniversity.Common.Strings.Resources.Common_Register
-                        <i class="icon-arrow-right icon-on-right"></i>
-                    </button>
-                </div>
-            </fieldset>
-        }
-    </div>
-
-    <div class="step-pane" id="step2">
-    </div>
-
+                <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+                    @eUniversity.Common.Strings.Resources.Common_Register
+                    <i class="icon-arrow-right icon-on-right"></i>
+                </button>
+            </div>
+        </fieldset>
+    }
 </div>

@@ -50,7 +50,7 @@ namespace eUniversity.Business.Services.Auth
         public bool ValidateUser(string userName, string password)
         {
             var hashedPassword = formsAuthenticationService.CreatePasswordHash(password);
-            return Repository.All().Any(user => user.UserName == userName && user.Password == hashedPassword);
+            return Repository.All().Any(user => user.Email == userName && user.Password == hashedPassword);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace eUniversity.Business.Services.Auth
         public User GetUserByName(string userName)
         {
             var user = Repository.All()
-                .SingleOrDefault(u => u.UserName == userName);
+                .SingleOrDefault(u => u.Email == userName);
             return user;
         }
 

@@ -14,7 +14,7 @@ namespace eUniversity.Data
             var studentRole = new Role { RoleName = RoleEnum.Student.ToString(), RoleType = RoleEnum.Student };
             var student = new User
             {
-                UserName = "user1",
+                Email = "user1@user1.com",
                 Password = "E3C70ADF5F1C30DB24407E6A85ECF9120F45660E",
                 Roles = new List<Role>() { studentRole },
                 Created = DateTime.Now,

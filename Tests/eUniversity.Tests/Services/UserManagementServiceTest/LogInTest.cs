@@ -14,11 +14,11 @@ namespace eUniversity.Tests.Services.UserServiceTest
         public void ValidUserTryLogIn_UserLogIn()
         {
             // Setup
-            var user = new LoginViewModel() { UserName = "Matthew", Password = "MacDonald", RememberMe = false };
+            var user = new LoginViewModel() { Email = "Matthew", Password = "MacDonald", RememberMe = false };
             var formsAuthentication = new Mock<IFormsAuthenticationService>();
 
             var userService = new Mock<IUserService>();
-            userService.Setup(f => f.ValidateUser(user.UserName, user.Password)).Returns(true);
+            userService.Setup(f => f.ValidateUser(user.Email, user.Password)).Returns(true);
 
             IMembershipManagementService membershipManagementService = new MembershipManagementService(userService.Object, formsAuthentication.Object, new Mock<IEUniversityUow>().Object,
                 new Mock<IAuthorizationService>().Object, new Mock<IRoleService>().Object);
@@ -33,7 +33,7 @@ namespace eUniversity.Tests.Services.UserServiceTest
         public void InvalidUserTryLogIn_UserDoesntLogIn()
         {
             // Setup
-            var user = new LoginViewModel() { UserName = "Matthew", Password = "MacDonald", RememberMe = false };
+            var user = new LoginViewModel() { Email = "Matthew", Password = "MacDonald", RememberMe = false };
             var formsAuthentication = new Mock<IFormsAuthenticationService>();
 
             var userService = new Mock<IUserService>();

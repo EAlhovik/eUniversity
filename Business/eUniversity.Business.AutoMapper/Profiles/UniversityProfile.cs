@@ -44,14 +44,14 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             Mapper.CreateMap<User, UserRowViewModel>()
                   .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
-                  .ForMember(vm => vm.UserName, opt => opt.MapFrom(m => m.UserName))
+                  .ForMember(vm => vm.Email, opt => opt.MapFrom(m => m.Email))
                   .ForMember(vm => vm.Created, opt => opt.MapFrom(m => m.Created.ToShortDateString()))
                   .ForMember(vm => vm.IsApproved, opt => opt.MapFrom(m => m.IsApproved))
                 ;
 
             Mapper.CreateMap<RegisterViewModel, User>()
                   .ForMember(m => m.Id, opt => opt.Ignore())
-                  .ForMember(m => m.UserName, opt => opt.MapFrom(vm => vm.UserName))
+                  .ForMember(m => m.Email, opt => opt.MapFrom(vm => vm.Email))
                   .ForMember(m => m.Password, opt => opt.MapFrom(vm => vm.Password))
                   .ForMember(m => m.IsApproved, opt => opt.UseValue(false))
                 ;

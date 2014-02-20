@@ -2,17 +2,17 @@
     ViewBag.Title = "Register";
     Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Login.layout.cshtml";
 }
-<div id="signup-box" class="signup-box widget-box no-border visible">
+<div class="signup-box widget-box no-border visible">
     <div class="widget-body">
         <div class="widget-main" id="widget-main">
             <div>
                 <ul class="wizard-steps">
-                    <li data-target="#step1" class="complete">
+                    <li class="complete">
                         <span class="step">1</span>
                         <span class="title">@eUniversity.Common.Strings.Resources.Common_Register</span>
                     </li>
 
-                    <li data-target="#step2" class="complete">
+                    <li class="complete">
                         <span class="step">2</span>
                         <span class="title">Профиль</span>
                     </li>
@@ -20,7 +20,7 @@
             </div>
 
             <hr>
-            <div class="step-content position-relative" id="step-container">
+            <div class="step-content position-relative">
                 <div class="step-pane active">
                     <div class="center">
                         <h3 class="green">@eUniversity.Common.Strings.Resources.Common_Congrats</h3>

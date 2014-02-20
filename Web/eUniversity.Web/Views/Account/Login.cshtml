@@ -18,10 +18,10 @@
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(string.Empty, new { Data_Bind = "css: {'error': isValid}" })
                 <fieldset>
-                    <div class="form-group" data-bind="validationElement: UserName">
+                    <div class="form-group" data-bind="validationElement: Email">
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Login, Data_Bind = "value: UserName" })
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = eUniversity.Common.Strings.Resources.Common_Login, Data_Bind = "value: Email" })
                                 <i class="icon-user"></i>
                             </span>
                         </label>
