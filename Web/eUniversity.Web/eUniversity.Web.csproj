@@ -290,6 +290,7 @@
     <Content Include="Scripts\viewModels\profile\generalInfoSectionViewModel.js" />
     <Content Include="Scripts\viewModels\profile\profileViewModel.js" />
     <Content Include="Scripts\viewModels\profile\settingsViewModel.js" />
+    <Content Include="Scripts\viewModels\speciality\specialityGridViewModel.js" />
     <Content Include="Scripts\viewModels\speciality\specialityRowViewModel.js" />
     <Content Include="Scripts\viewModels\speciality\specialityViewModel.js" />
     <Content Include="Scripts\viewModels\specialization\specializationRowViewModel.js" />

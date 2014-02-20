@@ -59,11 +59,7 @@
                         <td class=" ">
                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                 <a class="blue" href="#">
-                                    <i class="icon-zoom-in bigger-130"></i>
-                                </a>
-
-                                <a class="green" href="#">
-                                    <i class="icon-pencil bigger-130"></i>
+                                    <i class="icon-save bigger-130" data-bind="click: $parent.Save"></i>
                                 </a>
 
                                 <a class="red" href="#">
@@ -81,15 +77,7 @@
                                         <li>
                                             <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
                                                 <span class="blue">
-                                                    <i class="icon-zoom-in bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
-                                                <span class="green">
-                                                    <i class="icon-edit bigger-120"></i>
+                                                    <i class="icon-save bigger-120"></i>
                                                 </span>
                                             </a>
                                         </li>
@@ -110,14 +98,19 @@
                 </tbody>
             </table>
         </div>
-    </div>
+        <h4 class="pink">
+            <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+            <a href="#" role="button" class="green" data-bind="click: AddNewRow">Добавить</a>
+        </h4>
+     </div>
 </div>
 
 <script src="~/Scripts/viewModels/gridViewModel.js"> </script>
 <script src="~/Scripts/viewModels/speciality/specialityRowViewModel.js"> </script>
+<script src="~/Scripts/viewModels/speciality/specialityGridViewModel.js"> </script>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        ko.applyBindings(new GridViewModel(@Html.Raw(Json.Encode(Model))), $('#grid').get(0));
+        ko.applyBindings(new SpecialityGridViewModel(@Html.Raw(Json.Encode(Model))), $('#grid').get(0));
     });
 </script>

@@ -1,25 +1,25 @@
-﻿function GridViewModel(serverModel) {
+﻿function SpecialityGridViewModel(serverModel) {
     var self = this;
     self.Rows = ko.observableArray();
-    
+
     var mappingOverride =
     {
         "Rows":
         {
             create: function (options) {
-                return eval('new ' + options.data.ViewModel + '(options.data)');
+                return new window.SpecialityRowViewModel(options.data);
             }
         }
     };
 
     ko.mapping.fromJS(serverModel, mappingOverride, self);
-    
+
     self.SelectedRows = ko.computed(function () {
         return ko.utils.arrayFilter(self.Rows(), function (row) {
             return row.IsSelected();
         });
     });
-    
+
     self.IfAllSelected = ko.computed({
         read: function () {
             var ifAllSelected = true;
@@ -36,7 +36,11 @@
         owner: self
     });
 
-    self.AddNewRow = function() {
+    self.AddNewRow = function () {
+        self.Rows.push(new window.SpecialityRowViewModel());
+    };
+
+    self.Save = function(viewModel) {
 
     };
 }
