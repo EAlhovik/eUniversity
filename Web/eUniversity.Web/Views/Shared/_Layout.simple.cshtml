@@ -8,8 +8,8 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <meta name="description" content="Live preview eUniversity">
-    @Styles.Render("~/bootstrap/css", "~/Content/chosen", "~/ace/css", "~/ace/font")
-    @Scripts.Render("~/bundles/jquery", "~/bundles/ko")
+    @Styles.Render("~/bootstrap/css", "~/Content/chosen", "~/ace/css", "~/ace/font","~/Content/bootstrap/editable")
+    @Scripts.Render("~/bundles/jquery", "~/bundles/ko","~/bundles/bootstrap","~/bundles/bootstrap/editable")
 
 </head>
 <body>
@@ -36,7 +36,7 @@
         </div>
     </div>
     @Html.Partial("_CommonJS")
-    @Scripts.Render("~/bundles/bootstrap", "~/bundles/ace", "~/bundles/chosen")
+    @Scripts.Render( "~/bundles/ace", "~/bundles/chosen")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/styler.js"> </script>
     <script type="text/javascript">

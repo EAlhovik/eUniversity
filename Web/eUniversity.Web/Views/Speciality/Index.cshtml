@@ -44,9 +44,12 @@
                             </label>
                         </td>
                         <td>
-                            <a href="#" data-bind="text: Name, attr: { href: EditSpecialityUrl }"></a>
+                            <span data-bind="editable: Name"></span>
+                            @*                            <a href="#" data-bind="text: Name, attr: { href: EditSpecialityUrl }"></a>*@
                         </td>
-                        <td data-bind="text: Description"></td>
+                        <td> @*  <td data-bind="text: Description">*@
+                            <span data-bind="editable: Description, editableOptions: {  type: 'textarea' }"></span>
+                        </td>
                         <td>Feb 12</td>
 
                         <td class="hidden-480">

@@ -32,7 +32,7 @@ namespace eUniversity.Web
                 ));
             bundles.Add(new StyleBundle("~/ace/font").Include(
                 "~/Content/font-awesome.min.css"
-//                "~/Content/google-webfont.css"
+                //                "~/Content/google-webfont.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
@@ -69,6 +69,19 @@ namespace eUniversity.Web
                 "~/Content/select2/select2.css"
                 ));
 
+            #endregion
+
+            #region bootstrap-editable
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap/editable").Include(
+                "~/Scripts/bootstrap-editable/bootstrap-editable.js",
+                "~/Scripts/ko/knockout.x-editable.js",
+                "~/Scripts/bootstrap-editable/bootstrap-wysiwyg.min.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap/editable").Include(
+                "~/Content/bootstrap-editable/bootstrap-editable.css"
+                ));
             #endregion
 
         }

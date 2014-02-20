@@ -210,6 +210,7 @@
     <Content Include="Content\ace-skins.min.css" />
     <Content Include="Content\ace.css" />
     <Content Include="Content\ace.min.css" />
+    <Content Include="Content\bootstrap-editable\bootstrap-editable.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -219,6 +220,8 @@
     <Content Include="Content\bootstrap\datepicker\datepicker3.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\google-webfont.css" />
+    <Content Include="Content\img\clear.png" />
+    <Content Include="Content\img\loading.gif" />
     <Content Include="Content\select2\select2.css" />
     <Content Include="Content\select2\select2.png" />
     <Content Include="Content\select2\select2x2.png" />
@@ -236,6 +239,9 @@
     <Content Include="Scripts\ace\ace.min.js" />
     <Content Include="Scripts\ace\fuelux.spinner.min.js" />
     <Content Include="Scripts\ace\fuelux.wizard.min.js" />
+    <Content Include="Scripts\bootstrap-editable\bootstrap-editable.js" />
+    <Content Include="Scripts\bootstrap-editable\bootstrap-editable.min.js" />
+    <Content Include="Scripts\bootstrap-editable\bootstrap-wysiwyg.min.js" />
     <Content Include="Scripts\bootstrap\datepicker\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap\datepicker\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
@@ -251,8 +257,8 @@
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout.x-editable.js" />
-    <Content Include="Scripts\knockout.x-editable.min.js" />
+    <Content Include="Scripts\ko\knockout.x-editable.js" />
+    <Content Include="Scripts\ko\knockout.x-editable.min.js" />
     <Content Include="Scripts\ko\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\ko\knockout-3.0.0.js" />
     <Content Include="Scripts\ko\knockout.bindings.js" />
