@@ -7,7 +7,7 @@
         "Rows":
         {
             create: function (options) {
-                return new window.SpecialityRowViewModel(options.data);
+                return new window.SpecialityRowViewModel(options.data, save);
             }
         }
     };
@@ -37,10 +37,51 @@
     });
 
     self.AddNewRow = function () {
-        self.Rows.push(new window.SpecialityRowViewModel());
+        self.Rows.push(new window.SpecialityRowViewModel(null, save));
     };
 
-    self.Save = function(viewModel) {
-
+    self.Remove = function (row) {
+        if (row.Id()) {
+            remove({ viewModels: [ko.mapping.toJS(row)] });
+        } else {
+            self.Rows.remove(row);
+        }
     };
+
+    self.RemoveSelected = function () {
+        var data = { viewModels: ko.mapping.toJS(self.SelectedRows) };
+
+        remove(data);
+    };
+
+    self.SaveSelected = function () {
+        var data = { viewModels: ko.mapping.toJS(self.SelectedRows) };
+        save(data);
+    };
+
+    function remove(data, success) {
+        $.ajax({
+            url: '/Speciality/Remove',
+            type: "POST",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: success,
+            complete: function (param1, status) {
+            }
+        });
+    }
+
+    function save(data, success) {
+        $.ajax({
+            url: '/Speciality/Save',
+            type: "POST",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: success,
+            complete: function (param1, status) {
+            }
+        });
+    }
 }

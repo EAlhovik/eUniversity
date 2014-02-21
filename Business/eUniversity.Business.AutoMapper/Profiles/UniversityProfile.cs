@@ -66,6 +66,12 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
                 ;
 
+            Mapper.CreateMap<SpecialityRowViewModel, Speciality>()
+                  .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
+                  .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
+                  .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                ;
+
             Mapper.CreateMap<Speciality, SpecialityViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))

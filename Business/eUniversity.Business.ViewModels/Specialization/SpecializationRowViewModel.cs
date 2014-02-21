@@ -1,9 +1,11 @@
-﻿namespace eUniversity.Business.ViewModels.Specialization
+﻿using eUniversity.Business.ViewModels.Base;
+
+namespace eUniversity.Business.ViewModels.Specialization
 {
     /// <summary>
     /// View model for specialization row
     /// </summary>
-    public class SpecializationRowViewModel : KnockoutViewModel
+    public class SpecializationRowViewModel : KnockoutViewModel, IViewModel
     {
         /// <summary>
         /// Gets or sets the identifier.

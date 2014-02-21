@@ -43,6 +43,7 @@
     <Compile Include="Base\Entity.cs" />
     <Compile Include="Base\GenderType.cs" />
     <Compile Include="Base\IEntity.cs" />
+    <Compile Include="Base\IHasDeleted.cs" />
     <Compile Include="Base\IHasModificatoin.cs" />
     <Compile Include="Base\IHasCreation.cs" />
     <Compile Include="Base\Profile.cs" />

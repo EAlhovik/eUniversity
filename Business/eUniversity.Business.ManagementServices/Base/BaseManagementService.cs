@@ -16,7 +16,7 @@ namespace eUniversity.Business.ManagementServices.Base
     /// <typeparam name="TModel"></typeparam>
     public class BaseManagementService<TViewModel, TRowViewModel, TModel>
         where TViewModel : class, IViewModel
-        where TRowViewModel : class
+        where TRowViewModel : class, IViewModel
         where TModel : class, IEntity
     {
         protected readonly IEUniversityUow UnitOfWork;
@@ -45,10 +45,32 @@ namespace eUniversity.Business.ManagementServices.Base
             UnitOfWork.Commit();
         }
 
+        public void Save(IEnumerable<TRowViewModel> viewModels)
+        {
+            foreach (var viewModel in viewModels)
+            {
+                var entity = Service.CreateOrOpen(viewModel.Id);
+                Mapper.Map<TRowViewModel, TModel>(viewModel, entity);
+                Service.Save(entity);
+            }
+            UnitOfWork.Commit();
+        }
+
         public IEnumerable<TRowViewModel> GetRows()
         {
             var listViewModels = Service.All().Select(Mapper.Map<TModel, TRowViewModel>);
             return listViewModels;
+        }
+
+        public void Remove(IEnumerable<TRowViewModel> viewModels)
+        {
+            foreach (var viewModel in viewModels)
+            {
+                var entity = Service.CreateOrOpen(viewModel.Id);
+                Mapper.Map<TRowViewModel, TModel>(viewModel, entity);
+                Service.Delete(entity);
+            }
+            UnitOfWork.Commit();
         }
 
         #endregion

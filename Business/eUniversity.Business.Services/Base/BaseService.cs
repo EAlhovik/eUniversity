@@ -108,7 +108,23 @@ namespace eUniversity.Business.Services.Base
         /// <param name="entity">Entity to delete.</param>
         public void Delete(T entity)
         {
-            Repository.Delete(entity);
+            if (!entity.IsNew())
+            {
+                TryDelete(entity);
+            }
+        }
+
+        private void TryDelete(T entity)
+        {
+            var entityHasDeleted = entity as IHasDeleted;
+            if (entityHasDeleted == null)
+            {
+                Repository.Delete(entity);
+            }
+            else
+            {
+                entityHasDeleted.IsDeleted = true;
+            }
         }
 
         /// <summary>
