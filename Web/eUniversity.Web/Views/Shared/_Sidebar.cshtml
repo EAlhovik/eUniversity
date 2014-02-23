@@ -52,54 +52,11 @@
         <li>
             @Ajax.RawActionLink("<i class='icon-list-alt'></i><span class='menu-text'>Специальности </span>", ActionNames.IndexAction, ControllerNames.SpecialityController, ajaxOptions)
         </li>
-        @*<li>
-            <a href="#" class="dropdown-toggle">
-                <i class="icon-list-alt"></i>
-                <span class='menu-text'>Специальность </span><b class="arrow icon-angle-down"></b>
-            </a>
-            <ul class="submenu">
-                <li>
-                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", "Edit", "Speciality", ajaxOptions)
-                </li>
-
-                <li>
-                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специальностей", "Index", "Speciality", ajaxOptions)
-                </li>
-            </ul>
-        </li>*@
         <li>
             @Ajax.RawActionLink("<i class='icon-list-alt'></i><span class='menu-text'>Специализации </span>", ActionNames.IndexAction, ControllerNames.SpecializationController, ajaxOptions)
         </li>
-        @*<li>
-            <a href="#" class="dropdown-toggle">
-                <i class="icon-list-alt"></i>
-                <span class='menu-text'>Специализация </span><b class="arrow icon-angle-down"></b>
-            </a>
-
-            <ul class="submenu">
-                <li>
-                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", ActionNames.EditAction, "Specialization", ajaxOptions)
-                </li>
-
-                <li>
-                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специализаций", ActionNames.IndexAction, "Specialization", ajaxOptions)
-                </li>
-            </ul>
-        </li>*@
         <li>
-            <a href="#" class="dropdown-toggle">
-                <i class="icon-list-alt"></i>
-                <span class='menu-text'> Группа </span><b class="arrow icon-angle-down"></b>
-            </a>
-            <ul class="submenu">
-                <li>
-                    @Ajax.RawActionLink("<i class='icon-plus'></i>Добовить Новую", ActionNames.EditAction, ControllerNames.GroupController, ajaxOptions)
-                </li>
-
-                <li>
-                    @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Групп", ActionNames.IndexAction, ControllerNames.GroupController, ajaxOptions)
-                </li>
-            </ul>
+            @Ajax.RawActionLink("<i class='icon-list-alt'></i><span class='menu-text'>Группы </span>", ActionNames.IndexAction, ControllerNames.GroupController, ajaxOptions)
         </li>
         <li>
             <a href="#" class="dropdown-toggle">
@@ -129,10 +86,6 @@
         </li>
         <li>
             @Ajax.RawActionLink("<i class='icon-group'></i><span class='menu-text'>Пользователи </span>", ActionNames.IndexAction, ControllerNames.MembershipController, ajaxOptions)
-            @*<a href="http://192.69.216.111/themes/preview/ace/widgets.html">
-                    <i class="icon-group"></i>
-                    <span class="menu-text">Пользователи </span>
-                </a>*@
         </li>
     </ul>
 

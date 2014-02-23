@@ -54,13 +54,23 @@ namespace eUniversity.Web.Controllers
                 return Json(loockupService.GetSpeciality(parseResult), JsonRequestBehavior.AllowGet);
             }
             return Json(string.Empty, JsonRequestBehavior.AllowGet);
-//            return Json(loockupService.GetSpecialities(id), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetSpecialization(string term)
+        public JsonResult GetSpecialization(string id)
         {
-            return Json(loockupService.GetSpecialization(term), JsonRequestBehavior.AllowGet);
+            long parseResult;
+            if (long.TryParse(id, out parseResult))
+            {
+                return Json(loockupService.GetSpecialization(parseResult), JsonRequestBehavior.AllowGet);
+            }
+            return Json(string.Empty, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetSpecializations(string term)
+        {
+            return Json(loockupService.GetSpecializations(term), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

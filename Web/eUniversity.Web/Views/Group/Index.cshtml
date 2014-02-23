@@ -22,6 +22,7 @@
                         </th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>SpecializationId</th>
 
                         <th>
                             <i class="icon-time bigger-110 hidden-480"></i>
@@ -29,7 +30,45 @@
                         </th>
                         <th class="hidden-480">Status</th>
 
-                        <th></th>
+                        <th>
+                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                <a class="blue" href="#">
+                                    <i class="icon-save bigger-130" data-bind="click: SaveSelected"></i>
+                                </a>
+
+                                <a class="red" href="#">
+                                    <i class="icon-trash bigger-130" data-bind="click: RemoveSelected"></i>
+                                </a>
+                            </div>
+
+                            <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                <div class="inline position-relative open">
+                                    <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-caret-down icon-only bigger-120"></i>
+                                    </button>
+                                    <div class="dropdown-backdrop"></div>
+
+                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                        <li>
+                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
+                                                <span class="blue">
+                                                    <i class="icon-save bigger-120"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
+                                                <span class="red">
+                                                    <i class="icon-trash bigger-120"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,15 +81,58 @@
                             </label>
                         </td>
                         <td>
-                            <a href="#" data-bind="text: Name, attr: { href: EditGroupUrl }"></a>
+                            <span data-bind="editable: Name"></span>
                         </td>
-                        <td data-bind="text: Description"></td>
+                        <td>
+                            <span data-bind="editable: Description, editableOptions: { type: 'textarea' }"></span>
+                        </td>
+                        <td>
+                            <span data-bind="editable: SpecializationId, editableOptions: {type: 'select2', select2:$parent.select2}" data-type="select2" data-pk="1" data-title="Select speciality"></span>
+                        </td>
                         <td>Feb 12</td>
 
                         <td class="hidden-480">
                             <span class="label label-sm label-warning">Expiring</span>
                         </td>
-                        <th></th>
+                        <th>
+                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                <a class="blue" href="#">
+                                    <i class="icon-save bigger-130" data-bind="click: Save"></i>
+                                </a>
+
+                                <a class="red" href="#">
+                                    <i class="icon-trash bigger-130" data-bind="click: $parent.Remove"></i>
+                                </a>
+                            </div>
+
+                            <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                <div class="inline position-relative open">
+                                    <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-caret-down icon-only bigger-120"></i>
+                                    </button>
+                                    <div class="dropdown-backdrop"></div>
+
+                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                        <li>
+                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
+                                                <span class="blue">
+                                                    <i class="icon-save bigger-120"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
+                                                <span class="red">
+                                                    <i class="icon-trash bigger-120"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </th>
                     </tr>
                     <!-- /ko -->
                 </tbody>

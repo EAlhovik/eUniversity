@@ -137,8 +137,17 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
+                .ForMember(vm => vm.SpecializationId, opt => opt.MapFrom(m => m.SpecializationId))
                 ;
 
+            Mapper.CreateMap<GroupRowViewModel, Group>()
+                .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
+                .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
+                .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm =>long.Parse(vm.SpecializationId) ))
+                ;
+
+            /*
             Mapper.CreateMap<Group, GroupViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
@@ -153,6 +162,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm => universityProfileService.GetId(vm.Specialization)))
                 .ForMember(m => m.Specialization, opt => opt.Ignore())
                 ;
+            */
 
             #endregion
 

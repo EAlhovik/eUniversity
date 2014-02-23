@@ -57,13 +57,19 @@ namespace eUniversity.Business.ManagementServices
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        public SelectedItemViewModel GetSpeciality(long? id)//todl:remove
+        public SelectedItemViewModel GetSpeciality(long? id)
         {
             var speciality = specialityService.CreateOrOpen(id);
             return Mapper.Map<Speciality, SelectedItemViewModel>(speciality);
         }
 
-        public IEnumerable<SelectedItemViewModel> GetSpecialization(string term)
+        public SelectedItemViewModel GetSpecialization(long? id)
+        {
+            var speciality = specializationService.CreateOrOpen(id);
+            return Mapper.Map<Specialization, SelectedItemViewModel>(speciality);
+        }
+
+        public IEnumerable<SelectedItemViewModel> GetSpecializations(string term)
         {
             var specializations =
                 specializationService.All().Where(

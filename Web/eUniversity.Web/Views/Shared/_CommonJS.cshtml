@@ -32,7 +32,11 @@
             group: {
                 EditGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController, new {Id = "id"})',
                 SaveGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController)',
-                GroupGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.GroupController)'
+                GroupGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.GroupController)',
+                SaveUrl: '@Url.Action(ActionNames.SaveAction, ControllerNames.GroupController)',
+                RemoveUrl: '@Url.Action(ActionNames.RemoveAction, ControllerNames.GroupController)',
+                GetSelectedItemsUrl: '@Url.Action(ActionNames.GetSpecializationsAction, ControllerNames.LoockupController)',
+                GetSelectedItemUrl: '@Url.Action(ActionNames.GetSpecializationAction, ControllerNames.LoockupController)'
             }
         };
         window.actions = actions;
