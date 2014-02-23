@@ -59,7 +59,7 @@ namespace eUniversity.Business.ManagementServices.Base
         public IEnumerable<TRowViewModel> GetRows()
         {
             var listViewModels = Service.All().Select(Mapper.Map<TModel, TRowViewModel>);
-            return listViewModels;
+            return listViewModels.ToList();
         }
 
         public void Remove(IEnumerable<TRowViewModel> viewModels)

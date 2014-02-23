@@ -5,7 +5,7 @@ namespace eUniversity.Business.ViewModels.Specialization
     /// <summary>
     /// View model for specialization row
     /// </summary>
-    public class SpecializationRowViewModel : KnockoutViewModel, IViewModel
+    public class SpecializationRowViewModel : IViewModel
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -21,5 +21,10 @@ namespace eUniversity.Business.ViewModels.Specialization
         /// Gets or sets the description.
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the speciality identifier.
+        /// </summary>
+        public string SpecialityId { get; set; }
     }
 }

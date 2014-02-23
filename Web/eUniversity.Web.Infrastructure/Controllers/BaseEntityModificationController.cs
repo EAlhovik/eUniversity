@@ -19,7 +19,7 @@ namespace eUniversity.Web.Infrastructure.Controllers
 
         public ActionResult Index()
         {
-            var grid = new GridViewModel
+          var grid = new GridViewModel
             {
                 Rows = ManagementService.GetRows()
             };

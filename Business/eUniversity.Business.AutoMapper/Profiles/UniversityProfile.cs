@@ -97,8 +97,17 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
+                .ForMember(vm => vm.SpecialityId, opt => opt.MapFrom(m => m.SpecialityId))
                 ;
 
+            Mapper.CreateMap<SpecializationRowViewModel, Specialization>()
+                .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
+                .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
+                .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                .ForMember(m => m.SpecialityId, opt => opt.MapFrom(vm => long.Parse(vm.SpecialityId)))
+                ;
+
+            /*
             Mapper.CreateMap<Specialization, SpecializationViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
@@ -113,6 +122,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.SpecialityId, opt => opt.MapFrom(vm => universityProfileService.GetId(vm.Speciality)))
                 .ForMember(m => m.Speciality, opt => opt.Ignore())
                 ;
+            */
 
             Mapper.CreateMap<Specialization, SelectedItemViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))

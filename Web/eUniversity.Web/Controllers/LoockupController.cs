@@ -46,6 +46,18 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetSpeciality(string id)
+        {
+            long parseResult;
+            if (long.TryParse(id, out parseResult))
+            {
+                return Json(loockupService.GetSpeciality(parseResult), JsonRequestBehavior.AllowGet);
+            }
+            return Json(string.Empty, JsonRequestBehavior.AllowGet);
+//            return Json(loockupService.GetSpecialities(id), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult GetSpecialization(string term)
         {
             return Json(loockupService.GetSpecialization(term), JsonRequestBehavior.AllowGet);

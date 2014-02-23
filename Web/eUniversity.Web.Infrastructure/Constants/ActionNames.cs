@@ -12,5 +12,8 @@
         public const string IndexAction = "Index";
         public const string EditAction = "Edit";
         public const string GetGroupsAction = "GetGroups";
+        public const string SaveAction = "Save";
+        public const string RemoveAction = "Remove";
+        public const string GetSpecialityAction = "GetSpeciality";
     }
 }

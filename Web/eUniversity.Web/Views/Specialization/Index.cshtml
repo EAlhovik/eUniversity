@@ -22,6 +22,7 @@
                         </th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>SpecialityId</th>
 
                         <th>
                             <i class="icon-time bigger-110 hidden-480"></i>
@@ -29,7 +30,44 @@
                         </th>
                         <th class="hidden-480">Status</th>
 
-                        <th></th>
+                        <th>
+                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                <a class="blue" href="#">
+                                    <i class="icon-save bigger-130" data-bind="click: SaveSelected"></i>
+                                </a>
+
+                                <a class="red" href="#">
+                                    <i class="icon-trash bigger-130" data-bind="click: RemoveSelected"></i>
+                                </a>
+                            </div>
+
+                            <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                <div class="inline position-relative open">
+                                    <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-caret-down icon-only bigger-120"></i>
+                                    </button>
+                                    <div class="dropdown-backdrop"></div>
+
+                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                        <li>
+                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
+                                                <span class="blue">
+                                                    <i class="icon-save bigger-120"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
+                                                <span class="red">
+                                                    <i class="icon-trash bigger-120"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,27 +80,30 @@
                             </label>
                         </td>
                         <td>
-                            <a href="#" data-bind="text: Name, attr: { href: EditSpecializationUrl }"></a>
+                            <span data-bind="editable: Name"></span>
                         </td>
-                        <td data-bind="text: Description"></td>
+                        <td>
+                            <span data-bind="editable: Description, editableOptions: { type: 'textarea' }"></span>
+                        </td>
+                        <td>
+                            <a data-bind="editable: SpecialityId, editableOptions: {type: 'select2', select2:$parent.select2}" data-type="select2" data-pk="1" data-title="Select speciality"></a>
+
+                            @*                            <span data-bind="editable: SpecialityId, editableOptions: {type: 'select2', select2:{placeholder: 'Select Country', data: [{id: 0, text: 'story'},{id: 1, text: 'bug'},{id: 2, text: 'task'}], width:200 }}"></span>*@
+                        </td>
                         <td>Feb 12</td>
 
                         <td class="hidden-480">
-                            <span class="label label-sm label-warning">Expiring</span>
+                            <span class="label label-sm label-warning">Draft</span>
                         </td>
 
                         <td>
                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                 <a class="blue" href="#">
-                                    <i class="icon-zoom-in bigger-130"></i>
-                                </a>
-
-                                <a class="green" href="#">
-                                    <i class="icon-pencil bigger-130"></i>
+                                    <i class="icon-save bigger-130" data-bind="click: Save"></i>
                                 </a>
 
                                 <a class="red" href="#">
-                                    <i class="icon-trash bigger-130"></i>
+                                    <i class="icon-trash bigger-130" data-bind="click: $parent.Remove"></i>
                                 </a>
                             </div>
 
@@ -70,21 +111,14 @@
                                 <div class="inline position-relative open">
                                     <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
                                         <i class="icon-caret-down icon-only bigger-120"></i>
-                                    </button><div class="dropdown-backdrop"></div>
+                                    </button>
+                                    <div class="dropdown-backdrop"></div>
 
                                     <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
                                         <li>
                                             <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
                                                 <span class="blue">
-                                                    <i class="icon-zoom-in bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
-                                                <span class="green">
-                                                    <i class="icon-edit bigger-120"></i>
+                                                    <i class="icon-save bigger-120"></i>
                                                 </span>
                                             </a>
                                         </li>
@@ -105,6 +139,10 @@
                 </tbody>
             </table>
         </div>
+        <h4 class="pink">
+            <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+            <a href="#" role="button" class="green" data-bind="click: AddNewRow">Добавить Специализацию</a>
+        </h4>
     </div>
 </div>
 <script src="~/Scripts/viewModels/gridViewModel.js"> </script>

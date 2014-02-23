@@ -50,6 +50,9 @@
         }
 
         <li>
+            @Ajax.RawActionLink("<i class='icon-list-alt'></i><span class='menu-text'>Специальности </span>", ActionNames.IndexAction, ControllerNames.SpecialityController, ajaxOptions)
+        </li>
+        @*<li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list-alt"></i>
                 <span class='menu-text'>Специальность </span><b class="arrow icon-angle-down"></b>
@@ -63,8 +66,11 @@
                     @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специальностей", "Index", "Speciality", ajaxOptions)
                 </li>
             </ul>
-        </li>
+        </li>*@
         <li>
+            @Ajax.RawActionLink("<i class='icon-list-alt'></i><span class='menu-text'>Специализации </span>", ActionNames.IndexAction, ControllerNames.SpecializationController, ajaxOptions)
+        </li>
+        @*<li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list-alt"></i>
                 <span class='menu-text'>Специализация </span><b class="arrow icon-angle-down"></b>
@@ -79,7 +85,7 @@
                     @Ajax.RawActionLink("<i class='icon-eye-open'></i>Список Специализаций", ActionNames.IndexAction, "Specialization", ajaxOptions)
                 </li>
             </ul>
-        </li>
+        </li>*@
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-list-alt"></i>

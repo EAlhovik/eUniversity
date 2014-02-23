@@ -3774,8 +3774,9 @@ $(function(){
            } else if(this.sourceData) {
               data = $.fn.editableutils.itemsByValue(value, this.sourceData, this.idFunc); 
            } else {
-              //can not get list of possible values 
-              //(e.g. autotext for select2 with ajax source)
+               data = this.options.select2.loadElement(value);
+               //can not get list of possible values 
+               //(e.g. autotext for select2 with ajax source)
            }
 
            //data may be array (when multiple values allowed)

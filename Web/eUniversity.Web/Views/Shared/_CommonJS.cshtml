@@ -17,11 +17,17 @@
                 EditSpecialityUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecialityController, new { Id = "id" })',
                 SaveSpecialityUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecialityController)',
                 SpecialityGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.SpecialityController)',
+                SaveUrl: '@Url.Action(ActionNames.SaveAction, ControllerNames.SpecialityController)',
+                RemoveUrl: '@Url.Action(ActionNames.RemoveAction, ControllerNames.SpecialityController)',
             },
             specialization: {
                 EditSpecializationUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecializationController, new {Id = "id"})',
                 SaveSpecializationUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.SpecializationController)',
                 SpecializationGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.SpecializationController)',
+                SaveUrl: '@Url.Action(ActionNames.SaveAction, ControllerNames.SpecializationController)',
+                RemoveUrl: '@Url.Action(ActionNames.RemoveAction, ControllerNames.SpecializationController)',
+                GetSelectedItemsUrl: '@Url.Action(ActionNames.GetSpecialitiesAction, ControllerNames.LoockupController)',
+                GetSelectedItemUrl: '@Url.Action(ActionNames.GetSpecialityAction, ControllerNames.LoockupController)'
             },
             group: {
                 EditGroupUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.GroupController, new {Id = "id"})',
