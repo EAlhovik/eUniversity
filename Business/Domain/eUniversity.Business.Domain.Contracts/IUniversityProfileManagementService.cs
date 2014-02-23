@@ -15,6 +15,5 @@ namespace eUniversity.Business.Domain.Contracts
         SelectedItemModel CreateCountSemesters(int countSemesters);
 
         SelectedItemModel CreateAssignee(Subject subject);
-        SelectedItemModel CreateSpeciality(long specialityId);
     }
 }

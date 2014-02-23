@@ -36,11 +36,6 @@ namespace eUniversity.Business.ManagementServices.AutoMapperServices
             return specializationService.GetSelectedItemById(id);
         }
 
-        public SelectedItemModel CreateSpeciality(long specialityId)
-        {
-            return specialityService.GetSelectedItemById(specialityId);
-        }
-
         public SelectedItemModel CreateCountSemesters(int countSemesters)
         {
             return new SelectedItemModel

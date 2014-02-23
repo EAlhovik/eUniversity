@@ -9,10 +9,6 @@
 
     if (serverModel)
     ko.mapping.fromJS(serverModel, {}, self);
-
-    self.EditSpecializationUrl = ko.computed(function () {
-        return window.actions.specialization.EditSpecializationUrl.replace('id', self.Id());
-    });
     
     self.Save = function (viewModel) {
         save({ viewModels: [ko.mapping.toJS(viewModel)] });

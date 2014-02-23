@@ -282,7 +282,6 @@
     <Content Include="Scripts\viewModels\curriculum\subjectViewModel.js" />
     <Content Include="Scripts\viewModels\gridViewModel.js" />
     <Content Include="Scripts\viewModels\group\groupRowViewModel.js" />
-    <Content Include="Scripts\viewModels\group\groupViewModel.js" />
     <Content Include="Scripts\viewModels\membership\membershipViewModel.js" />
     <Content Include="Scripts\viewModels\membership\userRowViewModel.js" />
     <Content Include="Scripts\viewModels\profile\basicProfileViewModel.js" />
@@ -291,9 +290,7 @@
     <Content Include="Scripts\viewModels\profile\profileViewModel.js" />
     <Content Include="Scripts\viewModels\profile\settingsViewModel.js" />
     <Content Include="Scripts\viewModels\speciality\specialityRowViewModel.js" />
-    <Content Include="Scripts\viewModels\speciality\specialityViewModel.js" />
     <Content Include="Scripts\viewModels\specialization\specializationRowViewModel.js" />
-    <Content Include="Scripts\viewModels\specialization\specializationViewModel.js" />
     <Content Include="Scripts\viewModels\subject\subjectRowViewModel.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

@@ -61,7 +61,7 @@
 
     function remove(data, success) {
         $.ajax({
-            url: window.actions[serverModel.Object].RemoveUrl,
+            url: getUrl('RemoveUrl'),
             type: "POST",
             data: JSON.stringify(data),
             dataType: "json",
@@ -74,7 +74,7 @@
 
     function save(data, success) {
         $.ajax({
-            url: window.actions[serverModel.Object].SaveUrl,
+            url: getUrl('SaveUrl'),
             type: "POST",
             data: JSON.stringify(data),
             dataType: "json",
@@ -107,7 +107,7 @@
                     term: term
                 };
             },
-            url: window.actions[serverModel.Object].GetSelectedItemsUrl,
+            url: getUrl('GetSelectedItemsUrl'),
             results: function (data) {
                 return { results: data };
             }
@@ -134,4 +134,10 @@
         }
     };
 
+    function getUrl(name) {
+        if (window.actions[serverModel.Object] && window.actions[serverModel.Object][name]) {
+            return window.actions[serverModel.Object][name];
+        }
+        return '';
+    }
 }

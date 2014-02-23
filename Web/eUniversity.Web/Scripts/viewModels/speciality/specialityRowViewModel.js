@@ -7,11 +7,7 @@
     self.IsSelected = ko.observable();
     
     if (serverModel)
-    ko.mapping.fromJS(serverModel, {}, self);
-
-    self.EditSpecialityUrl = ko.computed(function () {
-        return window.actions.speciality.EditSpecialityUrl.replace('id', self.Id());
-    });
+        ko.mapping.fromJS(serverModel, {}, self);
     
     self.Save = function (viewModel) {
         save({ viewModels: [ko.mapping.toJS(viewModel)] });
