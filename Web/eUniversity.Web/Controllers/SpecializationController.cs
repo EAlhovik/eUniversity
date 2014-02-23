@@ -4,7 +4,7 @@ using eUniversity.Web.Infrastructure.Controllers;
 
 namespace eUniversity.Web.Controllers
 {
-    public class SpecializationController : BaseEntityModificationController<SpecializationViewModel, SpecializationRowViewModel>
+    public class SpecializationController : BaseEntityModificationController<SpecializationRowViewModel>
     {
         public SpecializationController(ISpecializationManagementService specializationService)
             : base(specializationService)

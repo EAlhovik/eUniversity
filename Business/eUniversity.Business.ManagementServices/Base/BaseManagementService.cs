@@ -11,11 +11,9 @@ namespace eUniversity.Business.ManagementServices.Base
     /// <summary>
     /// Represents base management service
     /// </summary>
-    /// <typeparam name="TViewModel">The type of the view model.</typeparam>
     /// <typeparam name="TRowViewModel">The type of the row view model.</typeparam>
     /// <typeparam name="TModel"></typeparam>
-    public class BaseManagementService<TViewModel, TRowViewModel, TModel>
-        where TViewModel : class, IViewModel
+    public class BaseManagementService<TRowViewModel, TModel>
         where TRowViewModel : class, IViewModel
         where TModel : class, IEntity
     {
@@ -29,21 +27,6 @@ namespace eUniversity.Business.ManagementServices.Base
         }
 
         #region IBaseManagementService Members
-
-        public TViewModel Open(long? id)
-        {
-            var item = Service.CreateOrOpen(id);
-            var viewModel = Mapper.Map<TModel, TViewModel>(item);
-            return viewModel;
-        }
-
-        public virtual void Save(TViewModel viewModel)
-        {
-            var entity = Service.CreateOrOpen(viewModel.Id);
-            Mapper.Map<TViewModel, TModel>(viewModel, entity);
-            Service.Save(entity);
-            UnitOfWork.Commit();
-        }
 
         public void Save(IEnumerable<TRowViewModel> viewModels)
         {

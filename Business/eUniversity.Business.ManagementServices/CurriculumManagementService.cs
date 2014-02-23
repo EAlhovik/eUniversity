@@ -10,7 +10,7 @@ namespace eUniversity.Business.ManagementServices
     /// <summary>
     /// Represents curriculum management service
     /// </summary>
-    public class CurriculumManagementService : BaseManagementService<CurriculumViewModel, CurriculumRowViewModel, Curriculum>, ICurriculumManagementService
+    public class CurriculumManagementService : BaseManagementService<CurriculumRowViewModel, Curriculum>, ICurriculumManagementService
     {
         private readonly ISemesterManagementService semesterManagementService;
 
@@ -20,7 +20,20 @@ namespace eUniversity.Business.ManagementServices
             this.semesterManagementService = semesterManagementService;
         }
 
-        public override void Save(CurriculumViewModel viewModel)
+        private void UpdateModel(CurriculumViewModel viewModel, Curriculum curriculum)
+        {
+            Service.Save(curriculum);
+            Mapper.Map<CurriculumViewModel, Curriculum>(viewModel, curriculum);
+        }
+
+        public CurriculumViewModel Open(long? id)
+        {
+            var item = Service.CreateOrOpen(id);
+            var viewModel = Mapper.Map<Curriculum, CurriculumViewModel>(item);
+            return viewModel;
+        }
+
+        public void Save(CurriculumViewModel viewModel)
         {
             var curriculum = new Curriculum() { Id = viewModel.Id };
             UpdateModel(viewModel, curriculum);
@@ -28,11 +41,6 @@ namespace eUniversity.Business.ManagementServices
             semesterManagementService.Save(viewModel.Semesters, curriculum);
 
             UnitOfWork.Commit();
-        }
-        private void UpdateModel(CurriculumViewModel viewModel, Curriculum curriculum)
-        {
-            Service.Save(curriculum);
-            Mapper.Map<CurriculumViewModel, Curriculum>(viewModel, curriculum);
         }
     }
 }

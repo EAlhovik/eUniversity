@@ -9,7 +9,7 @@ namespace eUniversity.Business.ManagementServices
     /// <summary>
     /// Represents specialization management service
     /// </summary>
-    public class SpecializationManagementService : BaseManagementService<SpecializationViewModel, SpecializationRowViewModel, Specialization>, ISpecializationManagementService
+    public class SpecializationManagementService : BaseManagementService<SpecializationRowViewModel, Specialization>, ISpecializationManagementService
     {
         public SpecializationManagementService(IEUniversityUow unitOfWork, IBaseService<Specialization> service) : base(unitOfWork, service)
         {

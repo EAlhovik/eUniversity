@@ -6,13 +6,12 @@ using eUniversity.Business.ViewModels.Base;
 
 namespace eUniversity.Web.Infrastructure.Controllers
 {
-    public class BaseEntityModificationController<TViewModel, TRowViewModel> : Controller
-        where TViewModel : class, IViewModel
+    public class BaseEntityModificationController<TRowViewModel> : Controller
         where TRowViewModel : class, IViewModel
     {
-        protected readonly IBaseManagementService<TViewModel, TRowViewModel> ManagementService;
+        protected readonly IBaseManagementService<TRowViewModel> ManagementService;
 
-        public BaseEntityModificationController(IBaseManagementService<TViewModel, TRowViewModel> managementService)
+        public BaseEntityModificationController(IBaseManagementService<TRowViewModel> managementService)
         {
             ManagementService = managementService;
         }
@@ -24,21 +23,6 @@ namespace eUniversity.Web.Infrastructure.Controllers
                 Rows = ManagementService.GetRows()
             };
             return View(grid);
-        }
-
-        [HttpGet]
-        public ActionResult Edit(long? id)
-        {
-            var viewModel = ManagementService.Open(id);
-            return View(viewModel);
-        }
-
-        [HttpPost]
-        public JsonResult Edit(TViewModel viewModel)
-        {
-            ManagementService.Save(viewModel);
-
-            return Json(true);
         }
 
         [HttpPost]

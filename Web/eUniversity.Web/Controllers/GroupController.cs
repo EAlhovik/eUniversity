@@ -4,7 +4,7 @@ using eUniversity.Web.Infrastructure.Controllers;
 
 namespace eUniversity.Web.Controllers
 {
-    public class GroupController : BaseEntityModificationController<GroupViewModel, GroupRowViewModel>
+    public class GroupController : BaseEntityModificationController<GroupRowViewModel>
     {
         public GroupController(IGroupManagementService groupManagementService)
             : base(groupManagementService)
