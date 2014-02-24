@@ -1,6 +1,6 @@
 ﻿<div class="step-pane" data-bind="css: { active: IsActive, complete: IsCompleted }">
     <h3 class="lighter block green">Предметы</h3>
-    <!-- ko foreach: Subjects -->
+    @*<!-- ko foreach: Subjects -->
     <div class="subject-activity clearfix">
         <div class="col-xs-12 col-sm-offset-3 col-sm-3">
             <div>
@@ -27,5 +27,82 @@
                 <a href="#" role="button" class="green" data-bind="click: AddSubject">Добавить предмет</a>
             </h4>
         </div>
+    </div>*@
+
+
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="center" style="width: 50px;">
+                                <label>
+                                    <input type="checkbox" class="ace" data-bind="checked: IfAllSelected">
+                                    <span class="lbl"></span>
+                                </label>
+                            </th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>SpecializationId</th>
+
+                            <th>
+                                <i class="icon-time bigger-110 hidden-480"></i>
+                                Update
+                            </th>
+                            <th class="hidden-480">Status</th>
+
+                            <th>
+                                @*<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                    <a class="red" href="#">
+                                        <i class="icon-trash bigger-130" data-bind="click: RemoveSelected"></i>
+                                    </a>
+                                </div>*@
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ko foreach: Subjects -->
+                        <tr>
+                            <td class="center">
+                                <label>
+                                    <input type="checkbox" class="ace" data-bind="checked: IsSelected">
+                                    <span class="lbl"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <span data-bind="editable: Id, editableOptions: {type: 'select2', select2: $parent.select2}" data-type="select2" data-pk="1" data-title="Select subject" class="editable editable-click"></span>
+                            </td>
+                            <td>
+                                @*                                    <span data-bind="editable: Description, editableOptions: { type: 'textarea' }" class="editable editable-pre-wrapped editable-click"></span>*@
+                            </td>
+                            <td>
+                                @*                                    <span data-bind="editable: SpecializationId, editableOptions: {type: 'select2', select2:$parent.select2}" data-type="select2" data-pk="1" data-title="Select speciality" class="editable editable-click">vcvxcvx</span>*@
+                            </td>
+                            <td>Feb 12</td>
+
+                            <td class="hidden-480">
+                                <span class="label label-sm label-warning">Expiring</span>
+                            </td>
+                            <th>
+                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                    <a class="red" href="#">
+                                        <i class="icon-trash bigger-130" data-bind="click: $parent.Remove"></i>
+                                    </a>
+                                </div>
+                            </th>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="pink">
+                <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+                <a href="#" role="button" class="green" data-bind="click: AddNewSubject">Добавить Предмет</a>
+            </h4>
+        </div>
     </div>
+
 </div>

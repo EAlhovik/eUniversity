@@ -176,21 +176,16 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 ;
 
             Mapper.CreateMap<Subject, SubjectViewModel>()
-                .ForMember(vm => vm.Subject, opt => opt.MapFrom(m => m))
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Assignee, opt => opt.MapFrom(m => universityProfileService.CreateAssignee(m)))
-                ;
-
-            Mapper.CreateMap<Subject, SelectedItemViewModel>()
-                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))
-                .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Name))
+//                .ForMember(vm => vm.SubjectType, opt => opt.Ignore())
                 ;
 
             Mapper.CreateMap<SubjectViewModel, Subject>()
                   .ForMember(m => m.Id, opt => opt.Ignore())
                   .ForMember(m => m.Themes, opt => opt.Ignore())
-                  .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Subject.Text))
+                  .ForMember(m => m.Name, opt => opt.Ignore())
                 ;
-
 
             #endregion
         }

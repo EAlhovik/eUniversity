@@ -20,12 +20,6 @@ namespace eUniversity.Business.ManagementServices
             this.semesterManagementService = semesterManagementService;
         }
 
-        private void UpdateModel(CurriculumViewModel viewModel, Curriculum curriculum)
-        {
-            Service.Save(curriculum);
-            Mapper.Map<CurriculumViewModel, Curriculum>(viewModel, curriculum);
-        }
-
         public CurriculumViewModel Open(long? id)
         {
             var item = Service.CreateOrOpen(id);
@@ -41,6 +35,12 @@ namespace eUniversity.Business.ManagementServices
             semesterManagementService.Save(viewModel.Semesters, curriculum);
 
             UnitOfWork.Commit();
+        }
+
+        private void UpdateModel(CurriculumViewModel viewModel, Curriculum curriculum)
+        {
+            Service.Save(curriculum);
+            Mapper.Map<CurriculumViewModel, Curriculum>(viewModel, curriculum);
         }
     }
 }

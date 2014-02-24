@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
@@ -30,13 +31,15 @@ namespace eUniversity.Web.Controllers
         [HttpGet]
         public JsonResult GetSubjects(string term)
         {
-            var lst = new List<SelectedItemViewModel>()
-            {
-                new SelectedItemViewModel(){Id = "1", Text = "BD"},
-                new SelectedItemViewModel(){Id = "2", Text = "Seti"},
-                new SelectedItemViewModel(){Id = "2", Text = "Test"},
-            };
-            return Json(lst.Where(p => string.IsNullOrEmpty(term) || p.Text.ToUpper().Contains(term.ToUpper())), JsonRequestBehavior.AllowGet);
+            return Json(loockupService.GetSubjects(term), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetSubject(string id)
+        {
+            var subject = loockupService.GetSubject(id);
+            
+            return Json((object) subject?? string.Empty, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

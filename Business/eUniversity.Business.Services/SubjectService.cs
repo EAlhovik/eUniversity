@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Services.Base;
@@ -8,7 +9,7 @@ using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.Services
 {
-    public class SubjectService :BaseService<Subject>, ISubjectService
+    public class SubjectService : BaseService<Subject>, ISubjectService
     {
         private ISubjectRepository SubjectRepository
         {
@@ -18,7 +19,7 @@ namespace eUniversity.Business.Services
             : base(repository)
         {
         }
-        
+
         #region BaseService Members
 
         protected override Subject CreateItem()
@@ -28,13 +29,23 @@ namespace eUniversity.Business.Services
 
         protected override SelectedItemModel CreateSelectedItem(Subject item)
         {
-            throw new NotImplementedException();
+            return new SelectedItemModel()
+            {
+                Id = item.Id.ToString(),
+                Text = item.Name
+            };
         }
 
         public override IEnumerable<Subject> All()
         {
             return SubjectRepository.GetSubjects();
         }
+
+        protected override Expression<Func<Subject, bool>> Predicate(string term)
+        {
+            return item => item.Name.ToUpper().IndexOf(term.ToUpper()) >= 0;
+        }
+
 
         #endregion
     }

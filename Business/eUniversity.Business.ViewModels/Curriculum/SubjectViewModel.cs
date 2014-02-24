@@ -7,7 +7,7 @@ namespace eUniversity.Business.ViewModels.Curriculum
     /// </summary>
     public class SubjectViewModel
     {
-        public SelectedItemViewModel Subject { get; set; }
+        public string Id { get; set; }
         public SelectedItemViewModel Assignee { get; set; }
 
         public SubjectTypeEnum SubjectType { get; set; }

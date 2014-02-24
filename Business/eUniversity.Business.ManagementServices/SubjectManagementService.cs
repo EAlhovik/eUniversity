@@ -34,24 +34,40 @@ namespace eUniversity.Business.ManagementServices
         {
             var originalSubjects = subjectService.All().Where(s => s.SemesterId == semester.Id);
 
-            var modification = CollectionModificationResolver.Resolve(subjects, originalSubjects,
+            var modification = CollectionModificationResolver.Resolve(subjects.Where(s => IdChecker(s.Id)), originalSubjects,
                                                                       (income, viewModel) =>
-                                                                      income.Id == long.Parse(viewModel.Subject.Id));
+                                                                      income.Id == long.Parse(viewModel.Id));
 
             foreach (var item in modification.Modified)
             {
                 SaveSubject(item.Key, item.Value);
             }
 
-            foreach (var item in modification.Added)
-            {
-                var subject = new Subject() { Id = 0, Semester = semester };
-                SaveSubject(item, subject);
-            }
+            AddNewSubjects(semester, subjects.Where(s => !IdChecker(s.Id)));
 
             foreach (var subject in modification.Deleted)
             {
                 subjectService.Delete(subject);
+            }
+        }
+
+        private static bool IdChecker(string subjectId)
+        {
+            long id;
+            return long.TryParse(subjectId, out id);
+        }
+
+        private void AddNewSubjects(Semester semester, IEnumerable<SubjectViewModel> subjectViewModels)
+        {
+            foreach (var item in subjectViewModels)
+            {
+                var subject = new Subject
+                {
+                    Id = 0,
+                    Semester = semester,
+                    Name = SubjectIdPrefixHelper.Trim(item.Id)
+                };
+                SaveSubject(item, subject);
             }
         }
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection.Emit;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Base;
 using eUniversity.Data.Contracts;
@@ -137,10 +139,17 @@ namespace eUniversity.Business.Services.Base
         {
             if (!string.IsNullOrEmpty(term))
             {
-                throw new NotImplementedException();
+                return Repository.All().Where(Predicate(term)).Select(CreateSelectedItem);
             }
             return Repository.All().Select(CreateSelectedItem);
+            
         }
+
+        protected virtual Expression<Func<T, bool>> Predicate(string term)
+        {
+            return p => true;
+        }
+
 
         protected abstract T CreateItem();
         protected abstract SelectedItemModel CreateSelectedItem(T item);

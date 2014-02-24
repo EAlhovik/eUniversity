@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Common.Utilities;
@@ -20,13 +21,15 @@ namespace eUniversity.Business.ManagementServices
         private readonly ISpecializationService specializationService;
         private readonly IProfessorProfileService professorProfileService;
         private readonly IGroupService groupService;
+        private readonly ISubjectService subjectService;
 
-        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService, IProfessorProfileService professorProfileService, IGroupService groupService)
+        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService, IProfessorProfileService professorProfileService, IGroupService groupService, ISubjectService subjectService)
         {
             this.specialityService = specialityService;
             this.specializationService = specializationService;
             this.professorProfileService = professorProfileService;
             this.groupService = groupService;
+            this.subjectService = subjectService;
         }
 
         #region ILoockupManagementService Members
@@ -88,8 +91,37 @@ namespace eUniversity.Business.ManagementServices
             return string.IsNullOrEmpty(term) ? values : values.Where(s => s.Text.Contains(term));
         }
 
+        public IEnumerable<SelectedItemViewModel> GetSubjects(string term)
+        {
+            return subjectService.GetSelectedItems(term).Select(Mapper.Map<SelectedItemModel, SelectedItemViewModel>);
+        }
+
+        public SelectedItemViewModel GetSubject(string id)
+        {
+            long parseResult;
+            if (long.TryParse(id, out parseResult))
+            {
+                return GetSubject(parseResult);
+            }
+            else if (!string.IsNullOrEmpty(id))
+            {
+                var subject = new SelectedItemViewModel()
+                {
+                    Id = id,
+                    Text = SubjectIdPrefixHelper.Trim(id)
+                };
+                return subject;
+            }
+
+            return null;
+        }
+
         #endregion
 
+        private SelectedItemViewModel GetSubject(long parseResult)
+        {
+            return Mapper.Map<SelectedItemModel, SelectedItemViewModel>(subjectService.GetSelectedItemById(parseResult));
+        }
 
         private static Func<Specialization, bool> TermPredicate(string term)
         {

@@ -1,17 +1,24 @@
-﻿@using eUniversity.Web.Infrastructure.Constants
+﻿@using eUniversity.Business.Helpers
+@using eUniversity.Web.Infrastructure.Constants
 <script type="text/javascript">
     (function () {
         var strings = {
             common: {
                 Draft: '@eUniversity.Common.Strings.Resources.Common_Draft',
-                Approved: '@eUniversity.Common.Strings.Resources.Common_Approved'
+                Approved: '@eUniversity.Common.Strings.Resources.Common_Approved',
             }
         };
         window.strings = strings;
+        var constants = {
+                SubjectIdPrefix: '@SubjectIdPrefixHelper.SubjectIdPrefix'
+        };
+        window.constants = constants;
 
         var actions = {
             curriculum: {
                 CurriculumGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.CurriculumController)',
+                GetSubject: '@Url.Action("GetSubject", ControllerNames.LoockupController)',
+                GetSubjects: '@Url.Action("GetSubjects", ControllerNames.LoockupController)'
             },
             speciality: {
                 SpecialityGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.SpecialityController)',
