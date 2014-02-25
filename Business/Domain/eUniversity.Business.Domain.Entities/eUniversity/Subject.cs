@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.Base;
+using eUniversity.Business.Domain.Entities.Enums;
 
 namespace eUniversity.Business.Domain.Entities.eUniversity
 {
@@ -14,5 +15,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
 
         public virtual Semester Semester { get; set; }
         public long SemesterId { get; set; }
+
+        public SubjectTypeEnum SubjectType { get; set; }
     }
 }

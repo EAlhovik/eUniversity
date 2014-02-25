@@ -38,8 +38,8 @@ namespace eUniversity.Web.Controllers
         public JsonResult GetSubject(string id)
         {
             var subject = loockupService.GetSubject(id);
-            
-            return Json((object) subject?? string.Empty, JsonRequestBehavior.AllowGet);
+
+            return Json((object)subject ?? string.Empty, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -82,5 +82,12 @@ namespace eUniversity.Web.Controllers
             var semesters = loockupService.GetSemesters(term);
             return Json(semesters, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public JsonResult GetSubjectTypes()
+        {
+            return Json(loockupService.GetSubjectTypes().Select(p => new { value = p.Id, text = p.Text }), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

@@ -10,6 +10,6 @@ namespace eUniversity.Business.ViewModels.Curriculum
         public string Id { get; set; }
         public SelectedItemViewModel Assignee { get; set; }
 
-        public SubjectTypeEnum SubjectType { get; set; }
+        public string SubjectType { get; set; }
     }
 }

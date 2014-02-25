@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Auth;
@@ -177,6 +178,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             Mapper.CreateMap<Subject, SubjectViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.SubjectType, opt => opt.MapFrom(m => (int)m.SubjectType))
                 .ForMember(vm => vm.Assignee, opt => opt.MapFrom(m => universityProfileService.CreateAssignee(m)))
 //                .ForMember(vm => vm.SubjectType, opt => opt.Ignore())
                 ;
@@ -185,6 +187,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                   .ForMember(m => m.Id, opt => opt.Ignore())
                   .ForMember(m => m.Themes, opt => opt.Ignore())
                   .ForMember(m => m.Name, opt => opt.Ignore())
+                  .ForMember(m => m.SubjectType, opt => opt.MapFrom(vm => (SubjectTypeEnum)int.Parse(vm.SubjectType)))
                 ;
 
             #endregion

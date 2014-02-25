@@ -45,7 +45,7 @@
                                 </label>
                             </th>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Type</th>
                             <th>SpecializationId</th>
 
                             <th>
@@ -76,8 +76,7 @@
                                 <span data-bind="editable: Id, editableOptions: {type: 'select2', select2: $parent.select2}" data-type="select2" data-pk="1" data-title="Select subject" class="editable editable-click"></span>
                             </td>
                             <td>
-                                @*                                    <span data-bind="editable: Description, editableOptions: { type: 'textarea' }" class="editable editable-pre-wrapped editable-click"></span>*@
-                            </td>
+                                <span data-bind="attr: { 'data-value': SubjectType }, editable: SubjectType, editableOptions: { source: window.actions.curriculum.GetSubjectTypesUrl, pk: 1,  title: 'Select group', value: SubjectType()}" data-type="select" data-value="3"></span>
                             <td>
                                 @*                                    <span data-bind="editable: SpecializationId, editableOptions: {type: 'select2', select2:$parent.select2}" data-type="select2" data-pk="1" data-title="Select speciality" class="editable editable-click">vcvxcvx</span>*@
                             </td>

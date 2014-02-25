@@ -70,5 +70,11 @@ namespace eUniversity.Business.Domain.Contracts
         /// <param name="parseResult">The parse result.</param>
         /// <returns></returns>
         SelectedItemViewModel GetSubject(string parseResult);
+
+        /// <summary>
+        /// Gets the subject types.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<SelectedItemViewModel> GetSubjectTypes();
     }
 }

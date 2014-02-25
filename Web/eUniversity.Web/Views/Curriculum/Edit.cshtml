@@ -54,16 +54,19 @@
         </div>
         </div>
         <hr>
-        <div class="row wizard-actions">
-            <button class="btn btn-prev" data-bind="click: BtnPrev, enable: IsDisablePrevBtn" disabled="disabled">
-                <i class="icon-arrow-left"></i>
-                Prev
-            </button>
+        <div class="clearfix form-actions">
+            <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-info" type="button" data-bind="click: Save">
+                    <i class="icon-ok bigger-110"></i>
+                    Submit
+                </button>
 
-            <button class="btn btn-success btn-next" data-bind="click: BtnNext">
-                Next
-                <i class="icon-arrow-right icon-on-right"></i>
-            </button>
+                &nbsp; &nbsp; &nbsp;
+                <button class="btn" type="reset" data-bind="click: Reset">
+                    <i class="icon-undo bigger-110"></i>
+                    Reset
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -78,28 +81,4 @@
     $(document).ready(function () {
         ko.applyBindings(new CurriculumViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));
     });
-</script>
-
-<script type="text/html" id="modal-template">
-    <div class="modal fade in" tabindex="-1" role="dialog" style="display: block;" aria-hidden="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header no-padding">
-                    <div class="table-header">
-                        <button type="button" class="close" aria-hidden="true" data-bind="click: cancel">
-                            <span class="white">×</span>
-                        </button>
-                        <span>Results for "Latest Registered Domains</span>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    @*                    <div class="modal-body no-padding">Are you sure?</div>*@
-                </div>
-                <div class="modal-footer">
-                    <button data-bb-handler="cancel" type="button" class="btn btn-default">Cancel</button>
-                    <button data-bb-handler="confirm" type="button" class="btn btn-primary">OK</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </script>

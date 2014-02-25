@@ -22,21 +22,15 @@
 
     ko.mapping.fromJS(serverModel, mappingOverride, self);
 
-    self.BtnPrev = function () {
-        var index = firstActiveStep();
-        setCurrentStep(index - 1);
+
+    self.Save = function() {
+        save();
     };
-
-    self.BtnNext = function () {
-        var index = firstActiveStep();
-        if (self.Semesters().length - 1 != index) {
-            setCurrentStep(index + 1);
-        } else {
-            save();
-        }
-
+    
+    self.Reset = function() {
+        document.location.reload(true);
     };
-
+    
     self.ChooseStep = function (step) {
         var index = self.Semesters().indexOf(step);
         setCurrentStep(index);

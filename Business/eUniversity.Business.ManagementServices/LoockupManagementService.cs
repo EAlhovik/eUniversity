@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels;
@@ -114,6 +115,11 @@ namespace eUniversity.Business.ManagementServices
             }
 
             return null;
+        }
+
+        public IEnumerable<SelectedItemViewModel> GetSubjectTypes()
+        {
+            return EnumHelper.GetEnumValues(typeof(SubjectTypeEnum)).Select(p => new SelectedItemViewModel { Id = p.Key, Text = p.Value });
         }
 
         #endregion
