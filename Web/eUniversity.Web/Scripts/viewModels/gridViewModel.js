@@ -122,7 +122,7 @@
         loadElement: function (id) {
             var res;
             $.ajax({
-                url: window.actions[serverModel.Object].GetSelectedItemUrl,
+                url: getUrl('GetSelectedItemUrl'),
                 data: { id: id },
                 async: false,
                 success: function (data) {

@@ -89,5 +89,16 @@ namespace eUniversity.Web.Controllers
             return Json(loockupService.GetSubjectTypes().Select(p => new { value = p.Id, text = p.Text }), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult GetThemes(string term)
+        {
+            return Json(loockupService.GetSpecialities(term), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetTheme(IEnumerable<string> ids)
+        {
+            return Json(loockupService.GetSpecialities(""), JsonRequestBehavior.AllowGet);
+        }
     }
 }

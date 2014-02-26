@@ -10,7 +10,7 @@
         };
         window.strings = strings;
         var constants = {
-                SubjectIdPrefix: '@SubjectIdPrefixHelper.SubjectIdPrefix'
+            SubjectIdPrefix: '@SubjectIdPrefixHelper.SubjectIdPrefix'
         };
         window.constants = constants;
 
@@ -39,6 +39,10 @@
                 RemoveUrl: '@Url.Action(ActionNames.RemoveAction, ControllerNames.GroupController)',
                 GetSelectedItemsUrl: '@Url.Action(ActionNames.GetSpecializationsAction, ControllerNames.LoockupController)',
                 GetSelectedItemUrl: '@Url.Action(ActionNames.GetSpecializationAction, ControllerNames.LoockupController)'
+            },
+            subject: {
+                GetSelectedItemsUrl: '@Url.Action("GetThemes", ControllerNames.LoockupController)',
+                GetSelectedItemUrl: '@Url.Action("GetTheme", ControllerNames.LoockupController)'
             }
         };
         window.actions = actions;
