@@ -9,6 +9,10 @@
     ko.mapping.fromJS(serverModel, {}, self);
     
     self.EditCurriculumUrl = ko.computed(function () {
-        return window.actions.curriculum.CurriculumGridUrl.replace('id', self.Id());
+        return window.actions.curriculum.EditCurriculumUrl.replace('id', self.Id());
     });
+
+    self.ShowCurriculum = function() {
+        window.location.href = self.EditCurriculumUrl();
+    };
 }

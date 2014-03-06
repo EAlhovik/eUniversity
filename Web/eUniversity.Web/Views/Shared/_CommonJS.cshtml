@@ -19,7 +19,8 @@
                 CurriculumGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.CurriculumController)',
                 GetSubject: '@Url.Action("GetSubject", ControllerNames.LoockupController)',
                 GetSubjects: '@Url.Action("GetSubjects", ControllerNames.LoockupController)',
-                GetSubjectTypesUrl: '@Url.Action("GetSubjectTypes", ControllerNames.LoockupController)'
+                GetSubjectTypesUrl: '@Url.Action("GetSubjectTypes", ControllerNames.LoockupController)',
+                EditCurriculumUrl: '@Url.Action(ActionNames.EditAction, ControllerNames.CurriculumController, new {id = "id"})',
             },
             speciality: {
                 SpecialityGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.SpecialityController)',
