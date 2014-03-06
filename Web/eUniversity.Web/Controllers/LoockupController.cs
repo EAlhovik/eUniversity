@@ -92,13 +92,13 @@ namespace eUniversity.Web.Controllers
         [HttpGet]
         public JsonResult GetThemes(string term)
         {
-            return Json(loockupService.GetSpecialities(term), JsonRequestBehavior.AllowGet);
+            return Json(loockupService.GetThemes(term), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetTheme(IEnumerable<string> ids)
+        public JsonResult GetThemesByIds(string ids)
         {
-            return Json(loockupService.GetSpecialities(""), JsonRequestBehavior.AllowGet);
+            return Json(loockupService.GetThemesByIds(ids), JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -122,6 +122,17 @@ namespace eUniversity.Business.ManagementServices
             return EnumHelper.GetEnumValues(typeof(SubjectTypeEnum)).Select(p => new SelectedItemViewModel { Id = p.Key, Text = p.Value });
         }
 
+        public IEnumerable<SelectedItemViewModel> GetThemes(string term)
+        {
+            return new List<SelectedItemViewModel>();
+        }
+
+        public IEnumerable<SelectedItemViewModel> GetThemesByIds(string ids)
+        {
+            //ids.Split(',');
+            return new List<SelectedItemViewModel>();
+        }
+
         #endregion
 
         private SelectedItemViewModel GetSubject(long parseResult)

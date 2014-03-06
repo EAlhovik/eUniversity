@@ -76,5 +76,19 @@ namespace eUniversity.Business.Domain.Contracts
         /// </summary>
         /// <returns></returns>
         IEnumerable<SelectedItemViewModel> GetSubjectTypes();
+
+        /// <summary>
+        /// Themeses the specified term.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <returns>selected thems</returns>
+        IEnumerable<SelectedItemViewModel> GetThemes(string term);
+
+        /// <summary>
+        /// Themeses the by ids.
+        /// </summary>
+        /// <param name="ids">The ids.</param>
+        /// <returns>selected thems</returns>
+        IEnumerable<SelectedItemViewModel> GetThemesByIds(string ids);
     }
 }
