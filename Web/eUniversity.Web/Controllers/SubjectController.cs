@@ -4,10 +4,11 @@ using eUniversity.Business.ViewModels;
 
 namespace eUniversity.Web.Controllers
 {
-    public class ThemeController : Controller
+    public class SubjectController : Controller
     {
         private readonly ISubjectManagementService subjectManagementService;
-        public ThemeController(ISubjectManagementService subjectManagementService)
+
+        public SubjectController(ISubjectManagementService subjectManagementService)
         {
             this.subjectManagementService = subjectManagementService;
         }
@@ -20,5 +21,6 @@ namespace eUniversity.Web.Controllers
             };
             return View(grid);
         }
-	}
+
+    }
 }

@@ -196,7 +196,7 @@
     <Compile Include="Controllers\SpecialityController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
     <Compile Include="Controllers\CurriculumController.cs" />
-    <Compile Include="Controllers\ThemeController.cs" />
+    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Extensions\CustomRoleProvider.cs" />
     <Compile Include="Extensions\HtmlHelpers.cs" />
     <Compile Include="Global.asax.cs">
@@ -344,7 +344,7 @@
     <Content Include="Views\Account\EditorTemplates\Profile.cshtml" />
     <Content Include="Views\Account\EditorTemplates\RegisterViewModel.cshtml" />
     <Content Include="Views\Account\EditorTemplates\RegisterResult.cshtml" />
-    <Content Include="Views\Theme\Index.cshtml" />
+    <Content Include="Views\Subject\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
