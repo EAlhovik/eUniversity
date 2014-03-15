@@ -127,13 +127,31 @@ namespace eUniversity.Business.ManagementServices
             return new List<SelectedItemViewModel>();
         }
 
-        public IEnumerable<SelectedItemViewModel> GetThemesByIds(string ids)
+        public SelectedItemViewModel GetTheme(string id)
         {
-            //ids.Split(',');
-            return new List<SelectedItemViewModel>();
+            long parseResult;
+            if (long.TryParse(id, out parseResult))
+            {
+                return GetTheme(parseResult);
+            }
+            else if (!string.IsNullOrEmpty(id))
+            {
+                var theme = new SelectedItemViewModel()
+                {
+                    Id = id,
+                    Text = SubjectIdPrefixHelper.Trim(id)
+                };
+                return theme;
+            }
+            return null;
         }
 
         #endregion
+
+        private SelectedItemViewModel GetTheme(long id)
+        {
+            return null;
+        }
 
         private SelectedItemViewModel GetSubject(long parseResult)
         {

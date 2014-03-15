@@ -43,7 +43,8 @@
             },
             subject: {
                 GetSelectedItemsUrl: '@Url.Action("GetThemes", ControllerNames.LoockupController)',
-                GetSelectedItemUrl: '@Url.Action("GetThemesByIds", ControllerNames.LoockupController)'
+                GetSelectedItemUrl: '@Url.Action("GetTheme", ControllerNames.LoockupController)',
+                GetSubjectRowUrl: '@Url.Action(ActionNames.GetSubjectRowAction, ControllerNames.SubjectController)'
             }
         };
         window.actions = actions;

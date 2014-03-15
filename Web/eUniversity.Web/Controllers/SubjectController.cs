@@ -22,5 +22,11 @@ namespace eUniversity.Web.Controllers
             return View(grid);
         }
 
+        [HttpGet]
+        public JsonResult GetSubjectRow(long id)
+        {
+            subjectManagementService.GetSubjectRowById(id);
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
     }
 }

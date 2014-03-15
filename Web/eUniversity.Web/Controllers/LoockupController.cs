@@ -96,9 +96,11 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetThemesByIds(string ids)
+        public JsonResult GetTheme(string id)
         {
-            return Json(loockupService.GetThemesByIds(ids), JsonRequestBehavior.AllowGet);
+            var theme = loockupService.GetSubject(id);
+
+            return Json((object)theme ?? string.Empty, JsonRequestBehavior.AllowGet);
         }
     }
 }

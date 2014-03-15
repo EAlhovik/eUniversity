@@ -1,4 +1,6 @@
-﻿namespace eUniversity.Business.ViewModels.Subject
+﻿using System.Collections.Generic;
+
+namespace eUniversity.Business.ViewModels.Subject
 {
     /// <summary>
     /// View model for subject row
@@ -10,5 +12,7 @@
         public string SemesterNumber { get; set; }
         public string CurriculumName { get; set; }
         public string SpecializationName { get; set; }
+
+        public IEnumerable<long> Themes { get; set; }
     }
 }

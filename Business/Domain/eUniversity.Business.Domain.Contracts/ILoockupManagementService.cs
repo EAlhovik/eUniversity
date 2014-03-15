@@ -87,8 +87,8 @@ namespace eUniversity.Business.Domain.Contracts
         /// <summary>
         /// Themeses the by ids.
         /// </summary>
-        /// <param name="ids">The ids.</param>
+        /// <param name="id">The id.</param>
         /// <returns>selected thems</returns>
-        IEnumerable<SelectedItemViewModel> GetThemesByIds(string ids);
+        SelectedItemViewModel GetTheme(string id);
     }
 }

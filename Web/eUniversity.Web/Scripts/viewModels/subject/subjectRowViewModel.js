@@ -1,7 +1,9 @@
 ﻿function SubjectRowViewModel(serverModel) {
     var self = this;
     self.IsSelected = ko.observable();
-    
+    self.IsExpand = ko.observable();
+    self.IsLoading = ko.observable();
+
     self.Id = ko.observable();
     self.SubjectName = ko.observable();
     self.SemesterNumber = ko.observable();
@@ -10,7 +12,38 @@
     self.Themes = ko.observableArray();
 
     ko.mapping.fromJS(serverModel, {}, self);
-    
+
+    self.Expand = function() {
+        self.IsExpand(!self.IsExpand());
+    };
+
+    self.IsExpand.subscribe(function() {
+        if (self.IsExpand()) {
+            loadSubjectWithThemes();
+        }
+    });
+
+    function loadSubjectWithThemes() {
+        self.IsLoading(true);
+        $.ajax({
+            url: window.actions.subject.GetSubjectRowUrl,
+            data: { id: self.Id() },
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function(data) {
+                ko.mapping.fromJS(data, {}, self);
+            },
+            complete: function () {
+                self.IsLoading(false);
+            }
+        });
+    }
+
+    self.AddTheme = function() {
+        self.Themes.push('');
+    };
+
     self.select2 = {
         width: 200,
         id: function (item) {
@@ -22,28 +55,20 @@
         formatSelection: function (current) {
             return current.Text;
         },
-        multiple: true,
-        display: function (value, sourceData,wqe,re) {
-            var $el = $('#list'),
-                checked, html = '';
-            if (!value) {
-                $el.empty();
-                return;
-            }
-
-            checked = $.grep(sourceData, function (o) {
-                return $.grep(value, function (v) {
-                    return v == o.value;
-                }).length;
+        multiple: false,
+        query: function (query) {
+            $.ajax(getUrl('GetSelectedItemsUrl'), {
+                data: {
+                    term: query.term
+                },
+                dataType: "json"
+            }).done(function (data) {
+                data = data || [];
+                data.push({ Id: query.term + window.constants.SubjectIdPrefix, Text: query.term });
+                query.callback({ results: data });
             });
-
-            $.each(checked, function (i, v) {
-                html += '<li>' + $.fn.editableutils.escape(v.text) + '</li>';
-            });
-            if (html) html = '<ul>' + html + '</ul>';
-            $el.html(html);
         },
-        ajax: {
+ /*       ajax: {
             data: function (term) {
                 return {
                     term: term
@@ -53,7 +78,7 @@
             results: function (data) {
                 return { results: data };
             }
-        },
+        },*/
         initSelection: function (element, callback) {
             var id = $(element).val();
             if (id !== "") {
@@ -65,7 +90,7 @@
             var res;
             $.ajax({
                 url: getUrl('GetSelectedItemUrl'),
-                data: { ids: id },
+                data: { id: id },
                 async: false,
                 success: function (data) {
                     res = data;
@@ -75,7 +100,7 @@
             return res;
         }
     };
-
+    
     function getUrl(name) {
         if (window.actions['subject'] && window.actions['subject'][name]) {
             return window.actions['subject'][name];

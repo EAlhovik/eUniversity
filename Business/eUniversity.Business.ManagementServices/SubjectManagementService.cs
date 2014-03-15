@@ -23,6 +23,19 @@ namespace eUniversity.Business.ManagementServices
 
         #region ISubjectManagementService Members
 
+        public SubjectRowViewModel GetSubjectRowById(long id)
+        {
+            var subject = subjectService.CreateOrOpen(id);
+            var viewModel = Mapper.Map<Subject, SubjectRowViewModel>(subject);
+            viewModel.Themes = GetThemes(id);
+            return viewModel;
+        }
+
+        private IEnumerable<long> GetThemes(long subjectId)
+        {
+            return new List<long>();
+        }
+
         public IEnumerable<SubjectRowViewModel> GetRows()
         {
             var subjects = subjectService.All();

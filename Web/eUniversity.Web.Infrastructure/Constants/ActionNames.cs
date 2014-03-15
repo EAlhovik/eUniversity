@@ -16,5 +16,6 @@
         public const string GetGroupsAction = "GetGroups";
         public const string SaveAction = "Save";
         public const string RemoveAction = "Remove";
+        public const string GetSubjectRowAction = "GetSubjectRow";
     }
 }

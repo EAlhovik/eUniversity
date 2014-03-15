@@ -26,11 +26,9 @@
                         <th>SemesterNumber</th>
                         <th>CurriculumName</th>
 
-                        <th>
-                            SpecializationName
+                        <th>SpecializationName
                         </th>
-                        <th>
-                            Themes
+                        <th>Themes
                         </th>
                         <th class="hidden-480">Status</th>
 
@@ -41,18 +39,15 @@
                     <!-- ko foreach: Rows -->
                     <tr>
                         <td class="center">
-                            <label>
-                                <input type="checkbox" class="ace" data-bind="checked: IsSelected">
-                                <span class="lbl"></span>
-                            </label>
+                            <a href="#">
+                                <i class='icon-plus' data-bind="click: Expand, css: { 'icon-plus': !IsExpand(), 'icon-minus': IsExpand() }"></i>
+                            </a>
                         </td>
-                        <td data-bind="text: SubjectName">
-                            @*<a href="#" data-bind="text: Name, attr: { href: EditGroupUrl }"></a>*@
-                        </td>
+                        <td data-bind="text: SubjectName"></td>
                         <td data-bind="text: SemesterNumber"></td>
                         <td data-bind="text: CurriculumName"></td>
                         <td data-bind="text: SpecializationName"></td>
-                        <td >
+                        <td>
                             <a data-bind="editable: Themes, editableOptions: { type: 'select2', select2: select2 }" data-type="select2" data-pk="1" data-title="Select speciality"></a>
                         </td>
 
@@ -60,6 +55,25 @@
                             <span class="label label-sm label-warning">Expiring</span>
                         </td>
                         <th></th>
+                    </tr>
+                    <tr data-bind="visible: IsExpand">
+                        <td>
+                            <i class="icon-spinner icon-spin orange bigger-175" data-bind="visible: IsLoading()"></i>
+                        </td>
+                        <td colspan="10" data-bind="visible: !IsLoading(), if: Themes">
+                            <ul>
+                                <!-- ko foreach: Themes -->
+                                <li>
+                                    <span data-bind="editable: $data, editableOptions: { type: 'select2', select2: $parent.select2 }" data-type="select2" data-pk="1" data-title="Select subject" class="editable editable-click"></span>
+@*                                    <a data-bind="editable: $data, editableOptions: { type: 'select2', select2: $parent.select2 }" data-type="select2" data-pk="1" data-title="Select speciality"></a>*@
+                                </li>
+                                <!-- /ko -->
+                            </ul>
+                            <h4 class="pink">
+                                <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+                                <a href="#" role="button" class="green" data-bind="click: AddTheme">Добавить Тему</a>
+                            </h4>
+                        </td>
                     </tr>
                     <!-- /ko -->
                 </tbody>

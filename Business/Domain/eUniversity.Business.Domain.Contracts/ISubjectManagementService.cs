@@ -14,5 +14,7 @@ namespace eUniversity.Business.Domain.Contracts
         void Delete(IEnumerable<Subject> subjects);
 
         IEnumerable<SubjectRowViewModel> GetRows();
+
+        SubjectRowViewModel GetSubjectRowById(long id);
     }
 }
