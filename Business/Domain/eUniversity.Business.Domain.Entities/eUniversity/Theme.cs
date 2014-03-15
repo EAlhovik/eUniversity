@@ -8,6 +8,9 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     public class Theme : Entity
     {
         public virtual Subject Subject { get; set; }
+
         public long SubjectId { get; set; }
+
+        public string Name { get; set; }
     }
 }

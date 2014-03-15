@@ -28,8 +28,6 @@
 
                         <th>SpecializationName
                         </th>
-                        <th>Themes
-                        </th>
                         <th class="hidden-480">Status</th>
 
                         <th></th>
@@ -47,9 +45,6 @@
                         <td data-bind="text: SemesterNumber"></td>
                         <td data-bind="text: CurriculumName"></td>
                         <td data-bind="text: SpecializationName"></td>
-                        <td>
-                            <a data-bind="editable: Themes, editableOptions: { type: 'select2', select2: select2 }" data-type="select2" data-pk="1" data-title="Select speciality"></a>
-                        </td>
 
                         <td class="hidden-480">
                             <span class="label label-sm label-warning">Expiring</span>
@@ -65,7 +60,6 @@
                                 <!-- ko foreach: Themes -->
                                 <li>
                                     <span data-bind="editable: $data, editableOptions: { type: 'select2', select2: $parent.select2 }" data-type="select2" data-pk="1" data-title="Select subject" class="editable editable-click"></span>
-@*                                    <a data-bind="editable: $data, editableOptions: { type: 'select2', select2: $parent.select2 }" data-type="select2" data-pk="1" data-title="Select speciality"></a>*@
                                 </li>
                                 <!-- /ko -->
                             </ul>

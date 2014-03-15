@@ -58,6 +58,7 @@
     <Compile Include="SpecializationService.cs" />
     <Compile Include="CurriculumService.cs" />
     <Compile Include="SubjectService.cs" />
+    <Compile Include="ThemeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\eUniversity.Common.Utilities\eUniversity.Common.Utilities.csproj">

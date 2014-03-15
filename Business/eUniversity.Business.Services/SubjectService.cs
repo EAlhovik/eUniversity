@@ -46,7 +46,6 @@ namespace eUniversity.Business.Services
             return item => item.Name.ToUpper().IndexOf(term.ToUpper()) >= 0;
         }
 
-
         #endregion
     }
 }

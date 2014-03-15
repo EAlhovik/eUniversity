@@ -68,17 +68,6 @@
                 query.callback({ results: data });
             });
         },
- /*       ajax: {
-            data: function (term) {
-                return {
-                    term: term
-                };
-            },
-            url: getUrl('GetSelectedItemsUrl'),
-            results: function (data) {
-                return { results: data };
-            }
-        },*/
         initSelection: function (element, callback) {
             var id = $(element).val();
             if (id !== "") {

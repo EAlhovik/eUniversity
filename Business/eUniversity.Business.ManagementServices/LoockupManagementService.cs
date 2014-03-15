@@ -23,14 +23,16 @@ namespace eUniversity.Business.ManagementServices
         private readonly IProfessorProfileService professorProfileService;
         private readonly IGroupService groupService;
         private readonly ISubjectService subjectService;
+        private readonly IThemeService themeService;
 
-        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService, IProfessorProfileService professorProfileService, IGroupService groupService, ISubjectService subjectService)
+        public LoockupManagementService(ISpecialityService specialityService, ISpecializationService specializationService, IProfessorProfileService professorProfileService, IGroupService groupService, ISubjectService subjectService, IThemeService themeService)
         {
             this.specialityService = specialityService;
             this.specializationService = specializationService;
             this.professorProfileService = professorProfileService;
             this.groupService = groupService;
             this.subjectService = subjectService;
+            this.themeService = themeService;
         }
 
         #region ILoockupManagementService Members
@@ -42,11 +44,9 @@ namespace eUniversity.Business.ManagementServices
         /// <returns> specialities by term </returns>
         public IEnumerable<SelectedItemViewModel> GetSpecialities(string term)
         {
-            var specialities =
-                specialityService.All().Where(
-                                     spec =>
-                                     string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0);
-            return specialities.Select(Mapper.Map<Speciality, SelectedItemViewModel>);
+            var specialities = groupService.GetSelectedItems(term)
+                .Select(Mapper.Map<SelectedItemModel, SelectedItemViewModel>);
+            return specialities;
         }
 
         public IEnumerable<SelectedItemViewModel> GetGroups(string term)
@@ -75,10 +75,8 @@ namespace eUniversity.Business.ManagementServices
 
         public IEnumerable<SelectedItemViewModel> GetSpecializations(string term)
         {
-            var specializations =
-                specializationService.All().Where(
-                                     TermPredicate(term));
-            return specializations.Select(Mapper.Map<Specialization, SelectedItemViewModel>);
+            return specializationService.GetSelectedItems(term)
+                .Select(Mapper.Map<SelectedItemModel, SelectedItemViewModel>);
         }
 
         public IEnumerable<SelectedItemViewModel> GetProfessors(string term)
@@ -124,7 +122,8 @@ namespace eUniversity.Business.ManagementServices
 
         public IEnumerable<SelectedItemViewModel> GetThemes(string term)
         {
-            return new List<SelectedItemViewModel>();
+            return themeService.GetSelectedItems(term)
+                .Select(Mapper.Map<SelectedItemModel, SelectedItemViewModel>); ;
         }
 
         public SelectedItemViewModel GetTheme(string id)
@@ -150,18 +149,12 @@ namespace eUniversity.Business.ManagementServices
 
         private SelectedItemViewModel GetTheme(long id)
         {
-            return null;
+            return Mapper.Map<SelectedItemModel, SelectedItemViewModel>(themeService.GetSelectedItemById(id));
         }
 
         private SelectedItemViewModel GetSubject(long parseResult)
         {
             return Mapper.Map<SelectedItemModel, SelectedItemViewModel>(subjectService.GetSelectedItemById(parseResult));
-        }
-
-        private static Func<Specialization, bool> TermPredicate(string term)
-        {
-            return spec =>
-                string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0;
         }
     }
 }

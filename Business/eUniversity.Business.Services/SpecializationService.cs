@@ -1,4 +1,6 @@
-﻿using eUniversity.Business.Domain.Contracts;
+﻿using System;
+using System.Linq.Expressions;
+using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Services.Base;
 using eUniversity.Data.Contracts;
@@ -28,6 +30,12 @@ namespace eUniversity.Business.Services
                 Id = specialization.Id.ToString(),
                 Text = specialization.Name
             };
+        }
+
+        protected override Expression<Func<Specialization, bool>> Predicate(string term)
+        {
+            return spec =>
+                string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0;
         }
     }
 }
