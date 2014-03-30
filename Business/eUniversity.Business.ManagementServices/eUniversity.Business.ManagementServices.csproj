@@ -53,6 +53,7 @@
     <Compile Include="SpecializationManagementService.cs" />
     <Compile Include="SubjectManagementService.cs" />
     <Compile Include="AutoMapperServices\UniversityProfileManagementService.cs" />
+    <Compile Include="ThemeManagementService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\eUniversity.Common.Utilities\eUniversity.Common.Utilities.csproj">

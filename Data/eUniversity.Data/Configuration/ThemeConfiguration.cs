@@ -7,9 +7,11 @@ namespace eUniversity.Data.Configuration
     {
         public ThemeConfiguration()
         {
-            HasRequired(theme => theme.Subject)
+         /*   HasRequired(theme => theme.Subject)
                 .WithMany(subject => subject.Themes)
-                .HasForeignKey(theme => theme.SubjectId);
+//                .HasForeignKey(theme => theme.SubjectId)
+                ;
+            */
         }
     }
 }

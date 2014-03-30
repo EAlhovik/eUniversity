@@ -66,6 +66,8 @@
     <Compile Include="Speciality\SpecialityRowViewModel.cs" />
     <Compile Include="Specialization\SpecializationRowViewModel.cs" />
     <Compile Include="Subject\SubjectRowViewModel.cs" />
+    <Compile Include="Subject\ThemeViewModel.cs" />
+    <Compile Include="Theme\ThemeRowViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eUniversity.Business.Helpers\eUniversity.Business.Helpers.csproj">

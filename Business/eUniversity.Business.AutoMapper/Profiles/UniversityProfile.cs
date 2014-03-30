@@ -10,6 +10,7 @@ using eUniversity.Business.ViewModels.Membership;
 using eUniversity.Business.ViewModels.Speciality;
 using eUniversity.Business.ViewModels.Specialization;
 using eUniversity.Business.ViewModels.Subject;
+using eUniversity.Business.ViewModels.Theme;
 using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.AutoMapper.Profiles
@@ -191,6 +192,28 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 ;
 
             #endregion
+
+            #region Theme
+
+            Mapper.CreateMap<Theme, ThemeRowViewModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
+                .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
+                ;
+
+            Mapper.CreateMap<ThemeRowViewModel, Theme>()
+                  .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
+                  .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
+                  .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                ;
+
+//            Mapper.CreateMap<Speciality, SelectedItemViewModel>() todo: check if need
+//                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id.ToString()))
+//                .ForMember(vm => vm.Text, opt => opt.MapFrom(m => m.Name))
+//                ;
+
+            #endregion
+
         }
     }
 }

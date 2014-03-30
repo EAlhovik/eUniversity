@@ -12,6 +12,9 @@ namespace eUniversity.Data.Configuration
                 .HasForeignKey(subject => subject.SemesterId)
 //                .WillCascadeOnDelete()
                 ;
+
+            HasMany(subject => subject.Themes)
+                .WithMany(theme => theme.Subjects);
         }
     }
 }

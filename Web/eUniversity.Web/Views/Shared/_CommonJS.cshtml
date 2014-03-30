@@ -27,6 +27,11 @@
                 SaveUrl: '@Url.Action(ActionNames.SaveAction, ControllerNames.SpecialityController)',
                 RemoveUrl: '@Url.Action(ActionNames.RemoveAction, ControllerNames.SpecialityController)',
             },
+            theme: {
+                ThemeGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.ThemeController)',
+                SaveUrl: '@Url.Action(ActionNames.SaveAction, ControllerNames.ThemeController)',
+                RemoveUrl: '@Url.Action(ActionNames.RemoveAction, ControllerNames.ThemeController)',
+            },
             specialization: {
                 SpecializationGridUrl: '@Url.Action(ActionNames.IndexAction, ControllerNames.SpecializationController)',
                 SaveUrl: '@Url.Action(ActionNames.SaveAction, ControllerNames.SpecializationController)',
@@ -44,7 +49,8 @@
             subject: {
                 GetSelectedItemsUrl: '@Url.Action("GetThemes", ControllerNames.LoockupController)',
                 GetSelectedItemUrl: '@Url.Action("GetTheme", ControllerNames.LoockupController)',
-                GetSubjectRowUrl: '@Url.Action(ActionNames.GetSubjectRowAction, ControllerNames.SubjectController)'
+                GetSubjectRowUrl: '@Url.Action(ActionNames.GetSubjectRowAction, ControllerNames.SubjectController)',
+                SaveSubjectUrl: '@Url.Action("SaveSubject", ControllerNames.SubjectController)'
             }
         };
         window.actions = actions;
