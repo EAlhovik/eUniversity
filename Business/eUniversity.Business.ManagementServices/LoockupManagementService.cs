@@ -44,7 +44,7 @@ namespace eUniversity.Business.ManagementServices
         /// <returns> specialities by term </returns>
         public IEnumerable<SelectedItemViewModel> GetSpecialities(string term)
         {
-            var specialities = groupService.GetSelectedItems(term)
+            var specialities = specialityService.GetSelectedItems(term)
                 .Select(Mapper.Map<SelectedItemModel, SelectedItemViewModel>);
             return specialities;
         }
