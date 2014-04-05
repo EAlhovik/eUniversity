@@ -7,6 +7,6 @@ namespace eUniversity.Business.Domain.Contracts
     /// </summary>
     public interface ISubjectService : IBaseService<Subject>
     {
-         
+        void UpdateSubjectThemes(Subject subject);
     }
 }

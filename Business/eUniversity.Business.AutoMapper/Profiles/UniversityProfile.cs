@@ -169,6 +169,11 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             #region Subject
 
+            Mapper.CreateMap<SubjectRowViewModel, Subject>()
+                .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
+                .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.SubjectName))
+                .ForMember(m => m.Themes, opt => opt.MapFrom(vm => vm.Themes))
+                ;
             Mapper.CreateMap<Subject, SubjectRowViewModel>()
                 .ForMember(vm => vm.Id  , opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.SubjectName  , opt => opt.MapFrom(m => m.Name))
@@ -202,6 +207,18 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 ;
 
             Mapper.CreateMap<ThemeRowViewModel, Theme>()
+                  .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
+                  .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
+                  .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                ;
+
+            Mapper.CreateMap<Theme, ThemeViewModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
+                .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
+                ;
+
+            Mapper.CreateMap<ThemeViewModel, Theme>()
                   .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                   .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
                   .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))

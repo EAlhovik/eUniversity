@@ -20,11 +20,6 @@ namespace eUniversity.Business.Services
             return Repository.All().Where(p => p.LastName.ToUpper().Contains(term.ToUpper())).Select(CreateSelectedItem);
         }
 
-        protected override ProfessorProfile CreateItem()
-        {
-            throw new System.NotImplementedException();
-        }
-
         protected override SelectedItemModel CreateSelectedItem(ProfessorProfile profile)
         {
             return new SelectedItemModel()

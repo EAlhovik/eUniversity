@@ -135,11 +135,6 @@ namespace eUniversity.Business.Services.Auth
 
         #region BaseService Members
 
-        protected override User CreateItem()
-        {
-            throw new NotImplementedException();
-        }
-
         protected override SelectedItemModel CreateSelectedItem(User item)
         {
             throw new NotImplementedException();

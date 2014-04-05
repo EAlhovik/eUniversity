@@ -11,7 +11,18 @@
     self.SpecializationName = ko.observable();
     self.Themes = ko.observableArray();
 
-    ko.mapping.fromJS(serverModel, {}, self);
+    var mappingOverride =
+    {
+        "Themes":
+        {
+            create: function (options) {
+                return new window.ThemeViewModel(options.data);
+            }
+        }
+    };
+
+    if (serverModel != null)
+        ko.mapping.fromJS(serverModel, mappingOverride, self);
 
     self.Expand = function() {
         self.IsExpand(!self.IsExpand());
@@ -23,16 +34,24 @@
         }
     });
 
+    self.Save = function () {
+        ajax(window.actions.subject.SaveSubjectUrl,JSON.stringify( { viewModel: ko.mapping.toJS(self) }), 'POST');
+    };
+
     function loadSubjectWithThemes() {
+        ajax(window.actions.subject.GetSubjectRowUrl, { id: self.Id() });
+    }
+    
+    function ajax(url, data, type) {
         self.IsLoading(true);
         $.ajax({
-            url: window.actions.subject.GetSubjectRowUrl,
-            data: { id: self.Id() },
-            type: "GET",
+            url: url,
+            data: data,
+            type: type || "GET",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
-            success: function(data) {
-                ko.mapping.fromJS(data, {}, self);
+            success: function (result) {
+                ko.mapping.fromJS(result, mappingOverride, self);
             },
             complete: function () {
                 self.IsLoading(false);
@@ -41,7 +60,11 @@
     }
 
     self.AddTheme = function() {
-        self.Themes.push('');
+        self.Themes.push(new ThemeViewModel(null));
+    };
+
+    self.Remove = function(theme) {
+        self.Themes.remove(theme);
     };
 
     self.select2 = {
@@ -56,17 +79,16 @@
             return current.Text;
         },
         multiple: false,
-        query: function (query) {
-            $.ajax(getUrl('GetSelectedItemsUrl'), {
-                data: {
-                    term: query.term
-                },
-                dataType: "json"
-            }).done(function (data) {
-                data = data || [];
-                data.push({ Id: query.term + window.constants.SubjectIdPrefix, Text: query.term });
-                query.callback({ results: data });
-            });
+        ajax: {
+            data: function (term) {
+                return {
+                    term: term
+                };
+            },
+            url: getUrl('GetSelectedItemsUrl'),
+            results: function (data) {
+                return { results: data };
+            }
         },
         initSelection: function (element, callback) {
             var id = $(element).val();
@@ -96,4 +118,21 @@
         }
         return '';  
     }
+}
+
+function ThemeViewModel(serverModel) {
+    var self = this;
+    self.Id = ko.observable();
+    self.Description = ko.observable();
+    
+    if (serverModel != null)
+        ko.mapping.fromJS(serverModel, {}, self);
+
+    self.Id.subscribe(function () {
+        self.Description(null);
+        if (self.Id())
+        $.get(window.actions.subject.GetThemeDescriptionUrl, { id: self.Id() }, function (data) {
+            self.Description(data);
+        });
+    });
 }

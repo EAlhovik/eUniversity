@@ -17,11 +17,6 @@ namespace eUniversity.Business.Services
 
         #region BaseService Members
 
-        protected override Theme CreateItem()
-        {
-            return new Theme();
-        }
-
         protected override SelectedItemModel CreateSelectedItem(Theme item)
         {
             return new SelectedItemModel()

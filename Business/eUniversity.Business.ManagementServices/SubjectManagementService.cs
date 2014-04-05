@@ -6,6 +6,7 @@ using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Business.ViewModels.Subject;
+using eUniversity.Data.Contracts;
 
 namespace eUniversity.Business.ManagementServices
 {
@@ -15,25 +16,29 @@ namespace eUniversity.Business.ManagementServices
     public class SubjectManagementService : ISubjectManagementService
     {
         private readonly ISubjectService subjectService;
+        private readonly IEUniversityUow universityUow;
 
-        public SubjectManagementService(ISubjectService subjectService)
+        public SubjectManagementService(ISubjectService subjectService, IEUniversityUow universityUow)
         {
             this.subjectService = subjectService;
+            this.universityUow = universityUow;
         }
 
         #region ISubjectManagementService Members
+
+        public void SaveSubject(SubjectRowViewModel viewModel)
+        {
+            var subject = Mapper.Map<SubjectRowViewModel, Subject>(viewModel);
+            subjectService.UpdateSubjectThemes(subject);
+
+            universityUow.Commit();
+        }
 
         public SubjectRowViewModel GetSubjectRowById(long id)
         {
             var subject = subjectService.CreateOrOpen(id);
             var viewModel = Mapper.Map<Subject, SubjectRowViewModel>(subject);
-            viewModel.Themes = GetThemes(id);
             return viewModel;
-        }
-
-        private IEnumerable<long> GetThemes(long subjectId)
-        {
-            return new List<long>();
         }
 
         public IEnumerable<SubjectRowViewModel> GetRows()

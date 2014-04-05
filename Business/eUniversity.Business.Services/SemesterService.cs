@@ -32,11 +32,6 @@ namespace eUniversity.Business.Services
 
         #region BaseService Members
 
-        protected override Semester CreateItem()
-        {
-            return new Semester();
-        }
-
         protected override SelectedItemModel CreateSelectedItem(Semester item)
         {
             throw new NotImplementedException();

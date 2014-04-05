@@ -90,5 +90,12 @@ namespace eUniversity.Business.Domain.Contracts
         /// <param name="id">The id.</param>
         /// <returns>selected thems</returns>
         SelectedItemViewModel GetTheme(string id);
+
+        /// <summary>
+        /// Gets the theme description.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>theme description</returns>
+        string GetThemeDescription(long id);
     }
 }

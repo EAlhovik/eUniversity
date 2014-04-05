@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
-using eUniversity.Business.ViewModels;
 
 namespace eUniversity.Web.Controllers
 {
@@ -29,6 +26,15 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetSemesters(string term)
+        {
+            var semesters = loockupService.GetSemesters(term);
+            return Json(semesters, JsonRequestBehavior.AllowGet);
+        }
+
+        #region Subject
+
+        [HttpGet]
         public JsonResult GetSubjects(string term)
         {
             return Json(loockupService.GetSubjects(term), JsonRequestBehavior.AllowGet);
@@ -41,6 +47,17 @@ namespace eUniversity.Web.Controllers
 
             return Json((object)subject ?? string.Empty, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public JsonResult GetSubjectTypes()
+        {
+            return Json(loockupService.GetSubjectTypes().Select(p => new { value = p.Id, text = p.Text }),
+                JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Speciality
 
         [HttpGet]
         public JsonResult GetSpecialities(string term)
@@ -59,6 +76,10 @@ namespace eUniversity.Web.Controllers
             return Json(string.Empty, JsonRequestBehavior.AllowGet);
         }
 
+        #endregion
+
+        #region Specialization
+
         [HttpGet]
         public JsonResult GetSpecialization(string id)
         {
@@ -76,18 +97,9 @@ namespace eUniversity.Web.Controllers
             return Json(loockupService.GetSpecializations(term), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        public JsonResult GetSemesters(string term)
-        {
-            var semesters = loockupService.GetSemesters(term);
-            return Json(semesters, JsonRequestBehavior.AllowGet);
-        }
+        #endregion
 
-        [HttpGet]
-        public JsonResult GetSubjectTypes()
-        {
-            return Json(loockupService.GetSubjectTypes().Select(p => new { value = p.Id, text = p.Text }), JsonRequestBehavior.AllowGet);
-        }
+        #region Theme
 
         [HttpGet]
         public JsonResult GetThemes(string term)
@@ -98,9 +110,18 @@ namespace eUniversity.Web.Controllers
         [HttpGet]
         public JsonResult GetTheme(string id)
         {
-            var theme = loockupService.GetSubject(id);
+            var theme = loockupService.GetTheme(id);
 
             return Json((object)theme ?? string.Empty, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public JsonResult GetThemeDescription(long id)
+        {
+            string description = loockupService.GetThemeDescription(id);
+            return Json(description, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection.Emit;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Base;
 using eUniversity.Data.Contracts;
@@ -150,8 +149,11 @@ namespace eUniversity.Business.Services.Base
             return p => true;
         }
 
+        protected virtual T CreateItem()
+        {
+            return (T)Activator.CreateInstance(typeof(T));
+        }
 
-        protected abstract T CreateItem();
         protected abstract SelectedItemModel CreateSelectedItem(T item);
     }
 }

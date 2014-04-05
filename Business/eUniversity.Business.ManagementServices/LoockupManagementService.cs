@@ -95,6 +95,12 @@ namespace eUniversity.Business.ManagementServices
             return subjectService.GetSelectedItems(term).Select(Mapper.Map<SelectedItemModel, SelectedItemViewModel>);
         }
 
+        public string GetThemeDescription(long id)
+        {
+            var theme = themeService.CreateOrOpen(id);
+            return theme == null ? string.Empty : theme.Description;
+        }
+
         public SelectedItemViewModel GetSubject(string id)
         {
             long parseResult;

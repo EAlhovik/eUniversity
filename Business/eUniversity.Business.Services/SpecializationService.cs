@@ -18,11 +18,6 @@ namespace eUniversity.Business.Services
         {
         }
 
-        protected override Specialization CreateItem()
-        {
-            return new Specialization();
-        }
-
         protected override SelectedItemModel CreateSelectedItem(Specialization specialization)
         {
             return new SelectedItemModel

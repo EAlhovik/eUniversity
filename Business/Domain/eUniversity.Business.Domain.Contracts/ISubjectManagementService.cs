@@ -16,5 +16,6 @@ namespace eUniversity.Business.Domain.Contracts
         IEnumerable<SubjectRowViewModel> GetRows();
 
         SubjectRowViewModel GetSubjectRowById(long id);
+        void SaveSubject(SubjectRowViewModel viewModel);
     }
 }

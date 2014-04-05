@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels;
+using eUniversity.Business.ViewModels.Subject;
 
 namespace eUniversity.Web.Controllers
 {
@@ -25,8 +26,17 @@ namespace eUniversity.Web.Controllers
         [HttpGet]
         public JsonResult GetSubjectRow(long id)
         {
-            subjectManagementService.GetSubjectRowById(id);
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var viewModel = subjectManagementService.GetSubjectRowById(id);
+            return Json(viewModel, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult SaveSubject(SubjectRowViewModel viewModel)
+        {
+            subjectManagementService.SaveSubject(viewModel);
+//            var selectedSubject = subjectManagementService.GetSubjectRowById(1);
+//            return Json(selectedSubject);
+            return Json(viewModel);
         }
     }
 }

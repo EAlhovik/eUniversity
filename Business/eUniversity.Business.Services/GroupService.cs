@@ -17,11 +17,6 @@ namespace eUniversity.Business.Services
         {
         }
 
-        protected override Group CreateItem()
-        {
-            return new Group();
-        }
-
         protected override SelectedItemModel CreateSelectedItem(Group item)
         {
             return new SelectedItemModel

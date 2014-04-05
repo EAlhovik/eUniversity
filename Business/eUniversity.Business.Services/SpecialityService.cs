@@ -23,11 +23,6 @@ namespace eUniversity.Business.Services
 
         #endregion
 
-        protected override Speciality CreateItem()
-        {
-            return new Speciality();
-        }
-
         protected override SelectedItemModel CreateSelectedItem(Speciality item)
         {
             return new SelectedItemModel

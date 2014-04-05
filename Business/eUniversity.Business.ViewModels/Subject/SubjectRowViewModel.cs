@@ -13,6 +13,18 @@ namespace eUniversity.Business.ViewModels.Subject
         public string CurriculumName { get; set; }
         public string SpecializationName { get; set; }
 
-        public IEnumerable<long> Themes { get; set; }
+        public IEnumerable<ThemeViewModel> Themes
+        {
+            get
+            {
+                return themes ?? (new List<ThemeViewModel>());
+            }
+            set
+            {
+                themes = value;
+            }
+        }
+
+        private IEnumerable<ThemeViewModel> themes;
     }
 }
