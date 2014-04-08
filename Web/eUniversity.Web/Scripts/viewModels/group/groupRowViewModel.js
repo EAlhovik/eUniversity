@@ -7,6 +7,7 @@
 
     self.IsSelected = ko.observable();
 
+    if (serverModel != null)
     ko.mapping.fromJS(serverModel, {}, self);
     
     self.Save = function (viewModel) {
