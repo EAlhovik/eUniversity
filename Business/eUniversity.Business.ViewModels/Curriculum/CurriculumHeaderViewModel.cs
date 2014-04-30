@@ -8,8 +8,6 @@ namespace eUniversity.Business.ViewModels.Curriculum
     public class CurriculumHeaderViewModel
     {
         public long Id { get; set; }
-//        public long? SpecializationId { get; set; }
-//        private SelectedItemViewModel specialization;
 
         public SelectedItemViewModel Specialization{get;set;}
 
@@ -19,7 +17,11 @@ namespace eUniversity.Business.ViewModels.Curriculum
         {
             get
             {
-                return !string.IsNullOrEmpty(DateOfEnactmentDisplay) ? DateTime.Parse(DateOfEnactmentDisplay) : DateTime.Today;
+                if (string.IsNullOrEmpty(DateOfEnactmentDisplay))
+                {
+                    DateOfEnactmentDisplay = DateTime.Today.ToShortDateString();
+                }
+                return DateTime.Parse(DateOfEnactmentDisplay);
             }
             set
             {

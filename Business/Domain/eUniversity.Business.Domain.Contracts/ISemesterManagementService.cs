@@ -12,5 +12,6 @@ namespace eUniversity.Business.Domain.Contracts
         IEnumerable<SemesterViewModel> GetSemesters(long? curriculumId);
 
         void Save(IEnumerable<SemesterViewModel> semesters, Curriculum curriculum);
+        IEnumerable<SemesterViewModel> CreateSemesters(int count);
     }
 }

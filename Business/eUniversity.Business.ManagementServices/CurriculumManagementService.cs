@@ -1,7 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ManagementServices.Base;
+using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Data.Contracts;
 
@@ -35,6 +37,20 @@ namespace eUniversity.Business.ManagementServices
             semesterManagementService.Save(viewModel.Semesters, curriculum);
 
             UnitOfWork.Commit();
+        }
+
+        public CurriculumViewModel CreateCurriculum(SelectedItemViewModel viewModel)
+        {
+            var curriculum = new CurriculumViewModel()
+            {
+                CurriculumHeader = new CurriculumHeaderViewModel()
+                {
+                    CountSemesters = viewModel
+                }
+            };
+            int count = int.Parse(viewModel.Id);
+            curriculum.Semesters = semesterManagementService.CreateSemesters(count);
+            return curriculum;
         }
 
         private void UpdateModel(CurriculumViewModel viewModel, Curriculum curriculum)

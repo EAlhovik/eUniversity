@@ -42,11 +42,23 @@
     });
 
     self.NewCountSemestersSelecting = function (e) {
-        if (confirm('Вы уверены?')) {
-            self.Semesters.removeAll();
-            for (var i = 0; i < e.val; i++) {
-                self.Semesters.push(new window.SemesterViewModel({Sequential:i+1}));
-            }
+        if (self.CurriculumHeader().CountSemesters() && confirm('Вы уверены?')) {
+            $.ajax({
+                url: window.actions.curriculum.NewCountSemestersUrl,
+                type: "POST",
+                data: JSON.stringify({ viewModel: ko.mapping.toJS(e.object) }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    if (result.IsValid) {
+                        ko.mapping.fromJS(result.Data, {}, self);
+                    } else {
+                        alert('error.');
+                    }
+                },
+                complete: function (param1, status) {
+                }
+            });
         } else {
             e.preventDefault();
         }

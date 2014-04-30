@@ -26,7 +26,7 @@ namespace eUniversity.Business.ManagementServices
         {
             if (!curriculumId.HasValue || curriculumId.Value == 0)
             {
-                return Enumerable.Range(1, 8).Select(p => new SemesterViewModel(){Sequential = p});
+                return Enumerable.Range(1, 8).Select(p => new SemesterViewModel() { Sequential = p });
             }
             return Enumerable.Empty<SemesterViewModel>();
         }
@@ -53,6 +53,25 @@ namespace eUniversity.Business.ManagementServices
                 subjectManagementService.Delete(semester.Subjects);
                 semesterService.Delete(semester);
             }
+        }
+
+        public IEnumerable<SemesterViewModel> CreateSemesters(int count)
+        {
+            var semesters = new List<SemesterViewModel>();
+            for (int i = 0; i < count; i++)
+            {
+                var semester = new SemesterViewModel()
+                {
+                    Sequential = i + 1
+                };
+                if (i == count - 1)
+                {
+                    semester.Subjects.Add(subjectManagementService.GetDiplom());
+                }
+                semesters.Add(semester);
+
+            }
+            return semesters;
         }
 
         private void SaveSemester(SemesterViewModel viewModel, Semester semester)

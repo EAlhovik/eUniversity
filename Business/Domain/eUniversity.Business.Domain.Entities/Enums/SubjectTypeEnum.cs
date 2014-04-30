@@ -8,5 +8,6 @@
         CourseWork = 0,
         CourseProject = 1,
         Lecture = 2,
+        Diplom = 3
     }
 }

@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.ViewModels.Curriculum;
+﻿using eUniversity.Business.ViewModels;
+using eUniversity.Business.ViewModels.Curriculum;
 
 namespace eUniversity.Business.Domain.Contracts
 {
@@ -9,5 +10,6 @@ namespace eUniversity.Business.Domain.Contracts
     {
         CurriculumViewModel Open(long? id);
         void Save(CurriculumViewModel curriculum);
+        CurriculumViewModel CreateCurriculum(SelectedItemViewModel viewModel);
     }
 }

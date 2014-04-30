@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Business.Domain.Entities.eUniversity;
@@ -134,7 +135,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
             Mapper.CreateMap<Curriculum, CurriculumViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.CurriculumHeader, opt => opt.MapFrom(m => m))
-                .ForMember(vm => vm.Semesters, opt => opt.MapFrom(m => m.Semesters))
+                .ForMember(vm => vm.Semesters, opt => opt.MapFrom(m => m.Semesters.OrderBy(s=>s.Sequential)))
                 ;
 
             Mapper.CreateMap<Curriculum, CurriculumHeaderViewModel>()

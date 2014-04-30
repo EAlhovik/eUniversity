@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Web.Infrastructure.Controllers;
 
@@ -29,6 +30,17 @@ namespace eUniversity.Web.Controllers
             CurriculumManagementService.Save(viewModel);
 
             return Json(true);
+        }
+
+        [HttpPost]
+        public JsonResult NewCountSemesters(SelectedItemViewModel viewModel)
+        {
+            CurriculumViewModel curriculum = CurriculumManagementService.CreateCurriculum(viewModel);
+            var result = new AjaxViewModel
+            {
+                Data = curriculum
+            };
+            return Json(result);
         }
     }
 }

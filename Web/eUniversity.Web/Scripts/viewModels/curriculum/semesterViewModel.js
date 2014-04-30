@@ -52,7 +52,7 @@
         if (row.Id()) {
 //            remove({ viewModels: [ko.mapping.toJS(row)] });
         } else {
-            self.Rows.remove(row);
+            self.Subjects.remove(row);
         }
     };
     

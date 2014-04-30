@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace eUniversity.Business.ViewModels
 {
@@ -19,6 +20,14 @@ namespace eUniversity.Business.ViewModels
             set
             {
                 errors = value;
+            }
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                return Errors == null || !Errors.Any();
             }
         }
     }

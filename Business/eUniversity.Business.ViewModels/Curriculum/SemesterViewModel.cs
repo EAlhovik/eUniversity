@@ -11,7 +11,7 @@ namespace eUniversity.Business.ViewModels.Curriculum
         public long Id { get; set; }
         public int Sequential { get; set; }
 
-        public IEnumerable<SubjectViewModel> Subjects
+        public ICollection<SubjectViewModel> Subjects
         {
             get
             {
@@ -25,7 +25,7 @@ namespace eUniversity.Business.ViewModels.Curriculum
 
         #region private fields
 
-        private IEnumerable<SubjectViewModel> subjects;
+        private ICollection<SubjectViewModel> subjects;
 
         #endregion
     }

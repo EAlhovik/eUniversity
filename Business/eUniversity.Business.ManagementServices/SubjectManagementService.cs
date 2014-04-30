@@ -2,6 +2,7 @@
 using System.Linq;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
 using eUniversity.Business.ViewModels.Curriculum;
@@ -92,6 +93,15 @@ namespace eUniversity.Business.ManagementServices
         public void Delete(IEnumerable<Subject> subjects)
         {
 //            subjects.ToList().ForEach(subject => subjectService.Delete(subject));
+        }
+
+        public SubjectViewModel GetDiplom()
+        {
+            return new SubjectViewModel
+            {
+                Id = "Diplom+",
+                SubjectType = ((int)SubjectTypeEnum.Diplom).ToString()
+            };
         }
 
         #endregion

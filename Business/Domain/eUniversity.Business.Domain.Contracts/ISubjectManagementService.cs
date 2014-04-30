@@ -17,5 +17,6 @@ namespace eUniversity.Business.Domain.Contracts
 
         SubjectRowViewModel GetSubjectRowById(long id);
         void SaveSubject(SubjectRowViewModel viewModel);
+        SubjectViewModel GetDiplom();
     }
 }
