@@ -1,37 +1,5 @@
 ﻿<div class="step-pane" data-bind="css: { active: IsActive, complete: IsCompleted }">
     <h3 class="lighter block green">Предметы</h3>
-    @*<!-- ko foreach: Subjects -->
-    <div class="subject-activity clearfix">
-        <div class="col-xs-12 col-sm-offset-3 col-sm-3">
-            <div>
-                <a class="subject" href="#" data-bind="text: SubjectNameDisplay, click:ShowSubject"></a>
-                &nbsp;-&nbsp;<span data-bind="text: SubjectTypeDisplay"></span>.&nbsp;
-            </div>
-
-            <div class="tools action-buttons">
-                <a href="#" class="blue" data-bind="click: ShowSubject">
-                    <i class="icon-pencil bigger-125"></i>
-                </a>
-
-                <a href="#" class="red" data-bind="click: $parent.RemoveSubject">
-                    <i class="icon-remove bigger-125"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- /ko -->
-    <div class="form-group">
-        <div class="col-xs-12 col-sm-5 col-sm-offset-3">
-            <h4 class="pink">
-                <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
-                <a href="#" role="button" class="green" data-bind="click: AddSubject">Добавить предмет</a>
-            </h4>
-        </div>
-    </div>*@
-
-
-
-
     <div class="row">
         <div class="col-xs-12">
             <div class="table-responsive">
@@ -44,16 +12,12 @@
                                     <span class="lbl"></span>
                                 </label>
                             </th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>SpecializationId</th>
-
+                            <th>@eUniversity.Common.Strings.Resources.Common_Title</th>
+                            <th>@eUniversity.Common.Strings.Resources.Subject_Type</th>
                             <th>
                                 <i class="icon-time bigger-110 hidden-480"></i>
-                                Update
+                                @eUniversity.Common.Strings.Resources.Common_LastUpdated
                             </th>
-                            <th class="hidden-480">Status</th>
-
                             <th>
                                 @*<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                     <a class="red" href="#">
@@ -76,15 +40,11 @@
                                 <span data-bind="editable: Id, editableOptions: {type: 'select2', select2: $parent.select2}" data-type="select2" data-pk="1" data-title="Select subject" class="editable editable-click"></span>
                             </td>
                             <td>
-                                <span data-bind="attr: { 'data-value': SubjectType }, editable: SubjectType, editableOptions: { source: window.actions.curriculum.GetSubjectTypesUrl, pk: 1,  title: 'Select group', value: SubjectType()}" data-type="select" data-value="3"></span>
-                            <td>
-                                @*                                    <span data-bind="editable: SpecializationId, editableOptions: {type: 'select2', select2:$parent.select2}" data-type="select2" data-pk="1" data-title="Select speciality" class="editable editable-click">vcvxcvx</span>*@
+                                <span data-bind="editable: SubjectType, editableOptions: {type: 'select2', select2: select2ForSubjectType}" data-type="select2" data-pk="1" data-title="Select subject type" class="editable editable-click"></span>
+@*                                <span data-bind="attr: { 'data-value': SubjectType }, editable: SubjectType, editableOptions: { source: window.actions.curriculum.GetSubjectTypesUrl, pk: 1,  title: 'Select group', value: SubjectType()}" data-type="select" data-value="3"></span>*@
                             </td>
                             <td>Feb 12</td>
 
-                            <td class="hidden-480">
-                                <span class="label label-sm label-warning">Expiring</span>
-                            </td>
                             <th>
                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                     <a class="red" href="#">

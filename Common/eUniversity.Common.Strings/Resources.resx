@@ -204,4 +204,16 @@
   <data name="Register_SuccessufullyRegistration" xml:space="preserve">
     <value>Вы зарегистрированны! Ожидайте подтверждения.</value>
   </data>
+  <data name="Common_LastUpdated" xml:space="preserve">
+    <value>Последнее обновление</value>
+  </data>
+  <data name="Common_Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Common_Title" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Subject_Type" xml:space="preserve">
+    <value>Тип предмета</value>
+  </data>
 </root>

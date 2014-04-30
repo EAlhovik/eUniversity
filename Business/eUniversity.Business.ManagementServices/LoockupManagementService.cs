@@ -123,7 +123,16 @@ namespace eUniversity.Business.ManagementServices
 
         public IEnumerable<SelectedItemViewModel> GetSubjectTypes()
         {
-            return EnumHelper.GetEnumValues(typeof(SubjectTypeEnum)).Where(p => p.Key != ((int)SubjectTypeEnum.Diplom).ToString()).Select(p => new SelectedItemViewModel { Id = p.Key, Text = p.Value });
+            return EnumHelper.GetEnumValues(typeof(SubjectTypeEnum))
+                .Where(p => p.Key != ((int)SubjectTypeEnum.Diplom).ToString())
+                .Select(p => new SelectedItemViewModel { Id = p.Key, Text = p.Value });
+        }
+
+        public SelectedItemViewModel GetSubjectType(string id)
+        {
+            var type = EnumHelper.GetEnumValues(typeof (SubjectTypeEnum))
+                .FirstOrDefault(p => p.Key == id);
+            return new SelectedItemViewModel { Id = type.Key, Text = type.Value };
         }
 
         public IEnumerable<SelectedItemViewModel> GetThemes(string term)

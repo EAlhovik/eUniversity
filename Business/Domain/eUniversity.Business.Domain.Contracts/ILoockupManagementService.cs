@@ -71,6 +71,15 @@ namespace eUniversity.Business.Domain.Contracts
         /// <returns></returns>
         SelectedItemViewModel GetSubject(string parseResult);
 
+
+
+        /// <summary>
+        /// Gets the type of the subject.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Selected subject type by id</returns>
+        SelectedItemViewModel GetSubjectType(string id);
+
         /// <summary>
         /// Gets the subject types.
         /// </summary>

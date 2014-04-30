@@ -49,10 +49,17 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetSubjectType(string id)
+        {
+            var subject = loockupService.GetSubjectType(id);
+
+            return Json((object)subject ?? string.Empty, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult GetSubjectTypes()
         {
-            return Json(loockupService.GetSubjectTypes().Select(p => new { value = p.Id, text = p.Text }),
-                JsonRequestBehavior.AllowGet);
+            return Json(loockupService.GetSubjectTypes(), JsonRequestBehavior.AllowGet);
         }
 
         #endregion
