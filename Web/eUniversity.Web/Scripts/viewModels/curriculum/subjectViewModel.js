@@ -31,7 +31,6 @@
                 dataType: "json"
             }).done(function (data) {
                 data = data || [];
-//                data.push({ Id: query.term + window.constants.SubjectIdPrefix, Text: query.term });
                 query.callback({ results: data });
             });
         },

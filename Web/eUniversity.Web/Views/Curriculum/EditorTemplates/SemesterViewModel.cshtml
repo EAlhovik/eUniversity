@@ -41,7 +41,6 @@
                             </td>
                             <td>
                                 <span data-bind="editable: SubjectType, editableOptions: {type: 'select2', select2: select2ForSubjectType}" data-type="select2" data-pk="1" data-title="Select subject type" class="editable editable-click"></span>
-@*                                <span data-bind="attr: { 'data-value': SubjectType }, editable: SubjectType, editableOptions: { source: window.actions.curriculum.GetSubjectTypesUrl, pk: 1,  title: 'Select group', value: SubjectType()}" data-type="select" data-value="3"></span>*@
                             </td>
                             <td>Feb 12</td>
 
@@ -57,7 +56,7 @@
                     </tbody>
                 </table>
             </div>
-            <h4 class="pink">
+            <h4 class="pink" data-bind="visible: $parent.Semesters().length - 1 != $index()">
                 <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
                 <a href="#" role="button" class="green" data-bind="click: AddNewSubject">Добавить Предмет</a>
             </h4>
