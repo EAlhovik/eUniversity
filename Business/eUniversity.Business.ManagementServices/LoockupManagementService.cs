@@ -121,16 +121,23 @@ namespace eUniversity.Business.ManagementServices
             return null;
         }
 
-        public IEnumerable<SelectedItemViewModel> GetSubjectTypes()
+        public IEnumerable<SelectedItemViewModel> GetSubjectTypes(bool isLast)
         {
-            return EnumHelper.GetEnumValues(typeof(SubjectTypeEnum))
-                .Where(p => p.Key != ((int)SubjectTypeEnum.Diplom).ToString())
-                .Select(p => new SelectedItemViewModel { Id = p.Key, Text = p.Value });
+            var subjectTypes = EnumHelper.GetEnumValues(typeof(SubjectTypeEnum));
+            if (isLast)
+            {
+                return subjectTypes
+                    .Where(p => p.Key == ((int)SubjectTypeEnum.Diplom).ToString())
+                    .Select(p => new SelectedItemViewModel { Id = p.Key, Text = p.Value });
+            }
+            return subjectTypes
+                    .Where(p => p.Key != ((int)SubjectTypeEnum.Diplom).ToString())
+                    .Select(p => new SelectedItemViewModel { Id = p.Key, Text = p.Value });
         }
 
         public SelectedItemViewModel GetSubjectType(string id)
         {
-            var type = EnumHelper.GetEnumValues(typeof (SubjectTypeEnum))
+            var type = EnumHelper.GetEnumValues(typeof(SubjectTypeEnum))
                 .FirstOrDefault(p => p.Key == id);
             return new SelectedItemViewModel { Id = type.Key, Text = type.Value };
         }

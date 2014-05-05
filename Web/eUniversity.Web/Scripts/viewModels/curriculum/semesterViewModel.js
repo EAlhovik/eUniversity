@@ -10,6 +10,8 @@
         return 'Семестр ' + self.Sequential();
     });
 
+    self.IsLast = ko.observable(false);
+
     var mappingOverride =
     {
         'Subjects':
@@ -57,7 +59,7 @@
     };
     
     function createSubject(data) {
-        return new window.SubjectViewModel(data);
+        return new window.SubjectViewModel(data, self.IsLast);
     }
 
     self.select2 = {

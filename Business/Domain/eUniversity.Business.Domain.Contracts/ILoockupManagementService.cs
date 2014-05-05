@@ -84,7 +84,7 @@ namespace eUniversity.Business.Domain.Contracts
         /// Gets the subject types.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<SelectedItemViewModel> GetSubjectTypes();
+        IEnumerable<SelectedItemViewModel> GetSubjectTypes(bool isLast);
 
         /// <summary>
         /// Themeses the specified term.

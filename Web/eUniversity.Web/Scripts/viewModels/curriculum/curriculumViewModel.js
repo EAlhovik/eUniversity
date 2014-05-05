@@ -94,4 +94,12 @@
         });
         return self.Semesters().indexOf(activeItem);
     }
+    
+    ko.computed(function () {
+        ko.utils.arrayForEach(self.Semesters(), function (item) {
+            item.IsLast(false);
+        });
+        var lastSem = self.Semesters()[self.Semesters().length - 1];
+        lastSem.IsLast(true);
+    });
 }

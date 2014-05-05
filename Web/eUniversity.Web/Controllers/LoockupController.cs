@@ -57,9 +57,9 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetSubjectTypes()
+        public JsonResult GetSubjectTypes(bool isLast = false)
         {
-            return Json(loockupService.GetSubjectTypes(), JsonRequestBehavior.AllowGet);
+            return Json(loockupService.GetSubjectTypes(isLast), JsonRequestBehavior.AllowGet);
         }
 
         #endregion
