@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using eUniversity.Business.ViewModels.Auth;
+using eUniversity.Business.ViewModels.Enums;
 using eUniversity.Business.ViewModels.Membership;
 
 namespace eUniversity.Business.Domain.Contracts
@@ -23,5 +24,6 @@ namespace eUniversity.Business.Domain.Contracts
 
         IEnumerable<UserRowViewModel> GetUsers();
         void ApproveUsers(IEnumerable<long> userIds);
+        bool IsCurrentUserInRole(RoleEnum role);
     }
 }

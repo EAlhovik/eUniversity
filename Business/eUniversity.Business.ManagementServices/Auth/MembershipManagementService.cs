@@ -36,6 +36,20 @@ namespace eUniversity.Business.ManagementServices.Auth
 
         #region IMembershipManagementService Members
 
+        public bool IsCurrentUserInRole(ViewModels.Enums.RoleEnum role)
+        {
+            var userName = authorizationService.User.Identity.Name;
+            switch (role)
+            {
+                case ViewModels.Enums.RoleEnum.Student:
+                    return roleService.IsUserInRole(userName, RoleEnum.Student);
+                case ViewModels.Enums.RoleEnum.Professor:
+                    return roleService.IsUserInRole(userName, RoleEnum.Professor);
+                default:
+                    throw new ArgumentOutOfRangeException("role");
+            }
+        }
+
         public void ApproveUsers(IEnumerable<long> userIds)
         {
             foreach (var userId in userIds)

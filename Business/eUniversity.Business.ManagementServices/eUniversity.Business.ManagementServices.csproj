@@ -45,6 +45,7 @@
     <Compile Include="Auth\MembershipManagementService.cs" />
     <Compile Include="Base\BaseManagementService.cs" />
     <Compile Include="CurriculumManagementService.cs" />
+    <Compile Include="DashboardManagementService.cs" />
     <Compile Include="GroupManagementService.cs" />
     <Compile Include="LoockupManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
