@@ -17,6 +17,7 @@ namespace eUniversity.Web.Controllers
 
         public ActionResult Index()
         {
+            return View("StudentDashboard");
             if (membershipManagementService.IsCurrentUserInRole(RoleEnum.Professor))
             {
                 return View("StudentDashboard", dashboardManagementService.GetStudentDashboard());
