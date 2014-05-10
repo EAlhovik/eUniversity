@@ -1,7 +1,105 @@
-﻿@model dynamic
-
+﻿@using eUniversity.Web.Infrastructure.Constants
+@model dynamic
 @{
-    ViewBag.Title = "title";
-}
+    ViewBag.PageHeader = "Страница студента";
 
-<h2>student dashboard</h2>
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+}
+@Html.Partial("_PageHeader")
+<div class="row" id="curriculum">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="lighter block green">Семестры</h3>
+                <ul class="wizard-steps">
+                    <!-- ko foreach: Semesters -->
+                    <li data-bind="css: { active: IsActive, complete: IsCompleted }">
+                        <span class="step" data-bind="text: Sequential, click: $parent.ChooseStep"></span>
+                        <span class="title" data-bind="text: Title"></span>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="step-content row position-relative">
+            <div class="col-xs-12">
+                <!-- ko foreach: Semesters -->
+                <div class="step-pane" data-bind="css: { active: IsActive, complete: IsCompleted }">
+                    <h3 class="lighter block green">Предметы</h3>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive">
+                                <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="center" style="width: 50px;">
+                                            </th>
+                                            <th>@eUniversity.Common.Strings.Resources.Common_Title</th>
+                                            <th>@eUniversity.Common.Strings.Resources.Subject_Type</th>
+                                            <th>
+                                                <i class="icon-time bigger-110 hidden-480"></i>
+                                                @eUniversity.Common.Strings.Resources.Common_LastUpdated
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- ko foreach: Subjects -->
+                                        <tr>
+                                            <td class="center">
+
+                                                <a href="#">
+                                                    <i class='icon-plus' data-bind="click: Expand, css: { 'icon-plus': !IsExpand(), 'icon-minus': IsExpand() }"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <span data-bind="editable: Id, editableOptions: {type: 'select2', select2: $parent.select2}" data-type="select2" data-pk="1" data-title="Select subject" class="editable editable-click"></span>
+                                            </td>
+                                            <td>
+                                                <span data-bind="editable: SubjectType, editableOptions: {type: 'select2', select2: select2ForSubjectType}" data-type="select2" data-pk="1" data-title="Select subject type" class="editable editable-click"></span>
+                                            </td>
+                                            <td>Feb 12</td>
+                                        </tr>
+                                        <tr data-bind="visible: IsExpand">
+                                            <td>
+                                                <i class="icon-spinner icon-spin orange bigger-175" data-bind="visible: IsLoading()"></i>
+                                            </td>
+                                            <td colspan="10" data-bind="visible: !IsLoading()">
+                                            </td>
+                                        </tr>
+
+                                        <!-- /ko -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h4 class="pink" data-bind="visible: !IsLast() ||  $data.Subjects().length == 0 ">
+                                <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+                                <a href="#" role="button" class="green" data-bind="click: AddNewSubject">Добавить Предмет</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+
+
+@*    <script src="/Scripts/viewModels/curriculum/curriculumViewModel.js"> </script>*@
+@*    <script src="/Scripts/viewModels/curriculum/curriculumHeaderViewModel.js"> </script>*@
+@*    <script src="/Scripts/viewModels/curriculum/semesterViewModel.js"> </script>*@
+@*    <script src="/Scripts/viewModels/curriculum/subjectViewModel.js"> </script>*@
+<script src="/Scripts/viewModels/dashboard/studentDashboardViewModel.js"> </script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        ko.applyBindings(new StudentDashboardViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));
+//        ko.applyBindings(new StudentDashboardViewModel({ "Id": 0, "CurriculumHeader": { "Id": 0, "Specialization": null, "CountSemesters": { "Id": "8", "Text": "8 семестров", "Locked": false }, "DateOfEnactment": "\/Date(1399496400000)\/", "DateOfEnactmentDisplay": "08.05.2014" }, "Semesters": [{ "Id": 0, "Sequential": 1, "Subjects": [] }, { "Id": 0, "Sequential": 2, "Subjects": [] }, { "Id": 0, "Sequential": 3, "Subjects": [] }, { "Id": 0, "Sequential": 4, "Subjects": [] }, { "Id": 0, "Sequential": 5, "Subjects": [] }, { "Id": 0, "Sequential": 6, "Subjects": [] }, { "Id": 0, "Sequential": 7, "Subjects": [] }, { "Id": 0, "Sequential": 8, "Subjects": [] }] }), $('#curriculum').get(0));
+    });
+</script>
