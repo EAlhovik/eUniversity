@@ -1,8 +1,10 @@
-﻿namespace eUniversity.Business.Domain.Contracts
+﻿using eUniversity.Business.ViewModels.Dashboard;
+
+namespace eUniversity.Business.Domain.Contracts
 {
     public interface IDashboardManagementService
     {
-        object GetStudentDashboard();
+        StudentDashboardViewModel GetStudentDashboard();
         object GetProfessorDashboard();
     }
 }

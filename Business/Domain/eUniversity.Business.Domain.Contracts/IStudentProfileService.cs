@@ -7,6 +7,6 @@ namespace eUniversity.Business.Domain.Contracts
     /// </summary>
     public interface IStudentProfileService : IBaseService<StudentProfile>
     {
-         
+        Specialization GetUserSpecialization(long profileId);
     }
 }

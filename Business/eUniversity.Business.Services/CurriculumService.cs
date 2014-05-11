@@ -18,6 +18,15 @@ namespace eUniversity.Business.Services
         {
         }
 
+        public Curriculum GetCurriculumForStudent(long specializationId, DateTime dateOfAdmission)
+        {
+            var curriculum = Repository.All()
+                .FirstOrDefault(curr =>
+                        curr.DateOfEnactment.Year.Equals(dateOfAdmission.Year) &&
+                        curr.SpecializationId == specializationId);
+            return curriculum == null ? null : Repository.GetById(curriculum.Id);
+        }
+
         public new Curriculum CreateOrOpen(long? id)
         {
             if (id == null || id.Value == 0)

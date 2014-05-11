@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Enums;
@@ -6,6 +7,7 @@ using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Auth;
 using eUniversity.Business.ViewModels.Curriculum;
+using eUniversity.Business.ViewModels.Dashboard;
 using eUniversity.Business.ViewModels.Group;
 using eUniversity.Business.ViewModels.Membership;
 using eUniversity.Business.ViewModels.Speciality;
@@ -13,6 +15,7 @@ using eUniversity.Business.ViewModels.Specialization;
 using eUniversity.Business.ViewModels.Subject;
 using eUniversity.Business.ViewModels.Theme;
 using eUniversity.Data.Entities;
+using SemesterViewModel = eUniversity.Business.ViewModels.Curriculum.SemesterViewModel;
 
 namespace eUniversity.Business.AutoMapper.Profiles
 {
@@ -69,8 +72,22 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.Id, opt => opt.Ignore())
                 .ForMember(m => m.FirstName, opt => opt.MapFrom(vm => vm.FirstName))
                 .ForMember(m => m.LastName, opt => opt.MapFrom(vm => vm.LastName))
+                .ForMember(m => m.DateOfAdmission, opt => opt.MapFrom(vm => DateTime.Now))
                 .ForMember(m => m.Group, opt => opt.Ignore())
                 .ForMember(m => m.MiddleName, opt => opt.Ignore())
+                ;
+
+
+            Mapper.CreateMap<Curriculum, StudentDashboardViewModel>()
+                .ForMember(vm => vm.Semesters, opt => opt.MapFrom(m => m.Semesters.OrderBy(s => s.Sequential)))
+                .ForMember(vm => vm.DateOfEnactment, opt => opt.MapFrom(m => m.DateOfEnactment))
+                ;
+
+            
+            Mapper.CreateMap<Semester, ViewModels.Dashboard.SemesterViewModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.Sequential, opt => opt.MapFrom(m => m.Sequential))
+                .ForMember(vm => vm.Subjects, opt => opt.MapFrom(m => m.Subjects))
                 ;
 
             #endregion
@@ -181,6 +198,13 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Subjects, opt => opt.MapFrom(m => m.Subjects))
                 ;
 
+            Mapper.CreateMap<Subject, eUniversity.Business.ViewModels.Dashboard.SubjectViewModel>()
+                .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
+                .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
+                .ForMember(vm => vm.SubjectType, opt => opt.MapFrom(m =>universityProfileService.CreateSubjectType(m.SubjectType) ))
+                .ForMember(vm => vm.Assignee, opt => opt.MapFrom(m => universityProfileService.CreateAssignee(m)))
+                ;
+
             #endregion
 
             #region Subject
@@ -198,14 +222,14 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.SpecializationName, opt => opt.MapFrom(m => universityProfileService.CreateSpecialization(m.Semester.Curriculum.SpecializationId).Text))
                 ;
 
-            Mapper.CreateMap<Subject, SubjectViewModel>()
+            Mapper.CreateMap<Subject, eUniversity.Business.ViewModels.Curriculum.SubjectViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.SubjectType, opt => opt.MapFrom(m => (int)m.SubjectType))
                 .ForMember(vm => vm.Assignee, opt => opt.MapFrom(m => universityProfileService.CreateAssignee(m)))
 //                .ForMember(vm => vm.SubjectType, opt => opt.Ignore())
                 ;
 
-            Mapper.CreateMap<SubjectViewModel, Subject>()
+            Mapper.CreateMap<eUniversity.Business.ViewModels.Curriculum.SubjectViewModel, Subject>()
                   .ForMember(m => m.Id, opt => opt.Ignore())
                   .ForMember(m => m.Themes, opt => opt.Ignore())
                   .ForMember(m => m.Name, opt => opt.Ignore())

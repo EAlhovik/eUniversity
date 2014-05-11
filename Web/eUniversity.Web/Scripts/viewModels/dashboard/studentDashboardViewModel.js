@@ -41,13 +41,6 @@
         return self.Semesters().indexOf(activeItem);
     }
 
-    ko.computed(function () {
-        ko.utils.arrayForEach(self.Semesters(), function (item) {
-            item.IsLast(false);
-        });
-        var lastSem = self.Semesters()[self.Semesters().length - 1];
-        lastSem.IsLast(true);
-    });
 }
 
 function SemesterViewModel(serverModel) {
@@ -62,8 +55,6 @@ function SemesterViewModel(serverModel) {
     self.Title = ko.computed(function () {
         return 'Семестр ' + self.Sequential();
     });
-
-    self.IsLast = ko.observable(false);
 
     var mappingOverride =
     {
@@ -82,61 +73,14 @@ function SemesterViewModel(serverModel) {
     };
 
     function createSubject(data) {
-        return new window.SubjectViewModel(data, self.IsLast);
+        return new window.SubjectViewModel(data);
     }
-
-    self.select2 = {
-        width: 200,
-        id: function (item) {
-            return item.Id;
-        },
-        formatResult: function (current) {
-            return current.Text;
-        },
-        formatSelection: function (current) {
-            return current.Text;
-        },
-        multiple: false,
-        minimumInputLength: 0,
-        query: function (query) {
-            $.ajax("/Loockup/GetSubjects", {
-                data: {
-                    term: query.term
-                },
-                dataType: "json"
-            }).done(function (data) {
-                data = data || [];
-                data.push({ Id: query.term + window.constants.SubjectIdPrefix, Text: query.term });
-                query.callback({ results: data });
-            });
-        },
-        initSelection: function (element, callback) {
-            var id = $(element).val();
-            if (id !== "") {
-                var data = self.select2.loadElement(id);
-                callback(data);
-            }
-        },
-        loadElement: function (id) {
-            var res;
-            $.ajax({
-                url: window.actions.curriculum.GetSubject,
-                data: { id: id },
-                async: false,
-                success: function (data) {
-                    res = data;
-                    return data;
-                }
-            });
-            return res;
-        }
-    };
-
 }
 
-function SubjectViewModel(serverModel, isLast) {
+function SubjectViewModel(serverModel) {
     var self = this;
     self.Id = ko.observable();
+    self.Name = ko.observable();
     self.Assignee = ko.observable();
     self.SubjectType = ko.observable();
     
@@ -149,52 +93,5 @@ function SubjectViewModel(serverModel, isLast) {
     
     self.Expand = function () {
         self.IsExpand(!self.IsExpand());
-    };
-
-    self.select2ForSubjectType = {
-        width: 200,
-        id: function (item) {
-            return item.Id;
-        },
-        formatResult: function (current) {
-            return current.Text;
-        },
-        formatSelection: function (current) {
-            return current.Text;
-        },
-        multiple: false,
-        minimumInputLength: 0,
-        query: function (query) {
-            $.ajax(window.actions.curriculum.GetSubjectTypesUrl, {
-                data: {
-                    term: query.term,
-                    isLast: isLast()
-                },
-                dataType: "json"
-            }).done(function (data) {
-                data = data || [];
-                query.callback({ results: data });
-            });
-        },
-        initSelection: function (element, callback) {
-            var id = $(element).val();
-            if (id !== "") {
-                var data = self.select2ForSubjectType.loadElement(id);
-                callback(data);
-            }
-        },
-        loadElement: function (id) {
-            var res;
-            $.ajax({
-                url: window.actions.curriculum.GetSubjectTypeUrl,
-                data: { id: id },
-                async: false,
-                success: function (data) {
-                    res = data;
-                    return data;
-                }
-            });
-            return res;
-        }
     };
 }

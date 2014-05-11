@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.Domain.Entities.eUniversity;
+﻿using eUniversity.Business.Domain.Entities.Enums;
+using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels;
 using eUniversity.Data.Entities;
 
@@ -15,5 +16,6 @@ namespace eUniversity.Business.Domain.Contracts
         SelectedItemModel CreateCountSemesters(int countSemesters);
 
         SelectedItemModel CreateAssignee(Subject subject);
+        string CreateSubjectType(SubjectTypeEnum subjectType);
     }
 }

@@ -19,7 +19,7 @@ namespace eUniversity.Tests.Services.UserServiceTest
 
             var userService = new Mock<IUserService>();
             IMembershipManagementService membershipManagementService = new MembershipManagementService(userService.Object, formsAuthentication.Object, new Mock<IEUniversityUow>().Object,
-                new Mock<IAuthorizationService>().Object, new Mock<IRoleService>().Object);
+                new Mock<IAuthorizationService>().Object, new Mock<IRoleService>().Object, new Mock<IStudentProfileService>().Object);
             // Action
             membershipManagementService.LogOut();
             // Verify the result

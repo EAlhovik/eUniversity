@@ -1,4 +1,5 @@
 ﻿using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Curriculum;
@@ -13,11 +14,10 @@ namespace eUniversity.Business.ManagementServices.AutoMapperServices
     public class UniversityProfileManagementService : IUniversityProfileManagementService
     {
         private readonly ISpecializationService specializationService;
-        private readonly ISpecialityService specialityService;
-        public UniversityProfileManagementService(ISpecializationService specializationService, ISpecialityService specialityService)
+
+        public UniversityProfileManagementService(ISpecializationService specializationService)
         {
             this.specializationService = specializationService;
-            this.specialityService = specialityService;
         }
 
         public long GetId(SelectedItemViewModel selectedItemModel)
@@ -52,6 +52,11 @@ namespace eUniversity.Business.ManagementServices.AutoMapperServices
                     Id = "0",
                     Text = "asdas"
                 };
+        }
+
+        public string CreateSubjectType(SubjectTypeEnum subjectType)
+        {
+            return EnumHelper.GetEnumDescription(subjectType);
         }
     }
 }

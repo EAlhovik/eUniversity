@@ -67,6 +67,7 @@ namespace eUniversity.Data
                                     {
                                         FirstName = "sda",
                                         GroupName = "dasdfsdf",
+                                        DateOfAdmission = DateTime.Now,
                                         User = new User()
                                         {
                                             Email = "user1@user1.com",

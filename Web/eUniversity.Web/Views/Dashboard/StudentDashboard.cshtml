@@ -1,5 +1,4 @@
-﻿@using eUniversity.Web.Infrastructure.Constants
-@model dynamic
+﻿@model dynamic
 @{
     ViewBag.PageHeader = "Страница студента";
 
@@ -50,16 +49,15 @@
                                         <!-- ko foreach: Subjects -->
                                         <tr>
                                             <td class="center">
-
                                                 <a href="#">
                                                     <i class='icon-plus' data-bind="click: Expand, css: { 'icon-plus': !IsExpand(), 'icon-minus': IsExpand() }"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <span data-bind="editable: Id, editableOptions: {type: 'select2', select2: $parent.select2}" data-type="select2" data-pk="1" data-title="Select subject" class="editable editable-click"></span>
+                                                <span data-bind="text: Name"></span>
                                             </td>
                                             <td>
-                                                <span data-bind="editable: SubjectType, editableOptions: {type: 'select2', select2: select2ForSubjectType}" data-type="select2" data-pk="1" data-title="Select subject type" class="editable editable-click"></span>
+                                                <span data-bind="text: SubjectType"></span>
                                             </td>
                                             <td>Feb 12</td>
                                         </tr>
@@ -67,18 +65,12 @@
                                             <td>
                                                 <i class="icon-spinner icon-spin orange bigger-175" data-bind="visible: IsLoading()"></i>
                                             </td>
-                                            <td colspan="10" data-bind="visible: !IsLoading()">
-                                            </td>
+                                            <td colspan="10" data-bind="visible: !IsLoading()"></td>
                                         </tr>
-
                                         <!-- /ko -->
                                     </tbody>
                                 </table>
                             </div>
-                            <h4 class="pink" data-bind="visible: !IsLast() ||  $data.Subjects().length == 0 ">
-                                <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
-                                <a href="#" role="button" class="green" data-bind="click: AddNewSubject">Добавить Предмет</a>
-                            </h4>
                         </div>
                     </div>
                 </div>
@@ -90,16 +82,11 @@
 </div>
 
 
-
-@*    <script src="/Scripts/viewModels/curriculum/curriculumViewModel.js"> </script>*@
-@*    <script src="/Scripts/viewModels/curriculum/curriculumHeaderViewModel.js"> </script>*@
-@*    <script src="/Scripts/viewModels/curriculum/semesterViewModel.js"> </script>*@
-@*    <script src="/Scripts/viewModels/curriculum/subjectViewModel.js"> </script>*@
 <script src="/Scripts/viewModels/dashboard/studentDashboardViewModel.js"> </script>
 
 <script type="text/javascript">
     $(document).ready(function () {
         ko.applyBindings(new StudentDashboardViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));
-//        ko.applyBindings(new StudentDashboardViewModel({ "Id": 0, "CurriculumHeader": { "Id": 0, "Specialization": null, "CountSemesters": { "Id": "8", "Text": "8 семестров", "Locked": false }, "DateOfEnactment": "\/Date(1399496400000)\/", "DateOfEnactmentDisplay": "08.05.2014" }, "Semesters": [{ "Id": 0, "Sequential": 1, "Subjects": [] }, { "Id": 0, "Sequential": 2, "Subjects": [] }, { "Id": 0, "Sequential": 3, "Subjects": [] }, { "Id": 0, "Sequential": 4, "Subjects": [] }, { "Id": 0, "Sequential": 5, "Subjects": [] }, { "Id": 0, "Sequential": 6, "Subjects": [] }, { "Id": 0, "Sequential": 7, "Subjects": [] }, { "Id": 0, "Sequential": 8, "Subjects": [] }] }), $('#curriculum').get(0));
+        //        ko.applyBindings(new StudentDashboardViewModel({ "Id": 0, "CurriculumHeader": { "Id": 0, "Specialization": null, "CountSemesters": { "Id": "8", "Text": "8 семестров", "Locked": false }, "DateOfEnactment": "\/Date(1399496400000)\/", "DateOfEnactmentDisplay": "08.05.2014" }, "Semesters": [{ "Id": 0, "Sequential": 1, "Subjects": [] }, { "Id": 0, "Sequential": 2, "Subjects": [] }, { "Id": 0, "Sequential": 3, "Subjects": [] }, { "Id": 0, "Sequential": 4, "Subjects": [] }, { "Id": 0, "Sequential": 5, "Subjects": [] }, { "Id": 0, "Sequential": 6, "Subjects": [] }, { "Id": 0, "Sequential": 7, "Subjects": [] }, { "Id": 0, "Sequential": 8, "Subjects": [] }] }), $('#curriculum').get(0));
     });
 </script>

@@ -9,7 +9,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     public class StudentProfile : Profile
     {
         public string GroupName { get; set; }
-        public DateTime? QwEweTime { get; set; }
+        public DateTime DateOfAdmission { get; set; }
 
         public virtual Group Group { get; set; }
         public long GroupId { get; set; }
