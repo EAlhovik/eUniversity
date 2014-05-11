@@ -31,14 +31,7 @@
         </div>
     </div>
 
-    <ul class="nav nav-list">
-        <li class="active">
-            <a href="http://192.69.216.111/themes/preview/ace/index.html">
-                <i class="icon-dashboard"></i>
-                <span class="menu-text">Dashboard </span>
-            </a>
-        </li>
-        @{
+    <ul class="nav nav-list">        @{
             var ajaxOptions = new AjaxOptions()
                 {
                     HttpMethod = "GET",
@@ -48,7 +41,9 @@
                     OnBegin = "OnBegin"
                 };
         }
-
+        <li class="active">
+            @Ajax.RawActionLink("<i class='icon-dashboard'></i><span class='menu-text'>Dashboard </span>", ActionNames.IndexAction, ControllerNames.DashboardController, ajaxOptions)
+        </li>
         <li>
             @Ajax.RawActionLink("<i class='icon-list-alt'></i><span class='menu-text'>Специальности </span>", ActionNames.IndexAction, ControllerNames.SpecialityController, ajaxOptions)
         </li>

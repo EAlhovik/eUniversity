@@ -13,5 +13,6 @@
         public const string SpecialityController = "Speciality";
         public const string SubjectController = "Subject";
         public const string ThemeController = "Theme";
+        public const string DashboardController = "Dashboard";
     }
 }
