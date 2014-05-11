@@ -23,15 +23,17 @@ namespace eUniversity.Business.ManagementServices.Auth
         private readonly IFormsAuthenticationService formsAuthenticationService;
         private readonly IEUniversityUow eUniversityUow;
         private readonly IAuthorizationService authorizationService;
+        private readonly IStudentProfileService studentProfileService;
 
         public MembershipManagementService(IUserService userService, IFormsAuthenticationService formsAuthenticationService, 
-            IEUniversityUow eUniversityUow, IAuthorizationService authorizationService, IRoleService roleService)
+            IEUniversityUow eUniversityUow, IAuthorizationService authorizationService, IRoleService roleService, IStudentProfileService studentProfileService)
         {
             this.userService = userService;
             this.formsAuthenticationService = formsAuthenticationService;
             this.eUniversityUow = eUniversityUow;
             this.authorizationService = authorizationService;
             this.roleService = roleService;
+            this.studentProfileService = studentProfileService;
         }
 
         #region IMembershipManagementService Members
@@ -113,8 +115,10 @@ namespace eUniversity.Business.ManagementServices.Auth
         {
             if (Validate(registerViewModel))
             {
-                RegisterUser(registerViewModel.Register);
-                CreateProfile(registerViewModel.Profile);
+                var user = RegisterUser(registerViewModel.Register);
+                CreateProfile(registerViewModel.Profile, user);
+
+                eUniversityUow.Commit();
                 return true;
             }
             return false;
@@ -188,15 +192,18 @@ namespace eUniversity.Business.ManagementServices.Auth
             return !errors.Any();
         }
 
-        private void RegisterUser(RegisterViewModel registerViewModel)
+        private User RegisterUser(RegisterViewModel registerViewModel)
         {
             var user = Mapper.Map<RegisterViewModel, User>(registerViewModel);
             userService.RegisterUser(user, registerViewModel.AccountType);
-            eUniversityUow.Commit();
+            return user;
         }
 
-        private void CreateProfile(ProfileViewModel profile)
+        private void CreateProfile(ProfileViewModel profileViewModel, User user)
         {
+            var profile = Mapper.Map<ProfileViewModel, StudentProfile>(profileViewModel);
+            profile.User = user;
+            studentProfileService.Save(profile);
         }
     }
 }

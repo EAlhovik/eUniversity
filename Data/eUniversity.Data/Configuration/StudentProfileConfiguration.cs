@@ -7,6 +7,10 @@ namespace eUniversity.Data.Configuration
     {
         public StudentProfileConfiguration()
         {
+            HasRequired(student => student.Group)
+                .WithMany(group => group.Students)
+                .HasForeignKey(student => student.GroupId);
+
             ToTable("StudentProfile");
         }
     }

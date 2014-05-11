@@ -61,6 +61,21 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             #endregion
 
+
+
+            #region Profile
+
+            Mapper.CreateMap<ProfileViewModel, StudentProfile>()
+                .ForMember(m => m.Id, opt => opt.Ignore())
+                .ForMember(m => m.FirstName, opt => opt.MapFrom(vm => vm.FirstName))
+                .ForMember(m => m.LastName, opt => opt.MapFrom(vm => vm.LastName))
+                .ForMember(m => m.Group, opt => opt.Ignore())
+                .ForMember(m => m.MiddleName, opt => opt.Ignore())
+                ;
+
+            #endregion
+
+
             #region Speciality
 
             Mapper.CreateMap<Speciality, SpecialityRowViewModel>()

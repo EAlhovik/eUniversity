@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.Domain.Entities.Base;
+﻿using System.Collections.Generic;
+using eUniversity.Business.Domain.Entities.Base;
 
 namespace eUniversity.Business.Domain.Entities.eUniversity
 {
@@ -14,5 +15,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public long SpecializationId { get; set; }
 
         public virtual Specialization Specialization { get; set; }
+
+        public virtual ICollection<StudentProfile> Students { get; set; }
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="SpecialityService.cs" />
     <Compile Include="SpecializationService.cs" />
     <Compile Include="CurriculumService.cs" />
+    <Compile Include="StudentProfileService.cs" />
     <Compile Include="SubjectService.cs" />
     <Compile Include="ThemeService.cs" />
   </ItemGroup>

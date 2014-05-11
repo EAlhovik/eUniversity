@@ -55,6 +55,7 @@
     <Compile Include="ISpecialityService.cs" />
     <Compile Include="ISpecializationManagementService.cs" />
     <Compile Include="ISpecializationService.cs" />
+    <Compile Include="IStudentProfileService.cs" />
     <Compile Include="ISubjectManagementService.cs" />
     <Compile Include="ISubjectService.cs" />
     <Compile Include="IThemeManagementService.cs" />

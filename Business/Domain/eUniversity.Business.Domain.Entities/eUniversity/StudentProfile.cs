@@ -10,5 +10,8 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     {
         public string GroupName { get; set; }
         public DateTime? QwEweTime { get; set; }
+
+        public virtual Group Group { get; set; }
+        public long GroupId { get; set; }
     }
 }

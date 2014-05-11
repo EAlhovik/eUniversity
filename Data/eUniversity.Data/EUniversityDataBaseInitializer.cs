@@ -13,14 +13,7 @@ namespace eUniversity.Data
         {
             var studentRole = new Role { RoleName = RoleEnum.Student.ToString(), RoleType = RoleEnum.Student };
             var professorRole = new Role { RoleName = RoleEnum.Professor.ToString(), RoleType = RoleEnum.Professor };
-            var student = new User
-            {
-                Email = "user1@user1.com",
-                Password = "E3C70ADF5F1C30DB24407E6A85ECF9120F45660E",
-                Roles = new List<Role>() { studentRole },
-                Created = DateTime.Now,
-                CreatedBy = "System"
-            };
+
             var professor = new User
             {
                 Email = "professor1@professor1.com",
@@ -29,18 +22,13 @@ namespace eUniversity.Data
                 Created = DateTime.Now,
                 CreatedBy = "System"
             };
-            context.Roles.Add(studentRole);
 
             context.Roles.Add(professorRole);
             context.Roles.Add(new Role { RoleName = RoleEnum.Admin.ToString(), RoleType = RoleEnum.Admin });
 
-            context.Users.Add(student);
             context.Users.Add(professor);
             context.SaveChanges();
 
-            var user = context.Users.First();
-            user.Profile = new StudentProfile() { FirstName = "sda", GroupName = "dasdsa" };
-            context.SaveChanges();
 
             var speciality = new Speciality()
             {
@@ -67,7 +55,30 @@ namespace eUniversity.Data
                             }
                         },
                         Created =  DateTime.Now,
-                        Name = "the first specialization"
+                        Name = "the first specialization",
+                        Groups = new List<Group>()
+                        {
+                            new Group()
+                            {
+                                Name = "107229",
+                                Students = new List<StudentProfile>()
+                                {
+                                    new StudentProfile()
+                                    {
+                                        FirstName = "sda",
+                                        GroupName = "dasdfsdf",
+                                        User = new User()
+                                        {
+                                            Email = "user1@user1.com",
+                                            Password = "E3C70ADF5F1C30DB24407E6A85ECF9120F45660E",
+                                            Roles = new List<Role>() { studentRole },
+                                            Created = DateTime.Now,
+                                            CreatedBy = "System"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                 },
                 Created = DateTime.Now,
@@ -75,7 +86,13 @@ namespace eUniversity.Data
             };
             context.Specialities.Add(speciality);
             context.SaveChanges();
+            var group = context.Groups.First();
+            group.Students = new List<StudentProfile>()
+            {
+                context.StudentProfiles.First()
+            };
 
+            context.SaveChanges();
             var t = context.Curricula.ToList();
         }
     }
