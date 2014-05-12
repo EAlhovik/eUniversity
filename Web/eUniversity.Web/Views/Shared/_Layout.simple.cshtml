@@ -22,7 +22,6 @@
 
             <div class="main-content">
                 <div>
-@*                    @Html.Partial("_Breadcrumbs")*@
                     <div class="page-content" id="pageContent">
                         @RenderBody()
                     </div>
@@ -39,32 +38,5 @@
     @Scripts.Render( "~/bundles/ace", "~/bundles/chosen")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/styler.js"> </script>
-    <script type="text/javascript">
-        $('#skins .btn').click(function () {
-            var d = $(this).data("skin");
-            var c = $(document.body);
-            c.removeClass("skin-1 skin-2 skin-3");
-            if (d != "default") {
-                c.addClass(d)
-            }
-            if (d == "skin-1") {
-                $(".ace-nav > li.grey").addClass("dark")
-            } else {
-                $(".ace-nav > li.grey").removeClass("dark")
-            }
-            if (d == "skin-2") {
-                $(".ace-nav > li").addClass("no-border margin-1");
-                $(".ace-nav > li:not(:last-child)").addClass("light-pink").find('> a > [class*="icon-"]').addClass("pink").end().eq(0).find(".badge").addClass("badge-warning")
-            } else {
-                $(".ace-nav > li").removeClass("no-border margin-1");
-                $(".ace-nav > li:not(:last-child)").removeClass("light-pink").find('> a > [class*="icon-"]').removeClass("pink").end().eq(0).find(".badge").removeClass("badge-warning")
-            }
-            if (d == "skin-3") {
-                $(".ace-nav > li.grey").addClass("red").find(".badge").addClass("badge-yellow")
-            } else {
-                $(".ace-nav > li.grey").removeClass("red").find(".badge").removeClass("badge-yellow")
-            }
-        });
-    </script>
 </body>
 </html>

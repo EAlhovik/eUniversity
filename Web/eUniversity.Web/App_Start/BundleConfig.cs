@@ -27,7 +27,6 @@ namespace eUniversity.Web
 
             bundles.Add(new StyleBundle("~/ace/css").Include(
                 "~/Content/ace.min.css",
-                "~/Content/ace-skins.min.css",
                 "~/Content/ace.css"
                 ));
             bundles.Add(new StyleBundle("~/ace/font").Include(
