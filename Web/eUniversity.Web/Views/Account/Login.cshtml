@@ -39,11 +39,6 @@
                     <div class="space"></div>
 
                     <div class="clearfix">
-                        <label class="inline">
-                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "ace", Data_Bind = "checked: RememberMe" })
-                            <span class="lbl">@eUniversity.Common.Strings.Resources.Login_RememberMe</span>
-                        </label>
-
                         <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" @*data-bind="click: $data.ValidateForm"*@>
                             <i class="icon-key"></i>
                             @eUniversity.Common.Strings.Resources.Login_Login

@@ -90,7 +90,7 @@ namespace eUniversity.Business.ManagementServices.Auth
         {
             if (userService.ValidateUser(loginViewModel.Email, loginViewModel.Password))
             {
-                formsAuthenticationService.SetAuthCookie(loginViewModel.Email, loginViewModel.RememberMe);
+                formsAuthenticationService.SetAuthCookie(loginViewModel.Email, false);
                 return true;
             }
             return false;

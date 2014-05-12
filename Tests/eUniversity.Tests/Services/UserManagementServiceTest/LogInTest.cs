@@ -14,7 +14,7 @@ namespace eUniversity.Tests.Services.UserServiceTest
         public void ValidUserTryLogIn_UserLogIn()
         {
             // Setup
-            var user = new LoginViewModel() { Email = "Matthew", Password = "MacDonald", RememberMe = false };
+            var user = new LoginViewModel() { Email = "Matthew", Password = "MacDonald" };
             var formsAuthentication = new Mock<IFormsAuthenticationService>();
 
             var userService = new Mock<IUserService>();
@@ -33,7 +33,7 @@ namespace eUniversity.Tests.Services.UserServiceTest
         public void InvalidUserTryLogIn_UserDoesntLogIn()
         {
             // Setup
-            var user = new LoginViewModel() { Email = "Matthew", Password = "MacDonald", RememberMe = false };
+            var user = new LoginViewModel() { Email = "Matthew", Password = "MacDonald" };
             var formsAuthentication = new Mock<IFormsAuthenticationService>();
 
             var userService = new Mock<IUserService>();
