@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Services.Base;
@@ -19,7 +20,15 @@ namespace eUniversity.Business.Services
                 Repository.All()
                     .Where(profile => profile.Id == profileId)
                     .Select(profile => profile.Group.Specialization)
-                    .FirstOrDefault();
+                    .SingleOrDefault();
+        }
+
+        public DateTime GetDateOfAdmission(long profileId)
+        {
+            return Repository.All()
+                .Where(profile => profile.Id == profileId)
+                .Select(profile => profile.Group.DateOfAdmission)
+                .SingleOrDefault();
         }
 
         protected override SelectedItemModel CreateSelectedItem(StudentProfile item)

@@ -62,6 +62,7 @@ namespace eUniversity.Data
                             new Group()
                             {
                                 Name = "107229",
+                                DateOfAdmission = new DateTime(2009,08,15),
                                 Students = new List<StudentProfile>()
                                 {
                                     new StudentProfile()

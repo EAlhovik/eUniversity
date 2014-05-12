@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.Domain.Entities.eUniversity;
+﻿using System;
+using eUniversity.Business.Domain.Entities.eUniversity;
 
 namespace eUniversity.Business.Domain.Contracts
 {
@@ -8,5 +9,6 @@ namespace eUniversity.Business.Domain.Contracts
     public interface IStudentProfileService : IBaseService<StudentProfile>
     {
         Specialization GetUserSpecialization(long profileId);
+        DateTime GetDateOfAdmission(long id);
     }
 }

@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
-using eUniversity.Business.ViewModels.Curriculum;
 using eUniversity.Business.ViewModels.Enums;
 
 namespace eUniversity.Web.Controllers

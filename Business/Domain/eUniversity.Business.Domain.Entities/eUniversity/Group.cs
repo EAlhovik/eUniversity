@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.Base;
 
 namespace eUniversity.Business.Domain.Entities.eUniversity
@@ -13,6 +14,8 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public string Description { get; set; }
 
         public long SpecializationId { get; set; }
+
+        public DateTime DateOfAdmission { get; set; }
 
         public virtual Specialization Specialization { get; set; }
 

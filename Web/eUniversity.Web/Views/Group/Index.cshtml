@@ -25,6 +25,9 @@
                         <th>SpecializationId</th>
 
                         <th>
+                            Дата поступления
+                        </th>
+                        <th>
                             <i class="icon-time bigger-110 hidden-480"></i>
                             Update
                         </th>
@@ -89,7 +92,12 @@
                         <td>
                             <span data-bind="editable: SpecializationId, editableOptions: {type: 'select2', select2:$parent.select2}" data-type="select2" data-pk="1" data-title="Select speciality"></span>
                         </td>
-                        <td>Feb 12</td>
+                        <td>
+                            <span data-bind="editable: DateOfAdmissionDisplay, editableOptions: {type: 'combodate' }" data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Select Date"></span>
+                        </td>
+                        <td>
+                            Feb 12
+                        </td>
 
                         <td class="hidden-480">
                             <span class="label label-sm label-warning">Expiring</span>

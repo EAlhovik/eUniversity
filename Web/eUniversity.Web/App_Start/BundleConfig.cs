@@ -74,6 +74,7 @@ namespace eUniversity.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap/editable").Include(
                 "~/Scripts/bootstrap-editable/bootstrap-editable.js",
+                "~/Scripts/moment/moment.min.js",
                 "~/Scripts/ko/knockout.x-editable.js",
                 "~/Scripts/bootstrap-editable/bootstrap-wysiwyg.min.js"
                 ));

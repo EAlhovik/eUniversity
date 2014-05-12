@@ -41,7 +41,7 @@ namespace eUniversity.Business.ManagementServices.Base
 
         public IEnumerable<TRowViewModel> GetRows()
         {
-            var listViewModels = Service.All().Select(Mapper.Map<TModel, TRowViewModel>);
+            var listViewModels = Service.All().ToList().Select(Mapper.Map<TModel, TRowViewModel>);
             return listViewModels.ToList();
         }
 

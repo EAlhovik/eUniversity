@@ -144,12 +144,14 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
                 .ForMember(vm => vm.SpecializationId, opt => opt.MapFrom(m => m.SpecializationId))
+                .ForMember(vm => vm.DateOfAdmission, opt => opt.MapFrom(m => m.DateOfAdmission))
                 ;
 
             Mapper.CreateMap<GroupRowViewModel, Group>()
                 .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                 .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
                 .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                .ForMember(m => m.DateOfAdmission, opt => opt.MapFrom(vm => vm.DateOfAdmission))
                 .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm =>long.Parse(vm.SpecializationId) ))
                 ;
 

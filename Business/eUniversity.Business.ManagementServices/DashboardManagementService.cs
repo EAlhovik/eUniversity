@@ -28,10 +28,9 @@ namespace eUniversity.Business.ManagementServices
         #region IDashboardManagementService Members
 
         public StudentDashboardViewModel GetStudentDashboard()
-        {
-            var profile = studentProfileService.CreateOrOpen(authorizationService.CurrentUser.Id);
-            var specialization = studentProfileService.GetUserSpecialization(profile.Id);
-            var dateOfAdmission = DateTime.Now.Date.AddYears(-2);//profile.DateOfAdmission; //
+        {//todo: if curriculum doesn't exist send empty model
+            var dateOfAdmission = studentProfileService.GetDateOfAdmission(authorizationService.CurrentUser.Id);
+            var specialization = studentProfileService.GetUserSpecialization(authorizationService.CurrentUser.Id);
 
             var curriculum = curriculumService.GetCurriculumForStudent(specialization.Id, dateOfAdmission);
 

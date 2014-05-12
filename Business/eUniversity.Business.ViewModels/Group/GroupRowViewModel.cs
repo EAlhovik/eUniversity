@@ -1,4 +1,6 @@
-﻿using eUniversity.Business.ViewModels.Base;
+﻿using System;
+using System.Globalization;
+using eUniversity.Business.ViewModels.Base;
 
 namespace eUniversity.Business.ViewModels.Group
 {
@@ -12,5 +14,26 @@ namespace eUniversity.Business.ViewModels.Group
 
         public string Description { get; set; }
         public string SpecializationId { get; set; }
+
+        public string DateOfAdmissionDisplay { get; set; }
+
+        public DateTime DateOfAdmission
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(DateOfAdmissionDisplay))
+                {
+                    return DateTime.Now;
+                }
+
+                return DateTime.ParseExact(DateOfAdmissionDisplay, DateFormat, CultureInfo.InvariantCulture);
+            }
+            set
+            {
+                DateOfAdmissionDisplay = value.ToString(DateFormat);
+            }
+        }
+
+        private const string DateFormat = "yyyy-MM-dd";
     }
 }
