@@ -40,7 +40,7 @@ namespace eUniversity.Data
                         {
                             new Curriculum()
                             {
-                                DateOfEnactment = DateTime.Today,
+                                DateOfEnactment = new DateTime(2009,08,15),
                                 Semesters = new List<Semester>()
                                 {
                                     new Semester(){Sequential = 1},
@@ -55,7 +55,8 @@ namespace eUniversity.Data
                             }
                         },
                         Created =  DateTime.Now,
-                        Name = "the first specialization",
+                        Name = "1-40 01 01 05",
+                        Description = "Моделирование и компьютерное проектирование программно-аппаратных комплексов",
                         Groups = new List<Group>()
                         {
                             new Group()
@@ -65,12 +66,12 @@ namespace eUniversity.Data
                                 {
                                     new StudentProfile()
                                     {
-                                        FirstName = "sda",
-                                        GroupName = "dasdfsdf",
-                                        DateOfAdmission = DateTime.Now,
+                                        FirstName = "Женя",
+                                        LastName = "Альховик",
+                                        DateOfAdmission = new DateTime(2009,08,15),
                                         User = new User()
                                         {
-                                            Email = "user1@user1.com",
+                                            Email = "tartar@tartar.com",
                                             Password = "E3C70ADF5F1C30DB24407E6A85ECF9120F45660E",
                                             Roles = new List<Role>() { studentRole },
                                             Created = DateTime.Now,
@@ -83,7 +84,8 @@ namespace eUniversity.Data
                     },
                 },
                 Created = DateTime.Now,
-                Name = "First speciality"
+                Name = "1-40 01 01",
+                Description = "Программное обеспечение информационных технологий"
             };
             context.Specialities.Add(speciality);
             context.SaveChanges();
