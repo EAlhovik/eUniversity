@@ -209,7 +209,6 @@
   <ItemGroup>
     <Content Include="Avatars\avatar.png" />
     <Content Include="Avatars\avatar1.png" />
-    <Content Include="Content\ace-skins.min.css" />
     <Content Include="Content\ace.css" />
     <Content Include="Content\ace.min.css" />
     <Content Include="Content\bootstrap-editable\bootstrap-editable.css" />
@@ -272,7 +271,6 @@
     <Content Include="Scripts\modernizr-2.7.1.js" />
     <Content Include="Scripts\select2\select2.min.js" />
     <Content Include="Scripts\select2\select2_locale_ru.js" />
-    <Content Include="Scripts\styler.js" />
     <Content Include="Scripts\viewModels\account\loginViewModel.js" />
     <Content Include="Scripts\viewModels\account\profileViewModel.js" />
     <Content Include="Scripts\viewModels\account\registerFormViewModel.js" />
@@ -327,7 +325,6 @@
     <Content Include="Views\Shared\_Layout.simple.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Views\Speciality\Index.cshtml" />
     <Content Include="Views\Specialization\Index.cshtml" />
