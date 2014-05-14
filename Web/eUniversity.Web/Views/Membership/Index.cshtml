@@ -87,8 +87,8 @@
                         <td>
                             <div class="actionBtns">
                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                    @ActionBtn("icon-zoom-in", "blue", "click: ShowProfile", eUniversity.Common.Strings.Resources.Membersip_ShowProfile)
-                                    @ActionBtn("icon-plus-sign", "green", @"click: ApproveUser, visible: !IsApproved()", eUniversity.Common.Strings.Resources.Membersip_ApproveAccount)
+@*                                    @ActionBtn("icon-zoom-in", "blue", "click: ShowProfile", eUniversity.Common.Strings.Resources.Membersip_ShowProfile)*@
+                                    @ActionBtn("icon-flag", "green", @"click: ApproveUser, visible: !IsApproved()", eUniversity.Common.Strings.Resources.Membersip_ApproveAccount)
                                     @ActionBtn("icon-trash", "red", "click: DeleteUser", eUniversity.Common.Strings.Resources.Membersip_DeleteAccount)
                                 </div>
                             </div>
@@ -100,12 +100,12 @@
                                     </button><div class="dropdown-backdrop"></div>
 
                                     <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                        <li>
+                                 @*       <li>
                                             @ActionBtn("icon-trash", "red", "click: DeleteUser", eUniversity.Common.Strings.Resources.Membersip_DeleteAccount)
-                                        </li>
+                                        </li>*@
 
                                         <li data-bind="visible: !IsApproved()">
-                                            @ActionBtn("icon-plus-sign", "green", "click: ApproveUser", eUniversity.Common.Strings.Resources.Membersip_ApproveAccount)
+                                            @ActionBtn("icon-flag", "green", "click: ApproveUser", eUniversity.Common.Strings.Resources.Membersip_ApproveAccount)
                                         </li>
 
                                         <li>
