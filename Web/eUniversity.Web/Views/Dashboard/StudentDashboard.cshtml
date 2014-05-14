@@ -65,7 +65,21 @@
                                             <td>
                                                 <i class="icon-spinner icon-spin orange bigger-175" data-bind="visible: IsLoading()"></i>
                                             </td>
-                                            <td colspan="10" data-bind="visible: !IsLoading()"></td>
+                                            <td colspan="10" data-bind="visible: !IsLoading()">
+                                                <!-- ko with: SubjectDetail-->
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <h4 class="pink" data-bind=" ">
+                                                            <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+                                                            <a href="#" role="button" class="green" data-bind="">Выбрать тему</a>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-xs-6 pull-right" style="text-align: right;" data-bind="visible: ">
+                                                        <a href="#" role="button" class="green" data-bind="">Предложить свою тему</a>
+                                                    </div>
+                                                </div>
+                                                <!-- /ko -->
+                                            </td>
                                         </tr>
                                         <!-- /ko -->
                                     </tbody>

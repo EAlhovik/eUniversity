@@ -5,7 +5,7 @@
     /// </summary>
     public class SubjectViewModel
     {
-        public string Id { get; set; }
+        public long Id { get; set; }
         public SelectedItemViewModel Assignee { get; set; }
         public string Name { get; set; }
         public string SubjectType { get; set; }

@@ -52,6 +52,7 @@
     <Compile Include="Curriculum\SubjectViewModel.cs" />
     <Compile Include="Dashboard\SemesterViewModel.cs" />
     <Compile Include="Dashboard\StudentDashboardViewModel.cs" />
+    <Compile Include="Dashboard\SubjectDetailViewModel.cs" />
     <Compile Include="Dashboard\SubjectViewModel.cs" />
     <Compile Include="Enums\RoleEnum.cs" />
     <Compile Include="GridViewModel.cs" />

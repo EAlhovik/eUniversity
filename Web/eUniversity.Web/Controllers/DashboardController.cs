@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.ViewModels.Dashboard;
 using eUniversity.Business.ViewModels.Enums;
 
 namespace eUniversity.Web.Controllers
@@ -23,6 +24,17 @@ namespace eUniversity.Web.Controllers
                 return View("StudentDashboard", dashboardManagementService.GetStudentDashboard());
             }
             return View("ProfessorDashboard", dashboardManagementService.GetProfessorDashboard());
+        }
+
+        [HttpGet]
+        public JsonResult GetSubjectDetail(long subjectId)
+        {
+            var t = new SubjectDetailViewModel()
+            {
+                Id = subjectId,
+                Theme = "dsads"
+            };
+            return Json(t, JsonRequestBehavior.AllowGet);
         }
     }
 }

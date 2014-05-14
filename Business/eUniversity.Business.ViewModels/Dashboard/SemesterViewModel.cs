@@ -8,6 +8,7 @@ namespace eUniversity.Business.ViewModels.Dashboard
         public long Id { get; set; }
         public int Sequential { get; set; }
         public bool IsReadOnly { get; set; }
+        public bool IsCurrent { get; set; }
 
         public ICollection<ViewModels.Dashboard.SubjectViewModel> Subjects
         {

@@ -60,6 +60,7 @@ namespace eUniversity.Business.ManagementServices
                 }
                 else if (compareResult == 0)
                 {
+                    semester.IsCurrent = true;
                     // current semester
                 }
             }
@@ -71,7 +72,7 @@ namespace eUniversity.Business.ManagementServices
             {
                 start = new DateTime(dateOfEnactmentCurriculum.Year, 9, 1);
                 end = start.AddMonths(6);
-                for (int i = 2; i < sequential; i++)
+                for (int i = 1; i < sequential; i++)
                 {
                     start = start.AddMonths(6);
                     end = start.AddMonths(6);
