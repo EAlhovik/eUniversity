@@ -158,7 +158,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
             #endregion
 
             #region Curriculum
-
+            
             Mapper.CreateMap<CurriculumViewModel, Curriculum>()
                 .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                 .ForMember(m => m.DateOfEnactment, opt => opt.MapFrom(vm => vm.CurriculumHeader.DateOfEnactment))
@@ -210,6 +210,8 @@ namespace eUniversity.Business.AutoMapper.Profiles
             #endregion
 
             #region Subject
+
+            Mapper.CreateMap<Subject, Subject>();
 
             Mapper.CreateMap<SubjectRowViewModel, Subject>()
                 .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))

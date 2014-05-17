@@ -63,6 +63,7 @@ namespace eUniversity.Business.ManagementServices
             }
 
             AddNewSubjects(semester, subjects.Where(s => !IdChecker(s.Id)));
+            AddNewSubjects(semester, modification.Added);
 
             foreach (var subject in modification.Deleted)
             {
@@ -80,12 +81,20 @@ namespace eUniversity.Business.ManagementServices
         {
             foreach (var item in subjectViewModels)
             {
-                var subject = new Subject
+                var subject = new Subject();
+                if (IdChecker(item.Id))
                 {
-                    Id = 0,
-                    Semester = semester,
-                    Name = SubjectIdPrefixHelper.Trim(item.Id)
-                };
+                    var dbSubject = subjectService.CreateOrOpen(long.Parse(item.Id));
+                    Mapper.Map<Subject, Subject>(dbSubject, subject);
+                    subject.Id = 0;
+                }
+                else
+                {
+                    subject.Id = 0;
+                    subject.Name = SubjectIdPrefixHelper.Trim(item.Id);
+                }
+
+                subject.Semester = semester;
                 SaveSubject(item, subject);
             }
         }
