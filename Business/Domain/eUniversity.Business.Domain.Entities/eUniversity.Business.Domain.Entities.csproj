@@ -57,6 +57,7 @@
     <Compile Include="eUniversity\Speciality.cs" />
     <Compile Include="eUniversity\Specialization.cs" />
     <Compile Include="eUniversity\StudentProfile.cs" />
+    <Compile Include="eUniversity\StudentTheme.cs" />
     <Compile Include="eUniversity\Subject.cs" />
     <Compile Include="eUniversity\Theme.cs" />
     <Compile Include="eUniversity\User.cs" />

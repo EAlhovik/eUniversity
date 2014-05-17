@@ -1,7 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels.Dashboard;
 using eUniversity.Business.ViewModels.Enums;
+using eUniversity.Business.ViewModels.Theme;
 
 namespace eUniversity.Web.Controllers
 {
@@ -26,15 +28,28 @@ namespace eUniversity.Web.Controllers
             return View("ProfessorDashboard", dashboardManagementService.GetProfessorDashboard());
         }
 
+        [HttpPost]
+        public JsonResult ChooseTheme(long subjectId, ThemeRowViewModel theme)
+        {
+            return Json(true);
+        }
+
+        [HttpGet]
+        public JsonResult GetSubjectThemes(long subjectId)
+        {
+            return Json(new List<ThemeRowViewModel>
+            {
+                new ThemeRowViewModel{Id = 1, Name = "1231", Description = "adasdasd"},
+                new ThemeRowViewModel{Id = 2, Name = "qqqq", Description = "qqqqq"},
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpGet]
         public JsonResult GetSubjectDetail(long subjectId)
         {
-            var t = new SubjectDetailViewModel()
-            {
-                Id = subjectId,
-                Theme = "dsads"
-            };
-            return Json(t, JsonRequestBehavior.AllowGet);
+            SubjectDetailViewModel detail = dashboardManagementService.GetSubjectDetail(subjectId);
+
+            return Json(detail, JsonRequestBehavior.AllowGet);
         }
     }
 }

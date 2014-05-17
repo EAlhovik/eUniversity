@@ -27,6 +27,16 @@ namespace eUniversity.Business.ManagementServices
 
         #region IDashboardManagementService Members
 
+        public SubjectDetailViewModel GetSubjectDetail(long subjectId)
+        {
+            var t = new SubjectDetailViewModel()
+            {
+                Id = subjectId,
+                Theme = "dsads"
+            };
+            return t;
+        }
+
         public StudentDashboardViewModel GetStudentDashboard()
         {//todo: if curriculum doesn't exist send empty model
             var dateOfAdmission = studentProfileService.GetDateOfAdmission(authorizationService.CurrentUser.Id);

@@ -53,6 +53,7 @@
     <Compile Include="Configuration\SpecialityConfiguration.cs" />
     <Compile Include="Configuration\SpecializationConfiguration.cs" />
     <Compile Include="Configuration\StudentProfileConfiguration.cs" />
+    <Compile Include="Configuration\StudentThemeConfiguration.cs" />
     <Compile Include="Configuration\SubjectConfiguration.cs" />
     <Compile Include="Configuration\ThemeConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />

@@ -71,7 +71,7 @@
                                                     <div class="col-xs-6">
                                                         <h4 class="pink" data-bind=" ">
                                                             <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
-                                                            <a href="#" role="button" class="green" data-bind="">Выбрать тему</a>
+                                                            <a href="#" role="button" class="green" data-bind="click: ChooseTheme">Выбрать тему</a>
                                                         </h4>
                                                     </div>
                                                     <div class="col-xs-6 pull-right" style="text-align: right;" data-bind="visible: ">
@@ -101,6 +101,63 @@
 <script type="text/javascript">
     $(document).ready(function () {
         ko.applyBindings(new StudentDashboardViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));
-        //        ko.applyBindings(new StudentDashboardViewModel({ "Id": 0, "CurriculumHeader": { "Id": 0, "Specialization": null, "CountSemesters": { "Id": "8", "Text": "8 семестров", "Locked": false }, "DateOfEnactment": "\/Date(1399496400000)\/", "DateOfEnactmentDisplay": "08.05.2014" }, "Semesters": [{ "Id": 0, "Sequential": 1, "Subjects": [] }, { "Id": 0, "Sequential": 2, "Subjects": [] }, { "Id": 0, "Sequential": 3, "Subjects": [] }, { "Id": 0, "Sequential": 4, "Subjects": [] }, { "Id": 0, "Sequential": 5, "Subjects": [] }, { "Id": 0, "Sequential": 6, "Subjects": [] }, { "Id": 0, "Sequential": 7, "Subjects": [] }, { "Id": 0, "Sequential": 8, "Subjects": [] }] }), $('#curriculum').get(0));
     });
+</script>
+
+
+<script type="text/html" id="AddTheme">
+    <div class="modal fade in" role="dialog" style="display: block;" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header no-padding">
+                    <div class="table-header">
+                        <button type="button" class="close" aria-hidden="true" data-bind="click: Cancel">
+                            <span class="white">×</span>
+                        </button>
+                        <span>Выбор темы</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+
+                    <i class="icon-spinner icon-spin orange bigger-175" data-bind="visible: IsLoading()"></i>
+                    <div style="max-height: 250px; overflow: auto;">
+                        <table data-bind="visible: !IsLoading()" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Название</th>
+                                    <th>Описание</th>
+                                    <th class="center" style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- ko foreach: Themes -->
+                                <tr>
+                                    <td>
+                                        <span data-bind="text: Name"></span>
+                                    </td>
+                                    <td>
+                                        <span data-bind="text: Description">CourseWork</span>
+                                    </td>
+                                    <td class="center">
+                                        <div class="actionBtns">
+                                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                <a class="green" href="#" title="Выбрать тему" data-bind="click: $parent.ChooseTheme">
+                                                    <i class="icon-flag bigger-130"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- /ko -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-bb-handler="cancel" type="button" class="btn btn-default" data-bind="click: Cancel">Закрыть</button>
+                    @*                    <button data-bb-handler="confirm" type="button" class="btn btn-primary" data-bind="">OK</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
 </script>

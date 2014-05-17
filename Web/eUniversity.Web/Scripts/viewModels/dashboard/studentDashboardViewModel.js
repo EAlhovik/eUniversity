@@ -134,4 +134,54 @@ function SubjectDetailViewModel(serverModel) {
     if (serverModel != null) {
         ko.mapping.fromJS(serverModel, {}, self);
     }
+
+    self.ChooseTheme = function() {
+        showModal({ viewModel: new ChoiceOfThemesViewModel(self.Id()) })
+        .done(function(result) {
+            console.log("Modal done");
+        })
+        .fail(function (result) {
+            console.log("Modal fail");
+        });
+    };
 }
+
+function ChoiceOfThemesViewModel(subjectId) {
+    var self = this;
+    
+    self.SubjectId = ko.observable(subjectId);
+    self.Themes = ko.observableArray();
+    self.IsLoading = ko.observable(true);
+    
+    self.Cancel = function () {
+        self.modal.close();
+    };
+
+    self.ChooseTheme = function(theme) {
+        self.IsLoading(true);
+        
+        $.ajax({
+            url: window.actions.dashboard.ChooseThemeUrl,
+            type: "POST",
+            data: JSON.stringify({ subjectId: self.SubjectId(), theme: ko.mapping.toJS(theme) }),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                self.modal.close(result);
+            },
+            complete: function () {
+                self.IsLoading(false);
+            }
+        });
+    };
+
+    function loadThems() {
+        $.get(window.actions.dashboard.GetSubjectThemesUrl, { subjectId: self.SubjectId() }, function (result) {
+            ko.mapping.fromJS(result, {}, self.Themes);
+            self.IsLoading(false);
+        });
+    }
+
+    loadThems();
+}
+ChoiceOfThemesViewModel.prototype.template = "AddTheme";

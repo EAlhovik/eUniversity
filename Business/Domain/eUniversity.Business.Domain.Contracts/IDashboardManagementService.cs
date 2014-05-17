@@ -6,5 +6,6 @@ namespace eUniversity.Business.Domain.Contracts
     {
         StudentDashboardViewModel GetStudentDashboard();
         object GetProfessorDashboard();
+        SubjectDetailViewModel GetSubjectDetail(long subjectId);
     }
 }

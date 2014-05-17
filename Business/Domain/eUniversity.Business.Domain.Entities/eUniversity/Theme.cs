@@ -19,5 +19,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         /// Gets or sets the subjects.
         /// </summary>
         public virtual ICollection<Subject> Subjects { get; set; }
+
+        public virtual ICollection<StudentTheme> Students { get; set; }
     }
 }

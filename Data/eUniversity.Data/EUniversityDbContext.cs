@@ -73,7 +73,12 @@ namespace eUniversity.Data
         /// <summary>
         /// Gets or sets the groups.
         /// </summary>
-        public IDbSet<Group> Groups { get; set; } 
+        public IDbSet<Group> Groups { get; set; }
+
+        /// <summary>
+        /// Gets or sets the student themes.
+        /// </summary>
+        public IDbSet<StudentTheme> StudentThemes { get; set; } 
 
         /// <summary>
         /// Action that launches on model creating
@@ -96,6 +101,7 @@ namespace eUniversity.Data
             modelBuilder.Configurations.Add(new SubjectConfiguration());
             modelBuilder.Configurations.Add(new ThemeConfiguration());
             modelBuilder.Configurations.Add(new GroupConfiguration());
+            modelBuilder.Configurations.Add(new StudentThemeConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
