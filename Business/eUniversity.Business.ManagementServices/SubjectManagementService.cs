@@ -5,9 +5,10 @@ using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Helpers;
-using eUniversity.Business.ViewModels.Curriculum;
+using eUniversity.Business.ViewModels.Dashboard;
 using eUniversity.Business.ViewModels.Subject;
 using eUniversity.Data.Contracts;
+using SubjectViewModel = eUniversity.Business.ViewModels.Curriculum.SubjectViewModel;
 
 namespace eUniversity.Business.ManagementServices
 {

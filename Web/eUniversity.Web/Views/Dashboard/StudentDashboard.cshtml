@@ -69,14 +69,22 @@
                                                 <!-- ko with: SubjectDetail-->
                                                 <div class="row">
                                                     <div class="col-xs-6">
-                                                        <h4 class="pink" data-bind=" ">
+                                                        <div data-bind="if: Theme">
+                                                            <span data-bind="text: Theme" class="editable editable-click"></span>
+
+                                                            <a class="red" href="#">
+                                                                <i class="icon-trash bigger-130" data-bind="click: Unsubscribe" title="Отписаться от темы"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <h4 class="pink" data-bind="if: !Theme()">
                                                             <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
                                                             <a href="#" role="button" class="green" data-bind="click: ChooseTheme">Выбрать тему</a>
                                                         </h4>
                                                     </div>
-                                                    <div class="col-xs-6 pull-right" style="text-align: right;" data-bind="visible: ">
+                              @*                      <div class="col-xs-6 pull-right" style="text-align: right;" data-bind="visible: true">
                                                         <a href="#" role="button" class="green" data-bind="">Предложить свою тему</a>
-                                                    </div>
+                                                    </div>*@
                                                 </div>
                                                 <!-- /ko -->
                                             </td>

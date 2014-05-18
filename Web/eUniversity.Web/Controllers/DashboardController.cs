@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
+using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Dashboard;
 using eUniversity.Business.ViewModels.Enums;
 using eUniversity.Business.ViewModels.Theme;
@@ -29,19 +30,33 @@ namespace eUniversity.Web.Controllers
         }
 
         [HttpPost]
+        public JsonResult UnsubscribeFromTheme(long subjectId, long themeId)
+        {
+            dashboardManagementService.UnsubscribeFromTheme(subjectId, themeId);
+            return Json(true);
+        }
+
+        [HttpPost]
         public JsonResult ChooseTheme(long subjectId, ThemeRowViewModel theme)
         {
-            return Json(true);
+            var result = new AjaxViewModel();
+            var isThemeAvailable = dashboardManagementService.IsThemeAvailable(subjectId, theme.Id);
+            if (string.IsNullOrEmpty(isThemeAvailable))
+            {
+                result.Data = dashboardManagementService.ChooseTheme(subjectId, theme);
+            }
+            else
+            {
+                result.Errors.Add(isThemeAvailable);
+            }
+            return Json(result);
         }
 
         [HttpGet]
         public JsonResult GetSubjectThemes(long subjectId)
         {
-            return Json(new List<ThemeRowViewModel>
-            {
-                new ThemeRowViewModel{Id = 1, Name = "1231", Description = "adasdasd"},
-                new ThemeRowViewModel{Id = 2, Name = "qqqq", Description = "qqqqq"},
-            }, JsonRequestBehavior.AllowGet);
+            var themes = dashboardManagementService.GetSubjectThemes(subjectId);
+            return Json(themes, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

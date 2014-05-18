@@ -5,5 +5,6 @@
         public long Id { get; set; }
 
         public string Theme { get; set; }
+        public long ThemeId { get; set; }
     }
 }

@@ -10,5 +10,6 @@ namespace eUniversity.Business.Domain.Contracts
     {
         Specialization GetUserSpecialization(long profileId);
         DateTime GetDateOfAdmission(long id);
+        Group GetUserGroup(long userId);
     }
 }

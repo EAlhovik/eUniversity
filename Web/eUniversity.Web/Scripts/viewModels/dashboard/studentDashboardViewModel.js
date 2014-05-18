@@ -130,15 +130,24 @@ function SubjectDetailViewModel(serverModel) {
 
     self.Id = ko.observable();
     self.Theme = ko.observable();
+    self.ThemeId = ko.observable();
 
     if (serverModel != null) {
         ko.mapping.fromJS(serverModel, {}, self);
     }
 
+    self.Unsubscribe = function() {
+        $.post(window.actions.dashboard.UnsubscribeFromThemeUrl, { subjectId: self.Id(), themeId: self.ThemeId() }, function(data) {
+            self.Theme(null);
+            self.ThemeId(null);
+        });
+    };
+
     self.ChooseTheme = function() {
         showModal({ viewModel: new ChoiceOfThemesViewModel(self.Id()) })
-        .done(function(result) {
-            console.log("Modal done");
+        .done(function (result) {
+            self.Theme(result.Name);
+            self.ThemeId(result.Id);
         })
         .fail(function (result) {
             console.log("Modal fail");
@@ -167,7 +176,11 @@ function ChoiceOfThemesViewModel(subjectId) {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                self.modal.close(result);
+                if (result.IsValid) {
+                    self.modal.close(result.Data);
+                } else {
+                    alert(result.Errors[0]);
+                }
             },
             complete: function () {
                 self.IsLoading(false);

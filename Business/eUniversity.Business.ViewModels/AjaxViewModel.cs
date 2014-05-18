@@ -10,8 +10,8 @@ namespace eUniversity.Business.ViewModels
     {
         public object Data { get; set; }
 
-        private IEnumerable<string> errors;
-        public IEnumerable<string> Errors
+        private ICollection<string> errors;
+        public ICollection<string> Errors
         {
             get
             {

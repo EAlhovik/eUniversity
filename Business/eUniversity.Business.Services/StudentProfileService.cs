@@ -23,6 +23,14 @@ namespace eUniversity.Business.Services
                     .SingleOrDefault();
         }
 
+        public Group GetUserGroup(long userId)
+        {
+            return Repository.All()
+                .Where(profile => profile.Id == userId)
+                .Select(profile => profile.Group)
+                .Single();
+        }
+
         public DateTime GetDateOfAdmission(long profileId)
         {
             return Repository.All()

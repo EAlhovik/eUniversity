@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.Domain.Entities.eUniversity;
+﻿using System.Collections.Generic;
+using eUniversity.Business.Domain.Entities.eUniversity;
 
 namespace eUniversity.Business.Domain.Contracts
 {
@@ -7,5 +8,6 @@ namespace eUniversity.Business.Domain.Contracts
     /// </summary>
     public interface IGroupService : IBaseService<Group>
     {
+        IEnumerable<long> GetGroupStudents(long id);
     }
 }

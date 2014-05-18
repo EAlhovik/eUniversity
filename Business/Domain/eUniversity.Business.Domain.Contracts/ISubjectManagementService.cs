@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.eUniversity;
-using eUniversity.Business.ViewModels.Curriculum;
+using eUniversity.Business.ViewModels.Dashboard;
 using eUniversity.Business.ViewModels.Subject;
+using SubjectViewModel = eUniversity.Business.ViewModels.Curriculum.SubjectViewModel;
 
 namespace eUniversity.Business.Domain.Contracts
 {

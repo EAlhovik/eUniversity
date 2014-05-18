@@ -11,5 +11,6 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public long StudentId { get; set; }
         public virtual Theme Theme { get; set; }
         public long ThemeId { get; set; }
+        public long SubjectId { get; set; }
     }
 }

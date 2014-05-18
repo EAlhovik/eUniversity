@@ -26,6 +26,13 @@ namespace eUniversity.Business.Services
             };
         }
 
+        public IEnumerable<long> GetGroupStudents(long id)
+        {
+            return Repository.All()
+                .Where(group => group.Id == id)
+                .Select(group => group.Students.Select(student => student.Id)).Single();
+        }
+
         /// <summary>
         /// Gets the selected items.
         /// </summary>
