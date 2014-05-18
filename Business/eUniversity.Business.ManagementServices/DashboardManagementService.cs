@@ -14,7 +14,6 @@ namespace eUniversity.Business.ManagementServices
     {
         private readonly IAuthorizationService authorizationService;
         private readonly IStudentProfileService studentProfileService;
-        private readonly IUserService userService;
         private readonly IStudentThemeService studentThemeService;
         private readonly IThemeService themeService;
 
@@ -24,11 +23,10 @@ namespace eUniversity.Business.ManagementServices
         private readonly IGroupService groupService;
 
         public DashboardManagementService(IAuthorizationService authorizationService, IStudentProfileService studentProfileService,
-            IUserService userService, ICurriculumService curriculumService, IStudentThemeService studentThemeService, IEUniversityUow universityUow, ISubjectManagementService subjectManagementService, IGroupService groupService, IThemeService themeService)
+            ICurriculumService curriculumService, IStudentThemeService studentThemeService, IEUniversityUow universityUow, ISubjectManagementService subjectManagementService, IGroupService groupService, IThemeService themeService)
         {
             this.authorizationService = authorizationService;
             this.studentProfileService = studentProfileService;
-            this.userService = userService;
             this.curriculumService = curriculumService;
             this.studentThemeService = studentThemeService;
             this.universityUow = universityUow;
