@@ -13,9 +13,19 @@ namespace eUniversity.Business.Services
     /// </summary>
     public class CurriculumService : BaseService<Curriculum>, ICurriculumService
     {
-        public CurriculumService(ICurriculumRepository repository)
+        private readonly IStudentProfileService studentProfileService;
+        
+        public CurriculumService(ICurriculumRepository repository, IStudentProfileService studentProfileService)
             : base(repository)
         {
+            this.studentProfileService = studentProfileService;
+        }
+
+        public Curriculum GetCurriculumForStudent(long studentId)
+        {
+            var dateOfAdmission = studentProfileService.GetDateOfAdmission(studentId);
+            var specialization = studentProfileService.GetUserSpecialization(studentId);
+            return GetCurriculumForStudent(specialization.Id, dateOfAdmission);
         }
 
         public Curriculum GetCurriculumForStudent(long specializationId, DateTime dateOfAdmission)

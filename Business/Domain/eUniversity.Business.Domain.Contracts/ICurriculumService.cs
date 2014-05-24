@@ -9,5 +9,6 @@ namespace eUniversity.Business.Domain.Contracts
     public interface ICurriculumService : IBaseService<Curriculum>
     {
         Curriculum GetCurriculumForStudent(long specializationId, DateTime dateOfAdmission);
+        Curriculum GetCurriculumForStudent(long studentId);
     }
 }

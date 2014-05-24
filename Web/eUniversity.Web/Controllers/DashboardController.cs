@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.ViewModels;
@@ -21,12 +22,17 @@ namespace eUniversity.Web.Controllers
 
         public ActionResult Index()
         {
-            dashboardManagementService.GetStudentDashboard();
             if (membershipManagementService.IsCurrentUserInRole(RoleEnum.Student))
             {
                 return View("StudentDashboard", dashboardManagementService.GetStudentDashboard());
             }
             return View("ProfessorDashboard", dashboardManagementService.GetProfessorDashboard());
+        }
+
+        [HttpPost]
+        public JsonResult GetProfessorDashboard(FilterViewModel filter)
+        {
+            return Json(dashboardManagementService.GetProfessorDashboard(filter));
         }
 
         [HttpPost]

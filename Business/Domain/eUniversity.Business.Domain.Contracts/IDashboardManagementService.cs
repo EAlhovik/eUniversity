@@ -7,7 +7,7 @@ namespace eUniversity.Business.Domain.Contracts
     public interface IDashboardManagementService
     {
         StudentDashboardViewModel GetStudentDashboard();
-        object GetProfessorDashboard();
+        ProfessorDashboardViewModel GetProfessorDashboard(FilterViewModel filter = null);
         SubjectDetailViewModel GetSubjectDetail(long subjectId);
         string IsThemeAvailable(long subjectId, long themeId);
         ThemeRowViewModel ChooseTheme(long subjectId, ThemeRowViewModel theme);

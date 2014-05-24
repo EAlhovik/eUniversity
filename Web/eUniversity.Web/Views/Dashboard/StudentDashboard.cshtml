@@ -8,7 +8,7 @@
     }
 }
 @Html.Partial("_PageHeader")
-<div class="row" id="curriculum">
+<div class="row" id="dashboard">
     <div class="col-xs-12">
         <div class="row">
             <div class="col-xs-12">
@@ -82,9 +82,9 @@
                                                             <a href="#" role="button" class="green" data-bind="click: ChooseTheme">Выбрать тему</a>
                                                         </h4>
                                                     </div>
-                              @*                      <div class="col-xs-6 pull-right" style="text-align: right;" data-bind="visible: true">
-                                                        <a href="#" role="button" class="green" data-bind="">Предложить свою тему</a>
-                                                    </div>*@
+                                                    @*                      <div class="col-xs-6 pull-right" style="text-align: right;" data-bind="visible: true">
+                                                            <a href="#" role="button" class="green" data-bind="">Предложить свою тему</a>
+                                                        </div>*@
                                                 </div>
                                                 <!-- /ko -->
                                             </td>
@@ -108,7 +108,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        ko.applyBindings(new StudentDashboardViewModel(@Html.Raw(Json.Encode(Model))), $('#curriculum').get(0));
+        ko.applyBindings(new StudentDashboardViewModel(@Html.Raw(Json.Encode(Model))), $('#dashboard').get(0));
     });
 </script>
 

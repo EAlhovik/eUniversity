@@ -50,8 +50,11 @@
     <Compile Include="Curriculum\CurriculumHeaderViewModel.cs" />
     <Compile Include="Curriculum\SemesterViewModel.cs" />
     <Compile Include="Curriculum\SubjectViewModel.cs" />
+    <Compile Include="Dashboard\FilterViewModel.cs" />
+    <Compile Include="Dashboard\ProfessorDashboardViewModel.cs" />
     <Compile Include="Dashboard\SemesterViewModel.cs" />
     <Compile Include="Dashboard\StudentDashboardViewModel.cs" />
+    <Compile Include="Dashboard\StudentRowViewModel.cs" />
     <Compile Include="Dashboard\SubjectDetailViewModel.cs" />
     <Compile Include="Dashboard\SubjectViewModel.cs" />
     <Compile Include="Enums\RoleEnum.cs" />

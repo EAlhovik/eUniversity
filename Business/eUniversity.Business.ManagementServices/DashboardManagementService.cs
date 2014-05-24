@@ -4,9 +4,11 @@ using System.Linq;
 using AutoMapper;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
+using eUniversity.Business.ViewModels;
 using eUniversity.Business.ViewModels.Dashboard;
 using eUniversity.Business.ViewModels.Theme;
 using eUniversity.Data.Contracts;
+using eUniversity.Data.Entities;
 
 namespace eUniversity.Business.ManagementServices
 {
@@ -19,11 +21,12 @@ namespace eUniversity.Business.ManagementServices
 
         private readonly ICurriculumService curriculumService;
         private readonly IEUniversityUow universityUow;
-        private readonly ISubjectManagementService  subjectManagementService;
+        private readonly ISubjectManagementService subjectManagementService;
         private readonly IGroupService groupService;
 
         public DashboardManagementService(IAuthorizationService authorizationService, IStudentProfileService studentProfileService,
-            ICurriculumService curriculumService, IStudentThemeService studentThemeService, IEUniversityUow universityUow, ISubjectManagementService subjectManagementService, IGroupService groupService, IThemeService themeService)
+            ICurriculumService curriculumService, IStudentThemeService studentThemeService, IEUniversityUow universityUow,
+            ISubjectManagementService subjectManagementService, IGroupService groupService, IThemeService themeService)
         {
             this.authorizationService = authorizationService;
             this.studentProfileService = studentProfileService;
@@ -70,7 +73,7 @@ namespace eUniversity.Business.ManagementServices
         {
             return subjectManagementService.GetSubjectRowById(subjectId)
                 .Themes
-                .Select(p=>new ThemeRowViewModel()
+                .Select(p => new ThemeRowViewModel()
                 {
                     Id = p.Id,
                     Name = p.Name,
@@ -123,13 +126,6 @@ namespace eUniversity.Business.ManagementServices
             }
         }
 
-        private IEnumerable<long> GetGroupStudents(long userId)
-        {
-            Group group = studentProfileService.GetUserGroup(userId);
-            IEnumerable<long> groupStudents = groupService.GetGroupStudents(group.Id);
-            return groupStudents.ToList();
-        }
-
         public ThemeRowViewModel ChooseTheme(long subjectId, ThemeRowViewModel theme)
         {
             var userId = authorizationService.CurrentUser.Id;
@@ -143,12 +139,80 @@ namespace eUniversity.Business.ManagementServices
             return theme;
         }
 
-        public object GetProfessorDashboard()
+        public ProfessorDashboardViewModel GetProfessorDashboard(FilterViewModel filter = null)
         {
-            throw new NotImplementedException();
+            var viewModel = ApplyFilter(filter ?? GetDefaultFilter());
+            return viewModel;
         }
 
         #endregion
+
+        private ProfessorDashboardViewModel ApplyFilter(FilterViewModel filterViewModel)
+        {
+            var students = groupService.GetGroupStudents(GetSelectedId(filterViewModel.Group));
+            var curriculum = curriculumService.GetCurriculumForStudent(students.First());//todo: check if group empty. 
+            var subjects = curriculum.Semesters.First(p => p.Sequential ==GetSelectedId(filterViewModel.SemesterSeq)).Subjects;
+
+
+            return new ProfessorDashboardViewModel
+            {
+                Filter = filterViewModel,
+                CountSubjects = subjects.Count,
+                Students = students.Select(stud =>
+                {
+                    var student = studentProfileService.CreateOrOpen(stud);
+                    return new StudentRowViewModel
+                    {
+
+                        Student = string.Format("{0} {1}", student.LastName, student.FirstName),
+                        StudentId = student.Id,
+                        Subjects = subjects.Select(subj =>
+                        {
+                            var studentTheme = studentThemeService.All().SingleOrDefault(p => p.SubjectId == subj.Id && p.StudentId == stud);
+                            var subject = new StudentSubjectViewModel
+                            {
+                                Subject = subj.Name,
+                                SubjectId = subj.Id
+                            };
+
+                            if (studentTheme != null)
+                            {
+                                subject.Theme = Mapper.Map<SelectedItemModel,SelectedItemViewModel>(themeService.GetSelectedItemById(studentTheme.ThemeId));
+                                subject.ThemeId = studentTheme.ThemeId;
+                            }
+                            // if exist theme for this subject set it
+                            return subject;
+                        }).ToList()
+                    };
+                }).ToList()
+            };
+        }
+
+        private static long GetSelectedId(SelectedItemViewModel viewModel)
+        {
+            long id;
+            if (viewModel != null && long.TryParse(viewModel.Id, out id))
+            {
+                return id;
+            }
+            return 1;
+        }
+
+        private FilterViewModel GetDefaultFilter()
+        {
+            return new FilterViewModel
+            {
+                Group = new SelectedItemViewModel(),
+                SemesterSeq = new SelectedItemViewModel()
+            };
+        }
+
+        private IEnumerable<long> GetGroupStudents(long userId)
+        {
+            Group group = studentProfileService.GetUserGroup(userId);
+            IEnumerable<long> groupStudents = groupService.GetGroupStudents(group.Id);
+            return groupStudents.ToList();
+        }
 
         private void UpdateSemesters(StudentDashboardViewModel viewModel)
         {

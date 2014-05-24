@@ -1,0 +1,110 @@
+﻿@using eUniversity.Web.Infrastructure.Constants
+@model dynamic
+
+@{
+    ViewBag.PageHeader = "Страница контроля :)";
+
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+}
+@Html.Partial("_PageHeader")
+
+<div id="dashboard">
+    <div class="row">
+        <div class="col-xs-12">
+            <div role="form" class="form-horizontal" data-bind="with: Filter">
+                <div class="step-pane">
+                    <h3 class="lighter block green">Фильтр</h3>
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-3 no-padding-right">Группа</label>
+                        <div class="col-xs-12 col-sm-9">
+                            <input data-bind="selectedValue: Group,select2: {multiple: false, allowClear: false,  placeholder: 'группа',  ajax:{url:'@Url.Action(ActionNames.GetGroupsAction, ControllerNames.LoockupController)'  }}, select2Options: {data: Group}" style="width: 200px" type="hidden" tabindex="-1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-3 no-padding-right">Семестр</label>
+                        <div class="col-xs-12 col-sm-9">
+                            <input data-bind="selectedValue: SemesterSeq,select2: {multiple: false, allowClear: false,  placeholder: 'семестр',  ajax:{url:'@Url.Action(ActionNames.GetSemestersAction, ControllerNames.LoockupController)'  }}, select2Options: {data: SemesterSeq}" style="width: 200px" type="hidden" tabindex="-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3 class="lighter block green">Семестры</h3>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="center" style="width: 50px;">
+                                    </th>
+                                    <th>Имя студента</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- ko foreach: Students -->
+                                <tr>
+                                    <td class="center">
+                                        <a href="#">
+                                            <i class='icon-plus' data-bind="click: Expand, css: { 'icon-plus': !IsExpand(), 'icon-minus': IsExpand() }"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span data-bind="text: Student"></span>
+                                    </td>
+                                </tr>
+                                <tr data-bind="visible: IsExpand">
+                                    <td>
+                                        <i class="icon-spinner icon-spin orange bigger-175" data-bind="visible: IsLoading()"></i>
+                                    </td>
+                                    <td colspan="10" data-bind="visible: !IsLoading()">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Предмет</th>
+                                                        <th>Тема</th>
+                                                        <th>Описание</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- ko foreach: Subjects -->
+                                                    <tr>
+                                                        <td data-bind="text: Subject">
+                                                        </td>
+                                                        <td>
+                                                            <span data-bind="editable: ThemeId, editableOptions: { type: 'select2', select2: select2 }" data-type="select2" data-pk="1" data-title="Select theme"></span>
+                                                        </td>
+                                                        <td>***</</td>
+                                                    </tr>
+                                                    <!-- /ko -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- /ko -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/Scripts/viewModels/dashboard/professorDashboardViewModel.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        ko.applyBindings(new ProfessorDashboardViewModel(@Html.Raw(Json.Encode(Model))), $('#dashboard').get(0));
+    });
+</script>

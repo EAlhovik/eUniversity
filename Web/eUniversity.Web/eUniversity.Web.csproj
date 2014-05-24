@@ -282,6 +282,7 @@
     <Content Include="Scripts\viewModels\curriculum\curriculumHeaderViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\semesterViewModel.js" />
     <Content Include="Scripts\viewModels\curriculum\subjectViewModel.js" />
+    <Content Include="Scripts\viewModels\dashboard\professorDashboardViewModel.js" />
     <Content Include="Scripts\viewModels\dashboard\studentDashboardViewModel.js" />
     <Content Include="Scripts\viewModels\gridViewModel.js" />
     <Content Include="Scripts\viewModels\group\groupRowViewModel.js" />
@@ -351,6 +352,7 @@
     <Content Include="Views\Subject\Index.cshtml" />
     <Content Include="Views\Theme\Index.cshtml" />
     <Content Include="Views\Dashboard\StudentDashboard.cshtml" />
+    <Content Include="Views\Dashboard\ProfessorDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
