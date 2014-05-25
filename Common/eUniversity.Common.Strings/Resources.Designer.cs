@@ -97,6 +97,15 @@ namespace eUniversity.Common.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Описание.
+        /// </summary>
+        public static string Common_Description {
+            get {
+                return ResourceManager.GetString("Common_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Не Подтвержденный.
         /// </summary>
         public static string Common_Draft {
@@ -219,6 +228,15 @@ namespace eUniversity.Common.Strings {
         public static string Common_Title {
             get {
                 return ResourceManager.GetString("Common_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Последнее обновление.
+        /// </summary>
+        public static string Common_Update {
+            get {
+                return ResourceManager.GetString("Common_Update", resourceCulture);
             }
         }
         

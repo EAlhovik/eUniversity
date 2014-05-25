@@ -216,4 +216,10 @@
   <data name="Subject_Type" xml:space="preserve">
     <value>Тип предмета</value>
   </data>
+  <data name="Common_Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Common_Update" xml:space="preserve">
+    <value>Последнее обновление</value>
+  </data>
 </root>
