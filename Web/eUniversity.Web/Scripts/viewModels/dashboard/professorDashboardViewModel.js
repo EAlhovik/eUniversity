@@ -33,7 +33,7 @@
                 var mapping = {
                     'Students':
                     {
-                        create: function(options) {
+                        create: function (options) {
                             return new window.StudentRowViewModel(options.data);
                         }
                     },
@@ -42,11 +42,16 @@
                 ko.mapping.fromJS(result, mapping, self);
             },
             complete: function () {
-//                self.IsLoading(false);
+                //                self.IsLoading(false);
             }
         });
     };
-    
+
+    self.IsShowStudents = ko.computed(function () {
+        return self.Filter().Group() && self.Filter().SemesterSeq()
+            && self.Filter().Group().Id() && self.Filter().SemesterSeq().Id();
+    });
+
     ko.computed(function () {
         var group = self.Filter().Group();
         var semester = self.Filter().SemesterSeq();
@@ -66,12 +71,12 @@ function StudentRowViewModel(serverModel) {
     var self = this;
     self.Student = ko.observable();
     self.Student = ko.observable();
-    
+
     self.Subjects = ko.observableArray();
-    
+
     self.IsExpand = ko.observable();
     self.IsLoading = ko.observable();
-    
+
     var mappingOverride =
     {
         'Subjects':
@@ -95,7 +100,7 @@ function StudentRowViewModel(serverModel) {
 
 function StudentSubjectViewModel(serverModel) {
     var self = this;
-    
+
     self.Theme = ko.observable();
     self.ThemeId = ko.observable();
     self.Subject = ko.observable();
@@ -103,9 +108,9 @@ function StudentSubjectViewModel(serverModel) {
 
     ko.mapping.fromJS(serverModel, {}, self);
 
-    self.ThemeDisplay = ko.computed(function() {
+    self.ThemeDisplay = ko.computed(function () {
         if (self.Theme()) {
-            return self.Theme().Name();
+            return self.Theme().Text();
         }
         return '';
     });
