@@ -188,9 +188,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoockupController.cs" />
     <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -319,7 +319,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Web.config" />
@@ -327,7 +326,6 @@
     <Content Include="Views\Account\Forgot.cshtml" />
     <Content Include="Views\Shared\_Layout.simple.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Views\Speciality\Index.cshtml" />
     <Content Include="Views\Specialization\Index.cshtml" />
@@ -353,6 +351,8 @@
     <Content Include="Views\Theme\Index.cshtml" />
     <Content Include="Views\Dashboard\StudentDashboard.cshtml" />
     <Content Include="Views\Dashboard\ProfessorDashboard.cshtml" />
+    <Content Include="Views\Content\SideBar.cshtml" />
+    <Content Include="Views\Content\StudentSideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

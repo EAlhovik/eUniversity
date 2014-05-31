@@ -44,7 +44,7 @@ namespace eUniversity.Web.Controllers
         {
             membershipManagementService.LogOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
 
         [AllowAnonymous]
@@ -90,7 +90,7 @@ namespace eUniversity.Web.Controllers
 //                    membershipManagementService.RegisterUser(model); TODO: REMOVE
                     //                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     //                    WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -368,7 +368,7 @@ namespace eUniversity.Web.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
         }
 

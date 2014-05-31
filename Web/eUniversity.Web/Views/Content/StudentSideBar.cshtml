@@ -1,0 +1,23 @@
+﻿@using eUniversity.Web.Infrastructure.Constants
+@using eUniversity.Web.Extensions
+<div class="sidebar" id="sidebar">
+    <ul class="nav nav-list">
+        @{
+            var ajaxOptions = new AjaxOptions()
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    LoadingElementId = "loading",
+                    UpdateTargetId = "pageContent",
+                    OnBegin = "OnBegin"
+                };
+        }
+        <li class="active">
+            @Ajax.RawActionLink("<i class='icon-dashboard'></i><span class='menu-text'>Dashboard </span>", ActionNames.IndexAction, ControllerNames.DashboardController, ajaxOptions)
+        </li>
+    </ul>
+
+    <div class="sidebar-collapse" id="sidebar-collapse">
+        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+    </div>
+</div>
