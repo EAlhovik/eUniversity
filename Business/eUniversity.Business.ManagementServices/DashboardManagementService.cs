@@ -162,6 +162,11 @@ namespace eUniversity.Business.ManagementServices
                 return DefaultProfessorDashboard(filterViewModel);
             }
             var curriculum = curriculumService.GetCurriculumForStudent(students.First());
+            if (!curriculum.Semesters.Any(p => p.Sequential == semesterSeqId.Value))
+            {
+                return DefaultProfessorDashboard(filterViewModel);
+            }
+
             var subjects = curriculum.Semesters.First(p => p.Sequential == semesterSeqId.Value).Subjects;
 
 
