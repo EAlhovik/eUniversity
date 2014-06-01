@@ -105,6 +105,15 @@ function StudentSubjectViewModel(serverModel) {
     self.ThemeId = ko.observable();
     self.Subject = ko.observable();
     self.SubjectId = ko.observable();
+    self.Description = ko.observable();
+    
+    self.ThemeId.subscribe(function () {
+        self.Description(null);
+        if (self.ThemeId())
+            $.get(window.actions.subject.GetThemeDescriptionUrl, { id: self.ThemeId() }, function (data) {
+                self.Description(data);
+            });
+    });
 
     ko.mapping.fromJS(serverModel, {}, self);
 
