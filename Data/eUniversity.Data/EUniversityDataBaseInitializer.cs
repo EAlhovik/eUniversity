@@ -41,6 +41,8 @@ namespace eUniversity.Data
                             new Curriculum()
                             {
                                 DateOfEnactment = new DateTime(2009,08,15),
+                                Created = DateTime.Now,
+                                CreatedBy = "System",
                                 Semesters = new List<Semester>()
                                 {
                                     new Semester(){Sequential = 1},
@@ -61,6 +63,8 @@ namespace eUniversity.Data
                         {
                             new Group()
                             {
+                                Created = DateTime.Now,
+                                CreatedBy = "System",
                                 Name = "107229",
                                 DateOfAdmission = new DateTime(2009,08,15),
                                 Students = new List<StudentProfile>()

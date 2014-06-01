@@ -21,5 +21,7 @@ namespace eUniversity.Business.ViewModels.Speciality
         /// Gets or sets the description.
         /// </summary>
         public string Description { get; set; }
+
+        public string LastModified { get; set; }
     }
 }

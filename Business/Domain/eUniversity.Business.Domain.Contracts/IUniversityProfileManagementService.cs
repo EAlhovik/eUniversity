@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.Domain.Entities.Enums;
+﻿using System;
+using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels;
 using eUniversity.Data.Entities;
@@ -17,5 +18,6 @@ namespace eUniversity.Business.Domain.Contracts
 
         SelectedItemModel CreateAssignee(Subject subject);
         string CreateSubjectType(SubjectTypeEnum subjectType);
+        string CreateDateDisplay(DateTime? lastModified);
     }
 }

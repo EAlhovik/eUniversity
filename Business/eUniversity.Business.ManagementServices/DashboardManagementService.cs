@@ -149,9 +149,20 @@ namespace eUniversity.Business.ManagementServices
 
         private ProfessorDashboardViewModel ApplyFilter(FilterViewModel filterViewModel)
         {
-            var students = groupService.GetGroupStudents(GetSelectedId(filterViewModel.Group));
-            var curriculum = curriculumService.GetCurriculumForStudent(students.First());//todo: check if group empty. 
-            var subjects = curriculum.Semesters.First(p => p.Sequential ==GetSelectedId(filterViewModel.SemesterSeq)).Subjects;
+            var groupId = GetSelectedId(filterViewModel.Group);
+            var semesterSeqId = GetSelectedId(filterViewModel.SemesterSeq);
+            if (!groupId.HasValue || !semesterSeqId.HasValue)
+            {
+                return DefaultProfessorDashboard(filterViewModel);
+            }
+
+            var students = groupService.GetGroupStudents(groupId.Value);
+            if (!students.Any())
+            {
+                return DefaultProfessorDashboard(filterViewModel);
+            }
+            var curriculum = curriculumService.GetCurriculumForStudent(students.First());
+            var subjects = curriculum.Semesters.First(p => p.Sequential == semesterSeqId.Value).Subjects;
 
 
             return new ProfessorDashboardViewModel
@@ -188,14 +199,19 @@ namespace eUniversity.Business.ManagementServices
             };
         }
 
-        private static long GetSelectedId(SelectedItemViewModel viewModel)
+        private static ProfessorDashboardViewModel DefaultProfessorDashboard(FilterViewModel filterViewModel)
+        {
+            return new ProfessorDashboardViewModel() {Filter = filterViewModel};
+        }
+
+        private static long? GetSelectedId(SelectedItemViewModel viewModel)
         {
             long id;
             if (viewModel != null && long.TryParse(viewModel.Id, out id))
             {
                 return id;
             }
-            return 1;
+            return null;
         }
 
         private FilterViewModel GetDefaultFilter()

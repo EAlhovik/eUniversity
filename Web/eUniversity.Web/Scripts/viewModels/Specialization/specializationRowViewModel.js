@@ -3,6 +3,7 @@
     self.Id = ko.observable();
     self.Name = ko.observable();
     self.Description = ko.observable();
+    self.LastModified = ko.observable();
     self.SpecialityId = ko.observable();
 
     self.IsSelected = ko.observable();

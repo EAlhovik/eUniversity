@@ -30,7 +30,7 @@ namespace eUniversity.Business.Services
         {
             return Repository.All()
                 .Where(group => group.Id == id)
-                .Select(group => group.Students.Select(student => student.Id)).Single();
+                .SelectMany(group => group.Students).Select(student => student.Id).ToList();
         }
 
         /// <summary>

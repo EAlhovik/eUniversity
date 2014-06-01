@@ -12,5 +12,7 @@ namespace eUniversity.Business.ViewModels.Curriculum
         public string DateOfEnactment { get; set; }
 
         public string SpecializatoinName { get; set; }
+
+        public string LastModified { get; set; }
     }
 }

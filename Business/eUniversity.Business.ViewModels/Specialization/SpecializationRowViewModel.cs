@@ -26,5 +26,7 @@ namespace eUniversity.Business.ViewModels.Specialization
         /// Gets or sets the speciality identifier.
         /// </summary>
         public string SpecialityId { get; set; }
+
+        public string LastModified { get; set; }
     }
 }

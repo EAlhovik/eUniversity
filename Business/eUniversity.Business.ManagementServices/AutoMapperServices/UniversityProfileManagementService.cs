@@ -1,4 +1,5 @@
-﻿using eUniversity.Business.Domain.Contracts;
+﻿using System;
+using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.ViewModels;
@@ -18,6 +19,11 @@ namespace eUniversity.Business.ManagementServices.AutoMapperServices
         public UniversityProfileManagementService(ISpecializationService specializationService)
         {
             this.specializationService = specializationService;
+        }
+
+        public string CreateDateDisplay(DateTime? lastModified)
+        {
+            return lastModified.HasValue ? lastModified.Value.ToShortDateString() : "N/A";
         }
 
         public long GetId(SelectedItemViewModel selectedItemModel)

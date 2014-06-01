@@ -5,6 +5,7 @@
     self.Description = ko.observable();
     self.SpecializationId = ko.observable();
     self.DateOfAdmissionDisplay = ko.observable();
+    self.LastModified = ko.observable();
 
     self.IsSelected = ko.observable();
 

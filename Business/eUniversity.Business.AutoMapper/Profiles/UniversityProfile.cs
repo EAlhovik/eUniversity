@@ -99,12 +99,14 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
+                .ForMember(vm => vm.LastModified, opt => opt.MapFrom(m => universityProfileService.CreateDateDisplay(m.LastModified ?? m.Created)))
                 ;
 
             Mapper.CreateMap<SpecialityRowViewModel, Speciality>()
                   .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                   .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
                   .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                  .ForMember(m => m.LastModified, opt => opt.Ignore())
                 ;
 
             Mapper.CreateMap<Speciality, SelectedItemViewModel>()
@@ -120,6 +122,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
+                .ForMember(vm => vm.LastModified, opt => opt.MapFrom(m => universityProfileService.CreateDateDisplay(m.LastModified ?? m.Created)))
                 .ForMember(vm => vm.SpecialityId, opt => opt.MapFrom(m => m.SpecialityId))
                 ;
 
@@ -127,6 +130,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                 .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
                 .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
+                  .ForMember(m => m.LastModified, opt => opt.Ignore())
                 .ForMember(m => m.SpecialityId, opt => opt.MapFrom(vm => long.Parse(vm.SpecialityId)))
                 ;
 
@@ -144,6 +148,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
                 .ForMember(vm => vm.SpecializationId, opt => opt.MapFrom(m => m.SpecializationId))
+                .ForMember(vm => vm.LastModified, opt => opt.MapFrom(m => universityProfileService.CreateDateDisplay(m.LastModified ?? m.Created)))
                 .ForMember(vm => vm.DateOfAdmission, opt => opt.MapFrom(m => m.DateOfAdmission))
                 ;
 
@@ -152,6 +157,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
                 .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
                 .ForMember(m => m.DateOfAdmission, opt => opt.MapFrom(vm => vm.DateOfAdmission))
+                .ForMember(m => m.LastModified, opt => opt.Ignore())
                 .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm =>long.Parse(vm.SpecializationId) ))
                 ;
 
@@ -181,6 +187,7 @@ namespace eUniversity.Business.AutoMapper.Profiles
             Mapper.CreateMap<Curriculum, CurriculumRowViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.DateOfEnactment, opt => opt.MapFrom(m => m.DateOfEnactment.ToShortDateString()))
+                .ForMember(vm => vm.LastModified, opt => opt.MapFrom(m => universityProfileService.CreateDateDisplay(m.LastModified ?? m.Created)))
                 .ForMember(vm => vm.SpecializatoinName, opt => opt.MapFrom(m => universityProfileService.CreateSpecialization(m.SpecializationId).Text))
                 ;
 
@@ -247,12 +254,14 @@ namespace eUniversity.Business.AutoMapper.Profiles
             Mapper.CreateMap<Theme, ThemeRowViewModel>()
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
+                .ForMember(vm => vm.LastModified, opt => opt.MapFrom(m => universityProfileService.CreateDateDisplay(m.LastModified ?? m.Created)))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
                 ;
 
             Mapper.CreateMap<ThemeRowViewModel, Theme>()
                   .ForMember(m => m.Id, opt => opt.MapFrom(vm => vm.Id))
                   .ForMember(m => m.Name, opt => opt.MapFrom(vm => vm.Name))
+                .ForMember(m => m.LastModified, opt => opt.Ignore())
                   .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
                 ;
 

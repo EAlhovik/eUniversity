@@ -7,7 +7,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
     /// <summary>
     /// The curricula entity
     /// </summary>
-    public class Curriculum : Entity
+    public class Curriculum : Entity, IHasCreation, IHasModificatoin
     {
         public virtual ICollection<Semester> Semesters { get; set; }
 
@@ -16,5 +16,21 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public long SpecializationId { get; set; }
 
         public DateTime DateOfEnactment { get; set; }
+
+        #region IHasCreation Members
+
+        public DateTime Created { get; set; }
+
+        public string CreatedBy { get; set; }
+
+        #endregion
+
+        #region IHasModificatoin Members
+
+        public DateTime? LastModified { get; set; }
+
+        public string LastModifiedBy { get; set; }
+
+        #endregion
     }
 }

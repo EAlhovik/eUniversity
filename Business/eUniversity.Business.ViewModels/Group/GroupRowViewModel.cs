@@ -34,6 +34,8 @@ namespace eUniversity.Business.ViewModels.Group
             }
         }
 
+        public string LastModified { get; set; }
+
         private const string DateFormat = "yyyy-MM-dd";
     }
 }
