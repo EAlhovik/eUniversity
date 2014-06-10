@@ -30,13 +30,17 @@ namespace eUniversity.Business.ManagementServices.Base
 
         public void Save(IEnumerable<TRowViewModel> viewModels)
         {
+            List<TModel> entities = new List<TModel>();
             foreach (var viewModel in viewModels)
             {
                 var entity = Service.CreateOrOpen(viewModel.Id);
                 Mapper.Map<TRowViewModel, TModel>(viewModel, entity);
                 Service.Save(entity);
+                entities.Add(entity);
             }
             UnitOfWork.Commit();
+            
+            Mapper.Map<IEnumerable<TModel>, IEnumerable<TRowViewModel>>(entities, viewModels);
         }
 
         public IEnumerable<TRowViewModel> GetRows()

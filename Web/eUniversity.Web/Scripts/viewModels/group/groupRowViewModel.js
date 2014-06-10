@@ -15,6 +15,10 @@
     self.Save = function (viewModel) {
         viewModel.DateOfAdmissionDisplay(viewModel.DateOfAdmissionDisplay().format('YYYY-MM-DD'));
         
-        save({ viewModels: [ko.mapping.toJS(viewModel)] });
+        save({ viewModels: [ko.mapping.toJS(viewModel)] }, function (result) {
+
+            ko.mapping.fromJS(result.Data[0], {}, self);
+
+        });
     };
 }

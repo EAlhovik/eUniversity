@@ -353,6 +353,7 @@
     <Content Include="Views\Dashboard\ProfessorDashboard.cshtml" />
     <Content Include="Views\Content\SideBar.cshtml" />
     <Content Include="Views\Content\StudentSideBar.cshtml" />
+    <Content Include="Views\Shared\_StatusColumn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

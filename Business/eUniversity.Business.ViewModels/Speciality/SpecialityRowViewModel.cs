@@ -1,4 +1,5 @@
 ﻿using eUniversity.Business.ViewModels.Base;
+using eUniversity.Business.ViewModels.Enums;
 
 namespace eUniversity.Business.ViewModels.Speciality
 {
@@ -23,5 +24,6 @@ namespace eUniversity.Business.ViewModels.Speciality
         public string Description { get; set; }
 
         public string LastModified { get; set; }
+        public EntityStatusEnum Status { get; set; }
     }
 }

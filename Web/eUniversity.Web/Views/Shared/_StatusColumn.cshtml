@@ -1,0 +1,3 @@
+﻿@using eUniversity.Business.ViewModels.Enums
+<span class="label label-sm label-success" data-bind="visible: Status() == @((int)EntityStatusEnum.Approved)">Approved</span>
+<span class="label label-sm label-warning" data-bind="visible: Status() ==  @((int)EntityStatusEnum.Draft)">draft</span>

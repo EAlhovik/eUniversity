@@ -4,6 +4,7 @@
     self.Name = ko.observable();
     self.Description = ko.observable();
     self.LastModified = ko.observable();
+    self.Status = ko.observable();
 
     self.IsSelected = ko.observable();
     
@@ -11,6 +12,10 @@
         ko.mapping.fromJS(serverModel, {}, self);
     
     self.Save = function (viewModel) {
-        save({ viewModels: [ko.mapping.toJS(viewModel)] });
+        save({ viewModels: [ko.mapping.toJS(viewModel)] }, function (result) {
+
+            ko.mapping.fromJS(result.Data[0], {}, self);
+
+        });
     };
 }

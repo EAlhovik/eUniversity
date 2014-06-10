@@ -1,4 +1,6 @@
-﻿using eUniversity.Business.ViewModels.Base;
+﻿using System;
+using eUniversity.Business.ViewModels.Base;
+using eUniversity.Business.ViewModels.Enums;
 
 namespace eUniversity.Business.ViewModels.Specialization
 {
@@ -26,6 +28,8 @@ namespace eUniversity.Business.ViewModels.Specialization
         /// Gets or sets the speciality identifier.
         /// </summary>
         public string SpecialityId { get; set; }
+
+        public EntityStatusEnum Status { get; set; }
 
         public string LastModified { get; set; }
     }

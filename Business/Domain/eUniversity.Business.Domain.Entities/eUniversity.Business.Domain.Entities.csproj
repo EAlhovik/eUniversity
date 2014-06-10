@@ -46,8 +46,10 @@
     <Compile Include="Base\IHasDeleted.cs" />
     <Compile Include="Base\IHasModificatoin.cs" />
     <Compile Include="Base\IHasCreation.cs" />
+    <Compile Include="Base\IHasStatusTracker.cs" />
     <Compile Include="Base\Profile.cs" />
     <Compile Include="Base\RoleEnum.cs" />
+    <Compile Include="Enums\EntityStatusEnum.cs" />
     <Compile Include="Enums\SubjectTypeEnum.cs" />
     <Compile Include="eUniversity\Curriculum.cs" />
     <Compile Include="eUniversity\Group.cs" />

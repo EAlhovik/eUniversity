@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using eUniversity.Business.Domain.Entities.Base;
+using eUniversity.Business.Domain.Entities.Enums;
 
 namespace eUniversity.Business.Domain.Entities.eUniversity
 {
     /// <summary>
     /// The Specialization entity
     /// </summary>
-    public class Specialization : Entity, IHasCreation, IHasModificatoin
+    public class Specialization : Entity, IHasCreation, IHasModificatoin, IHasStatusTracker
     {
         /// <summary>
         /// Gets or sets the name.
@@ -27,7 +28,7 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         /// <summary>
         /// Gets or sets the speciality identifier.
         /// </summary>
-        public long SpecialityId { get; set; }
+        public long? SpecialityId { get; set; }
 
         /// <summary>
         /// Gets or sets the сurricula.
@@ -52,6 +53,12 @@ namespace eUniversity.Business.Domain.Entities.eUniversity
         public DateTime? LastModified { get; set; }
 
         public string LastModifiedBy { get; set; }
+
+        #endregion
+
+        #region  IHasStatusTracker Members
+
+        public EntityStatusEnum Status { get; set; }
 
         #endregion
     }

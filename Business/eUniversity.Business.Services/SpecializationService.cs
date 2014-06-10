@@ -29,8 +29,13 @@ namespace eUniversity.Business.Services
 
         protected override Expression<Func<Specialization, bool>> Predicate(string term)
         {
-            return spec =>
-                string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0;
+            return spec => spec.SpecialityId.HasValue &&
+                (string.IsNullOrEmpty(term) || spec.Name.ToUpper().IndexOf(term.ToUpper()) >= 0);
+        }
+
+        protected override bool HasAllRequired(Specialization entity)
+        {
+            return entity.SpecialityId.HasValue && !string.IsNullOrEmpty(entity.Name);
         }
     }
 }

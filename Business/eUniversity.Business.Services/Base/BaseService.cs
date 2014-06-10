@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Web.Hosting;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.Base;
+using eUniversity.Business.Domain.Entities.Enums;
 using eUniversity.Data.Contracts;
 using eUniversity.Data.Entities;
 
@@ -52,6 +54,23 @@ namespace eUniversity.Business.Services.Base
             {
                 TryUpdateLastModifiedInformation(entity);
             }
+            TryUpdateStatus(entity);
+        }
+
+        private void TryUpdateStatus(T entity)
+        {
+            var entityCreated = entity as IHasStatusTracker;
+            if (entityCreated != null)
+            {
+                if (HasAllRequired(entity))
+                {
+                    entityCreated.Status = EntityStatusEnum.Approved;
+                }
+                else
+                {
+                    entityCreated.Status = EntityStatusEnum.Draft;
+                }
+            }
         }
 
         private void TryUpdateCreatedInformation(T entity)
@@ -90,6 +109,11 @@ namespace eUniversity.Business.Services.Base
         public virtual IEnumerable<T> All()
         {
             return Repository.All();
+        }
+
+        protected virtual bool HasAllRequired(T entity)
+        {
+            return true;
         }
 
         /// <summary>

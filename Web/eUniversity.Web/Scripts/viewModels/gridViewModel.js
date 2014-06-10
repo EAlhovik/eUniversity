@@ -43,18 +43,19 @@
     self.Remove = function (row) {
         if (row.Id()) {
             remove({ viewModels: [ko.mapping.toJS(row)] });
+            self.Rows.remove(row);
         } else {
             self.Rows.remove(row);
         }
     };
 
-    self.RemoveSelected = function () {
+    self.RemoveSelected = function () { // todo: remove
         var data = { viewModels: ko.mapping.toJS(self.SelectedRows) };
 
         remove(data);
     };
 
-    self.SaveSelected = function () {
+    self.SaveSelected = function () { // todo: remove
         var data = { viewModels: ko.mapping.toJS(self.SelectedRows) };
         save(data);
     };

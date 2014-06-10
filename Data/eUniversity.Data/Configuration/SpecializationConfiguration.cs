@@ -7,7 +7,7 @@ namespace eUniversity.Data.Configuration
     {
         public SpecializationConfiguration()
         {
-            HasRequired(specialization => specialization.Speciality)
+            HasOptional(specialization => specialization.Speciality)
                 .WithMany(speciality => speciality.Specializations)
                 .HasForeignKey(specialization => specialization.SpecialityId);
         }

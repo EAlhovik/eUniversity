@@ -1,4 +1,5 @@
-﻿@model eUniversity.Business.ViewModels.GridViewModel
+﻿@using eUniversity.Business.ViewModels.Enums
+@model eUniversity.Business.ViewModels.GridViewModel
 @{
     ViewBag.PageHeader = "Специализация";
     ViewBag.AdditionalInfo = "Список специализаций";
@@ -31,42 +32,6 @@
                         <th class="hidden-480">@eUniversity.Common.Strings.Resources.Common_Status</th>
 
                         <th>
-                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="#">
-                                    <i class="icon-save bigger-130" data-bind="click: SaveSelected"></i>
-                                </a>
-
-                                <a class="red" href="#">
-                                    <i class="icon-trash bigger-130" data-bind="click: RemoveSelected"></i>
-                                </a>
-                            </div>
-
-                            <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                <div class="inline position-relative open">
-                                    <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
-                                        <i class="icon-caret-down icon-only bigger-120"></i>
-                                    </button>
-                                    <div class="dropdown-backdrop"></div>
-
-                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                        <li>
-                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
-                                                <span class="blue">
-                                                    <i class="icon-save bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
-                                                <span class="red">
-                                                    <i class="icon-trash bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </th>
                     </tr>
                 </thead>
@@ -80,28 +45,22 @@
                             </label>
                         </td>
                         <td>
-                            <span data-bind="editable: Name"></span>
+                            <span data-bind="editable: Name, event: { save: Save }"></span>
                         </td>
                         <td>
-                            <span data-bind="editable: Description, editableOptions: { type: 'textarea' }"></span>
+                            <span data-bind="editable: Description, editableOptions: { type: 'textarea' }, event: { save: Save }"></span>
                         </td>
                         <td>
-                            <a data-bind="editable: SpecialityId, editableOptions: {type: 'select2', select2:$parent.select2}" data-type="select2" data-pk="1" data-title="Select speciality"></a>
-
-                            @*                            <span data-bind="editable: SpecialityId, editableOptions: {type: 'select2', select2:{placeholder: 'Select Country', data: [{id: 0, text: 'story'},{id: 1, text: 'bug'},{id: 2, text: 'task'}], width:200 }}"></span>*@
+                            <a data-bind="editable: SpecialityId, editableOptions: {type: 'select2', select2:$parent.select2}, event: { save: Save }" data-type="select2" data-pk="1" data-title="Select speciality"></a>
                         </td>
-                        <td data-bind="text: LastModified">Feb 12</td>
+                        <td data-bind="text: LastModified"></td>
 
                         <td class="hidden-480">
-                            <span class="label label-sm label-warning">Draft</span>
+                            @Html.Partial("_StatusColumn")
                         </td>
 
                         <td>
                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="#">
-                                    <i class="icon-save bigger-130" data-bind="click: Save"></i>
-                                </a>
-
                                 <a class="red" href="#">
                                     <i class="icon-trash bigger-130" data-bind="click: $parent.Remove"></i>
                                 </a>
