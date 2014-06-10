@@ -26,7 +26,6 @@
                         <th>
                             Название специализации
                         </th>
-                        <th class="hidden-480">@eUniversity.Common.Strings.Resources.Common_Status</th>
 
                         <th></th>
                     </tr>
@@ -44,18 +43,11 @@
                         <td data-bind="text: CurriculumName"></td>
                         <td data-bind="text: SpecializationName"></td>
 
-                        <td class="hidden-480">
-                            <span class="label label-sm label-warning">Expiring</span>
-                        </td>
                         <th>
                             <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                 <a class="blue" href="#">
                                     <i class="icon-save bigger-130" data-bind="click: Save"></i>
                                 </a>
-
-                                @*                                <a class="red" href="#">*@
-                                @*                                    <i class="icon-trash bigger-130" data-bind="click: RemoveSelected"></i>*@
-                                @*                                </a>*@
                             </div>
                         </th>
                     </tr>

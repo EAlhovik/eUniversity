@@ -64,8 +64,6 @@ namespace eUniversity.Business.AutoMapper.Profiles
 
             #endregion
 
-
-
             #region Profile
 
             Mapper.CreateMap<ProfileViewModel, StudentProfile>()
@@ -152,7 +150,8 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(vm => vm.Id, opt => opt.MapFrom(m => m.Id))
                 .ForMember(vm => vm.Name, opt => opt.MapFrom(m => m.Name))
                 .ForMember(vm => vm.Description, opt => opt.MapFrom(m => m.Description))
-                .ForMember(vm => vm.SpecializationId, opt => opt.MapFrom(m => m.SpecializationId))
+                .ForMember(vm => vm.Status, opt => opt.MapFrom(m => m.Status))
+                .ForMember(vm => vm.SpecializationId, opt => opt.MapFrom(m => m.SpecializationId.HasValue ? m.SpecializationId.Value : 0))
                 .ForMember(vm => vm.LastModified, opt => opt.MapFrom(m => universityProfileService.CreateDateDisplay(m.LastModified ?? m.Created)))
                 .ForMember(vm => vm.DateOfAdmission, opt => opt.MapFrom(m => m.DateOfAdmission))
                 ;
@@ -163,7 +162,8 @@ namespace eUniversity.Business.AutoMapper.Profiles
                 .ForMember(m => m.Description, opt => opt.MapFrom(vm => vm.Description))
                 .ForMember(m => m.DateOfAdmission, opt => opt.MapFrom(vm => vm.DateOfAdmission))
                 .ForMember(m => m.LastModified, opt => opt.Ignore())
-                .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm => long.Parse(vm.SpecializationId)))
+                .ForMember(m => m.Status, opt => opt.Ignore())
+                .ForMember(m => m.SpecializationId, opt => opt.MapFrom(vm => string.IsNullOrEmpty(vm.SpecializationId) ? (long?)null : long.Parse(vm.SpecializationId)))
                 ;
 
             #endregion

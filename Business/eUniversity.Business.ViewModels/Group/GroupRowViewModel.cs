@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using eUniversity.Business.ViewModels.Base;
+using eUniversity.Business.ViewModels.Enums;
 
 namespace eUniversity.Business.ViewModels.Group
 {
@@ -35,6 +36,8 @@ namespace eUniversity.Business.ViewModels.Group
         }
 
         public string LastModified { get; set; }
+
+        public EntityStatusEnum Status { get; set; }
 
         private const string DateFormat = "yyyy-MM-dd";
     }

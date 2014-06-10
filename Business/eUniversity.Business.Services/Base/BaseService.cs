@@ -160,12 +160,7 @@ namespace eUniversity.Business.Services.Base
         /// <exception cref="System.NotImplementedException">if term not null or empry</exception>
         public virtual IEnumerable<SelectedItemModel> GetSelectedItems(string term)
         {
-            if (!string.IsNullOrEmpty(term))
-            {
-                return Repository.All().Where(Predicate(term)).Select(CreateSelectedItem);
-            }
-            return Repository.All().Select(CreateSelectedItem);
-            
+            return Repository.All().Where(Predicate(term)).Select(CreateSelectedItem);
         }
 
         protected virtual Expression<Func<T, bool>> Predicate(string term)

@@ -6,6 +6,7 @@
     self.SpecializationId = ko.observable();
     self.DateOfAdmissionDisplay = ko.observable();
     self.LastModified = ko.observable();
+    self.Status = ko.observable();
 
     self.IsSelected = ko.observable();
 
@@ -13,7 +14,7 @@
         ko.mapping.fromJS(serverModel, {}, self);
     
     self.Save = function (viewModel) {
-        viewModel.DateOfAdmissionDisplay(viewModel.DateOfAdmissionDisplay().format('YYYY-MM-DD'));
+//        viewModel.DateOfAdmissionDisplay(viewModel.DateOfAdmissionDisplay().format('YYYY-MM-DD'));
         
         save({ viewModels: [ko.mapping.toJS(viewModel)] }, function (result) {
 

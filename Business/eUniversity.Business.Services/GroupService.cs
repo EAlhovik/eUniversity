@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using eUniversity.Business.Domain.Contracts;
 using eUniversity.Business.Domain.Entities.eUniversity;
 using eUniversity.Business.Services.Base;
@@ -33,16 +35,15 @@ namespace eUniversity.Business.Services
                 .SelectMany(group => group.Students).Select(student => student.Id).ToList();
         }
 
-        /// <summary>
-        /// Gets the selected items.
-        /// </summary>
-        /// <param name="term">The term.</param>
-        /// <returns>Selected item by term</returns>
-        public override IEnumerable<SelectedItemModel> GetSelectedItems(string term)
+        protected override Expression<Func<Group, bool>> Predicate(string term)
         {
-            return Repository.All()
-                .Where(group => string.IsNullOrEmpty(term) || group.Name.ToUpper().IndexOf(term.ToUpper()) >= 0)
-                .Select(CreateSelectedItem);
+            return group=>group.SpecializationId.HasValue &&
+                (string.IsNullOrEmpty(term) || group.Name.ToUpper().IndexOf(term.ToUpper()) >= 0);
+        }
+
+        protected override bool HasAllRequired(Group entity)
+        {
+            return entity.SpecializationId.HasValue && !string.IsNullOrEmpty(entity.Name);
         }
     }
 }
