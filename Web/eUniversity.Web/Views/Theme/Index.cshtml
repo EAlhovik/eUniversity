@@ -1,5 +1,4 @@
-﻿
-@model eUniversity.Business.ViewModels.GridViewModel
+﻿@model eUniversity.Business.ViewModels.GridViewModel
 
 @{
     ViewBag.PageHeader = "Темы";
@@ -16,22 +15,13 @@
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th class="center">
-                            <label>
-                                <input type="checkbox" class="ace" data-bind="checked: IfAllSelected">
-                                <span class="lbl"></span>
-                            </label>
-                        </th>
                         <th>@eUniversity.Common.Strings.Resources.Common_Title</th>
                         <th>@eUniversity.Common.Strings.Resources.Common_Description</th>
-
                         <th>
                             <i class="icon-time bigger-110 hidden-480"></i>
                             @eUniversity.Common.Strings.Resources.Common_Update
                         </th>
-
                         <th>
-
                         </th>
                     </tr>
                 </thead>
@@ -39,12 +29,6 @@
                 <tbody>
                     <!-- ko foreach: Rows -->
                     <tr>
-                        <td class="center">
-                            <label>
-                                <input type="checkbox" class="ace" data-bind="checked: IsSelected">
-                                <span class="lbl"></span>
-                            </label>
-                        </td>
                         <td>
                             <span data-bind="editable: Name, event: { save: Save }"></span>
                         </td>
@@ -53,36 +37,11 @@
                         </td>
                         <td data-bind="text: LastModified"></td>
                         <td>
-                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                <a class="red" href="#">
-                                    <i class="icon-trash bigger-130" data-bind="click: $parent.Remove"></i>
-                                </a>
-                            </div>
-
-                            <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                <div class="inline position-relative open">
-                                    <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
-                                        <i class="icon-caret-down icon-only bigger-120"></i>
-                                    </button>
-                                    <div class="dropdown-backdrop"></div>
-
-                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                        <li>
-                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
-                                                <span class="blue">
-                                                    <i class="icon-save bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
-                                                <span class="red">
-                                                    <i class="icon-trash bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                            <div style="width: 15px;">
+                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons actionBtns">
+                                    <a class="red" href="#">
+                                        <i class="icon-trash bigger-130" data-bind="click: $parent.Remove"></i>
+                                    </a>
                                 </div>
                             </div>
                         </td>

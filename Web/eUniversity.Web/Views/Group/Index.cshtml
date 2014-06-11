@@ -63,41 +63,15 @@
                         <td class="hidden-480">
                             @Html.Partial("_StatusColumn")
                         </td>
-                        <th>
-                            <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                <a class="red" href="#">
-                                    <i class="icon-trash bigger-130" data-bind="click: $parent.Remove"></i>
-                                </a>
-                            </div>
-
-                            <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                <div class="inline position-relative open">
-                                    <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
-                                        <i class="icon-caret-down icon-only bigger-120"></i>
-                                    </button>
-                                    <div class="dropdown-backdrop"></div>
-
-                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                        <li>
-                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
-                                                <span class="blue">
-                                                    <i class="icon-save bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
-                                                <span class="red">
-                                                    <i class="icon-trash bigger-120"></i>
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                        <td>
+                            <div style="width: 15px;">
+                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons actionBtns">
+                                    <a class="red" href="#">
+                                        <i class="icon-trash bigger-130" data-bind="click: $parent.Remove"></i>
+                                    </a>
                                 </div>
                             </div>
-
-                        </th>
+                        </td>
                     </tr>
                     <!-- /ko -->
                 </tbody>
